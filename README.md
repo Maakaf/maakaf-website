@@ -3,5 +3,5 @@
 - Chief Design Officer: Efrat Sharon
 
 ### Current State
-- Figma Characterization and Design is to be complete soon
-- Development will hopefully begin starting mid July.
+- Figma Characterization and design is to be complete soon
+- Development will begin starting mid July.
