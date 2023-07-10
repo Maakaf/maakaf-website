@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/frontend/components/Header/navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -16,11 +17,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <header>
-        <Navbar />
-      </header>
-      <body className={inter.className}>{children}</body>
-      <footer>this is a footer</footer>
+      <body className={inter.className}>
+        <header>
+          <Navbar />
+        </header>
+        {children}
+        <footer>this is a footer</footer>
+      </body>
     </html>
   );
 }
