@@ -4,4 +4,4 @@
 
 ### Current State
 - Figma Characterization and design is to be complete soon
-- Development will begin starting mid July.
+- Development will begin close to the end of July.
