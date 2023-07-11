@@ -1,4 +1,4 @@
-import Navbar from "@/frontend/components/Header/navbar";
+import Navbar from "@/components/Header/navbar";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -15,12 +15,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <header>
-        <Navbar />
-      </header>
-      <body className={inter.className}>{children}</body>
-      <footer>this is a footer</footer>
+    <html lang="he" dir="rtl">
+      <body className={inter.className}>
+        <header>
+          <Navbar />
+        </header>
+        <main>{children}</main>
+        <footer>זה הפוטר של האתר</footer>
+      </body>
     </html>
   );
 }

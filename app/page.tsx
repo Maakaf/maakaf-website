@@ -1,5 +1,5 @@
 export default function Home() {
-  return <main>Welcome to maakaf website!</main>;
+  return <div className="flex mt-5 mb-5">ברוכים הבאים לאתר מעקף!</div>;
   /*
   header (navbar)
   main section (main art & title)

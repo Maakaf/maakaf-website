@@ -4,7 +4,7 @@ const links: string[] = ["עמוד הבית", "קהילה", "הפרויקטים"
 
 const Navbar: React.FC = () => {
   return (
-    <ul>
+    <ul className="flex gap-2">
       {links.map((link) => (
         <li key={link}>
           <Link href="/">{link}</Link>
