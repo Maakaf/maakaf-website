@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const links: string[] = ["עמוד הבית", "קהילה", "הפרויקטים", "מי אנחנו"];
 
-const Navbar: React.FC = () => {
+const Header: React.FC = () => {
   return (
     <ul>
       {links.map((link) => (
@@ -14,4 +14,4 @@ const Navbar: React.FC = () => {
   );
 };
 
-export default Navbar;
+export default Header;
