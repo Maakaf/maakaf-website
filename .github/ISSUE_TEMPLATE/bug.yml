@@ -1,12 +1,14 @@
 name: 🐛 Bug
-description: Report an issue to help improve the project.
+description: Report an issue to help improve the project
 labels: [bug, triage]
 body:
   - type: textarea
     id: description
     attributes:
       label: Description
-      description: A brief description of the question or issue, also include what you tried and what didn't work
+      description:
+        A brief description of the question or issue, also include what you
+        tried and what didn't work
     validations:
       required: true
   - type: textarea
