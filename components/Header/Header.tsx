@@ -1,17 +1,24 @@
-import Link from "next/link";
-
-const links: string[] = ["עמוד הבית", "קהילה", "הפרויקטים", "מי אנחנו"];
+import Link from 'next/link'
+import Image from 'next/image'
 
 const Header: React.FC = () => {
   return (
-    <ul className="flex gap-2">
-      {links.map((link) => (
-        <li key={link}>
-          <Link href="/">{link}</Link>
-        </li>
-      ))}
-    </ul>
-  );
-};
+    <div className='flex justify-between mt-5 ml-8 mr-9'>
+      <Image
+        src='/images/nightMode.svg'
+        alt='switchToLightMode'
+        width={24}
+        height={24}
+      />
+      <nav className='hidden'>link1 link2 link3</nav>
+      <Image
+        src='/images/maakafLogo.png'
+        alt='maakafLogo'
+        width={40}
+        height={42}
+      />
+    </div>
+  )
+}
 
-export default Header;
+export default Header
