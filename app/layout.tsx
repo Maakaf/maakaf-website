@@ -18,7 +18,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='he' dir='rtl'>
-      <body className='h-screen m-0'>
+      <body className='h-screen m-0 bg-darkBg text-lightText'>
         <header>
           <Header />
         </header>
