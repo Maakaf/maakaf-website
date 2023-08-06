@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
-  return <div>Footer</div>
+  return <div>שלום זהו הפוטר של מעקף</div>
 }
 
 export default Footer
