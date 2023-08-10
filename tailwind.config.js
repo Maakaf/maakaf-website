@@ -26,7 +26,7 @@ module.exports = {
       darkAccBg: colors.slate[800],
       lightText: colors.slate[50],
     },
-
+    darkMode: 'class',
     fontFamily: {
       birzia: ['Birzia', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],

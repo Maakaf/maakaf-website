@@ -1,23 +1,40 @@
-import Link from 'next/link'
+'use client'
+
 import Image from 'next/image'
+import Darkmode from '../Common/Darkmode'
+import { useTheme } from 'next-themes'
 
 const Header: React.FC = () => {
+  const { theme } = useTheme()
+
   return (
-    <div className='flex justify-between mt-5 ml-8 mr-9'>
-      <Image
-        src='/images/nightMode.svg'
-        alt='switchToLightMode'
-        width={24}
-        height={24}
-      />
-      <nav className='hidden'>link1 link2 link3</nav>
+    <nav className='flex justify-between items-center mx-5 my-5 max-h-24'>
+      <Darkmode />
+      <ul className='flex gap-14'>
+        <li className='flex items-center gap-2 cursor-pointer'>
+          <span>קהילה</span>
+          <Image
+            src={
+              theme === 'dark'
+                ? '/images/polygon_white.svg'
+                : '/images/polygon_dark.svg'
+            }
+            alt='polygon'
+            width={10}
+            height={10}
+            style={{ width: 10, height: 10 }}
+          />
+        </li>
+        <li className='cursor-pointer'>הפרויקטים</li>
+        <li className='cursor-pointer'>מי אנחנו</li>
+      </ul>
       <Image
         src='/images/maakafLogo.png'
         alt='maakafLogo'
         width={40}
         height={42}
       />
-    </div>
+    </nav>
   )
 }
 
