@@ -44,7 +44,7 @@ export default function RootLayout({
           <Header />
         </header>
         {children}
-        <footer>
+        <footer className='dark:bg-gray-800'>
           <Footer />
         </footer>
       </body>
