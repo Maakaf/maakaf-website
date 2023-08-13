@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
+
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -26,7 +28,6 @@ module.exports = {
       darkAccBg: colors.slate[800],
       lightText: colors.slate[50],
     },
-    darkMode: 'class',
     fontFamily: {
       birzia: ['Birzia', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],

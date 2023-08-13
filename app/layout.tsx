@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
-import Providers from './providers'
+import { ContextProvider } from '@/components/context-provider'
 
 const birzia = Birzia({
   src: [
@@ -41,16 +41,16 @@ export default function RootLayout({
       dir='rtl'
       className={`${birzia.className} ${inter.variable}`}
     >
-      <body className='h-screen m-0 dark:bg-darkBg dark:text-lightText'>
-        <Providers>
+      <body className='min-h-screen m-0 bg-main text-main'>
+        <ContextProvider>
           <header>
             <Header />
           </header>
-          {children}
+          <main className='container mx-auto'>{children}</main>
           <footer>
             <Footer />
           </footer>
-        </Providers>
+        </ContextProvider>
       </body>
     </html>
   )
