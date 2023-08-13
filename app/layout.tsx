@@ -41,7 +41,7 @@ export default function RootLayout({
       dir='rtl'
       className={`${birzia.className} ${inter.variable}`}
     >
-      <body className='h-screen m-0 dark:bg-darkBg dark:text-lightText'>
+      <body className='h-screen m-0 bg-lightBg text-darkText dark:bg-darkBg dark:text-lightText'>
         <Providers>
           <header>
             <Header />
