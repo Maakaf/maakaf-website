@@ -1,22 +1,20 @@
-# This is a work in progress:
-- The project is managed by @RoyTennenbaum
-- Chief Design Officer: Efrat Sharon
+# מעקף - מחפשי עבודה (תורמים) לקוד פתוח
 
 ### Project Stack:
-- This is a Next.js project.
-- We're using TypeScript for type safety and better developer experience.
-- The UI is built using Tailwind CSS for rapid and responsive design.
-- Custom VSCode settings have been set up for a consistent development environment.
 
+<img src="https://raw.githubusercontent.com/gilbarbara/logos/c8749cfc4be0e67a266be0554282d73d967db910/logos/nextjs-icon.svg" width="40" height="40" align="center" alt="Next.js Logo"> This is a Next.js project.
+</br></br>
+<img src="https://www.typescriptlang.org/images/branding/logo-grouping.svg" width="40" height="40" align="center" alt="TypeScript Logo"> We're using TypeScript for type safety and better developer experience.
+</br></br>
+<img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" width="40" height="40" align="center" alt="Tailwind CSS Logo"> The UI is built using Tailwind CSS for rapid and responsive design.
+</br></br>
+<img src="https://code.visualstudio.com/assets/images/code-stable.png" width="40" height="40" align="center" alt="VSCode Logo"> Custom VSCode settings have been set up for a consistent development environment.
+</br></br>
 
 ### Current State
-- Figma Characterization and design is to be complete soon.
-- Development will begin close to the end of July.
-
-<img src="https://www.svgrepo.com/show/354113/nextjs-icon.svg" width="25" height="25" alt="Next.js Logo"> 
-<img src="https://www.typescriptlang.org/images/branding/logo-grouping.svg" width="25" height="25" alt="TypeScript Logo"> 
-<img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" width="25" height="25" alt="Tailwind CSS Logo"> 
-<img src="https://code.visualstudio.com/assets/images/code-stable.png" width="25" height="25" alt="VSCode Logo">
+- Figma Characterization and design is to be complete soon (Special thanks to our UI/UX designer - Efrat Sharon!)
+- Development is ongoing! (Managed by @RoyTennenbaum)
+</br>
 
 <h2>🚀 Forking and Running the Project</h2>
 
@@ -39,6 +37,7 @@
 <h3>5. Run the Project</h3>
 <pre><code>npm run dev</code></pre>
 <p>Visit <a href="http://localhost:3000">http://localhost:3000</a> in your browser.</p>
+</br>
 
 <h2>📦 VSCode Plugin Recommendation</h2>
 <p>For an enhanced development experience with Tailwind CSS, consider installing the <strong>Tailwind CSS IntelliSense</strong> extension in VSCode:</p>
