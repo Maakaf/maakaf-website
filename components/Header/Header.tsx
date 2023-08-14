@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import SizeIndicator from './SizeIndicator'
 
 const Header: React.FC = () => {
   return (
     <div className='flex justify-between mt-5 ml-8 mr-9'>
+      <SizeIndicator/>
       <Image
         src='/images/nightMode.svg'
         alt='switchToLightMode'
