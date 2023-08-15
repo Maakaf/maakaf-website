@@ -38,7 +38,7 @@ export default function TitleSection() {
       </div>
       <div className='-z-10 md:z-0 opacity-40 md:opacity-100 absolute md:static left-0 top-0 h-full w-full md:w-1/2'>
         <div
-          className={`h-full bg-contain  sm:bg-left bg-no-repeat ${heroBanner}`}
+          className={`h-full bg-contain bg-top md:bg-left bg-no-repeat ${heroBanner}`}
         />
       </div>
     </div>
