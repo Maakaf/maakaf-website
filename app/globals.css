@@ -3,12 +3,16 @@
 @tailwind utilities;
 
 @layer components {
-  .bg-main {
-    @apply bg-lightBg dark:bg-darkBg;
+  .darkmode-main {
+    @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
   }
 
-  .text-main {
-    @apply text-darkText dark:text-lightText;
+  .darkmode-section {
+    @apply bg-lightAccBg dark:bg-darkAccBg;
+  }
+
+  .discord-btn {
+    @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
   }
 }
 

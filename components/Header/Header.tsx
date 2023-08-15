@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const { theme } = useTheme()
 
   return (
-    <nav className='flex justify-between items-center px-5 py-5 max-h-24'>
+    <nav className='fixed bg-lightBg dark:bg-darkBg top-0 left-0 w-full z-10 flex justify-between items-center px-5 py-5 max-h-24'>
       <Darkmode />
       <ul className='hidden md:flex md:gap-14'>
         <li className='flex items-center gap-2 cursor-pointer'>
