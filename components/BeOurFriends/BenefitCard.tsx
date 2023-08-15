@@ -1,11 +1,12 @@
 export default function BenefitCard(props: {
+    index: number,
     title: string,
     description: string
 }) {
     return (
-        <>
-            <h4>{props.title}</h4>
-            <p>{props.description}</p>
-        </>
+        <div>
+            <h4 className="font-extrabold">{props.index+1} {props.title}</h4>
+            <p className="font-extralight">{props.description}</p>
+        </div>
     )
 }
