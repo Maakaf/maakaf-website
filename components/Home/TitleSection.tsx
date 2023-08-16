@@ -12,7 +12,7 @@ export default function TitleSection() {
       : 'bg-[url("/images/skeleton_loader.png")]'
 
       const openDiscord = () => {
-        window.open('https://discord.gg/vcrHWUy5', '_blank');
+        window.open('https://discord.com/invite/a2VyCjRk2M', '_blank');
       };
 
   return (
