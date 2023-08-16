@@ -1,9 +1,12 @@
 import Paths from '@/components/Home/Paths'
+import TitleSection from '@/components/Home/TitleSection'
+
 export default function Home() {
   return (
-    <main className='mt-5 mb-5'>
-      ברוכים הבאים לאתר מעקף!
+    <section className='h-full'>
+      <TitleSection />
+      {/* use after pull request <Quote />*/}
       <Paths />
-    </main>
+    </section>
   )
 }
