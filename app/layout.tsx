@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
+import { ContextProvider } from '@/components/context-provider'
 
 const birzia = Birzia({
   src: [
@@ -21,6 +22,7 @@ const birzia = Birzia({
     },
   ],
 })
+
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata = {
@@ -39,14 +41,17 @@ export default function RootLayout({
       dir='rtl'
       className={`${birzia.className} ${inter.variable}`}
     >
-      <body className='h-screen m-0 bg-darkBg text-lightText'>
-        <header>
-          <Header />
-        </header>
-        {children}
-        <footer>
-          <Footer />
-        </footer>
+      <body className='h-screen m-0 darkmode-main'>
+        <ContextProvider>
+          <header>
+            <Header />
+          </header>
+          <main className='h-full pt-24 md:pt-32'>{children}</main>
+          {/* remove mt-5 when developing the footer */}
+          <footer className='mt-5'>
+            <Footer />
+          </footer>
+        </ContextProvider>
       </body>
     </html>
   )
