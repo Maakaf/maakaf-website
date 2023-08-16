@@ -12,7 +12,7 @@ export default function TitleSection() {
       : 'bg-[url("/images/skeleton_loader.png")]'
 
   return (
-    <div className='relative px-4 md:px-14 flex justify-between h-full pb-10'>
+    <div className='relative px-4 md:px-14 flex justify-between h-[70vh] pb-10'>
       <div className='mt-10 md:mt-0 flex flex-col gap-7 w-full md:w-1/2 items-center md:items-start'>
         <h4 className='w-full font-black text-center md:text-right text-3xl sm:text-5xl'>
           קהילת מעקף&nbsp;-

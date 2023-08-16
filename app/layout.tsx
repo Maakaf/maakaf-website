@@ -41,7 +41,7 @@ export default function RootLayout({
       dir='rtl'
       className={`${birzia.className} ${inter.variable}`}
     >
-      <body className='h-screen m-0 darkmode-main'>
+      <body className='min-h-screen m-0 darkmode-main'>
         <ContextProvider>
           <header>
             <Header />

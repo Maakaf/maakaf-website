@@ -2,7 +2,7 @@
 
 const Paths: React.FC = () => {
   return (
-    <section className='flex flex-col bg-[rgb(15,23,41)] justify-start items-center py-32'>
+    <section className='flex flex-col bg-purple-100 bg-opacity-50 dark:bg-opacity-50 dark:bg-gray-800 justify-start items-center py-32'>
       <div className='flex flex-row self-start '>
         <div className='h-6 w-24 rounded-full rounded-s-none bg-blue-500 ml-4'></div>
         <div className='h-6 w-6 rounded-full ml-4  bg-blue-500'></div>
@@ -30,9 +30,9 @@ const Path = ({ item, index }: PathProps) => {
   return (
     <article className='flex flex-row justify-center items-center py-4 lg:py-32'>
       <div className='gap-4 flex flex-col items-center'>
-        <div className='h-6 w-6 rounded-full ml-4 bg-[rgb(30,41,58)]'></div>
+        <div className='h-6 w-6 rounded-full ml-4 bg-blue-300 dark:bg-gray-700'></div>
         <div
-          className={`h-36 w-4 rounded-full bg-[rgb(30,41,58)] ml-4 ${
+          className={`h-36 w-4 rounded-full bg-blue-300 dark:bg-gray-700 ml-4 ${
             index % 2 === 1 && 'h-48'
           }`}
         ></div>
@@ -41,7 +41,7 @@ const Path = ({ item, index }: PathProps) => {
         <h2 className='text-[24px] capitalize '>{item.title}</h2>
         <p className='text-lg w-5/6'>{item.description}</p>
         <a
-          className='bg-[rgb(241, 245, 249)] dark:bg-[rgb(30,41,58)] font-bold w-fit px-4 py-2 rounded-xl'
+          className='bg-lightText dark:bg-gray-700 font-bold w-fit px-4 py-2 rounded-xl'
           href={item.link.href}
         >
           {item.link.name}
