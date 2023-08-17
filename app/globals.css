@@ -14,6 +14,28 @@
   .discord-btn {
     @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
   }
+
+  .custom-gradient {
+    @apply bg-light-gradient;
+  }
+
+  .dark .custom-gradient {
+    @apply bg-dark-gradient;
+  }
+
+  .dark .svg-with-gradient {
+    background-image:
+    linear-gradient(180deg, rgba(15, 23, 41, 0.00) 0%, rgba(2, 6, 22, 0.90) 57.86%, #020616 100%),
+    url('/images/Group 310.svg');
+    background-size: cover;
+    color: white;
+}
+  .light .svg-with-gradient {
+    background-image:
+    linear-gradient(180deg, rgba(241, 245, 249, 0.00) 1.56%, rgba(241, 245, 249, 0.90) 41.32%, #F1F5F9 100%),
+    url('/images/Group 310.svg');
+    background-size: cover;
+}
 }
 
 /* @media screen and (min-width: 768px) {
