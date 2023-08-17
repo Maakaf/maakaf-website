@@ -34,11 +34,11 @@ export default function TitleSection() {
           פיתוח, תיקון ושיתוף קוד פתוח
         </p>
         <button
-          className='text-xs discord-btn rounded-full px-5 py-2 md:px-4 md:py-1 flex items-center justify-center gap-2'
+          className='text-base discord-btn rounded-full px-8 py-2 flex items-center justify-center gap-2'
           onClick={() => openDiscord()}
         >
           בואו לדיסקורד
-          <div className='relative w-4 h-4 md:w-5 md:h-5 cursor-pointer'>
+          <div className='relative w-6 h-6 cursor-pointer'>
             <Image
               src={'/images/discord.png'}
               alt='discord'

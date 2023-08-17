@@ -46,7 +46,7 @@ export default function RootLayout({
           <header>
             <Header />
           </header>
-          <main className='h-full pt-10 md:pt-24'>{children}</main>
+          <main className='h-full pt-10 md:pt-28'>{children}</main>
           {/* remove mt-5 when developing the footer */}
           <footer className='mt-5'>
             <Footer />
