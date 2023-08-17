@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .darkmode-main {
+    @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
+  }
+
+  .darkmode-section {
+    @apply bg-lightAccBg dark:bg-darkAccBg;
+  }
+
+  .discord-btn {
+    @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
+  }
+}
+
 /* @media screen and (min-width: 768px) {
   h1 {
     font-size: 48px;

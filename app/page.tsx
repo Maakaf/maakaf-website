@@ -1,10 +1,13 @@
+import TitleSection from '@/components/Home/TitleSection';
+// import Quote from '@/components/Home/Quote';
 import BeOurFriends from "@/components/BeOurFriends/BeOurFriends";
 
 export default function Home() {
   return (
-    <>
-      <main className="mt-5 mb-5">ברוכים הבאים לאתר מעקף!</main>
+    <section className='h-full'>
+      <TitleSection />
+      {/* use after pull request <Quote />*/}
       <BeOurFriends />
-    </>
+    </section>
   )
 }
