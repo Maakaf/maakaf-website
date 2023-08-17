@@ -41,12 +41,12 @@ export default function RootLayout({
       dir='rtl'
       className={`${birzia.className} ${inter.variable}`}
     >
-      <body className='h-screen m-0 darkmode-main'>
+      <body className='min-h-screen m-0 darkmode-main'>
         <ContextProvider>
           <header>
             <Header />
           </header>
-          <main className='h-full pt-24 md:pt-32'>{children}</main>
+          <main className='h-full pt-10 md:pt-24'>{children}</main>
           {/* remove mt-5 when developing the footer */}
           <footer className='mt-5'>
             <Footer />

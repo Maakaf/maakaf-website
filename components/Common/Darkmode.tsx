@@ -8,7 +8,7 @@ const Darkmode: React.FC = () => {
   const currentTheme = theme === 'system' ? systemTheme : theme
 
   return (
-    <div>
+    <div className='logo-cover'>
       <Image
         src={
           currentTheme === 'dark'
@@ -16,9 +16,7 @@ const Darkmode: React.FC = () => {
             : '/images/nightMode.svg'
         }
         alt='switchDarkMode'
-        className='cursor-pointer'
-        width={24}
-        height={24}
+        fill
         onClick={() =>
           currentTheme == 'dark' ? setTheme('light') : setTheme('dark')
         }

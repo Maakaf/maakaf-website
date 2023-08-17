@@ -14,6 +14,11 @@
   .discord-btn {
     @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
   }
+
+  /* Home */
+  .logo-cover {
+    @apply relative w-7 h-7 cursor-pointer;
+  }
 }
 
 /* @media screen and (min-width: 768px) {
