@@ -1,15 +1,12 @@
 'use client'
 
-import { useTheme } from 'next-themes'
 import Image from 'next/image'
 
 export default function TitleSection() {
-  const { theme } = useTheme()
-
-  const heroBanner =
-    theme === 'dark'
-      ? 'bg-[url("/images/skeleton_loader_dark.png")]'
-      : 'bg-[url("/images/skeleton_loader.png")]'
+  // const heroBanner =
+  //   theme === 'dark'
+  //     ? 'bg-[url("/images/skeleton_loader_dark.png")]'
+  //     : 'bg-[url("/images/skeleton_loader.png")]'
 
   return (
     <div className='relative px-4 md:px-14 flex justify-between h-[70vh] pb-10'>
@@ -38,7 +35,7 @@ export default function TitleSection() {
       </div>
       <div className='-z-10 md:z-0 opacity-40 md:opacity-100 absolute md:static left-0 top-0 h-full w-full md:w-1/2'>
         <div
-          className={`h-full bg-contain bg-top md:bg-left bg-no-repeat ${heroBanner}`}
+          className={`h-full bg-contain bg-top bg-[url("/images/skeleton_loader.png")] dark:bg-[url("/images/skeleton_loader_dark.png")] md:bg-left bg-no-repeat`}
         />
       </div>
     </div>

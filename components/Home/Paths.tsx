@@ -2,11 +2,11 @@
 
 const Paths: React.FC = () => {
   return (
-    <section className='flex flex-col bg-purple-100 bg-opacity-50 dark:bg-opacity-50 dark:bg-gray-800 justify-start items-center py-32'>
+    <section className='flex flex-col darkmode-section  justify-start items-center py-32'>
       <div className='flex flex-row self-start '>
         <div className='h-6 w-24 rounded-full rounded-s-none bg-blue-500 ml-4'></div>
         <div className='h-6 w-6 rounded-full ml-4  bg-blue-500'></div>
-        <h2 className=' text-[24px]'>המסלולים שלנו</h2>
+        <h2 className='text-[24px]'>המסלולים שלנו</h2>
       </div>
       <div className='flex mt-6 lg:mt-0 flex-col lg:flex-row mx-6 lg:mx-16 gap-1 lg:gap-4 xl:gap-8'>
         {PATHS.map((path, i) => (
@@ -17,6 +17,7 @@ const Paths: React.FC = () => {
   )
 }
 export default Paths
+
 interface PathProps {
   item: {
     title: string
