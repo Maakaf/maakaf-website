@@ -1,10 +1,9 @@
 import './globals.css'
 import Birzia from 'next/font/local'
 import { Inter } from 'next/font/google'
-
+import { ThemeProvider } from '@/components/theme-provider'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
-import { ContextProvider } from '@/components/context-provider'
 
 const birzia = Birzia({
   src: [
@@ -36,13 +35,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang='he'
-      dir='rtl'
-      className={`${birzia.className} ${inter.variable}`}
-    >
-      <body className='h-screen m-0 darkmode-main'>
-        <ContextProvider>
+    <html lang='he' dir='rtl' suppressHydrationWarning={true}>
+      <body
+        className={`min-h-screen m-0 darkmode-main ${birzia.className} ${inter.variable}`}
+      >
+        <ThemeProvider attribute='class' defaultTheme='system' enableSystem>
           <header>
             <Header />
           </header>
@@ -50,8 +47,8 @@ export default function RootLayout({
           {/* remove mt-5 when developing the footer */}
           <footer className='mt-5'>
             <Footer />
-          </footer>
-        </ContextProvider>
+          </footer>{' '}
+        </ThemeProvider>
       </body>
     </html>
   )
