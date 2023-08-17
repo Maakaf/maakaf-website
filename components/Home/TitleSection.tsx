@@ -8,6 +8,10 @@ export default function TitleSection() {
   //     ? 'bg-[url("/images/skeleton_loader_dark.png")]'
   //     : 'bg-[url("/images/skeleton_loader.png")]'
 
+      const openDiscord = () => {
+        window.open('https://discord.com/invite/a2VyCjRk2M', '_blank');
+      };
+
   return (
     <div className='relative px-4 md:px-14 flex justify-between h-[70vh] pb-10'>
       <div className='mt-10 md:mt-0 flex flex-col gap-7 w-full md:w-1/2 items-center md:items-start'>
@@ -23,7 +27,8 @@ export default function TitleSection() {
           <br />
           פיתוח, תיקון ושיתוף קוד פתוח
         </p>
-        <button className='text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2'>
+        <button className='text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2'
+        onClick={() => openDiscord()}>
           בואו לדיסקורד
           <Image
             src={'/images/discord.png'}
