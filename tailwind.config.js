@@ -20,13 +20,13 @@ module.exports = {
         blue: colors.blue,
 
         lightBg: colors.slate[100],
-        lightAccBg: colors.blue[100],
+        lightAccBg: colors.indigo[100],
         darkText: colors.slate[950],
         discordLight: colors.indigo[400],
 
         // Dark Mode Colors
         darkBg: colors.slate[950],
-        darkAccBg: colors.slate[900],
+        darkAccBg: colors.slate[800],
         lightText: colors.slate[50],
         discordDark: colors.white,
       },
@@ -38,8 +38,23 @@ module.exports = {
     backgroundImage: {
       'hero-pattern': "url('/images/skeleton_loader.png')",
     },
+    fontSize: {
+      sm: '0.875rem', // 14px
+      base: '1rem', // 16px
+      xl: '1.125rem', // 18px
+      '2xl': '1.25rem', // 20px
+      '3xl': '1.5rem', // 24px
+      '4xl': '2.125rem', // 34px
+      '5xl': '3.75rem', // 60px
+    },
     container: {
-      padding: '4rem',
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
     },
   },
   plugins: [],
