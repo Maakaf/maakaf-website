@@ -1,27 +1,31 @@
 'use client'
-
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 
 const Darkmode: React.FC = () => {
-  const { systemTheme, theme, setTheme } = useTheme()
-  const currentTheme = theme === 'system' ? systemTheme : theme
+  const { setTheme } = useTheme()
 
   return (
-    <div>
+    <div className='relative w-6 h-6'>
       <Image
-        src={
-          currentTheme === 'dark'
-            ? '/images/lightMode.svg'
-            : '/images/nightMode.svg'
-        }
+        src={'/images/nightMode.svg'}
         alt='switchDarkMode'
-        className='cursor-pointer'
+        className='cursor-pointer absolute inset-0 dark:hidden'
         width={24}
         height={24}
-        onClick={() =>
-          currentTheme == 'dark' ? setTheme('light') : setTheme('dark')
-        }
+        onClick={() => {
+          setTheme('dark')
+        }}
+      />
+      <Image
+        src={'/images/lightMode.svg'}
+        alt='switchDarkMode'
+        className='cursor-pointer absolute hidden dark:block -z-10 dark:z-10 inset-0'
+        width={24}
+        height={24}
+        onClick={() => {
+          setTheme('light')
+        }}
       />
     </div>
   )
