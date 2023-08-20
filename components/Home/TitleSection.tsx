@@ -19,7 +19,7 @@ export default function TitleSection() {
         <a
           href='https://discord.com/invite/a2VyCjRk2M'
           target='_blank'
-          className='text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2'
+          className='text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition'
         >
           בואו לדיסקורד
           <Image

@@ -12,6 +12,10 @@
     @apply bg-lightAccBg dark:bg-darkAccBg opacity-50 dark:opacity-100;
   }
 
+  .item-hover-transition {
+    @apply transition duration-300 ease-in-out;
+  }
+
   /* Header */
   .dropdown-item-title {
     @apply text-base font-medium;
