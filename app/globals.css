@@ -35,11 +35,6 @@
       brightness(100%) contrast(94%);
   }
 
-  /* Not working - need svg fix */
-  .darkmode-icon {
-    @apply hover:fill-purple-500 dark:hover:fill-green-200 fill-red-500;
-  }
-
   /* Home */
   .home-h1 {
     @apply text-5xl;
