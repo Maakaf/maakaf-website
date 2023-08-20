@@ -7,22 +7,8 @@
   .darkmode-main {
     @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
   }
-
   .darkmode-section {
     @apply bg-lightAccBg dark:bg-darkAccBg opacity-50 dark:opacity-100;
-  }
-
-  /* Header */
-  .dropdown-item-title {
-    @apply text-base font-medium;
-  }
-
-  .dropdown-item-text {
-    @apply text-sm font-inter font-normal;
-  }
-
-  .dropdown-container {
-    @apply bg-gray-900 hover:bg-gray-800 border border-gray-400;
   }
 
   /* Not working - need svg fix */
@@ -30,77 +16,34 @@
     @apply hover:fill-purple-500 dark:hover:fill-green-200 fill-red-500;
   }
 
-  /* Home */
-  .home-h1 {
-    @apply text-5xl;
+  /* Text configs */
+  h1 {
+    @apply text-4xl md:text-5xl font-black;
   }
-
-  .home-h3-primary {
-    @apply text-3xl font-bold;
+  h2 {
+    @apply text-3xl md:text-4xl font-black;
   }
-
-  .home-h3-secondary {
-    @apply text-3xl font-medium;
+  h3 {
+    @apply text-2xl md:text-3xl font-bold;
   }
-
-  .home-h4 {
-    @apply text-2xl font-medium;
+  h4 {
+    @apply text-xl md:text-2xl font-bold;
   }
-
-  .home-h5 {
-    @apply text-base font-bold;
+  .h4-roman {
+    @apply font-medium;
   }
-
-  .home-body {
-    @apply font-inter text-base font-normal;
+  h5 {
+    @apply text-base md:text-xl font-bold;
+  }
+  .body-bold {
+    @apply font-inter text-sm md:text-base font-semibold;
+  }
+  .body-roman {
+    @apply font-inter text-sm md:text-base font-normal;
   }
 
   /* Home - Header Section */
   .discord-btn {
     @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
   }
-
-  .footer-page-link {
-    @apply text-xl font-inter font-normal /* hover: what color for underline? */;
-  }
-
-  .footer-global-link {
-    @apply text-sm font-inter font-normal;
-  }
 }
-
-/* @media screen and (min-width: 768px) {
-  h1 {
-    font-size: 48px;
-    font-weight: bold;
-    font-family: 'Birzia', sans-serif;
-  }
-  h2 {
-    font-size: 34px;
-    font-weight: bold;
-    font-family: 'Birzia', sans-serif;
-  }
-  h3 {
-    font-size: 24px;
-    font-weight: bold;
-    font-family: 'Birzia', sans-serif;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  h1 {
-    font-size: 34px;
-    font-weight: bold;
-    font-family: 'Inter', sans-serif;
-  }
-  h2 {
-    font-size: 24px;
-    font-weight: bold;
-    font-family: 'Inter', sans-serif;
-  }
-  h3 {
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Inter', sans-serif;
-  }
-} */

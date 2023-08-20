@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ...colors,
+        //notice the convenient naming...
         gray: colors.slate,
         pink: colors.pink,
         green: colors.teal,
@@ -39,13 +39,14 @@ module.exports = {
       'hero-pattern': "url('/images/skeleton_loader.png')",
     },
     fontSize: {
-      sm: '0.875rem', // 14px
-      base: '1rem', // 16px
-      xl: '1.125rem', // 18px
-      '2xl': '1.25rem', // 20px
-      '3xl': '1.5rem', // 24px
-      '4xl': '2.125rem', // 34px
-      '5xl': '3.75rem', // 60px
+      sm: '14px',
+      base: '16px',
+      lg: '18px',
+      xl: '20px',
+      '2xl': '24px',
+      '3xl': '34px',
+      '4xl': '48px',
+      '5xl': '60px',
     },
     container: {
       padding: {
