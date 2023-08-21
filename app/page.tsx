@@ -1,8 +1,8 @@
-import TitleSection from '@/components/Home/TitleSection';
+import TitleSection from '@/components/Home/TitleSection'
 // import Quote from '@/components/Home/Quote';
-import BeOurFriends from "@/components/BeOurFriends/BeOurFriends";
-import Paths from '@/components/Home/Paths';
-import WhatNow from '@/components/Home/WhatNow';
+import BeOurFriends from '@/components/BeOurFriends/BeOurFriends'
+import Paths from '@/components/Home/Paths'
+import WhatNow from '@/components/Home/WhatNow'
 
 export default function Home() {
   return (
