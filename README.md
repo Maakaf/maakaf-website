@@ -41,6 +41,7 @@
 
 <h2>📦 VSCode Plugin Recommendation</h2>
 <p>For an enhanced development experience with Tailwind CSS, consider installing the <strong>Tailwind CSS IntelliSense</strong> extension in VSCode:</p>
+
 <ol>
     <li>Open VSCode.</li>
     <li>Press <code>Ctrl+Shift+X</code> or click the Extensions icon.</li>
