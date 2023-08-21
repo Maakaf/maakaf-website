@@ -2,13 +2,13 @@
 
 const Paths: React.FC = () => {
   return (
-    <section className='flex flex-col darkmode-section  justify-start items-center py-32'>
+    <section className='flex flex-col items-center justify-start py-32 darkmode-section'>
       <div className='flex flex-row self-start '>
-        <div className='h-6 w-24 rounded-full rounded-s-none bg-blue-500 ml-4'></div>
-        <div className='h-6 w-6 rounded-full ml-4  bg-blue-500'></div>
-        <h2 className='text-[24px]'>המסלולים שלנו</h2>
+        <div className='w-24 h-6 ml-4 bg-blue-500 rounded-full rounded-s-none'></div>
+        <div className='w-6 h-6 ml-4 bg-blue-500 rounded-full'></div>
+        <h4>המסלולים שלנו</h4>
       </div>
-      <div className='flex mt-6 lg:mt-0 flex-col lg:flex-row mx-6 lg:mx-16 gap-1 lg:gap-4 xl:gap-8'>
+      <div className='flex flex-col gap-1 mx-6 mt-6 lg:mt-0 lg:flex-row lg:mx-16 lg:gap-4 xl:gap-8'>
         {PATHS.map((path, i) => (
           <Path key={path.title} item={path} index={i} />
         ))}
@@ -29,20 +29,20 @@ interface PathProps {
 
 const Path = ({ item, index }: PathProps) => {
   return (
-    <article className='flex flex-row justify-center items-center py-4 lg:py-32'>
-      <div className='gap-4 flex flex-col items-center'>
-        <div className='h-6 w-6 rounded-full ml-4 bg-blue-300 dark:bg-gray-700'></div>
+    <article className='flex flex-row items-center justify-center py-4 lg:py-32'>
+      <div className='flex flex-col items-center gap-4'>
+        <div className='w-6 h-6 ml-4 bg-blue-300 rounded-full dark:bg-gray-700'></div>
         <div
           className={`h-36 w-4 rounded-full bg-blue-300 dark:bg-gray-700 ml-4 ${
             index % 2 === 1 && 'h-48'
           }`}
         ></div>
       </div>
-      <div className='flex flex-col w-1/2 gap-6  '>
-        <h2 className='text-[24px] capitalize '>{item.title}</h2>
-        <p className='text-lg w-5/6'>{item.description}</p>
+      <div className='flex flex-col w-1/2 gap-6'>
+        <h4 className='capitalize'>{item.title}</h4>
+        <p className='w-5/6 body-roman'>{item.description}</p>
         <a
-          className='bg-lightText dark:bg-gray-700 font-bold w-fit px-4 py-2 rounded-xl'
+          className='px-4 py-2 body-bold bg-lightText dark:bg-gray-700 w-fit rounded-xl'
           href={item.link.href}
         >
           {item.link.name}
