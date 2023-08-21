@@ -6,10 +6,10 @@ const Header: React.FC = () => {
   return (
     <>
       <SizeIndicator />
-      <nav className='fixed bg-lightBg dark:bg-darkBg top-0 left-0 w-full z-10 flex justify-between items-center px-5 py-5 max-h-24'>
+      <nav className='fixed inset-0 z-10 flex items-center justify-between w-full bg-lightBg dark:bg-darkBg max-h-24'>
         <Darkmode />
-        <ul className='hidden md:flex md:gap-14'>
-          <li className='flex items-center gap-2 cursor-pointer'>
+        <ul className='hidden md:flex md:gap-10'>
+          <li className='flex items-center gap-2 cursor-pointer body-roman'>
             <span>קהילה</span>
             <div className='relative w-[10px] h-[10px]'>
               <Image
@@ -30,10 +30,10 @@ const Header: React.FC = () => {
               />
             </div>
           </li>
-          <li className='cursor-pointer'>
+          <li className='cursor-pointer body-roman'>
             <Link href='/projects'>הפרויקטים</Link>
           </li>
-          <li className='cursor-pointer'>
+          <li className='cursor-pointer body-roman'>
             <Link href='/about'>מי אנחנו</Link>
           </li>
         </ul>
