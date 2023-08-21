@@ -32,7 +32,7 @@ export default function TitleSection() {
       </div>
       <div className='absolute top-0 left-0 w-full h-full -z-10 md:z-0 opacity-40 md:opacity-100 md:static md:w-1/2'>
         <div
-          className={`h-full bg-contain bg-top bg-[url("/images/skeleton_loader.png")] dark:bg-[url("/images/skeleton_loader_dark.png")] md:bg-left bg-no-repeat`}
+          className={`h-full bg-contain bg-top bg-light-gradient dark:bg-dark-gradient md:bg-left bg-no-repeat`}
         />
       </div>
     </div>

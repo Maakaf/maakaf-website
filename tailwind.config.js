@@ -37,6 +37,8 @@ module.exports = {
     },
     backgroundImage: {
       'hero-pattern': "url('/images/skeleton_loader.png')",
+      'dark-gradient': 'linear-gradient(180deg, rgba(15, 23, 41, 0.00) 0%, rgba(2, 6, 22, 0.90) 57.86%),url("/images/group-310.svg")',
+      'light-gradient': "linear-gradient(180deg, rgba(241, 245, 249, 0.00) 1.56%, rgba(241, 245, 249, 0.90) 41.32%), url('/images/group-310.svg')",
     },
     fontSize: {
       sm: '14px',
