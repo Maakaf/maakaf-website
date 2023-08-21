@@ -1,15 +1,8 @@
-'use client'
-
 import Image from 'next/image'
 import Darkmode from '../Common/Darkmode'
-import { useTheme } from 'next-themes'
 import Link from 'next/link'
 import SizeIndicator from './SizeIndicator'
-import { useState, useEffect } from 'react'
 const Header: React.FC = () => {
-  const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
   return (
     <>
       <SizeIndicator />

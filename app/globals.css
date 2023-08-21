@@ -11,9 +11,31 @@
     @apply bg-lightAccBg dark:bg-darkAccBg opacity-50 dark:opacity-100;
   }
 
-  /* Not working - need svg fix */
-  .darkmode-icon {
-    @apply hover:fill-purple-500 dark:hover:fill-green-200 fill-red-500;
+  .item-hover-transition {
+    @apply transition duration-300 ease-in-out;
+  }
+
+  /* Header */
+  .dropdown-item-title {
+    @apply text-base font-medium;
+  }
+
+  .dropdown-item-text {
+    @apply text-sm font-inter font-normal;
+  }
+
+  .dropdown-container {
+    @apply bg-gray-900 hover:bg-gray-800 border border-gray-400;
+  }
+
+  .light-icon-hover {
+    filter: invert(87%) sepia(33%) saturate(418%) hue-rotate(103deg)
+      brightness(103%) contrast(93%);
+  }
+
+  .dark-icon-hover {
+    filter: invert(42%) sepia(67%) saturate(3977%) hue-rotate(247deg)
+      brightness(100%) contrast(94%);
   }
 
   /* Text configs */
