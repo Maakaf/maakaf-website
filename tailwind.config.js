@@ -23,12 +23,14 @@ module.exports = {
         lightAccBg: colors.indigo[100],
         darkText: colors.slate[950],
         discordLight: colors.indigo[400],
+        lightDropdownBg: colors.slate[50],
 
         // Dark Mode Colors
         darkBg: colors.slate[950],
         darkAccBg: colors.slate[800],
         lightText: colors.slate[50],
         discordDark: colors.white,
+        darkDropdownBg: colors.slate[900],
       },
     },
     fontFamily: {

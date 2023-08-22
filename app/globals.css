@@ -7,6 +7,7 @@
   .darkmode-main {
     @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
   }
+
   .darkmode-section {
     @apply bg-lightAccBg dark:bg-darkAccBg opacity-50 dark:opacity-100;
   }
@@ -16,16 +17,16 @@
   }
 
   /* Header */
+  .dropdown-container {
+    @apply bg-gray-900 hover:bg-gray-800 border border-gray-400;
+  }
+
   .dropdown-item-title {
     @apply text-base font-medium;
   }
 
   .dropdown-item-text {
-    @apply text-sm font-inter font-normal;
-  }
-
-  .dropdown-container {
-    @apply bg-gray-900 hover:bg-gray-800 border border-gray-400;
+    @apply text-sm font-inter font-normal text-gray-400;
   }
 
   .light-icon-hover {
