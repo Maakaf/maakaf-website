@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Darkmode from '../Common/Darkmode'
 import Link from 'next/link'
 import SizeIndicator from './SizeIndicator'
-import { Dropdown } from '../radix/Dropdown'
+import { NavDropdown } from './NavDropdown'
 
 const Header: React.FC = () => {
   return (
@@ -11,13 +11,13 @@ const Header: React.FC = () => {
       <nav className='fixed inset-0 z-10 flex items-center justify-between w-full bg-lightBg dark:bg-darkBg max-h-24'>
         <Darkmode />
         <ul className='hidden md:flex md:gap-10'>
-          <li className='flex items-center gap-2 cursor-pointer body-roman'>
-            <Dropdown />
+          <li className='navbar-item'>
+            <NavDropdown />
           </li>
-          <li className='cursor-pointer body-roman'>
+          <li className='navbar-item'>
             <Link href='/projects'>הפרויקטים</Link>
           </li>
-          <li className='cursor-pointer body-roman'>
+          <li className='navbar-item'>
             <Link href='/about'>מי אנחנו</Link>
           </li>
         </ul>

@@ -2,57 +2,112 @@
 
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import Image from 'next/image'
+import Link from 'next/link'
 
-// data-[highlighted]:bg-blue-500
+interface Field {
+  label: string
+  iconPath: string
+  darkIconPath?: string
+  alt: string
+  width: number
+  height: number
+}
 
-export const Dropdown = () => {
+export type OptionValue = number | string
+
+interface Option<T extends OptionValue> {
+  title: T
+  titleHoverColor: T
+  text?: T
+  linkPath?: T
+}
+
+type DropdownProps<T extends OptionValue> = {
+  field: Field
+  content: DropdownMenu.MenuContentProps
+  options: Option<T>[]
+}
+
+type ItemBodyProps<T extends OptionValue> = Omit<Option<T>, 'linkPath'>
+
+export const Dropdown = <T extends OptionValue>({
+  field,
+  content,
+  options = [],
+}: DropdownProps<T>) => {
+  const { label, iconPath, darkIconPath, alt, width, height } = field
+
   return (
     <DropdownMenu.Root modal={false} dir='rtl'>
       <DropdownMenu.Trigger asChild>
-        <div className='flex gap-2 items-center' aria-label='Customise options'>
-          <span>קהילה</span>
+        <div className='flex gap-5 items-center' aria-label='Customise options'>
+          <span>{label}</span>
           <div className='relative w-[10px] h-[10px]'>
             <Image
-              src={'/images/polygon_white.svg'}
-              alt='polygon'
+              src={iconPath}
+              alt={alt}
               className='absolute inset-0 hidden dark:block -z-10 dark:z-10'
-              width={10}
-              height={10}
-              style={{ width: 10, height: 10 }}
+              width={width}
+              height={height}
+              style={{ width: width, height: height }}
             />
-            <Image
-              src={'/images/polygon_dark.svg'}
-              className='absolute inset-0 dark:hidden'
-              alt='polygon'
-              width={10}
-              height={10}
-              style={{ width: 10, height: 10 }}
-            />
+            {darkIconPath ? (
+              <Image
+                src={darkIconPath}
+                className='absolute inset-0 dark:hidden'
+                alt={alt}
+                width={width}
+                height={height}
+                style={{ width: width, height: height }}
+              />
+            ) : null}
           </div>
         </div>
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
         <DropdownMenu.Content
-          align='start'
-          sideOffset={32}
-          alignOffset={-21}
-          className='z-[100] group dropdown-container min-w-[220px] bg-lightDropdownBg dark:bg-darkDropdownBg rounded-md  will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade'
+          {...content}
+          className='z-[100] group dropdown-container min-w-[220px] bg-lightDropdownBg dark:bg-darkDropdownBg rounded-md will-change-[opacity,transform] data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade'
         >
-          <DropdownMenu.Item className='flex flex-col gap-3 p-5 select-none group rounded-tl-md rounded-tr-md cursor-pointer leading-none text-lightText hover:bg-gray-800 focus:outline-none'>
-            <h5 className='dropdown-item-title group-data-[highlighted]:text-purple-400'>
-              Newbies
-            </h5>
-            <span className='dropdown-item-text'>פעם ראשונה בקוד פתוח</span>
-          </DropdownMenu.Item>
-          <DropdownMenu.Item className='flex flex-col gap-3 p-5 select-none group rounded-bl-md rounded-br-md cursor-pointer leading-none text-lightText hover:bg-gray-800 focus:outline-none'>
-            <h5 className='dropdown-item-title group-data-[highlighted]:text-green-200'>
-              Members
-            </h5>
-            <span className='dropdown-item-text'>מי שכבר התנסה בקוד פתוח</span>
-          </DropdownMenu.Item>
+          {options.map(item => (
+            <DropdownMenu.Item
+              asChild
+              key={`${item.title} ${item.text}`}
+              className='flex flex-col gap-3 p-5 select-none group first:rounded-tl-md first:rounded-tr-md last:rounded-bl-md last:rounded-br-md cursor-pointer leading-none text-lightText hover:bg-gray-800 focus:outline-none'
+            >
+              {item.linkPath ? (
+                <Link href={item.linkPath as string}>
+                  <ItemBody
+                    title={item.title}
+                    titleHoverColor={item.titleHoverColor}
+                    text={item.text}
+                  />
+                </Link>
+              ) : (
+                <ItemBody
+                  title={item.title}
+                  titleHoverColor={item.titleHoverColor}
+                  text={item.text}
+                />
+              )}
+            </DropdownMenu.Item>
+          ))}
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
+  )
+}
+
+const ItemBody = <T extends OptionValue>({
+  title,
+  titleHoverColor,
+  text,
+}: ItemBodyProps<T>) => {
+  return (
+    <>
+      <h5 className={`dropdown-item-title ${titleHoverColor}`}>{title}</h5>
+      {text ? <span className='dropdown-item-text'>{text}</span> : null}
+    </>
   )
 }
