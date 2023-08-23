@@ -74,7 +74,7 @@ export const Dropdown = <T extends OptionValue>({
             <DropdownMenu.Item
               asChild
               key={`${item.title} ${item.text}`}
-              className='flex flex-col gap-3 p-5 select-none group first:rounded-tl-md first:rounded-tr-md last:rounded-bl-md last:rounded-br-md cursor-pointer leading-none text-lightText hover:bg-gray-800 focus:outline-none'
+              className='flex flex-col gap-3 p-5 select-none group hover:first:rounded-tl-md hover:first:rounded-tr-md hover:last:rounded-bl-md hover:last:rounded-br-md cursor-pointer leading-none text-darkText dark:text-lightText hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none'
             >
               {item.linkPath ? (
                 <Link href={item.linkPath as string}>

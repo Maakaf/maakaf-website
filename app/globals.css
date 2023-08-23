@@ -22,7 +22,7 @@
   }
 
   .dropdown-container {
-    @apply bg-gray-900 hover:bg-gray-800 border border-gray-400;
+    @apply bg-lightDropdownBg dark:bg-gray-900 border border-gray-400;
   }
 
   .dropdown-item-title {
