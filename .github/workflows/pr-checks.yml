@@ -21,4 +21,4 @@ jobs:
         with:
           node-version: 18.x
       - run: npm install
-      - run: npx eslint --exit-on-fatal-error .
+      - run: npx eslint .
