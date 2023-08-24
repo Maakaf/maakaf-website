@@ -1,12 +1,12 @@
 name: Pull Request Mandatory Checks
 run-name: Pull Request Checks
-on: [pull_request]
+on: [pull_request, push]
 jobs:
   Check-Formatting:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Check Formatting For Node.Js ${{ matrix.node-version }}
+      - name: Check Prettier Using Node 18.x (LTS)
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Check Lint For Node.Js ${{ matrix.node-version }}
+      - name: Check Lint Using Node 18.x (LTS)
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
