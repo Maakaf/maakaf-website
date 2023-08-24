@@ -1,7 +1,8 @@
+import Paths from '@/components/Home/Paths'
 import TitleSection from '@/components/Home/TitleSection'
 import Quote from '@/components/Home/Quote'
+// import Quote from '@/components/Home/Quote';
 import BeOurFriends from '@/components/BeOurFriends/BeOurFriends'
-import Paths from '@/components/Home/Paths'
 import WhatNow from '@/components/Home/WhatNow'
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
     <section className='h-full'>
       <TitleSection />
       <Quote />
+      <Paths />
       <BeOurFriends />
       <Paths />
       <WhatNow />
