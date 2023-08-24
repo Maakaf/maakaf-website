@@ -10,7 +10,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - run: npx prettier . --check
+      - run: npx prettier --check .
 
   Check-Lint:
     runs-on: ubuntu-latest
@@ -20,4 +20,4 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
-      - run: npm run lint
+      - run: npx eslint --exit-on-fatal-error .
