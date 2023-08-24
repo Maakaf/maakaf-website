@@ -38,11 +38,6 @@
       brightness(100%) contrast(94%);
   }
 
-  .light-close-button {
-    filter: invert(2%) sepia(58%) saturate(3581%) hue-rotate(225deg)
-      brightness(97%) contrast(102%);
-  }
-
   /* Text configs */
   h1 {
     @apply text-4xl md:text-5xl font-black;
