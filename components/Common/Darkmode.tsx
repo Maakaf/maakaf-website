@@ -20,7 +20,7 @@ const Darkmode: React.FC = () => {
           alt={
             theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
           }
-          className='absolute inset-0 hover:dark-icon-hover dark:hover:light-icon-hover hover:icon-hover-transition'
+          className='absolute inset-0 md:hover:dark-icon-hover md:dark:hover:light-icon-hover hover:icon-hover-transition'
           width={24}
           height={24}
         />
