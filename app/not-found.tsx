@@ -1,7 +1,11 @@
+'use client'
+
 import Link from 'next/link'
 import { SVGProps } from 'react'
+import { useTheme } from 'next-themes'
 
 export default function NotFound() {
+  const { resolvedTheme } = useTheme()
   return (
     <div className='w-full grid place-items-center'>
       <h1>לא נמצא</h1>
@@ -11,7 +15,11 @@ export default function NotFound() {
         className='w-[250px] my-8 text-xs discord-btn rounded-full px-7 py-2 flex items-start justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition'
       >
         בחזרה לדף הראשי
-        <IcTwotoneOtherHouses fill='#2b2d42' width='1.4rem' height='1.4rem' />
+        <IcTwotoneOtherHouses
+          fill={resolvedTheme === 'dark' ? '#000000' : '#ffffff'}
+          width='1.4rem'
+          height='1.4rem'
+        />
       </Link>
     </div>
   )
