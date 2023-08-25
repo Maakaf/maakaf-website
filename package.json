@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --write ."
+    "format": "npx prettier --write .",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
