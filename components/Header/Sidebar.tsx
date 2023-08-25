@@ -5,6 +5,44 @@ import Darkmode from '../Common/Darkmode'
 import { useEffect, useRef } from 'react'
 import useFocusTrap from '../hooks/useFocusTrap'
 import { useTheme } from 'next-themes'
+import Link from 'next/link'
+
+type NavigationItems = {
+  title: string
+  text?: string
+  linkPath?: string
+}
+
+type NavItem = {
+  title: string
+  text?: string
+}
+
+const navigationItems: NavigationItems[] = [
+  {
+    title: 'Newbies',
+    text: 'פעם ראשונה בקוד פתוח',
+    linkPath: '/newbies',
+  },
+  {
+    title: 'Members',
+    text: 'מי שכבר התנסה בקוד פתוח',
+    linkPath: '/members',
+  },
+  {
+    title: 'Maintainers',
+    text: 'בעלי פרויקטים שרוצים להצטרף',
+    linkPath: '/maintainers',
+  },
+  {
+    title: 'מי אנחנו',
+    linkPath: '/about',
+  },
+  {
+    title: 'הפרויקטים',
+    linkPath: '/projects',
+  },
+]
 
 interface SidebarProps {
   isOpen: boolean
@@ -50,7 +88,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       }`}
     >
       {isOpen ? (
-        <div className='p-5'>
+        <div className='p-5 flex flex-col gap-14'>
           <div className='flex items-center justify-between'>
             <Darkmode />
             <button className='' onClick={toggleSidebar}>
@@ -66,10 +104,35 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               />
             </button>
           </div>
-          {/* Add your sidebar content here */}
+          <ul>
+            {navigationItems.map(navItem => (
+              <li
+                key={navItem.linkPath}
+                className='flex flex-col gap-3 p-5 select-none group hover:first:rounded-tl-md hover:first:rounded-tr-md hover:last:rounded-bl-md hover:last:rounded-br-md cursor-pointer leading-none text-darkText dark:text-lightText hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none'
+                onClick={toggleSidebar}
+              >
+                {navItem.linkPath ? (
+                  <Link href={navItem.linkPath as string}>
+                    <NavBody title={navItem.title} text={navItem.text} />
+                  </Link>
+                ) : (
+                  <NavBody title={navItem.title} text={navItem.text} />
+                )}
+              </li>
+            ))}
+          </ul>
         </div>
       ) : null}
     </div>
+  )
+}
+
+const NavBody: React.FC<NavItem> = ({ title, text }) => {
+  return (
+    <>
+      <h5 className={`nav-item-title ${!text && 'mt-5'}`}>{title}</h5>
+      {text ? <span className='nav-item-text'>{text}</span> : null}
+    </>
   )
 }
 

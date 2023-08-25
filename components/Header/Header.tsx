@@ -42,10 +42,10 @@ const Header: React.FC = () => {
             </div>
           </li>
           <li className='cursor-pointer body-roman'>
-            <Link href='/Projects'>הפרויקטים</Link>
+            <Link href='/projects'>הפרויקטים</Link>
           </li>
           <li className='cursor-pointer body-roman'>
-            <Link href='/About'>מי אנחנו</Link>
+            <Link href='/about'>מי אנחנו</Link>
           </li>
         </ul>
         <Link href='/'>
