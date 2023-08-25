@@ -1,0 +1,35 @@
+name: Pull Request Mandatory Checks
+run-name: Pull Request Checks
+on: [pull_request]
+jobs:
+  Check-Formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check Prettier Using Node 18.x (LTS)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npx prettier --check .
+
+  Check-Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check Lint Using Node 18.x (LTS)
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npm install
+      - run: npm run lint
+
+  Check-Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Check Build Using Node 18.x LTS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npm install
+      - run: npm run build

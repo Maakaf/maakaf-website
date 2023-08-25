@@ -2,7 +2,6 @@
   "files.associations": {
     "*.css": "tailwindcss",
     "*.scss": "tailwindcss",
-    // Add other file extensions as needed
     "*.sass": "tailwindcss",
     "*.less": "tailwindcss"
   },
@@ -12,9 +11,7 @@
   "editor.tokenColorCustomizations": {
     "textMateRules": [
       {
-        "scope": [
-          "markup.inline.tailwind.css"
-        ],
+        "scope": ["markup.inline.tailwind.css"],
         "settings": {
           "foreground": "#4FD1C5"
         }
@@ -24,7 +21,5 @@
   "tailwindCSS.includeLanguages": {
     "vue": "html"
   },
-  "css.customData": [
-    "./.vscode/css-data.json"
-  ]
+  "css.customData": ["./.vscode/css-data.json"]
 }
