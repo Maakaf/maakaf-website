@@ -10,17 +10,18 @@ const Darkmode: React.FC = () => {
       <Image
         src={'/images/nightMode.svg'}
         alt='switchDarkMode'
-        className='cursor-pointer absolute inset-0 dark:hidden hover:dark-icon-hover item-hover-transition'
+        className='absolute inset-0 cursor-pointer dark:hidden hover:dark-icon-hover item-hover-transition'
         width={24}
         height={24}
         onClick={() => {
           setTheme('dark')
         }}
       />
+
       <Image
         src={'/images/lightMode.svg'}
         alt='switchDarkMode'
-        className='cursor-pointer absolute hidden dark:block -z-10 dark:z-10 inset-0 hover:light-icon-hover item-hover-transition'
+        className='absolute inset-0 hidden cursor-pointer dark:block -z-10 dark:z-10 hover:light-icon-hover item-hover-transition'
         width={24}
         height={24}
         onClick={() => {
