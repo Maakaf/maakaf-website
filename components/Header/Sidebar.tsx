@@ -46,22 +46,23 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         isOpen ? '-translate-x-0' : 'translate-x-full'
       }`}
     >
-      <div className='p-5'>
-        <div className='flex items-center justify-between'>
-          <Darkmode />
-          <button className='' onClick={toggleSidebar}>
-            <Image
-              src={'/images/x_button.svg'}
-              alt='x_button'
-              width={17}
-              height={17}
-              className=''
-            />
-          </button>
+      {isOpen ? (
+        <div className='p-5'>
+          <div className='flex items-center justify-between'>
+            <Darkmode />
+            <button className='' onClick={toggleSidebar}>
+              <Image
+                src={'/images/x_button.svg'}
+                alt='x_button'
+                width={17}
+                height={17}
+                className=''
+              />
+            </button>
+          </div>
+          {/* Add your sidebar content here */}
         </div>
-      </div>
-
-      {/* Add your sidebar content here */}
+      ) : null}
     </div>
   )
 }

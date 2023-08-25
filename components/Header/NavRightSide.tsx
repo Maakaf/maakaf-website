@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { KeyboardEvent, KeyboardEventHandler, useState } from 'react'
 import useMediaQuery from '../hooks/useMediaQuery'
 import Image from 'next/image'
 import Sidebar from './Sidebar'
@@ -15,13 +15,24 @@ const NavRightSide = () => {
     setIsSidebarOpen(!isSidebarOpen)
   }
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === ' ' || event.key === 'Enter') {
+      event.preventDefault() // Prevent page scroll on spacebar press
+      toggleSidebar()
+    }
+  }
+
   return isMobile ? (
     <>
-      <div onClick={toggleSidebar}>
+      <div
+        onClick={toggleSidebar}
+        onKeyDown={handleKeyDown}
+        role='button'
+        tabIndex={0}
+      >
         <Image
           src={'/images/burger-menu.svg'}
           alt='burger_menu'
-          className=''
           width={37}
           height={42}
         />
