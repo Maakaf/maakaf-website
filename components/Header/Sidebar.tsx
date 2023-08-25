@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Darkmode from '../Common/Darkmode'
 import { useEffect, useRef } from 'react'
 import useFocusTrap from '../hooks/useFocusTrap'
+import { useTheme } from 'next-themes'
 
 interface SidebarProps {
   isOpen: boolean
@@ -12,6 +13,8 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const sidebarRef = useRef<HTMLDivElement | null>(null)
+
+  const { theme } = useTheme()
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -52,11 +55,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             <Darkmode />
             <button className='' onClick={toggleSidebar}>
               <Image
-                src={'/images/x_button.svg'}
+                src={
+                  theme === 'dark'
+                    ? '/images/x_button_light.svg'
+                    : '/images/x_button_dark.svg'
+                }
                 alt='x_button'
                 width={17}
                 height={17}
-                className=''
               />
             </button>
           </div>
