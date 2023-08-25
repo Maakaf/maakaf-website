@@ -1,42 +1,24 @@
-'use client'
-
 import Image from 'next/image'
-import Darkmode from '../Common/Darkmode'
 import Link from 'next/link'
 import SizeIndicator from './SizeIndicator'
-import useMediaQuery from '../hooks/useMediaQuery'
-import { useState } from 'react'
-import Sidebar from './Sidebar'
+import dynamic from 'next/dynamic'
+
+const NavRightSide = dynamic(() => import('./NavRightSide'), {
+  ssr: false,
+  suspense: true,
+  loading: () => (
+    // replace with designer loader icon
+    <div role='status' className='max-w-sm animate-pulse'>
+      <div className='w-7 h-7 bg-gray-200 rounded-full dark:bg-gray-700'></div>
+    </div>
+  ),
+})
 
 const Header: React.FC = () => {
-  const isMobile = useMediaQuery('sm')
-
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-
-  const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen)
-  }
-
   return (
     <>
-      <SizeIndicator />
       <nav className='fixed inset-0 z-10 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24'>
-        {isMobile ? (
-          <>
-            <div onClick={toggleSidebar}>
-              <Image
-                src={'/images/burger-menu.svg'}
-                alt='burger_menu'
-                className=''
-                width={37}
-                height={42}
-              />
-            </div>
-            <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-          </>
-        ) : (
-          <Darkmode />
-        )}
+        <NavRightSide />
         <ul className='hidden md:flex md:gap-10'>
           <li className='flex items-center gap-2 cursor-pointer body-roman'>
             <span>קהילה</span>
@@ -75,6 +57,7 @@ const Header: React.FC = () => {
           />
         </Link>
       </nav>
+      <SizeIndicator />
     </>
   )
 }

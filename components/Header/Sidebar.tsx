@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Darkmode from '../Common/Darkmode'
 import { useEffect, useRef } from 'react'
@@ -40,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <div
       ref={sidebarRef}
-      className={`fixed inset-y-0 right-0 z-50 bg-darkBg border-l border-l-blue-400 w-[75%] shadow-lg transform transition-transform ease-in-out duration-300 ${
+      className={`fixed inset-y-0 right-0 z-50 bg-lightBg dark:bg-darkBg border-l border-l-blue-400 w-[75%] shadow-lg transform transition-transform ease-in-out duration-300 ${
         isOpen ? '-translate-x-0' : 'translate-x-full'
       }`}
     >

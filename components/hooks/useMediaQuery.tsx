@@ -1,3 +1,5 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 
 export type TailwindScreens = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
