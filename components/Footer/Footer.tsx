@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Footer = () => {
-  return <div>שלום זהו הפוטר של מעקף</div>
-}
+  return <div>שלום זהו הפוטר של מעקף</div>;
+};
 
-export default Footer
+export default Footer;

@@ -1,10 +1,6 @@
 'use client'
 
-import { useTheme } from 'next-themes'
-
 const Quote: React.FC = () => {
-  const { theme } = useTheme()
-
   return (
     <div className='bg-purple-100/50 dark:bg-gray-800/50 h-96'>
       <div className='flex flex-col justify-center items-center h-full w-11/12 md:w-2/3 m-auto'>
@@ -24,4 +20,4 @@ const Quote: React.FC = () => {
   )
 }
 
-export default Quote
+export default Quote;

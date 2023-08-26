@@ -1,14 +1,15 @@
-import Image from 'next/image'
+import Image from 'next/image';
+
 export default function TitleSection() {
   return (
-    <div className='relative px-4 md:px-14 flex justify-between h-[70vh] pb-10'>
-      <div className='flex flex-col items-center w-full mt-10 md:mt-0 gap-7 md:w-1/2 md:items-start'>
-        <h2 className='w-full text-center md:text-right'>
+    <div className="relative px-4 md:px-14 flex justify-between h-[70vh] pb-10">
+      <div className="flex flex-col items-center w-full mt-10 md:mt-0 gap-7 md:w-1/2 md:items-start">
+        <h1 className="w-full text-center md:text-right">
           קהילת מעקף&nbsp;-
           <br />
           קוד פתוח ישראל
-        </h2>
-        <h5 className='w-full text-center md:text-right'>
+        </h1>
+        <h4 className="w-full text-center md:text-right">
           במעקף אנחנו לוקחים חלק משמעותי
           <br />
           בפרוייקטים הפתוחים לציבור על ידי שינוי,
@@ -16,14 +17,14 @@ export default function TitleSection() {
           פיתוח, תיקון ושיתוף קוד פתוח
         </h5>
         <a
-          href='https://discord.com/invite/a2VyCjRk2M'
-          target='_blank'
-          className='text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition'
+          href="https://discord.com/invite/a2VyCjRk2M"
+          target="_blank"
+          className="text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition"
         >
           בואו לדיסקורד
           <Image
             src={'/images/discord.png'}
-            alt='discord'
+            alt="discord"
             width={20}
             height={20}
           />
@@ -35,5 +36,5 @@ export default function TitleSection() {
         />
       </div>
     </div>
-  )
+  );
 }
