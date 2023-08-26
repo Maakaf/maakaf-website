@@ -1,5 +1,5 @@
 const MaintainerForm = () => {
-  return <div>MaintainerForm</div>
-}
+  return <div>MaintainerForm</div>;
+};
 
-export default MaintainerForm
+export default MaintainerForm;

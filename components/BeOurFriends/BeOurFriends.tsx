@@ -1,4 +1,4 @@
-import BenefitCard from './BenefitCard'
+import BenefitCard from './BenefitCard';
 
 const cards = [
   {
@@ -25,13 +25,13 @@ const cards = [
     description:
       'על אף שהקהילה שלנו הולכת וגדלה, איכות האנשים נשמרת. בואו להכיר חברים חדשים.',
   },
-]
+];
 
 export default function BeOurFriends() {
   return (
     <>
       <h4>מה תקבלו מלהיות חברים במעקף</h4>
-      <div className='grid grid-cols-1 gap-4 m-8 md:grid-cols-2 place-content-around place-items-center'>
+      <div className="grid grid-cols-1 gap-4 m-8 md:grid-cols-2 place-content-around place-items-center">
         {cards.map((card, index) => (
           <BenefitCard
             key={index}
@@ -42,5 +42,5 @@ export default function BeOurFriends() {
         ))}
       </div>
     </>
-  )
+  );
 }
