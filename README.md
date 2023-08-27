@@ -12,8 +12,7 @@
 <br/><br/>
 
 ### Current State
-- Figma Characterization and design is to be complete soon (Special thanks to our UI/UX designer - Efrat Sharon!)
-- Development is ongoing! (Managed by @RoyTennenbaum)
+
 <br/>
 
 <h2>🚀 Forking and Running the Project</h2>
