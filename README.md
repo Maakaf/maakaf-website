@@ -2,19 +2,19 @@
 
 ### Project Stack:
 
-<img src="https://raw.githubusercontent.com/gilbarbara/logos/c8749cfc4be0e67a266be0554282d73d967db910/logos/nextjs-icon.svg" width="40" height="40" align="center" alt="Next.js Logo"> This is a Next.js project.
-</br></br>
-<img src="https://www.typescriptlang.org/images/branding/logo-grouping.svg" width="40" height="40" align="center" alt="TypeScript Logo"> We're using TypeScript for type safety and better developer experience.
-</br></br>
-<img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" width="40" height="40" align="center" alt="Tailwind CSS Logo"> The UI is built using Tailwind CSS for rapid and responsive design.
-</br></br>
-<img src="https://code.visualstudio.com/assets/images/code-stable.png" width="40" height="40" align="center" alt="VSCode Logo"> Custom VSCode settings have been set up for a consistent development environment.
-</br></br>
+<img src="https://raw.githubusercontent.com/gilbarbara/logos/c8749cfc4be0e67a266be0554282d73d967db910/logos/nextjs-icon.svg" width="40" height="40" align="center" alt="Next.js Logo">&nbsp;&nbsp;This is a Next.js project.
+<br/><br/>
+<img src="https://www.typescriptlang.org/images/branding/logo-grouping.svg" width="40" height="40" align="center" alt="TypeScript Logo">&nbsp;&nbsp;We're using TypeScript for type safety and better developer experience.
+<br/><br/>
+<img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" width="40" height="40" align="center" alt="Tailwind CSS Logo">&nbsp;&nbsp;The UI is built using Tailwind CSS for rapid and responsive design.
+<br/><br/>
+<img src="https://code.visualstudio.com/assets/images/code-stable.png" width="40" height="40" align="center" alt="VSCode Logo">&nbsp;&nbsp;Custom VSCode settings have been set up for a consistent development environment.
+<br/><br/>
 
 ### Current State
-- Figma Characterization and design is to be complete soon (Special thanks to our UI/UX designer - Efrat Sharon!)
-- Development is ongoing! (Managed by @RoyTennenbaum)
-</br>
+- <a href="https://www.figma.com/file/Ib05mHSvinzf9NNqIqftLR/Maakaf?type=design&node-id=51-508&mode=design&t=ldgKuFRDnEsudZvv-0">Figma Characterization and design</a> is to be complete soon (Special thanks to our UI/UX designer - Efrat Sharon!)
+- Development is ongoing! (Managed by <a href="https://github.com/RoyTennenbaum">@RoyTennenbaum</a> using <a href="https://github.com/orgs/Maakaf/projects/1">Github Projects</a>)
+<br/>
 
 <h2>🚀 Forking and Running the Project</h2>
 
@@ -37,7 +37,7 @@
 <h3>5. Run the Project</h3>
 <pre><code>npm run dev</code></pre>
 <p>Visit <a href="http://localhost:3000">http://localhost:3000</a> in your browser.</p>
-</br>
+<br/>
 
 <h2>📦 VSCode Plugin Recommendation</h2>
 <p>For an enhanced development experience with Tailwind CSS, consider installing the <strong>Tailwind CSS IntelliSense</strong> extension in VSCode:</p>
