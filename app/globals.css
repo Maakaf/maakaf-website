@@ -16,18 +16,6 @@
   }
 
   /* Header */
-  .dropdown-item-title {
-    @apply text-base font-medium;
-  }
-
-  .dropdown-item-text {
-    @apply text-sm font-inter font-normal;
-  }
-
-  .dropdown-container {
-    @apply bg-gray-900 hover:bg-gray-800 border border-gray-400;
-  }
-
   .light-icon-hover {
     filter: invert(87%) sepia(33%) saturate(418%) hue-rotate(103deg)
       brightness(103%) contrast(93%);
