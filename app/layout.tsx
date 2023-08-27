@@ -45,9 +45,9 @@ export default function RootLayout({
           </header>
           <main className="h-full pt-24 md:pt-32">{children}</main>
           {/* remove mt-5 when developing the footer */}
-          <footer className="mt-5">
+          <footer>
             <Footer />
-          </footer>{' '}
+          </footer>
         </ThemeProvider>
       </body>
     </html>
