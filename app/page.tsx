@@ -8,7 +8,6 @@ export default function Home() {
   return (
     <section className="h-full">
       <TitleSection />
-      <Quote />
       <Paths />
       <BeOurFriends />
       <Paths />
