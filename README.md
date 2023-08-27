@@ -12,7 +12,8 @@
 <br/><br/>
 
 ### Current State
-
+- <a href="https://www.figma.com/file/Ib05mHSvinzf9NNqIqftLR/Maakaf?type=design&node-id=51-508&mode=design&t=ldgKuFRDnEsudZvv-0">Figma Characterization and design</a> is to be complete soon (Special thanks to our UI/UX designer - Efrat Sharon!)
+- Development is ongoing! (Managed by <a href="https://github.com/RoyTennenbaum">@RoyTennenbaum</a> using <a href="https://github.com/orgs/Maakaf/projects/1">Github Projects</a>)
 <br/>
 
 <h2>🚀 Forking and Running the Project</h2>
