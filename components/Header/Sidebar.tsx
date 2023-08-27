@@ -91,7 +91,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
         <div className="p-5 flex flex-col gap-14">
           <div className="flex items-center justify-between">
             <Darkmode />
-            <button className="" onClick={toggleSidebar}>
+            <button onClick={toggleSidebar}>
               {theme === 'dark' ? (
                 <Image
                   src={'/images/x_button_light.svg'}
@@ -134,14 +134,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 
 const NavBody: React.FC<NavItem> = ({ title, text }) => {
   return (
-    <>
-      <h5 className={`text-base font-medium ${!text && 'mt-5'}`}>{title}</h5>
+    <div className="flex flex-col gap-3">
+      <h5 className={`font-inter ${!text && 'mt-5'}`}>{title}</h5>
       {text ? (
-        <span className="text-sm font-inter font-normal text-gray-400">
+        <span className="body-roman leading-[16.94px] text-gray-400">
           {text}
         </span>
       ) : null}
-    </>
+    </div>
   );
 };
 
