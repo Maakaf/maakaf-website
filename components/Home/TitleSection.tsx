@@ -3,12 +3,12 @@ export default function TitleSection() {
   return (
     <div className="relative px-4 md:px-14 flex justify-between h-[70vh] pb-10">
       <div className="flex flex-col items-center w-full mt-10 md:mt-0 gap-7 md:w-1/2 md:items-start">
-        <h2 className="w-full text-center md:text-right lg:text-5xl">
+        <h2 className="w-full text-center md:text-right">
           קהילת מעקף&nbsp;-
           <br />
           קוד פתוח ישראל
         </h2>
-        <h5 className="w-full text-center md:text-right lg:text-2xl">
+        <h5 className="w-full text-center md:text-right">
           במעקף אנחנו לוקחים חלק משמעותי
           <br />
           בפרוייקטים הפתוחים לציבור על ידי שינוי,
