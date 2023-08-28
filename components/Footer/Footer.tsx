@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
           <FooterLink key={index} href={link.href} text={link.text} />
         ))}
       </div>
-      <div className="flex flex-col items-center w-full h-auto px-24 md:items-end ">
+      <div className="flex flex-col items-center w-full h-auto md:px-24 md:items-end ">
         <div className="flex flex-col justify-around h-full ">
           <div className="flex justify-center gap-4 lg:gap-6 ">
             <FacebookIconLink />
