@@ -8,7 +8,7 @@ export default function TitleSection() {
           <br />
           קוד פתוח ישראל
         </h1>
-        <h4 className="w-full text-center md:text-xl lg:text-3xl md:text-right">
+        <h4 className="w-full text-center md:text-right">
           במעקף אנחנו לוקחים חלק משמעותי
           <br />
           בפרוייקטים הפתוחים לציבור על ידי שינוי,
@@ -29,7 +29,7 @@ export default function TitleSection() {
           />
         </a>
       </div>
-      <div className="absolute   top-0 xl:w-[650px] lg:mt-[1.2rem] xl:h-[800px] left-0 w-full h-full -z-10 md:z-0 opacity-40 md:opacity-100 md:static md:w-1/2">
+      <div className="absolute  xl:h-[90vh]  top-0  lg:mt-[1.2rem]  left-0 w-full h-full 2xl:w-full -z-10 md:z-0 opacity-40 md:opacity-100 md:static md:w-1/2">
         <div
           className={`h-full  bg-contain bg-top bg-[url("/images/skeleton_loader.png")] dark:bg-[url("/images/skeleton_loader_dark.png")] md:bg-left bg-no-repeat`}
         />
