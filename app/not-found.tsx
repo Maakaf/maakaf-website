@@ -3,7 +3,7 @@ import { SVGProps } from 'react';
 
 export default function NotFound() {
   return (
-    <div className="w-full grid place-items-center">
+    <div className="w-full grid place-items-center min-h-screen">
       <h1>לא נמצא</h1>
       <p>לא יכולנו למצוא את העמוד שביקשת</p>
       <Link
