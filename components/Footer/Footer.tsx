@@ -37,7 +37,7 @@ interface FooterLinkProps {
 
 const FooterLink = ({ href, text }: FooterLinkProps) => (
   <Link href={href}>
-    <p className="p-2 text-lg text-center md:text-right">{text}</p>
+    <p className="p-2 text-base font-bold text-center md:text-right">{text}</p>
   </Link>
 );
 
