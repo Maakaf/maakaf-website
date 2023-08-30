@@ -6,7 +6,6 @@ type DiscordLinkProps = {
 };
 
 export default function DiscordLink({ className }: DiscordLinkProps) {
-  console.log('adir - className', className);
   return (
     <a
       href="https://discord.com/invite/a2VyCjRk2M"
