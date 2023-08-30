@@ -1,0 +1,33 @@
+import DiscordLink from '@/components/Common/DiscordLink';
+import Carousel from '@/components/About/Carousel';
+
+const AboutPage = () => {
+  return (
+    <>
+      <div className="w-[660px] mx-auto text-center mb-20">
+        <h1 className="mb-3">ברוכים הבאים למעקף</h1>
+        <div className="flex flex-col gap-5 text-xl mb-5">
+          <p>
+            אנו מאמינים בשיתוף המידע והידע כדרך לקידום הטכנולוגיה והחדשנות. קוד
+            פתוח הוא גישה המאפשרת לנו לשתף ולשתף פעולה בפיתוח תוכנה בצורה פתוחה
+            ושקופה.
+          </p>
+          <p>
+            כשאנחנו מדברים על קוד פתוח, אנחנו מתייחסים לתוכנה שקוד המקור שלה
+            זמין לציבור לצפייה, שינוי ושיפור. הקוד פתוח מעניק לנו הזדמנות להבין
+            כיצד תוכנה פועלת, לשפר אותה ולהתאימה לצרכים שלנו. אנחנו מזמינים אתכם
+            להצטרף אלינו, להתרשם, לשתף ולהשפיע. כאן בקהילת קוד פתוח ישראל יש
+            מקום לכולם, מתחילים ועד מומחים.
+          </p>
+          <p>יאללה בואו.</p>
+        </div>
+
+        <DiscordLink className="mx-auto" />
+      </div>
+
+      <Carousel />
+    </>
+  );
+};
+
+export default AboutPage;

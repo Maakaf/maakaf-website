@@ -17,7 +17,7 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
 const Header: React.FC = () => {
   return (
     <>
-      <nav className="fixed inset-0 z-10 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24">
+      <nav className="fixed inset-0 z-50 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24">
         <NavRightSide />
         <ul className="hidden md:flex md:gap-10">
           <li className="flex items-center gap-2 cursor-pointer body-roman">

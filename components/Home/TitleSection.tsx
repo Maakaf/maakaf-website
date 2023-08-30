@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import DiscordLink from '@/components/Common/DiscordLink';
 
 export default function TitleSection() {
   return (
@@ -16,19 +17,7 @@ export default function TitleSection() {
           <br />
           פיתוח, תיקון ושיתוף קוד פתוח
         </h4>
-        <a
-          href="https://discord.com/invite/a2VyCjRk2M"
-          target="_blank"
-          className="text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition"
-        >
-          בואו לדיסקורד
-          <Image
-            src={'/images/discord.png'}
-            alt="discord"
-            width={20}
-            height={20}
-          />
-        </a>
+        <DiscordLink className="mx-auto" />
       </div>
       <div className="absolute top-0 left-0 w-full h-full -z-10 md:z-0 opacity-40 md:opacity-100 md:static md:w-1/2">
         <div
