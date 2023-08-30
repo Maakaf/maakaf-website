@@ -4,7 +4,7 @@ import Carousel from '@/components/About/Carousel';
 const AboutPage = () => {
   return (
     <>
-      <div className="w-[660px] mx-auto text-center mb-20">
+      <div className="w-[660px] px-4 max-w-full mx-auto text-center mb-20">
         <h1 className="mb-3">ברוכים הבאים למעקף</h1>
         <div className="flex flex-col gap-5 text-xl mb-5">
           <p>
@@ -25,7 +25,7 @@ const AboutPage = () => {
         <DiscordLink className="mx-auto" />
       </div>
 
-      <Carousel />
+      <Carousel className="mb-28" />
     </>
   );
 };
