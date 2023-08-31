@@ -16,7 +16,7 @@ const NavRightSide = () => {
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === ' ' || event.key === 'Enter') {
+    if (event.key === ' ' || event.key === 'Enter' || event.key === 'Escape') {
       event.preventDefault(); // Prevent page scroll on spacebar press
       toggleSidebar();
     }
