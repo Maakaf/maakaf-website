@@ -17,20 +17,16 @@
   }
 
   /* Header */
-  .navbar-item {
-    @apply cursor-pointer body-roman;
-  }
-
-  .dropdown-container {
-    @apply bg-lightDropdownBg dark:bg-gray-900 border border-gray-400;
-  }
-
   .dropdown-item-title {
     @apply text-base font-medium;
   }
 
   .dropdown-item-text {
-    @apply text-sm font-inter font-normal text-gray-400;
+    @apply text-sm font-inter font-normal;
+  }
+
+  .dropdown-container {
+    @apply bg-gray-900 hover:bg-gray-800 border border-gray-400;
   }
 
   .light-icon-hover {

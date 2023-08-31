@@ -4,7 +4,7 @@ labels: [other, triage]
 body:
   - type: markdown
     attributes:
-      value: "# Other issue"
+      value: '# Other issue'
   - type: textarea
     id: issuedescription
     attributes:
