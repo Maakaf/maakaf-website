@@ -1,5 +1,7 @@
 'use client';
-import Image from 'next/image';
+
+import { ReactComponent as Sun } from './Sun.svg';
+import { ReactComponent as Moon } from './Moon.svg';
 import { useTheme } from 'next-themes';
 
 const Darkmode: React.FC = () => {
@@ -14,21 +16,9 @@ const Darkmode: React.FC = () => {
         }}
       >
         {theme === 'dark' ? (
-          <Image
-            src={'/images/lightMode.svg'}
-            alt={'Switch to light mode'}
-            className="absolute inset-0 md:hover:dark-icon-hover md:dark:hover:light-icon-hover hover:icon-hover-transition"
-            width={24}
-            height={24}
-          />
+          <Sun className="w-24 h-24 absolute inset-0 hover:stroke-green-200 hover:transition hover:duration-300 hover:ease-in-out" />
         ) : (
-          <Image
-            src={'/images/nightMode.svg'}
-            alt={'Switch to dark mode'}
-            className="absolute inset-0 md:hover:dark-icon-hover md:dark:hover:light-icon-hover hover:icon-hover-transition"
-            width={24}
-            height={24}
-          />
+          <Moon className="w-24 h-24 absolute inset-0 hover:stroke-purple-500 hover:transition hover:duration-300 hover:ease-in-out" />
         )}
       </button>
     </div>
