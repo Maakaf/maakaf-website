@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
       <body
-        className={`min-h-screen w-full flex flex-col items-center m-0 darkmode-main ${birzia.className} ${inter.variable}`}
+        className={`min-h-screen flex flex-col items-stretch m-0 darkmode-main ${birzia.className} ${inter.variable}`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
