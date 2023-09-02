@@ -1,5 +1,6 @@
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
 import { Metadata } from 'next';
+import ProjectCard from '@/components/Projects/ProjectCard/ProjectCard';
 
 export const metadata: Metadata = {
   title: 'הפרויקטים',
@@ -26,6 +27,7 @@ const ProjectsPage = () => {
   return (
     <section className="h-full">
       <FiltersBar />
+      <ProjectCard></ProjectCard>
     </section>
   );
 };
