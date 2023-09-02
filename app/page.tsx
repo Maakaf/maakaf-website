@@ -3,6 +3,7 @@ import Quote from '@/components/Home/Quote';
 import BeOurFriends from '@/components/BeOurFriends/BeOurFriends';
 import Paths from '@/components/Home/Paths';
 import WhatNow from '@/components/Home/WhatNow';
+import MembersPics from '@/components/MembersPics';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Quote />
       <BeOurFriends />
       <Paths />
+      <MembersPics />
       <WhatNow />
     </section>
   );
