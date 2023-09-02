@@ -1,5 +1,11 @@
+import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
+
 const ProjectsPage = () => {
-  return <div>ProjectsPage</div>;
+  return (
+    <section className="h-full">
+      <FiltersBar />
+    </section>
+  );
 };
 
 export default ProjectsPage;
