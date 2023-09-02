@@ -37,17 +37,13 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
       <body
-        className={`min-h-screen m-0 darkmode-main ${birzia.className} ${inter.variable}`}
+        className={`min-h-screen flex flex-col items-stretch m-0 darkmode-main ${birzia.className} ${inter.variable}`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <header>
-            <Header />
-          </header>
-          <main className="h-full pt-24 md:pt-32">{children}</main>
+          <Header />
+          <main className="flex-1 h-full pt-24 md:pt-32">{children}</main>
           {/* remove mt-5 when developing the footer */}
-          <footer>
-            <Footer />
-          </footer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
