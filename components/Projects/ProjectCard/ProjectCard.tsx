@@ -5,8 +5,8 @@ export interface ProjectCardProps {}
 
 export default function ProjectCard({}: ProjectCardProps) {
   return (
-    <article className="flex p-6 gap-7 rounded-lg dark:bg-darkAccBg">
-      <aside className="flex flex-col items-center gap-4">
+    <article className="flex p-4 sm:p-6 gap-7 rounded-lg dark:bg-darkAccBg">
+      <aside className="hidden sm:flex flex-col items-center gap-4">
         <Image
           width="108"
           height="108"
@@ -24,11 +24,11 @@ export default function ProjectCard({}: ProjectCardProps) {
       </aside>
       <div className="flex grow flex-col justify-between gap-6">
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap flex-col sm:flex-row sm:items-center gap-6 gap-y-2">
             <div className="font-birzia text-xl font-bold">
               פרויקט אקראי 45HG
             </div>
-            <div className="flex grow justify-between items-center">
+            <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
                 125 תורמים
               </div>
@@ -62,7 +62,7 @@ export default function ProjectCard({}: ProjectCardProps) {
             מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע ל...
           </div>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6">
           <div className="flex gap-2 items-center">
             <div className="bg-gray-800 rounded-[50px] px-6 py-2 font-inter text-xs">
               Java
@@ -76,14 +76,14 @@ export default function ProjectCard({}: ProjectCardProps) {
           </div>
           <div className="flex gap-2">
             <Link
-              className="bg-gray-600 rounded-[50px] px-6 py-2 font-inter font-semibold"
+              className="bg-gray-600 rounded-[50px] px-6 py-2 font-inter font-semibold flex-grow text-center"
               href={'/'}
             >
               גיטהאב
             </Link>
 
             <Link
-              className="bg-gray-50 text-gray-600 rounded-[50px] px-6 py-2 font-inter font-semibold flex gap-2 items-center"
+              className="bg-gray-50 text-gray-600 rounded-[50px] px-6 py-2 font-inter font-semibold flex gap-2 items-center flex-grow-[2] justify-center"
               href={'/'}
               target="_blank"
               // className="text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition"
