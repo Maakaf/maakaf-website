@@ -1,5 +1,19 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
+const variants = {
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    rotateZ: '0deg',
+    transition: {
+      delay: index * 0.05,
+    },
+  }),
+  initial: { opacity: 0, y: -100 },
+};
+
 const Paths: React.FC = () => {
   return (
     <section className="flex flex-col justify-start py-32 darkmode-section">
@@ -9,8 +23,17 @@ const Paths: React.FC = () => {
         <h4>המסלולים שלנו</h4>
       </div>
       <div className="flex flex-row grow flex-wrap gap-y-4 mt-6 lg:mt-0 lg:flex-row py-4 lg:py-32 justify-evenly">
-        {PATHS.map(path => (
-          <Path key={path.title} item={path} />
+        {PATHS.map((path, index) => (
+          <motion.div
+            key={path.title}
+            custom={index}
+            variants={variants}
+            initial="initial"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-200px' }}
+          >
+            <Path item={path} />
+          </motion.div>
         ))}
       </div>
     </section>
