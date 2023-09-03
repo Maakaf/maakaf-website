@@ -14,7 +14,7 @@ export default function TitleSection() {
           בפרוייקטים הפתוחים לציבור על ידי שינוי,
           <br />
           פיתוח, תיקון ושיתוף קוד פתוח
-        </h5>
+        </h4>
         <a
           href="https://discord.com/invite/a2VyCjRk2M"
           target="_blank"
