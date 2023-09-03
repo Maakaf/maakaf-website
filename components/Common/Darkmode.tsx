@@ -1,7 +1,7 @@
 'use client';
 
-import { ReactComponent as Sun } from './Sun.svg';
-import { ReactComponent as Moon } from './Moon.svg';
+import Sun from './Sun.svg';
+import Moon from './Moon.svg';
 import { useTheme } from 'next-themes';
 
 const Darkmode: React.FC = () => {
