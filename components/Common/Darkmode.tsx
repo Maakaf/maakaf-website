@@ -1,9 +1,7 @@
 'use client';
-//className="absolute inset-0 hover:stroke-green-200 hover:transition hover:duration-300 hover:ease-in-out"
 import Sun from './Sun.svg';
 import Moon from './Moon.svg';
 import { useTheme } from 'next-themes';
-import { inherits } from 'util';
 
 const Darkmode: React.FC = () => {
   const { theme, setTheme } = useTheme();
