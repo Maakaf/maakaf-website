@@ -6,7 +6,6 @@ const variants = {
   visible: (index: number) => ({
     opacity: 1,
     y: 0,
-    rotateZ: '0deg',
     transition: {
       delay: index * 0.05,
     },
