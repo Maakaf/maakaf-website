@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import FilterBtnsGroup from './FilterBtnsGroup';
 
 const FiltersBar: React.FC = () => {
   return (
@@ -10,8 +11,8 @@ const FiltersBar: React.FC = () => {
         </h4>
       </div>
       <div className="w-full bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
-        <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-6 px-[24px] py-[22px]">
+        <div className="flex flex-col gap-4 px-[24px] py-[22px]">
+          <div className="flex items-center gap-6">
             <div className="cursor-pointer flex items-center justify-center px-[10px] py-[6.75px] h-10 bg-gray-50 dark:bg-gray-900 rounded-md">
               <Image
                 src={`/images/filters-burger-menu.svg`}
@@ -34,7 +35,10 @@ const FiltersBar: React.FC = () => {
               איך מתחילים לכתוב קוד פתוח?
             </h5>
           </div>
-          <div>מסננים</div>
+          <div className="flex gap-6">
+            <span className="body-roman text-gray-400">מסננים</span>
+            <FilterBtnsGroup />
+          </div>
         </div>
       </div>
     </div>

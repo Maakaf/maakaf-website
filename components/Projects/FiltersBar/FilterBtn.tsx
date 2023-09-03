@@ -1,0 +1,23 @@
+'use client';
+
+type FilterBtnProps = {
+  btnText: string;
+  onBtnClick: (filterName: string) => void;
+};
+
+const FilterBtn: React.FC<FilterBtnProps> = ({
+  btnText,
+  onBtnClick = () => {},
+}) => {
+  return (
+    <button
+      className="text-[12px] font-normal px-6 py-2 flex items-center justify-center bg-purple-200 dark:bg-blue-600 rounded-[50px] leading-none"
+      onClick={e => onBtnClick}
+      type="button"
+    >
+      &#10005;&nbsp;&nbsp;{btnText}
+    </button>
+  );
+};
+
+export default FilterBtn;
