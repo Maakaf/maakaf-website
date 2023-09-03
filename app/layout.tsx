@@ -41,7 +41,9 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="flex-1 h-full pt-24 md:pt-32">{children}</main>
+          <main className="flex flex-col flex-1 h-full pt-24 md:pt-32">
+            {children}
+          </main>
           {/* remove mt-5 when developing the footer */}
           <Footer />
         </ThemeProvider>

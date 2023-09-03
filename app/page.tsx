@@ -7,7 +7,7 @@ import MembersPics from '@/components/MembersPics';
 
 export default function Home() {
   return (
-    <section className="h-full">
+    <section className="mb-8">
       <TitleSection />
       <Quote />
       <BeOurFriends />
