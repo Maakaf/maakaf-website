@@ -7,13 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --write .",
+    "format": "npx prettier --write . --config ./.prettierrc",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,md,json,scss}": [
       "next lint",
-      "prettier --check --ignore-unknown"
+      "npx prettier --write . --config ./.prettierrc"
     ]
   },
   "dependencies": {

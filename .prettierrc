@@ -12,5 +12,5 @@
   "tabWidth": 2,
   "trailingComma": "es5",
   "useTabs": false,
-  "endOfLine": "crlf"
+  "endOfLine": "lf"
 }
