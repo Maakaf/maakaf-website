@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import { NavDropdown } from './NavDropdown';
 
 const NavRightSide = dynamic(() => import('./NavRightSide'), {
-  ssr: false,
+  ssr: false,       
   suspense: true,
   loading: () => (
     // replace with designer loader icon
