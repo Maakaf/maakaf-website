@@ -6,15 +6,15 @@ import TwitterIconLink from './TwitterIconLink';
 const links = [
   {
     text: 'Contributors',
-    href: '/',
+    href: '/Members',
   },
   {
     text: 'הפרויקטים',
-    href: '/',
+    href: '/Projects',
   },
   {
     text: 'Newbies',
-    href: '/',
+    href: '/Newbies',
   },
   {
     text: 'יצירת קשר',
@@ -22,11 +22,11 @@ const links = [
   },
   {
     text: 'Maintainers',
-    href: '/',
+    href: '/Maintainers',
   },
   {
     text: 'מי אנחנו',
-    href: '/',
+    href: '/About',
   },
 ];
 
