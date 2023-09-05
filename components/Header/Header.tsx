@@ -25,10 +25,10 @@ const Header: React.FC = () => {
             <NavDropdown />
           </li>
           <li className="cursor-pointer body-roman">
-            <Link href="/projects">הפרויקטים</Link>
+            <Link href="/Projects">הפרויקטים</Link>
           </li>
           <li className="cursor-pointer body-roman">
-            <Link href="/about">מי אנחנו</Link>
+            <Link href="/About">מי אנחנו</Link>
           </li>
         </ul>
         <Link href="/">
