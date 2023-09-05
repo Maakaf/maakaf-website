@@ -14,19 +14,19 @@ const communityDropdownItems: CommunityDropdownItems[] = [
     title: 'Newbies',
     titleHoverColor: 'group-hover:text-purple-400',
     text: 'פעם ראשונה בקוד פתוח',
-    linkPath: '/newbies',
+    linkPath: '/Newbies',
   },
   {
     title: 'Members',
     titleHoverColor: 'group-hover:text-green-200',
     text: 'מי שכבר התנסה בקוד פתוח',
-    linkPath: '/members',
+    linkPath: '/Members',
   },
   {
     title: 'Maintainers',
     titleHoverColor: 'group-hover:text-pink-500',
     text: 'בעלי פרויקטים שרוצים להצטרף',
-    linkPath: '/maintainers',
+    linkPath: '/Maintainers',
   },
 ];
 
