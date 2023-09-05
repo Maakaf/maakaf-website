@@ -22,25 +22,25 @@ const navigationItems: NavigationItems[] = [
   {
     title: 'Newbies',
     text: 'פעם ראשונה בקוד פתוח',
-    linkPath: '/newbies',
+    linkPath: '/Newbies',
   },
   {
     title: 'Members',
     text: 'מי שכבר התנסה בקוד פתוח',
-    linkPath: '/members',
+    linkPath: '/Members',
   },
   {
     title: 'Maintainers',
     text: 'בעלי פרויקטים שרוצים להצטרף',
-    linkPath: '/maintainers',
+    linkPath: '/Maintainers',
   },
   {
     title: 'מי אנחנו',
-    linkPath: '/about',
+    linkPath: '/About',
   },
   {
     title: 'הפרויקטים',
-    linkPath: '/projects',
+    linkPath: '/Projects',
   },
 ];
 
