@@ -56,7 +56,7 @@ export default function Paths() {
             variants={variants}
             initial="initial"
             whileInView="visible"
-            viewport={{ once: true, margin: '-200px' }}
+            viewport={{ once: true, margin: '0px 0px -200px 0px' }}
             className="flex"
           >
             <PathItem item={path} />
