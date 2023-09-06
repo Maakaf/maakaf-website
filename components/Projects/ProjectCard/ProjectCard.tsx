@@ -5,7 +5,7 @@ export interface ProjectCardProps {}
 
 export default function ProjectCard({}: ProjectCardProps) {
   return (
-    <article className="flex p-4 sm:p-6 gap-7 rounded-lg dark:bg-darkAccBg">
+    <article className="flex p-4 sm:p-6 gap-7 rounded-lg bg-blue-100 dark:bg-darkAccBg">
       <aside className="hidden sm:flex flex-col items-center gap-4">
         <Image
           width="108"
@@ -14,10 +14,10 @@ export default function ProjectCard({}: ProjectCardProps) {
           alt="project name"
         ></Image>
         <div className="flex flex-col items-center w-fit gap-2">
-          <div className="w-fit min-w-max font-inter text-xs">
+          <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
             ת. עדכון 14/3/2023
           </div>
-          <div className="w-fit min-w-max font-inter text-xs">
+          <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
             ת. הקמה 14/3/2023
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function ProjectCard({}: ProjectCardProps) {
               פרויקט אקראי 45HG
             </div>
             <div className="flex grow sm:justify-between items-center gap-2">
-              <div className="font-inter text-xs bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
+              <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
                 125 תורמים
               </div>
               <div className="flex gap-2">
@@ -56,7 +56,7 @@ export default function ProjectCard({}: ProjectCardProps) {
               </div>
             </div>
           </div>
-          <div className="font-inter text-base max-w-[700px]">
+          <div className="font-inter text-base  text-darkText dark:text-lightText max-w-[700px]">
             פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
             יש בו, מה מחפשים בדיוק במפתחים שמתנדבים, איזה פונקציות קיימות ואולי
             מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע ל...
@@ -64,19 +64,19 @@ export default function ProjectCard({}: ProjectCardProps) {
         </div>
         <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6">
           <div className="flex gap-2 items-center">
-            <div className="bg-gray-800 rounded-[50px] px-6 py-2 font-inter text-xs">
+            <div className="bg-purple-200 dark:bg-gray-800 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter text-xs">
               Java
             </div>
-            <div className="bg-gray-800 rounded-[50px] px-6 py-2 font-inter text-xs">
+            <div className="bg-purple-200 dark:bg-gray-800 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter text-xs">
               Python
             </div>
-            <div className="bg-gray-800 rounded-[50px] px-6 py-2 font-inter text-xs">
+            <div className="bg-purple-200 dark:bg-gray-800 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter text-xs">
               CSS
             </div>
           </div>
           <div className="flex gap-2">
             <Link
-              className="bg-gray-600 rounded-[50px] px-6 py-2 font-inter font-semibold flex-grow text-center"
+              className="bg-gray-100 dark:bg-gray-600 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter font-semibold flex-grow text-center"
               href={'/'}
             >
               גיטהאב

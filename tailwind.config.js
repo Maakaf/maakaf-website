@@ -40,7 +40,7 @@ module.exports = {
       },
       colors: {
         //notice the convenient naming...
-        gray: { 50: '#F8FAFC', 600: '#344154', 800: '#0F1729' },
+        gray: { 50: '#F8FAFC', 100: '#F1F5F9', 600: '#344154', 800: '#0F1729' },
         pink: colors.pink,
         green: colors.teal,
         purple: colors.indigo,
