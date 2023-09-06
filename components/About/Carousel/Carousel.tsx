@@ -76,8 +76,8 @@ const Carousel = ({ className }: CarouselProps) => {
             );
           })}
         </div>
-        <div className="bg-gradient-to-r from-slate-950 to-transparent absolute top-0 left-0 h-full w-1/4 z-10"></div>
-        <div className="bg-gradient-to-l from-slate-950 to-transparent absolute top-0 right-0 h-full w-1/4 z-10"></div>
+        <div className="bg-gradient-to-r from-white dark:from-slate-950 to-transparent absolute top-0 left-0 h-full w-1/4 z-10"></div>
+        <div className="bg-gradient-to-l from-white dark:from-slate-950 to-transparent absolute top-0 right-0 h-full w-1/4 z-10"></div>
       </div>
       <Dots
         itemsLength={slides.length}
