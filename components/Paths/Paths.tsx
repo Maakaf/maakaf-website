@@ -58,7 +58,7 @@ export default function Paths() {
             whileInView="visible"
             viewport={{ once: true, margin: '-200px' }}
           >
-            <PathItem key={index} item={path} />
+            <PathItem item={path} />
           </motion.div>
         ))}
       </div>
