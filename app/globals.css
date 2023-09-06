@@ -8,7 +8,7 @@
     @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
   }
   .darkmode-section {
-    @apply bg-lightAccBg dark:bg-darkAccBg opacity-50 dark:opacity-100;
+    @apply bg-lightAccBg dark:bg-darkAccBg;
   }
   .light-icon-hover {
     filter: invert(87%) sepia(33%) saturate(418%) hue-rotate(103deg)
