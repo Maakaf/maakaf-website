@@ -30,13 +30,13 @@ module.exports = {
         lightText: colors.slate[50],
         discordDark: colors.white,
       },
+      backgroundImage: {
+        'hero-pattern': "url('/images/skeleton_loader.png')",
+      },
     },
     fontFamily: {
       birzia: ['Birzia', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],
-    },
-    backgroundImage: {
-      'hero-pattern': "url('/images/skeleton_loader.png')",
     },
     fontSize: {
       sm: '14px',
@@ -59,4 +59,5 @@ module.exports = {
     },
   },
   plugins: [],
+  safelist: ['bg-gradient-to-r'],
 };
