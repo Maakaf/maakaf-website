@@ -57,6 +57,7 @@ export default function Paths() {
             initial="initial"
             whileInView="visible"
             viewport={{ once: true, margin: '-200px' }}
+            className="flex"
           >
             <PathItem item={path} />
           </motion.div>
