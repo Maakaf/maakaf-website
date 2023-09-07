@@ -32,6 +32,21 @@ export const metadata: Metadata = {
   },
   description:
     'קהילת מעק"ף - מחפשי עבודה (תורמים) לקוד פתוח, היא קהילת קוד פתוח ישראלית, עבור כל מי שמתעניין בקוד פתוח - ממתחילים ועד מומחים. הצטרפו אלינו!',
+  openGraph: {
+    title: 'קהילת מעקף',
+    description:
+      'קהילת מעק"ף - מחפשי עבודה (תורמים) לקוד פתוח, היא קהילת קוד פתוח ישראלית, עבור כל מי שמתעניין בקוד פתוח - ממתחילים ועד מומחים. הצטרפו אלינו!',
+    url: 'https://maakaf-website.vercel.app/',
+    siteName: 'Maakaf',
+    type: 'website',
+    images: [
+      {
+        url: 'https://maakaf-website.vercel.app/favicon.ico',
+        width: 600,
+        height: 600,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
