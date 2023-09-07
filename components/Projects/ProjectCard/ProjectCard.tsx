@@ -1,9 +1,9 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ProjectCardDescription from './ProjectCardDescription';
 import GithubButton from './GithubButton';
 import DiscordButton from './DiscordButton';
+import Avatar from './Avatar';
 export interface ProjectCardProps {}
 
 export default function ProjectCard({}: ProjectCardProps) {
@@ -39,26 +39,8 @@ export default function ProjectCard({}: ProjectCardProps) {
                 125 תורמים
               </div>
               <div className="flex gap-2">
-                <div className="bg-gray-700 rounded-[50px] overflow-hidden">
-                  <Image
-                    loading="lazy"
-                    src="/images/avatars/avatar.jpg"
-                    alt="Contributor1 avatar"
-                    className="max-w-full max-h-full"
-                    width="40"
-                    height="40"
-                  />
-                </div>
-                <div className="bg-gray-700 rounded-[50px] overflow-hidden">
-                  <Image
-                    loading="lazy"
-                    src="/images/avatars/avatar.jpg"
-                    alt="Contributor1 avatar"
-                    className="max-w-full max-h-full"
-                    width="40"
-                    height="40"
-                  />
-                </div>
+                <Avatar></Avatar>
+                <Avatar></Avatar>
               </div>
             </div>
           </div>
