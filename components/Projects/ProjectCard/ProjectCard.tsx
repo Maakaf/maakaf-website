@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
+import ProjectCardDescription from './ProjectCardDescription';
 export interface ProjectCardProps {}
 
 export default function ProjectCard({}: ProjectCardProps) {
@@ -56,11 +57,15 @@ export default function ProjectCard({}: ProjectCardProps) {
               </div>
             </div>
           </div>
-          <div className="font-inter text-base  text-darkText dark:text-lightText max-w-[700px]">
-            פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
+
+          <ProjectCardDescription
+            text="פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
             יש בו, מה מחפשים בדיוק במפתחים שמתנדבים, איזה פונקציות קיימות ואולי
-            מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע ל...
-          </div>
+            מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע לככה הכרטיס
+            מתרחב כשיש יותר מ-3 שורות. בגדול הטקסט נשאר בגבולות ה700 פיקסלים,
+            אבל השפות תכנות והכפתורים יורדים למטה, כשכל השאר נשאר למעלה ותמיד
+            נשאר רווח של 24 פיקסלים בין התיבת טקסט לשפות תכנות והכפתורים."
+          ></ProjectCardDescription>
         </div>
         <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6">
           <div className="flex gap-2 items-center">
