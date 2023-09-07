@@ -64,7 +64,7 @@ const FiltersBar: React.FC = () => {
     <div className="px-4 md:px-14 flex flex-col justify-center items-center gap-[51px]">
       <div className="flex flex-col items-center gap-[5px]">
         <h1 className="h1 font-bold">הפרויקטים</h1>
-        <h2 className="h4-roman text-xl">
+        <h2 className="h4-roman text-xl text-center">
           עמוד הפרויקטים של הקהילה. תתפנקו...
         </h2>
       </div>
@@ -85,17 +85,17 @@ const FiltersBar: React.FC = () => {
                 <>
                   <div
                     ref={filterRef}
-                    className="z-[101] absolute -bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 w-[863px] h-[209px] p-5 bg-gray-50 dark:bg-gray-500"
+                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[400px] md:min-w-0 md:w-[863px] h-[360px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-500"
                   >
                     <div className="flex flex-col gap-[22px]">
                       <h3 className="text-base font-bold leading-normal">
                         פילטרים לפרויקטים
                       </h3>
-                      <div className="flex gap-[26px] items-center">
+                      <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
                           מיון לפי
                         </span>
-                        <div className="flex gap-10 flex-wrap w-full">
+                        <div className="flex gap-[18px] md:gap-10 flex-wrap w-full">
                           {sortOptions.map(sortOption => (
                             <Radiobox
                               key={sortOption}
@@ -107,7 +107,7 @@ const FiltersBar: React.FC = () => {
                           ))}
                         </div>
                       </div>
-                      <div className="flex gap-[26px] items-center">
+                      <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px] leading-tight">
                           סינון לפי תגיות
                         </span>
@@ -141,7 +141,7 @@ const FiltersBar: React.FC = () => {
                 height={24}
               />
             </div>
-            <h5 className="text-base font-normal dark:font-bold">
+            <h5 className="hidden md:block text-base font-normal dark:font-bold">
               איך מתחילים לכתוב קוד פתוח?
             </h5>
           </div>
