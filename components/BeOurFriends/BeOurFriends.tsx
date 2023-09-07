@@ -1,4 +1,7 @@
+'use client';
+
 import BenefitCard from './BenefitCard';
+import { motion } from 'framer-motion';
 
 const cards = [
   {
@@ -27,6 +30,20 @@ const cards = [
   },
 ];
 
+const variants = {
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    rotateZ: '0deg',
+    transition: {
+      delay: index * 0.05,
+      type: 'spring',
+      stiffness: 250,
+    },
+  }),
+  initial: { opacity: 0, y: 100, rotateZ: '-15deg' },
+};
+
 export default function BeOurFriends() {
   return (
     <section className="flex flex-col justify-start py-16 md:py-32">
@@ -39,12 +56,20 @@ export default function BeOurFriends() {
       </div>
       <div className="grid grid-cols-1 gap-4 gap-x-20 my-8 mx-10 md:mx-36 md:grid-cols-2 place-content-around">
         {cards.map((card, index) => (
-          <BenefitCard
+          <motion.div
             key={index}
-            index={index}
-            title={card.title}
-            description={card.description}
-          />
+            custom={index}
+            variants={variants}
+            initial="initial"
+            whileInView="visible"
+            viewport={{ once: true, margin: '10px' }}
+          >
+            <BenefitCard
+              index={index}
+              title={card.title}
+              description={card.description}
+            />
+          </motion.div>
         ))}
       </div>
     </section>

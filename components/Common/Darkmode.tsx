@@ -1,4 +1,5 @@
 'use client';
+
 import Sun from './Sun.svg';
 import Moon from './Moon.svg';
 import { useTheme } from 'next-themes';
@@ -14,9 +15,9 @@ const Darkmode: React.FC = () => {
       }}
     >
       {theme === 'dark' ? (
-        <Sun class="w-[26px] h-[26px] stroke-white stroke-2 hover:stroke-green-200 hover:transition hover:duration-300 hover:ease-in-out" />
+        <Sun className="w-[26px] h-[26px] stroke-white stroke-2 hover:stroke-green-200 hover:transition hover:duration-300 hover:ease-in-out" />
       ) : (
-        <Moon class="w-6 h-6 stroke-black stroke-2 hover:stroke-purple-500 hover:transition hover:duration-300 hover:ease-in-out" />
+        <Moon className="w-6 h-6 stroke-black stroke-2 hover:stroke-purple-500 hover:transition hover:duration-300 hover:ease-in-out" />
       )}
     </button>
   );

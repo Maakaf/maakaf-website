@@ -1,5 +1,6 @@
 import './globals.css';
 import Birzia from 'next/font/local';
+import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/Header/Header';
@@ -24,9 +25,28 @@ const birzia = Birzia({
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
-export const metadata = {
-  title: 'מעקף',
-  description: 'מחפשי עבודה תורמים לקוד פתוח',
+export const metadata: Metadata = {
+  title: {
+    template: '%s | מעקף',
+    default: 'מעקף',
+  },
+  description:
+    'קהילת מעק"ף - מחפשי עבודה (תורמים) לקוד פתוח, היא קהילת קוד פתוח ישראלית, עבור כל מי שמתעניין בקוד פתוח - ממתחילים ועד מומחים. הצטרפו אלינו!',
+  openGraph: {
+    title: 'קהילת מעקף',
+    description:
+      'קהילת מעק"ף - מחפשי עבודה (תורמים) לקוד פתוח, היא קהילת קוד פתוח ישראלית, עבור כל מי שמתעניין בקוד פתוח - ממתחילים ועד מומחים. הצטרפו אלינו!',
+    url: 'https://maakaf-website.vercel.app/',
+    siteName: 'Maakaf',
+    type: 'website',
+    images: [
+      {
+        url: 'https://maakaf-website.vercel.app/favicon.ico',
+        width: 600,
+        height: 600,
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -41,7 +61,9 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
-          <main className="flex-1 h-full pt-24 md:pt-32">{children}</main>
+          <main className="flex flex-col flex-1 h-full pt-24 md:pt-32">
+            {children}
+          </main>
           {/* remove mt-5 when developing the footer */}
           <Footer />
         </ThemeProvider>

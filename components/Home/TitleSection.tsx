@@ -1,4 +1,6 @@
 import Image from 'next/image';
+import DiscordLink from '@/components/Common/DiscordLink';
+
 export default function TitleSection() {
   return (
     <div className="relative px-4 md:px-14 flex justify-between h-[70vh] pb-10">
