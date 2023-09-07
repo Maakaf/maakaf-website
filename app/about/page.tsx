@@ -1,5 +1,27 @@
 import DiscordLink from '@/components/Common/DiscordLink';
 import Carousel from '@/components/About/Carousel';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'מי אנחנו',
+  description:
+    'אנחנו מאמינים בשיתוף המידע והידע כדרך לקידום הטכנולוגיה והחדשות. קוד פתוח זו גישה המאפשרת לנו לשתף פעולה בפיתוח תוכנה בצורה פתוחה ושקופה.',
+  openGraph: {
+    title: 'מי אנחנו | מעקף',
+    description:
+      'אנחנו מאמינים בשיתוף המידע והידע כדרך לקידום הטכנולוגיה והחדשות. קוד פתוח זו גישה המאפשרת לנו לשתף פעולה בפיתוח תוכנה בצורה פתוחה ושקופה.',
+    url: 'https://maakaf-website.vercel.app/about',
+    siteName: 'Maakaf',
+    type: 'website',
+    images: [
+      {
+        url: 'https://maakaf-website.vercel.app/favicon.ico',
+        width: 600,
+        height: 600,
+      },
+    ],
+  },
+};
 
 const AboutPage = () => {
   return (
