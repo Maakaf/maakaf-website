@@ -8,7 +8,10 @@ export interface ProjectCardProps {}
 
 export default function ProjectCard({}: ProjectCardProps) {
   return (
-    <article className="flex p-4 sm:p-6 gap-7 rounded-lg bg-blue-100 dark:bg-darkAccBg">
+    <article
+      className="flex p-4 sm:p-6 gap-7 rounded-lg bg-blue-100 dark:bg-darkAccBg
+    dark:hover:bg-[#253245] item-hover-transition"
+    >
       <aside className="hidden sm:flex flex-col items-center gap-4">
         <Image
           width="108"
