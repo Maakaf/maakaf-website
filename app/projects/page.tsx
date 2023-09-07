@@ -1,3 +1,5 @@
+'use client';
+
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
 import { Metadata } from 'next';
 import ProjectCard from '@/components/Projects/ProjectCard/ProjectCard';
@@ -24,10 +26,15 @@ export const metadata: Metadata = {
 };
 
 const ProjectsPage = () => {
+  const updatedDate = new Date('2023/3/14');
+  const createdDate = new Date('2023/3/14');
   return (
     <section className="h-full">
       <FiltersBar />
-      <ProjectCard></ProjectCard>
+      <ProjectCard
+        updatedDate={updatedDate}
+        createdDate={createdDate}
+      ></ProjectCard>
     </section>
   );
 };

@@ -4,9 +4,26 @@ import ProjectCardDescription from './ProjectCardDescription';
 import GithubButton from './GithubButton';
 import DiscordButton from './DiscordButton';
 import Avatar from './Avatar';
-export interface ProjectCardProps {}
+import { useMemo } from 'react';
 
-export default function ProjectCard({}: ProjectCardProps) {
+export interface ProjectCardProps {
+  updatedDate: Date;
+  createdDate: Date;
+}
+
+export default function ProjectCard({
+  updatedDate,
+  createdDate,
+}: ProjectCardProps) {
+  const updatedDateString = useMemo(
+    () => updatedDate.toLocaleDateString('he-IL').replaceAll('.', '/'),
+    [updatedDate]
+  );
+  const createdDateString = useMemo(
+    () => createdDate.toLocaleDateString('he-IL').replaceAll('.', '/'),
+    [createdDate]
+  );
+
   return (
     <article
       className="flex p-4 sm:p-6 gap-7 rounded-lg bg-blue-100 dark:bg-darkAccBg
@@ -21,10 +38,10 @@ export default function ProjectCard({}: ProjectCardProps) {
         ></Image>
         <div className="flex flex-col items-center w-fit gap-2">
           <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
-            ת. עדכון 14/3/2023
+            ת. עדכון {updatedDateString}
           </div>
           <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
-            ת. הקמה 14/3/2023
+            ת. הקמה {createdDateString}
           </div>
         </div>
       </aside>
