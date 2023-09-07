@@ -1,11 +1,64 @@
 'use client'; // TODO: move to client compt
 
 import Image from 'next/image';
-import FilterBtnsGroup from './FilterBtnsGroup';
-import { useState } from 'react';
+import FilterBtnsGroup, { ProjectFilter, filters } from './FilterBtnsGroup';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
+import Radiobox from '@/components/utils/Radiobox';
+import FilterTagBtn from './FilterTagBtn';
+import useFocusTrap from '@/components/hooks/useFocusTrap';
+
+const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
 const FiltersBar: React.FC = () => {
-  const [toggleFiltersWindow, setToggleFiltersWindow] = useState(false); // TODO: move to client compt
+  const [toggleFiltersWindow, setToggleFiltersWindow] = useState(false);
+  const [selectedSortOption, setSelectedSortOption] = useState('עודכן לאחרונה');
+  const [selectedFilters, setSelectedFilters] = useState<ProjectFilter[]>([]);
+
+  const filterRef = useRef<HTMLDivElement | null>(null);
+
+  const toggleFilters = useCallback(() => {
+    setToggleFiltersWindow(!toggleFiltersWindow);
+  }, [toggleFiltersWindow]);
+
+  const handleSortOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedSortOption(event.target.value);
+  };
+
+  const handleFilterOptionChange = (filter: ProjectFilter) => {
+    // TODO: check that logic and change - might be broken
+    const newFilter: ProjectFilter = {
+      name: filter.name,
+      isActive: true,
+    };
+
+    setSelectedFilters(prevFilters => [...prevFilters, newFilter]);
+  };
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        filterRef.current &&
+        !filterRef.current.contains(event.target as Node)
+      ) {
+        toggleFilters();
+      }
+    };
+
+    if (toggleFiltersWindow) {
+      document.addEventListener('click', handleOutsideClick);
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.removeEventListener('click', handleOutsideClick);
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [toggleFiltersWindow, toggleFilters]);
+
+  useFocusTrap(filterRef, toggleFiltersWindow);
 
   return (
     <div className="px-4 md:px-14 flex flex-col justify-center items-center gap-[51px]">
@@ -30,14 +83,51 @@ const FiltersBar: React.FC = () => {
               {/* CHANGE TO CLIENT COMPT */}
               {toggleFiltersWindow ? (
                 <>
-                  <div className="absolute -bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 w-[863px] h-[209px] p-5 bg-gray-50 dark:bg-gray-500 ">
-                    <h3 className="text-base font-bold leading-normal">
-                      פילטרים לפרויקטים
-                    </h3>
+                  <div
+                    ref={filterRef}
+                    className="z-[101] absolute -bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 w-[863px] h-[209px] p-5 bg-gray-50 dark:bg-gray-500"
+                  >
+                    <div className="flex flex-col gap-[22px]">
+                      <h3 className="text-base font-bold leading-normal">
+                        פילטרים לפרויקטים
+                      </h3>
+                      <div className="flex gap-[26px] items-center">
+                        <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
+                          מיון לפי
+                        </span>
+                        <div className="flex gap-10 flex-wrap w-full">
+                          {sortOptions.map(sortOption => (
+                            <Radiobox
+                              key={sortOption}
+                              id={sortOption}
+                              value={sortOption}
+                              checked={selectedSortOption === sortOption}
+                              onChange={handleSortOptionChange}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex gap-[26px] items-center">
+                        <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px] leading-tight">
+                          סינון לפי תגיות
+                        </span>
+                        <div className="flex gap-2 flex-wrap w-full">
+                          {filters.map(filter => (
+                            <FilterTagBtn
+                              key={filter.name}
+                              btnText={filter.name}
+                              onClick={() => handleFilterOptionChange(filter)}
+                              isSelected={filter.isActive}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
                     <div className="absolute -top-[0.75rem] right-[10px] -mb-[1px] inline-block overflow-hidden">
                       <div className="h-3 w-[18px] origin-bottom-left rotate-45 transform border border-blue-600 bg-gray-50 dark:bg-gray-500 "></div>
                     </div>
                   </div>
+                  <div className="fixed z-[100] top-0 left-0 w-full h-screen opacity-[30%] bg-gray-900" />
                 </>
               ) : null}
             </div>
