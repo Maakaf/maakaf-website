@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ProjectCardDescription from './ProjectCardDescription';
+import GithubButton from './GithubButton';
+import DiscordButton from './DiscordButton';
 export interface ProjectCardProps {}
 
 export default function ProjectCard({}: ProjectCardProps) {
@@ -80,27 +82,8 @@ export default function ProjectCard({}: ProjectCardProps) {
             </div>
           </div>
           <div className="flex gap-2">
-            <Link
-              className="bg-gray-100 dark:bg-gray-600 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter font-semibold flex-grow text-center"
-              href={'/'}
-            >
-              גיטהאב
-            </Link>
-
-            <Link
-              className="bg-gray-50 text-gray-600 rounded-[50px] px-6 py-2 font-inter font-semibold flex gap-2 items-center flex-grow-[2] justify-center"
-              href={'/'}
-              target="_blank"
-              // className="text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition"
-            >
-              <div>ערוץ דיסקורד</div>
-              <Image
-                src={'/images/discord.png'}
-                alt="discord"
-                width={20}
-                height={20}
-              />
-            </Link>
+            <GithubButton />
+            <DiscordButton />
           </div>
         </div>
       </div>
