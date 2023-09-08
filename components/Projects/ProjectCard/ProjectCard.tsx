@@ -1,17 +1,20 @@
-import Image from 'next/image';
-import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
+import Image, { StaticImageData } from 'next/image';
 import ProjectCardDescription from './ProjectCardDescription';
 import GithubButton from './GithubButton';
 import DiscordButton from './DiscordButton';
 import Avatar from './Avatar';
 import { useMemo } from 'react';
+import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
+import ImageWithFallback from '@/components/utils/ImageWithFallback';
 
 export interface ProjectCardProps {
+  projectThumbnailSrc: string;
   updatedDate: Date;
   createdDate: Date;
 }
 
 export default function ProjectCard({
+  projectThumbnailSrc,
   updatedDate,
   createdDate,
 }: ProjectCardProps) {
@@ -30,12 +33,13 @@ export default function ProjectCard({
     dark:hover:bg-[#253245] item-hover-transition"
     >
       <aside className="hidden sm:flex flex-col items-center gap-4">
-        <Image
+        <ImageWithFallback
           width="108"
           height="108"
-          src={ProjectImagePlaceholder}
+          src={projectThumbnailSrc}
           alt="project name"
-        ></Image>
+          fallback={ProjectImagePlaceholder}
+        ></ImageWithFallback>
         <div className="flex flex-col items-center w-fit gap-2">
           <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
             ת. עדכון {updatedDateString}

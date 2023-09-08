@@ -32,6 +32,7 @@ const ProjectsPage = () => {
     <section className="h-full">
       <FiltersBar />
       <ProjectCard
+        projectThumbnailSrc={'/'}
         updatedDate={updatedDate}
         createdDate={createdDate}
       ></ProjectCard>
