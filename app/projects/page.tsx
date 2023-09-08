@@ -28,6 +28,14 @@ export const metadata: Metadata = {
 const ProjectsPage = () => {
   const updatedDate = new Date('2023/3/14');
   const createdDate = new Date('2023/3/14');
+  const projectName = 'פרויקט אקראי 45HG';
+  const description = `פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
+  יש בו, מה מחפשים בדיוק במפתחים שמתנדבים, איזה פונקציות קיימות ואולי
+  מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע לככה הכרטיס
+  מתרחב כשיש יותר מ-3 שורות. בגדול הטקסט נשאר בגבולות ה700 פיקסלים,
+  אבל השפות תכנות והכפתורים יורדים למטה, כשכל השאר נשאר למעלה ותמיד
+  נשאר רווח של 24 פיקסלים בין התיבת טקסט לשפות תכנות והכפתורים.`;
+
   return (
     <section className="h-full">
       <FiltersBar />
@@ -35,6 +43,8 @@ const ProjectsPage = () => {
         projectThumbnailSrc={'/'}
         updatedDate={updatedDate}
         createdDate={createdDate}
+        projectName={projectName}
+        description={description}
       ></ProjectCard>
     </section>
   );

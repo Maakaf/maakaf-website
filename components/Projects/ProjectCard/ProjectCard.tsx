@@ -11,12 +11,16 @@ export interface ProjectCardProps {
   projectThumbnailSrc: string;
   updatedDate: Date;
   createdDate: Date;
+  projectName: string;
+  description: string;
 }
 
 export default function ProjectCard({
   projectThumbnailSrc,
   updatedDate,
   createdDate,
+  projectName,
+  description,
 }: ProjectCardProps) {
   const updatedDateString = useMemo(
     () => updatedDate.toLocaleDateString('he-IL').replaceAll('.', '/'),
@@ -52,9 +56,7 @@ export default function ProjectCard({
       <div className="flex grow flex-col justify-between gap-6">
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap flex-col sm:flex-row sm:items-center gap-6 gap-y-2">
-            <div className="font-birzia text-xl font-bold">
-              פרויקט אקראי 45HG
-            </div>
+            <div className="font-birzia text-xl font-bold">{projectName}</div>
             <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
                 125 תורמים
@@ -66,14 +68,7 @@ export default function ProjectCard({
             </div>
           </div>
 
-          <ProjectCardDescription
-            text="פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
-            יש בו, מה מחפשים בדיוק במפתחים שמתנדבים, איזה פונקציות קיימות ואולי
-            מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע לככה הכרטיס
-            מתרחב כשיש יותר מ-3 שורות. בגדול הטקסט נשאר בגבולות ה700 פיקסלים,
-            אבל השפות תכנות והכפתורים יורדים למטה, כשכל השאר נשאר למעלה ותמיד
-            נשאר רווח של 24 פיקסלים בין התיבת טקסט לשפות תכנות והכפתורים."
-          ></ProjectCardDescription>
+          <ProjectCardDescription text={description}></ProjectCardDescription>
         </div>
         <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6">
           <div className="flex gap-2 items-center">
