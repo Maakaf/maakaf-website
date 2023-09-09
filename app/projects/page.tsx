@@ -46,6 +46,8 @@ const ProjectsPage = () => {
         projectName={projectName}
         description={description}
         tags={['Java', 'Python', 'CSS', 'CSS1', 'CSS2', 'CSS3']}
+        githubLink="https://github.com/Maakaf/maakaf-website"
+        discordLink="https://discord.gg/ayh8HtRQXk"
       ></ProjectCard>
     </section>
   );

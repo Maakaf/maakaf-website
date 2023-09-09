@@ -15,6 +15,8 @@ export interface ProjectCardProps {
   projectName: string;
   description: string;
   tags: string[];
+  githubLink?: string;
+  discordLink?: string;
 }
 
 export default function ProjectCard({
@@ -24,6 +26,8 @@ export default function ProjectCard({
   projectName,
   description,
   tags,
+  githubLink,
+  discordLink,
 }: ProjectCardProps) {
   const updatedDateString = useMemo(
     () => updatedDate.toLocaleDateString('he-IL').replaceAll('.', '/'),
@@ -78,8 +82,8 @@ export default function ProjectCard({
             tags={tags}
           ></TagList>
           <div className="flex gap-2">
-            <GithubButton />
-            <DiscordButton />
+            {githubLink && <GithubButton link={githubLink} />}
+            {discordLink && <DiscordButton link={discordLink} />}
           </div>
         </div>
       </div>
