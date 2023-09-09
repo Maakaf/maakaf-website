@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-const MaintainersPage = () => {
+const MaintainersPage: React.FC = () => {
   return <div>MaintainersPage</div>;
 };
 

@@ -1,4 +1,3 @@
-import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,11 +22,7 @@ export const metadata: Metadata = {
 };
 
 const ProjectsPage = () => {
-  return (
-    <section className="h-full">
-      <FiltersBar />
-    </section>
-  );
+  return <div>ProjectsPage</div>;
 };
 
 export default ProjectsPage;

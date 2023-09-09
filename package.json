@@ -17,9 +17,6 @@
     ]
   },
   "dependencies": {
-    "@types/node": "20.3.1",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
     "classnames": "^2.3.2",
     "embla-carousel-autoplay": "^8.0.0-rc12",
@@ -36,6 +33,9 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20.6.0",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "eslint-config-next": "^13.4.7",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",

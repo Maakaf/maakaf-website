@@ -64,7 +64,6 @@ export default function RootLayout({
           <main className="flex flex-col flex-1 h-full pt-24 md:pt-32">
             {children}
           </main>
-          {/* remove mt-5 when developing the footer */}
           <Footer />
         </ThemeProvider>
       </body>
