@@ -45,6 +45,7 @@ const ProjectsPage = () => {
         createdDate={createdDate}
         projectName={projectName}
         description={description}
+        tags={['Java', 'Python', 'CSS', 'CSS1', 'CSS2', 'CSS3']}
       ></ProjectCard>
     </section>
   );

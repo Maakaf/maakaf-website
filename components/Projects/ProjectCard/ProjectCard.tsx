@@ -6,6 +6,7 @@ import Avatar from './Avatar';
 import { useMemo } from 'react';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
+import TagList from './TagList';
 
 export interface ProjectCardProps {
   projectThumbnailSrc: string;
@@ -13,6 +14,7 @@ export interface ProjectCardProps {
   createdDate: Date;
   projectName: string;
   description: string;
+  tags: string[];
 }
 
 export default function ProjectCard({
@@ -21,6 +23,7 @@ export default function ProjectCard({
   createdDate,
   projectName,
   description,
+  tags,
 }: ProjectCardProps) {
   const updatedDateString = useMemo(
     () => updatedDate.toLocaleDateString('he-IL').replaceAll('.', '/'),
@@ -67,21 +70,13 @@ export default function ProjectCard({
               </div>
             </div>
           </div>
-
           <ProjectCardDescription text={description}></ProjectCardDescription>
         </div>
-        <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6">
-          <div className="flex gap-2 items-center">
-            <div className="bg-purple-200 dark:bg-gray-800 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter text-xs">
-              Java
-            </div>
-            <div className="bg-purple-200 dark:bg-gray-800 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter text-xs">
-              Python
-            </div>
-            <div className="bg-purple-200 dark:bg-gray-800 text-darkText dark:text-lightText rounded-[50px] px-6 py-2 font-inter text-xs">
-              CSS
-            </div>
-          </div>
+        <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6 sm:items-end">
+          <TagList
+            className="flex-wrap grow basis-[min-content]"
+            tags={tags}
+          ></TagList>
           <div className="flex gap-2">
             <GithubButton />
             <DiscordButton />
