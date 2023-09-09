@@ -1,18 +1,20 @@
-import Image, { StaticImageData } from 'next/image';
 import ProjectCardDescription from './ProjectCardDescription';
 import GithubButton from './GithubButton';
 import DiscordButton from './DiscordButton';
-import Avatar from './Avatar';
 import { useMemo } from 'react';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import TagList from './TagList';
+import AvatarList from './AvatarList';
+import { AvatarData } from './Avatar';
 
 export interface ProjectCardProps {
   projectThumbnailSrc: string;
   updatedDate: Date;
   createdDate: Date;
   projectName: string;
+  contributorCount: number;
+  contributorAvatars: AvatarData[];
   description: string;
   tags: string[];
   githubLink?: string;
@@ -24,6 +26,8 @@ export default function ProjectCard({
   updatedDate,
   createdDate,
   projectName,
+  contributorCount,
+  contributorAvatars,
   description,
   tags,
   githubLink,
@@ -66,12 +70,9 @@ export default function ProjectCard({
             <div className="font-birzia text-xl font-bold">{projectName}</div>
             <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
-                125 תורמים
+                {contributorCount} תורמים
               </div>
-              <div className="flex gap-2">
-                <Avatar></Avatar>
-                <Avatar></Avatar>
-              </div>
+              <AvatarList avatars={contributorAvatars}></AvatarList>
             </div>
           </div>
           <ProjectCardDescription text={description}></ProjectCardDescription>
