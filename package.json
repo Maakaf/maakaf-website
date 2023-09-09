@@ -7,21 +7,22 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "npx prettier --write .",
+    "format": "npx prettier --write . --config ./.prettierrc",
     "prepare": "husky install"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,md,json,scss}": [
       "next lint",
-      "prettier --check --ignore-unknown"
+      "npx prettier --write . --config ./.prettierrc"
     ]
   },
   "dependencies": {
-    "@types/node": "20.3.1",
-    "@types/react": "18.2.14",
-    "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "classnames": "^2.3.2",
+    "embla-carousel-autoplay": "^8.0.0-rc12",
+    "embla-carousel-react": "^8.0.0-rc12",
     "eslint": "8.43.0",
+    "framer-motion": "^10.16.2",
     "next": "13.4.7",
     "next-themes": "0.2.1",
     "postcss": "8.4.24",
@@ -31,11 +32,15 @@
     "typescript": "5.1.3"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20.6.0",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "eslint-config-next": "^13.4.7",
     "eslint-config-prettier": "^9.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
-    "prettier": "^3.0.2",
+    "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "pretty-quick": "^3.1.3"
   }

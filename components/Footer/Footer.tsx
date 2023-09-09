@@ -37,14 +37,14 @@ interface FooterLinkProps {
 
 const FooterLink = ({ href, text }: FooterLinkProps) => (
   <Link href={href}>
-    <p className="p-2 text-lg text-center md:text-right font-inter ">{text}</p>
+    <p className="p-2 text-lg text-center md:text-right">{text}</p>
   </Link>
 );
 
 const Footer: React.FC = () => {
   return (
-    <footer className="grid  md:grid-cols-2 border-t-[1px]  h-96 md:h-44 border-blue-600 bg-lightBg dark:bg-darkAccBg text-darkText dark:text-lightText">
-      <div className="grid w-full grid-cols-2 py-6 2xl:w-2/3 md:px-16 lg:px-24 ">
+    <footer className="grid py-6 font-inter md:grid-cols-2 border-t-[1px] w-full h-96 md:h-40 border-blue-600 bg-lightBg dark:bg-darkAccBg text-darkText dark:text-lightText">
+      <div className="grid w-full grid-cols-2 2xl:w-2/3 md:px-16 lg:px-24 ">
         {links.map((link, index) => (
           <FooterLink key={index} href={link.href} text={link.text} />
         ))}
@@ -58,10 +58,10 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex justify-center w-full gap-10 text-center lg:gap-16 ">
-            <Link className="text-sm font-inter " href="#">
+            <Link className="text-sm" href="#">
               תנאי שימוש
             </Link>
-            <Link className="text-sm font-inter " href="#">
+            <Link className="text-sm" href="#">
               הגדרות פרטיות
             </Link>
           </div>
