@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
 };
 
-const NewbiesPage = () => {
+const NewbiesPage: React.FC = () => {
   return <div>NewbiesPage</div>;
 };
 
