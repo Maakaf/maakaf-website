@@ -56,4 +56,10 @@
   .discord-btn {
     @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
   }
+  .placeholderSize {
+    @apply bg-gray-700 h-[65px] md:h-[100px] overflow-hidden;
+  }
+  .placeholderCircle {
+    @apply placeholderSize rounded-[50px];
+  }
 }

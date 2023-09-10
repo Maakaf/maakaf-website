@@ -1,6 +1,10 @@
 import React from 'react';
 const FacebookIconLink = () => (
-  <a href="https://www.facebook.com/" target="_blank">
+  <a
+    href="https://www.facebook.com/"
+    target="_blank"
+    aria-label="See us in facebook"
+  >
     <svg
       width="52"
       height="52"

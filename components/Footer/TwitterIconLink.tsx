@@ -2,7 +2,11 @@ import React from 'react';
 
 const TwitterIconLink = () => {
   return (
-    <a href="https://twitter.com/" target="_blank">
+    <a
+      href="https://twitter.com/"
+      target="_blank"
+      aria-label="See us in twitter"
+    >
       <svg
         width="52"
         height="52"
