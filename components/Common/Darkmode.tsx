@@ -9,6 +9,8 @@ const Darkmode: React.FC = () => {
 
   return (
     <button
+      id="theme-toggler"
+      aria-label="click here to toggle theme"
       className="w-6 h-6 cursor-pointer inset-0 bg-transparent border-none p-0 m-0"
       onClick={() => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
