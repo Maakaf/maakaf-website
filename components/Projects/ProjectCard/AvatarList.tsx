@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import Avatar, { AvatarData } from './Avatar';
 
 export interface AvatarListProps {
@@ -6,11 +7,11 @@ export interface AvatarListProps {
 }
 
 export default function AvatarList({
-  avatars: avatars,
+  avatars,
   className = '',
 }: AvatarListProps) {
   return (
-    <div className={`flex gap-2 ${className}`}>
+    <div className={classNames('flex gap-2', className)}>
       {avatars.map(avatar => (
         <Avatar
           key={avatar.imageSrc}
