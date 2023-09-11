@@ -7,7 +7,9 @@ export interface AvatarData {
   imageSrc: string;
   name: string;
 }
-export default function Avatar({ imageSrc, name }: AvatarData) {
+export interface AvatarProps extends AvatarData {}
+
+export default function Avatar({ imageSrc, name }: AvatarProps) {
   return (
     <div
       data-tooltip-id="avatarTooltip"
