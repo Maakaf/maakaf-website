@@ -1,5 +1,3 @@
-'use client';
-
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
 import { Metadata } from 'next';
 import ProjectCard, {
