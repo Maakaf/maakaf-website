@@ -2,7 +2,9 @@
 
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
 import { Metadata } from 'next';
-import ProjectCard from '@/components/Projects/ProjectCard/ProjectCard';
+import ProjectCard, {
+  ProjectCardProps,
+} from '@/components/Projects/ProjectCard/ProjectCard';
 
 export const metadata: Metadata = {
   title: 'הפרויקטים',
@@ -26,34 +28,31 @@ export const metadata: Metadata = {
 };
 
 const ProjectsPage = () => {
-  const updatedDate = new Date('2023/3/14');
-  const createdDate = new Date('2023/3/14');
-  const projectName = 'פרויקט אקראי 45HG';
-  const description = `פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
-  יש בו, מה מחפשים בדיוק במפתחים שמתנדבים, איזה פונקציות קיימות ואולי
-  מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע לככה הכרטיס
-  מתרחב כשיש יותר מ-3 שורות. בגדול הטקסט נשאר בגבולות ה700 פיקסלים,
-  אבל השפות תכנות והכפתורים יורדים למטה, כשכל השאר נשאר למעלה ותמיד
-  נשאר רווח של 24 פיקסלים בין התיבת טקסט לשפות תכנות והכפתורים.`;
+  const exampleProjectCardData: ProjectCardProps = {
+    projectThumbnailSrc: '/',
+    updatedDate: new Date('2023/3/14'),
+    createdDate: new Date('2023/3/14'),
+    projectName: 'פרויקט אקראי 45HG',
+    contributorCount: 125,
+    contributorAvatars: [
+      { imageSrc: '/images/avatars/avatar.jpg?0', name: 'ברוך אודם' },
+      { imageSrc: '/images/avatars/avatar.jpg?1', name: 'ברוך אודם' },
+    ],
+    description: `פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
+    יש בו, מה מחפשים בדיוק במפתחים שמתנדבים, איזה פונקציות קיימות ואולי
+    מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע לככה הכרטיס
+    מתרחב כשיש יותר מ-3 שורות. בגדול הטקסט נשאר בגבולות ה700 פיקסלים,
+    אבל השפות תכנות והכפתורים יורדים למטה, כשכל השאר נשאר למעלה ותמיד
+    נשאר רווח של 24 פיקסלים בין התיבת טקסט לשפות תכנות והכפתורים.`,
+    tags: ['Java', 'Python', 'CSS', 'CSS1', 'CSS2', 'CSS3'],
+    githubLink: 'https://github.com/Maakaf/maakaf-website',
+    discordLink: 'https://discord.gg/ayh8HtRQXk',
+  };
 
   return (
     <section className="h-full">
       <FiltersBar />
-      <ProjectCard
-        projectThumbnailSrc={'/'}
-        updatedDate={updatedDate}
-        createdDate={createdDate}
-        projectName={projectName}
-        contributorCount={125}
-        contributorAvatars={[
-          { imageSrc: '/images/avatars/avatar.jpg?0', name: 'ברוך אודם' },
-          { imageSrc: '/images/avatars/avatar.jpg?1', name: 'ברוך אודם' },
-        ]}
-        description={description}
-        tags={['Java', 'Python', 'CSS', 'CSS1', 'CSS2', 'CSS3']}
-        githubLink="https://github.com/Maakaf/maakaf-website"
-        discordLink="https://discord.gg/ayh8HtRQXk"
-      ></ProjectCard>
+      <ProjectCard {...exampleProjectCardData}></ProjectCard>
     </section>
   );
 };
