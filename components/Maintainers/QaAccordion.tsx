@@ -14,7 +14,7 @@ type Props = {
 
 const QaAccordion = ({ qaArr }: Props) => {
   return (
-    <div className="w-[316px] md:w-[720px] xl:w-[1240px] mx-auto mt-8">
+    <div className="w-[90vw] sm:w-[600px] md:w-[720px] xl:w-[1240px] mx-auto mt-8">
       <Accordion
         type="single"
         className="font-medium"
