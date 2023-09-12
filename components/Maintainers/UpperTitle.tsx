@@ -4,12 +4,12 @@ type Props = {
 
 const UpperTitle = ({ title }: Props) => {
   return (
-    <div className="flex flex-col-reverse md:flex-row self-start md:items-center">
+    <div className="w-[200px] md:w-full flex flex-col-reverse md:flex-row self-start md:items-center">
       <div className="flex pt-2 md:p-0">
         <div className="w-[160px] h-[8px] md:w-24 md:h-6 ml-4 bg-blue-500 rounded-full rounded-s-none"></div>
         <div className="w-[8px] h-[8px] md:w-6 md:h-6 ml-4 bg-blue-500 rounded-full"></div>
       </div>
-      <h4 className="text-right pr-4 md:pr-8">{title}</h4>
+      <h4 className="text-right pr-4">{title}</h4>
     </div>
   );
 };
