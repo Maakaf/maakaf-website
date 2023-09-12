@@ -17,7 +17,12 @@ export function User(props: SVGProps<SVGSVGElement>) {
 
 export function Page(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 54 74" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <svg
+      viewBox="0 0 54 74"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="#DB2777"
+      {...props}
+    >
       <rect width="53.7791" height="73.9462" rx="7.46932" fill="#DB2777" />
       <rect
         x="0.373466"
@@ -30,37 +35,37 @@ export function Page(props: SVGProps<SVGSVGElement>) {
       />
       <path
         d="M7.46948 8.58984H47.0569"
-        stroke="#020616"
+        stroke="#1E293A"
         stroke-width="1.49386"
         stroke-linecap="round"
       />
       <path
         d="M7.46948 31.7441H47.0569"
-        stroke="#020616"
+        stroke="#1E293A"
         stroke-width="1.49386"
         stroke-linecap="round"
       />
       <path
         d="M7.46948 16.0586H47.0569"
-        stroke="#020616"
+        stroke="#1E293A"
         stroke-width="1.49386"
         stroke-linecap="round"
       />
       <path
         d="M7.46948 39.2139H47.0569"
-        stroke="#020616"
+        stroke="#1E293A"
         stroke-width="1.49386"
         stroke-linecap="round"
       />
       <path
         d="M29.0994 46.6836H47.0879"
-        stroke="#020616"
+        stroke="#1E293A"
         stroke-width="1.49386"
         stroke-linecap="round"
       />
       <path
         d="M7.46948 24.2754H47.0569"
-        stroke="#020616"
+        stroke="#1E293A"
         stroke-width="1.49386"
         stroke-linecap="round"
       />
