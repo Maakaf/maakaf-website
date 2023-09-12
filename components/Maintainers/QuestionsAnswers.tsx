@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import UpperTitle from './UpperTitle';
 
 const questionsAnswersArray = [
   {
@@ -33,13 +34,7 @@ const questionsAnswersArray = [
 const QuestionsAnswers = () => {
   return (
     <div className="w-full py-8 md:py-16">
-      <div className="flex flex-col-reverse md:flex-row self-start md:items-center">
-        <div className="flex pt-2 md:p-0">
-          <div className="w-[160px] h-[8px] md:w-24 md:h-6 ml-4 bg-blue-500 rounded-full rounded-s-none"></div>
-          <div className="w-[8px] h-[8px] md:w-6 md:h-6 ml-4 bg-blue-500 rounded-full"></div>
-        </div>
-        <h4 className="text-right pr-4 md:pr-8">שאלות ותשובות</h4>
-      </div>
+      <UpperTitle title="שאלות ותשובות" />
       <div className="w-[316px] md:w-[720px] xl:w-[1240px] mx-auto mt-8">
         <Accordion
           type="single"
