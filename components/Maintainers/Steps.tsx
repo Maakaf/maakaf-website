@@ -1,8 +1,4 @@
-import {
-  FluentDocumentOnePage20Filled,
-  MajesticonsLaptop,
-  MingcuteUser3Fill,
-} from './SvgsIcons';
+import { Laptop, Page, User } from './SvgsIcons';
 import UpperTitle from './UpperTitle';
 
 const Steps = () => {
@@ -12,7 +8,7 @@ const Steps = () => {
       <div className="flex flex-col items-center mt-8 gap-8 sm:flex-row sm:items-center sm:justify-center sm:flex-wrap">
         <div className="flex gap-4 justify-between w-4/5 sm:w-auto">
           <div className="rounded-full bg-gray-700 w-[92px] h-[92px] md:w-[125px] md:h-[125px] grid place-items-center p-4">
-            <FluentDocumentOnePage20Filled className="h-full w-full fill-[#DB2777]" />
+            <Page className="h-full w-full fill-[#DB2777]" />
           </div>
           <div className="w-36 pt-2">
             <h3 className="text-2xl font-medium ">שלב 1</h3>
@@ -21,7 +17,7 @@ const Steps = () => {
         </div>
         <div className="flex gap-4 justify-between w-4/5 sm:w-auto">
           <div className="rounded-full bg-gray-700 w-[92px] h-[92px] md:w-[125px] md:h-[125px] grid place-items-center p-4">
-            <MingcuteUser3Fill className="h-full w-full" />
+            <User className="h-full w-full" />
           </div>
           <div className="w-36 pt-2">
             <h3 className="text-2xl font-medium ">שלב 2</h3>
@@ -32,7 +28,7 @@ const Steps = () => {
         </div>
         <div className="flex gap-4 justify-between w-4/5 sm:w-auto">
           <div className="rounded-full bg-gray-700 w-[92px] h-[92px] md:w-[125px] md:h-[125px] grid place-items-center p-4">
-            <MajesticonsLaptop className="h-full w-full fill-[#3B82F6]" />
+            <Laptop className="h-full w-full fill-[#3B82F6]" />
           </div>
           <div className="w-36 pt-2">
             <h3 className="text-2xl font-medium ">שלב 3</h3>
