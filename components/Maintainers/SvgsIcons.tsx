@@ -31,43 +31,43 @@ export function Page(props: SVGProps<SVGSVGElement>) {
         height="73.1993"
         rx="3.36119"
         stroke="#DB2777"
-        stroke-width="0.746931"
+        strokeWidth="0.746931"
       />
       <path
         d="M7.46948 8.58984H47.0569"
         stroke="#1E293A"
-        stroke-width="1.49386"
-        stroke-linecap="round"
+        strokeWidth="1.49386"
+        strokeLinecap="round"
       />
       <path
         d="M7.46948 31.7441H47.0569"
         stroke="#1E293A"
-        stroke-width="1.49386"
-        stroke-linecap="round"
+        strokeWidth="1.49386"
+        strokeLinecap="round"
       />
       <path
         d="M7.46948 16.0586H47.0569"
         stroke="#1E293A"
-        stroke-width="1.49386"
-        stroke-linecap="round"
+        strokeWidth="1.49386"
+        strokeLinecap="round"
       />
       <path
         d="M7.46948 39.2139H47.0569"
         stroke="#1E293A"
-        stroke-width="1.49386"
-        stroke-linecap="round"
+        strokeWidth="1.49386"
+        strokeLinecap="round"
       />
       <path
         d="M29.0994 46.6836H47.0879"
         stroke="#1E293A"
-        stroke-width="1.49386"
-        stroke-linecap="round"
+        strokeWidth="1.49386"
+        strokeLinecap="round"
       />
       <path
         d="M7.46948 24.2754H47.0569"
         stroke="#1E293A"
-        stroke-width="1.49386"
-        stroke-linecap="round"
+        strokeWidth="1.49386"
+        strokeLinecap="round"
       />
       <circle cx="28.0099" cy="46.683" r="0.373466" fill="#DB2777" />
     </svg>
