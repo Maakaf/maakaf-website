@@ -7,7 +7,7 @@ const Steps = () => {
       <UpperTitle title="איך התהליך עובד?" />
       <div className="flex flex-col items-center mt-8 gap-8 sm:flex-row sm:items-center sm:justify-center sm:flex-wrap">
         <div className="flex gap-4 justify-between w-4/5 sm:w-auto">
-          <div className="rounded-full bg-gray-700 w-[92px] h-[92px] md:w-[125px] md:h-[125px] grid place-items-center p-4">
+          <div className="rounded-full bg-gray-700 w-[92px] h-[92px] md:w-[125px] md:h-[125px] grid place-items-center p-5">
             <Page className="h-full w-full" />
           </div>
           <div className="w-36 pt-2">
