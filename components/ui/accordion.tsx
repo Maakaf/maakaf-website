@@ -35,7 +35,7 @@ const AccordionTrigger = React.forwardRef<
       {...props}
     >
       {children}
-      <Triangle className="h-3 w-3 shrink-0 transition-transform duration-200 mr-2 fill-gray-900 dark:fill-[#D9D9D9] -rotate-90" />
+      <Triangle className="h-3 w-3 shrink-0 transition-transform duration-200 mr-4 stroke-gray-900 fill-gray-900 dark:stroke-[#D9D9D9] dark:fill-[#D9D9D9]  -rotate-90" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));
