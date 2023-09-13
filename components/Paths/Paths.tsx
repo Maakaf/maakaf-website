@@ -10,12 +10,14 @@ const paths = [
       'פעם ראשונה עם קוד פתוח? אל דאגה... בואו נבין ביחד מאיפה להתחיל',
     link: { name: 'צעד ראשון', href: '/' },
     btnColorHover: 'dark:hover:bg-pink-500',
+    btnColorMobile: 'dark:bg-pink-500',
   },
   {
     title: 'Contributors',
     description: 'מכירים כבר את הקונספט ורוצים להצטרף לקהילה? בבקשה',
     link: { name: 'ערוץ דיסקורד', href: '/' },
     btnColorHover: 'dark:hover:bg-purple-500',
+    btnColorMobile: 'dark:bg-purple-500',
   },
   {
     title: 'Maintainers',
@@ -23,6 +25,7 @@ const paths = [
       'יש לכם פרויקט שאתם רוצים לצרף למעקף? מלאו טופס הצטרפות ונתחיל',
     link: { name: 'טופס הצטרפות', href: '/' },
     btnColorHover: 'dark:hover:bg-green-500',
+    btnColorMobile: 'dark:bg-green-500',
   },
 ];
 
