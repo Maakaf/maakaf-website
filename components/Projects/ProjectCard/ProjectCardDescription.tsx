@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useState } from 'react';
 
 export interface ProjectCardDescriptionProps {
   text: string;
@@ -12,9 +12,7 @@ export default function ProjectCardDescription({
 }: ProjectCardDescriptionProps) {
   const [isTextExpanded, setTextExpanded] = useState(false);
 
-  const shorthandText = useMemo(() => {
-    return `${text.slice(0, maxCharactersForText).trimEnd()}...`;
-  }, [text]);
+  const shorthandText = `${text.slice(0, maxCharactersForText).trimEnd()}...`;
 
   const shouldUseShorthandText =
     text.length >= maxCharactersForText && !isTextExpanded;

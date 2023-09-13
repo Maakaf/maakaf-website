@@ -33,14 +33,13 @@ export default function ProjectCard({
   githubLink,
   discordLink,
 }: ProjectCardProps) {
-  const updatedDateString = useMemo(
-    () => updatedDate.toLocaleDateString('he-IL').replaceAll('.', '/'),
-    [updatedDate]
-  );
-  const createdDateString = useMemo(
-    () => createdDate.toLocaleDateString('he-IL').replaceAll('.', '/'),
-    [createdDate]
-  );
+  const updatedDateString = updatedDate
+    .toLocaleDateString('he-IL')
+    .replaceAll('.', '/');
+
+  const createdDateString = createdDate
+    .toLocaleDateString('he-IL')
+    .replaceAll('.', '/');
 
   return (
     <article
