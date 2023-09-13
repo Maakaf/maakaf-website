@@ -4,7 +4,7 @@ interface PathProps {
     title: string;
     description: string;
     link: { name: string; href: string };
-    btnColorDark: string;
+    btnColorHover: string;
   };
 }
 
@@ -19,9 +19,9 @@ export default function PathItem({ item }: PathProps) {
       ></div>
       <h4 className="capitalize self-center">{item.title}</h4>
       <div className="flex flex-col grow justify-between gap-10 min-h-[128px] items-center ">
-        <p className="text-base font-normal">{item.description}</p>
+        <p className="text-base font-normal font-inter">{item.description}</p>
         <a
-          className={`text-base font-normal px-4 py-2 body-bold ${item.btnColorDark} bg-lightText w-fit rounded-xl`}
+          className={`text-base font-normal font-inter px-4 py-2 body-bold dark:bg-gray-700 ${item.btnColorHover} bg-lightText w-fit rounded-xl`}
           href={item.link.href}
         >
           {item.link.name}
