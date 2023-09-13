@@ -1,12 +1,11 @@
 import ProjectCardDescription from './ProjectCardDescription';
 import GithubButton from './GithubButton';
-import DiscordButton from './DiscordButton';
-import { useMemo } from 'react';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import TagList from './TagList';
 import AvatarList from './AvatarList';
 import { AvatarData } from './Avatar';
+import DiscordLink from '@/components/Common/DiscordLink';
 
 export interface ProjectCardProps {
   projectThumbnailSrc: string;
@@ -83,7 +82,14 @@ export default function ProjectCard({
           ></TagList>
           <div className="flex gap-2">
             {githubLink && <GithubButton link={githubLink} />}
-            {discordLink && <DiscordButton link={discordLink} />}
+            {discordLink && (
+              <DiscordLink
+                href={discordLink}
+                className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+              >
+                ערוץ דיסקורד
+              </DiscordLink>
+            )}
           </div>
         </div>
       </div>
