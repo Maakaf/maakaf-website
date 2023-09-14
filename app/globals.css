@@ -8,14 +8,8 @@
     @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
   }
   .darkmode-section {
-    @apply bg-lightAccBg dark:bg-darkAccBg opacity-50 dark:opacity-100;
+    @apply bg-lightAccBg dark:bg-darkAccBg;
   }
-
-  .item-hover-transition {
-    @apply transition duration-300 ease-in-out;
-  }
-
-  /* Header */
   .light-icon-hover {
     filter: invert(87%) sepia(33%) saturate(418%) hue-rotate(103deg)
       brightness(103%) contrast(93%);
