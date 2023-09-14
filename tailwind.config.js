@@ -12,9 +12,15 @@ module.exports = {
   theme: {
     container: {
       center: true,
-      padding: '2rem',
       screens: {
         '2xl': '1400px',
+      },
+      padding: {
+        DEFAULT: '1rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
       },
     },
     extend: {
@@ -68,15 +74,6 @@ module.exports = {
       '3xl': '34px',
       '4xl': '48px',
       '5xl': '60px',
-    },
-    container: {
-      padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
-      },
     },
   },
   plugins: [require('tailwindcss-animate')],
