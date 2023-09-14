@@ -50,4 +50,7 @@
   .discord-btn {
     @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
   }
+  .btn {
+    @apply bg-purple-400 text-lightText;
+  }
 }
