@@ -2,7 +2,7 @@ type Props = {
   title: string;
 };
 
-const UpperTitle = ({ title }: Props) => {
+const SectionTitle = ({ title }: Props) => {
   return (
     <div className="w-[250px] md:w-full flex flex-col-reverse md:flex-row self-start md:items-center">
       <div className="flex pt-2 md:p-0">
@@ -14,4 +14,4 @@ const UpperTitle = ({ title }: Props) => {
   );
 };
 
-export default UpperTitle;
+export default SectionTitle;
