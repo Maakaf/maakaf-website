@@ -1,3 +1,4 @@
+import HeroSection from '@/components/Newbies/HeroSection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,7 +23,8 @@ export const metadata: Metadata = {
 };
 
 const NewbiesPage: React.FC = () => {
-  return <div>NewbiesPage</div>;
+  return (
+   <HeroSection/>
+  );
 };
-
 export default NewbiesPage;
