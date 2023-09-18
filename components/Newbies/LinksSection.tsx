@@ -1,0 +1,94 @@
+import Image from 'next/image';
+import SectionTitle from '../Common/SectionTitle';
+
+const linksData = [
+  {
+    icon: 'Maakaf_Logo',
+    title: 'אתר תרגול',
+    description:
+      'אתר של הקהילה שבו ניתן להתחמם עם הקוד הפתוח לפני שצוללים לבריכת הדיסקורד',
+    link: '',
+  },
+  {
+    icon: 'Discord_Logo',
+    title: 'דיסקורד',
+    description: 'בעלי פרויקטים שמעוניינים לצרף את הפרויקט שלהם אל הקוד הפתוח ',
+    link: '',
+  },
+  {
+    icon: 'WhatsApp_Logo',
+    title: 'וואטספ',
+    description: 'עוד קבוצות עם פעילות, בעיקר לתיאום אירועים והודעות חשובות',
+    link: '',
+  },
+];
+
+const LinksSection = () => {
+  return (
+    <div className="w-full py-12 md:pt-20 md:pb-36">
+      <SectionTitle title="איפה הכל קורה?" />
+
+      <div className="flex flex-col items-center mt-8 gap-4 sm:flex-row sm:items-center sm:justify-center sm:flex-wrap">
+        {linksData.map((linkData, index) => (
+          <div
+            key={index}
+            className="group w-[90vw] min-h-[132px] md:w-full md:max-h-[100px] px-4 py-3 md:px-12 md:py-5 md:mx-20 opacity-80 rounded-lg flex gap-2 justify-between items-center bg-purple-100 hover:bg-purple-200 border border-purple-100 hover:border-purple-700 dark:bg-gray-800 dark:border-gray-800 dark:hover:border dark:hover:border-purple-500 "
+          >
+            <a
+              key={index}
+              href={linkData.link}
+              target="_blank"
+              className="md:group-hover:pointer-events-none"
+            >
+              <div className="flex gap-8 md:gap-10 items-center">
+                <div className="min-w-[50px]">
+                  <Image
+                    src={`/images/${linkData.icon}.svg`}
+                    alt={`${linkData.icon} icon`}
+                    width={50}
+                    height={50}
+                  />
+                </div>
+
+                <div className="flex flex-col ">
+                  <h5 className="font-medium font-birzia text-2xl">
+                    {linkData.title}
+                  </h5>
+
+                  <p className="font-normal font-inter text-base">
+                    {linkData.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+
+            <div className="hidden md:block">
+              <a href={linkData.link} target="_blank" rel="noopener noreferrer">
+                <svg
+                  width="50"
+                  height="50"
+                  viewBox="0 0 50 50"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    className=" group-hover:stroke-purple-700 stroke-gray-600  group-hover:dark:stroke-purple-500"
+                    cx="25"
+                    cy="25"
+                    r="24.5"
+                  />
+                  <path
+                    className="fill-gray-600 group-hover:fill-purple-700  group-hover:dark:fill-purple-500 "
+                    d="M16 25L29.5 17.2058L29.5 32.7942L16 25Z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default LinksSection;

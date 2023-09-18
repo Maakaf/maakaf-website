@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import LinksSection from '@/components/Newbies/LinksSection';
 
 export const metadata: Metadata = {
   title: 'מצטרפים חדשים - Newbies',
@@ -22,7 +23,11 @@ export const metadata: Metadata = {
 };
 
 const NewbiesPage: React.FC = () => {
-  return <div>NewbiesPage</div>;
+  return (
+    <>
+      <LinksSection />
+    </>
+  );
 };
 
 export default NewbiesPage;
