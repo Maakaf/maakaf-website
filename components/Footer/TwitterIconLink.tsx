@@ -5,7 +5,7 @@ const TwitterIconLink = () => {
     <a
       href="https://twitter.com/"
       target="_blank"
-      aria-label="See us in twitter"
+      aria-label="תבקרו אותנו בטוויטר"
     >
       <svg
         width="52"

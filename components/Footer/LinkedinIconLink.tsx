@@ -5,7 +5,7 @@ const LinkedinIconLink = () => {
     <a
       href="https://www.linkedin.com/"
       target="_blank"
-      aria-label="See us in linkedin"
+      aria-label="תבקרו אותנו בלינקדאין"
     >
       <svg
         className="text-transparent transition fill-current hover:text-blue-600"
