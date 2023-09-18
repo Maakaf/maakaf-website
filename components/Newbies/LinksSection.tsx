@@ -7,19 +7,19 @@ const linksData = [
     title: 'אתר תרגול',
     description:
       'אתר של הקהילה שבו ניתן להתחמם עם הקוד הפתוח לפני שצוללים לבריכת הדיסקורד',
-    link: '',
+    link: 'https://github.com/UrielOfir/os-practice',
   },
   {
     icon: 'Discord_Logo',
     title: 'דיסקורד',
     description: 'בעלי פרויקטים שמעוניינים לצרף את הפרויקט שלהם אל הקוד הפתוח ',
-    link: '',
+    link: '/',
   },
   {
     icon: 'WhatsApp_Logo',
     title: 'וואטספ',
     description: 'עוד קבוצות עם פעילות, בעיקר לתיאום אירועים והודעות חשובות',
-    link: '',
+    link: '/',
   },
 ];
 
