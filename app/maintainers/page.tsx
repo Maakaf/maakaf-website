@@ -1,4 +1,7 @@
 import { Metadata } from 'next';
+import MaintainerForm from '@/components/Maintainers/MaintainerForm';
+import QuestionsAnswers from '@/components/Maintainers/QuestionsAnswers';
+import Steps from '@/components/Maintainers/Steps';
 
 export const metadata: Metadata = {
   title: 'בעלי פרויקטים - Maintainers',
@@ -22,7 +25,13 @@ export const metadata: Metadata = {
 };
 
 const MaintainersPage: React.FC = () => {
-  return <div>MaintainersPage</div>;
+  return (
+    <>
+      <MaintainerForm />
+      <Steps />
+      <QuestionsAnswers />
+    </>
+  );
 };
 
 export default MaintainersPage;
