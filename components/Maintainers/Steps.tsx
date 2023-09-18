@@ -1,10 +1,10 @@
 import { Laptop, Page, User } from './SvgsIcons';
-import UpperTitle from './UpperTitle';
+import SectionTitle from '../Common/SectionTitle';
 
 const Steps = () => {
   return (
     <div className="w-full bg-purple-100 dark:bg-gray-800 py-12 md:pt-20 md:pb-36">
-      <UpperTitle title="איך התהליך עובד?" />
+      <SectionTitle title="איך התהליך עובד?" />
       <div className="flex flex-col items-center mt-8 gap-8 sm:flex-row sm:items-center sm:justify-center sm:flex-wrap">
         <div className="flex gap-4 justify-between w-4/5 sm:w-auto">
           <div className="rounded-full bg-gray-700 w-[92px] h-[92px] md:w-[125px] md:h-[125px] grid place-items-center p-5">
