@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 @layer components {
   /* Common */
   .darkmode-main {
@@ -49,5 +55,8 @@
   /* Home - Header Section */
   .discord-btn {
     @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
+  }
+  .btn {
+    @apply bg-purple-400 text-lightText;
   }
 }
