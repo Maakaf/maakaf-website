@@ -28,20 +28,22 @@ const rows: RowProps[] = [
 
 const Terms = () => {
   return (
-    <section className="bg-lightAccBg py-[59px] ">
-      <UpperTitle title="מושגים שחשוב להכיר" />
-      <div className="pt-[59px] px-[100px] flex">
-        <div className="flex flex-col gap-[69px]">
-          {rows.map(row => (
-            <Row
-              key={row.id}
-              id={row.id}
-              title={row.title}
-              description={row.description}
-            />
-          ))}
+    <section className="bg-lightAccBg py-[59px]">
+      <div className="flex gap-5">
+        <div className="w-full flex flex-col gap-[59px]">
+          <UpperTitle title="מושגים שחשוב להכיר" />
+          <div className="pr-[100px] flex flex-col gap-[69px]">
+            {rows.map(row => (
+              <Row
+                key={row.id}
+                id={row.id}
+                title={row.title}
+                description={row.description}
+              />
+            ))}
+          </div>
         </div>
-        <div className=""></div>
+        <div className="w-full">line</div>
       </div>
     </section>
   );
