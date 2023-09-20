@@ -1,4 +1,4 @@
-import UpperTitle from './UpperTitle';
+import UpperTitle from '../Common/UpperTitle';
 import QaAccordion from './QaAccordion';
 
 const questionsAnswersArray = [

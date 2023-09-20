@@ -1,3 +1,4 @@
+import Terms from '@/components/Newbies/Terms';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,7 +23,11 @@ export const metadata: Metadata = {
 };
 
 const NewbiesPage: React.FC = () => {
-  return <div>NewbiesPage</div>;
+  return (
+    <div>
+      <Terms />
+    </div>
+  );
 };
 
 export default NewbiesPage;

@@ -1,5 +1,5 @@
 import { Laptop, Page, User } from './SvgsIcons';
-import UpperTitle from './UpperTitle';
+import UpperTitle from '../Common/UpperTitle';
 
 const Steps = () => {
   return (
