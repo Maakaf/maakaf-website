@@ -1,4 +1,5 @@
 import UpperTitle from '../Common/UpperTitle';
+import { TermsLine } from './TermsLine';
 
 type RowProps = {
   id: number;
@@ -29,8 +30,8 @@ const rows: RowProps[] = [
 const Terms = () => {
   return (
     <section className="bg-lightAccBg py-[59px]">
-      <div className="flex gap-5">
-        <div className="w-full flex flex-col gap-[59px]">
+      <div className="flex gap-5 w-full h-[calc(528px-118px)]">
+        <div className="w-1/2 flex flex-col  justify-between h-full">
           <UpperTitle title="מושגים שחשוב להכיר" />
           <div className="pr-[100px] flex flex-col gap-[69px]">
             {rows.map(row => (
@@ -43,7 +44,26 @@ const Terms = () => {
             ))}
           </div>
         </div>
-        <div className="w-full">line</div>
+        <div className="w-1/2 pl-[100px] flex justify-end gap-5">
+          <TermsLine.Column
+            translate="translate-y-[calc(50%-23px)]"
+            height="h-[302px]"
+            color="bg-green-300"
+            fromColor="from-green-300"
+          />
+          <TermsLine.Column
+            isReversed
+            translate="-translate-y-1/2"
+            height="h-[378px]"
+            color="bg-pink-600"
+            fromColor="from-pink-600"
+          />
+          <TermsLine.Column
+            height="h-[525px]"
+            color="bg-blue-600"
+            fromColor="from-blue-600"
+          />
+        </div>
       </div>
     </section>
   );
