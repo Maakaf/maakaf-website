@@ -1,5 +1,5 @@
-import UpperTitle from '../Common/UpperTitle';
-import { TermsLine } from './TermsLine';
+import UpperTitle from '../../Common/UpperTitle';
+import TermsSection from './TermsSection';
 
 type RowProps = {
   id: number;
@@ -29,11 +29,11 @@ const rows: RowProps[] = [
 
 const Terms = () => {
   return (
-    <section className="bg-lightAccBg py-[59px]">
-      <div className="flex gap-5 w-full h-[calc(528px-118px)]">
-        <div className="w-1/2 flex flex-col  justify-between h-full">
+    <section className="darkmode-section py-[59px]">
+      <div className="flex flex-col-reverse md:flex-row gap-[54px] md:gap-5 w-full h-full lg:h-[calc(528px-118px)]">
+        <div className="w-full items-start lg:w-4/6 flex flex-col gap-[59px] h-full">
           <UpperTitle title="מושגים שחשוב להכיר" />
-          <div className="pr-[100px] flex flex-col gap-[69px]">
+          <div className="mx-10 md:m-0 md:px-[100px] flex flex-col gap-[69px]">
             {rows.map(row => (
               <Row
                 key={row.id}
@@ -44,26 +44,7 @@ const Terms = () => {
             ))}
           </div>
         </div>
-        <div className="w-1/2 pl-[100px] flex justify-end gap-5">
-          <TermsLine.Column
-            translate="translate-y-[calc(50%-23px)]"
-            height="h-[302px]"
-            color="bg-green-300"
-            fromColor="from-green-300"
-          />
-          <TermsLine.Column
-            isReversed
-            translate="-translate-y-1/2"
-            height="h-[378px]"
-            color="bg-pink-600"
-            fromColor="from-pink-600"
-          />
-          <TermsLine.Column
-            height="h-[525px]"
-            color="bg-blue-600"
-            fromColor="from-blue-600"
-          />
-        </div>
+        <TermsSection />
       </div>
     </section>
   );
@@ -71,12 +52,12 @@ const Terms = () => {
 
 const Row = ({ id, title, description }: RowProps) => {
   return (
-    <div className="flex items-center gap-[41px] justify-between">
-      <div className="flex gap-[22px] font-medium text-2xl">
+    <div className="flex flex-col md:flex-row md:items-center gap-5 md:gap-[41px] justify-between">
+      <div className="flex min-w-[217px] gap-[22px] font-medium text-2xl">
         <span>{id}.</span>
         <span>{title}</span>
       </div>
-      <span className="w-[525px] font-normal text-base">{description}</span>
+      <span className="flex-1 font-normal text-base">{description}</span>
     </div>
   );
 };
