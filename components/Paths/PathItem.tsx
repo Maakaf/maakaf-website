@@ -15,10 +15,7 @@ export default function PathItem({ item }: PathProps) {
   const buttonClasses = classNames(
     'text-base font-normal font-inter px-4 py-2 body-bold w-fit rounded-xl md:bg-lightText md:dark:bg-gray-700',
     item.btnColor,
-    {
-      [`hover:${item.btnColor}`]: true,
-      [`hover:dark:${item.btnColor}`]: true,
-    }
+    `hover:${item.btnColor} hover:dark:${item.btnColor}`
   );
 
   return (
