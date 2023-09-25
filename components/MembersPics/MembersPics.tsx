@@ -175,7 +175,7 @@ const MembersPics = () => {
         <div className="hidden md:block sm:col-span-2 md:col-span-2 lg:col-span-3 ml-4 placeholderSize rounded-e-[50px]  overflow-hidden"></div>
         <div className="col-span-6 md:col-span-6 items-center flex">
           <p className="text-3xl md:text-[60px] font-bold pr-5">
-            תכירו את חברי{' '}
+            הכירו את חברי{' '}
             <Link className="text-purple-500 hover:underline" href="/members">
               הקהילה
             </Link>
