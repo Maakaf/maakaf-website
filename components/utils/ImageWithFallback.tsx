@@ -7,7 +7,6 @@ export interface ImageWithFallbackProps
   extends React.ComponentProps<typeof Image> {
   fallback: string | StaticImageData;
   onError?: (e: SyntheticEvent<HTMLImageElement, Event>) => void;
-  [props: string]: any;
 }
 export default function ImageWithFallback({
   fallback,
