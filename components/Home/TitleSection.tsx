@@ -1,10 +1,9 @@
 import Image from 'next/image';
-import DiscordLink from '@/components/Common/DiscordLink';
 
 export default function TitleSection() {
   return (
-    <div className="relative px-4 md:px-14 flex justify-between h-[70vh] pb-10">
-      <div className="flex flex-col items-center w-full mt-[1.2rem] md:mt-2 lg:mt-0 md:px-10 lg:px-12  gap-7 md:w-1/2 md:items-start">
+    <div className="relative  mx-auto max-w-[1600px] px-4 md:px-14 flex justify-between h-[90vh] md:h-[70vh] pb-10 -z-50">
+      <div className="flex flex-col items-center w-full mt-[1.2rem] md:-mt-2 lg:mt-0 md:px-10 lg:px-12  gap-7  md:w-1/2 md:items-start">
         <h1 className="w-full text-center md:text-[40px] lg:text-5xl md:text-right">
           קהילת מעקף&nbsp;-
           <br />
@@ -38,9 +37,11 @@ export default function TitleSection() {
           />
         </a>
       </div>
-      <div className="absolute  xl:h-[90vh]  top-0  lg:mt-[1.2rem]  left-0 w-full h-full 2xl:w-full -z-10 md:z-0 opacity-40 md:opacity-100 md:static md:w-1/2">
+      <div className="absolute lg:min-h-[800px] xl:w-[650px] top-0 left-0 w-full h-full -z-10 md:z-0 opacity-40 md:w-1/2 md:min-h-screen md:opacity-100 md:static">
         <div
-          className={`h-full  bg-contain bg-top bg-[url("/images/skeleton_loader.png")] dark:bg-[url("/images/skeleton_loader_dark.png")] md:bg-left bg-no-repeat`}
+          className={
+            'bg-[url("/images/skeleton_loader.png")] dark:bg-[url("/images/skeleton_loader_dark.png")] w-full h-full bg-top bg-no-repeat bg-contain '
+          }
         />
       </div>
     </div>

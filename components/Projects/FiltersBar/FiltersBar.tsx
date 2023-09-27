@@ -85,7 +85,7 @@ const FiltersBar: React.FC = () => {
                 <>
                   <div
                     ref={filterRef}
-                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[400px] md:min-w-0 md:w-[863px] h-[360px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-500"
+                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[400px] md:min-w-0 md:w-[863px] h-[360px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-600"
                   >
                     <div className="flex flex-col gap-[22px]">
                       <h3 className="text-base font-bold leading-normal">

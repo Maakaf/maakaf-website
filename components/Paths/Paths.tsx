@@ -9,20 +9,20 @@ const paths = [
     description:
       'פעם ראשונה עם קוד פתוח? אל דאגה... בואו נבין ביחד מאיפה להתחיל',
     link: { name: 'צעד ראשון', href: '/' },
-    btnColorDark: 'dark:bg-pink-500',
+    btnColor: 'bg-pink-500',
   },
   {
     title: 'Contributors',
     description: 'מכירים כבר את הקונספט ורוצים להצטרף לקהילה? בבקשה',
     link: { name: 'ערוץ דיסקורד', href: '/' },
-    btnColorDark: 'dark:bg-purple-500',
+    btnColor: 'bg-purple-500',
   },
   {
     title: 'Maintainers',
     description:
       'יש לכם פרויקט שאתם רוצים לצרף למעקף? מלאו טופס הצטרפות ונתחיל',
     link: { name: 'טופס הצטרפות', href: '/' },
-    btnColorDark: 'dark:bg-green-500',
+    btnColor: 'bg-green-500',
   },
 ];
 

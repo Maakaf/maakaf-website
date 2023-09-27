@@ -2,7 +2,11 @@ import React from 'react';
 
 const LinkedinIconLink = () => {
   return (
-    <a href="https://www.linkedin.com/" target="_blank">
+    <a
+      href="https://www.linkedin.com/"
+      target="_blank"
+      aria-label="תבקרו אותנו בלינקדאין"
+    >
       <svg
         className="text-transparent transition fill-current hover:text-blue-600"
         width="52"
