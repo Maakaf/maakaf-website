@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Darkmode from '../Common/Darkmode';
 import { useEffect, useRef } from 'react';
 import useFocusTrap from '../hooks/useFocusTrap';
-import GitHubButton from '../Header/GitHubButton';  // Adjust the import path according to your project structure
+import GitHubButton from '../Header/GitHubButton';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 
