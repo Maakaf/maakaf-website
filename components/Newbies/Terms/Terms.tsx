@@ -24,7 +24,7 @@ const rows = [
 const Terms = () => {
   return (
     <section className="py-[59px] bg-lightAccBg dark:bg-darkBg md:dark:bg-darkAccBg">
-      <div className="flex flex-col-reverse md:flex-row gap-[54px] md:gap-5 w-full h-full lg:h-[calc(528px-118px)]">
+      <div className="flex flex-col-reverse md:flex-row gap-[54px] md:gap-5 w-full h-full">
         <div className="w-full items-start lg:w-4/6 flex flex-col gap-[59px] h-full">
           <SectionTitle title="מושגים שחשוב להכיר" />
           <div className="mx-10 md:m-0 md:px-[100px] flex flex-col gap-[69px]">

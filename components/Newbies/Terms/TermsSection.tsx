@@ -2,7 +2,7 @@ import { TermsLine } from './TermsLine';
 
 const TermsSection = () => {
   return (
-    <section className="w-full md:hidden lg:block lg:w-2/6 lg:pl-[100px]">
+    <section className="w-full lg:h-[353px] md:hidden lg:block lg:w-2/6 lg:pl-[100px]">
       <div className="hidden md:flex w-full justify-end gap-[30px]">
         <TermsLine.Column
           translate="translate-y-[calc(50%-23px)]"
