@@ -28,7 +28,7 @@ const Faqs = ({ faqs }: FaqsProps) => {
         עם אנשים באמת, אבל באמת, הכי נחמדים שיש ומוכנים לעזור לכל מי שרק צריך.
       </p>
 
-      <div className=" min-h-[60px] px-4 md:mx-20 ">
+      <div className="min-h-[60px] px-4 md:mx-20 ">
         <Accordion
           type="single"
           className="font-medium"
