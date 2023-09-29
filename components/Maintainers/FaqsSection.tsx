@@ -29,7 +29,7 @@ const faqs = [
         כל הפרויקטים חשובים! יש פרוייקטי קוד פתוח קטנים וגדולים, בכל תחום ובכל
         טכנולוגיה. המון חברות מוכרות עובדות בקוד פתוח. עדיין יש ספקות? תמיד אפשר
         להתייעץ{' '}
-        <span className="text-decoration-line: underline  text-purple-500">
+        <span className="underline  text-purple-500">
           <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
             בדיסקורד.
           </a>
@@ -42,7 +42,7 @@ const faqs = [
     answer: (
       <p>
         בהחלט! תוכלו תמיד להיעזר ולהתייעץ עם חברי וחברות קהילת הקוד הפתוח שלנו{' '}
-        <span className="text-decoration-line: underline  text-purple-500">
+        <span className="underline  text-purple-500">
           <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
             בדיסקורד.
           </a>
@@ -55,12 +55,12 @@ const faqs = [
     answer: (
       <p>
         הצטרפו לקהילה שלנו{' '}
-        <span className="text-decoration-line: underline  text-purple-500">
+        <span className="underline  text-purple-500">
           <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
             בדיסקורד
           </a>
         </span>{' '}
-        <span className="text-decoration-line: underline  text-purple-500">
+        <span className="underline  text-purple-500">
           <a
             href="https://chat.whatsapp.com/E5a59DtSaHNBwnczxVW1FY"
             target="_blank"
@@ -98,7 +98,7 @@ const faqs = [
         חשוב ליצור הנחיות מסודרות לגבי תרומה לפרויקט, כדי להקל על תורמים להצטרף.{' '}
         <br />
         לא לשכוח כמובן לשתף אותנו{' '}
-        <span className="text-decoration-line: underline  text-purple-500">
+        <span className="underline  text-purple-500">
           <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
             בדיסקורד!
           </a>
@@ -110,7 +110,7 @@ const faqs = [
 
 const FaqsSection = () => {
   return (
-    <div className="w-full py-12 px-4 md:py-20">
+    <div className="w-full py-12 md:py-20">
       <Faqs faqs={faqs} />
     </div>
   );
