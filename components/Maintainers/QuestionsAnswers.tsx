@@ -1,4 +1,4 @@
-import UpperTitle from '../Common/UpperTitle';
+import SectionTitle from '../Common/SectionTitle';
 import QaAccordion from './QaAccordion';
 
 const questionsAnswersArray = [
@@ -29,7 +29,7 @@ const questionsAnswersArray = [
 const QuestionsAnswers = () => {
   return (
     <div className="w-full py-8 md:py-16">
-      <UpperTitle title="שאלות ותשובות" />
+      <SectionTitle title="שאלות ותשובות" />
       <QaAccordion qaArr={questionsAnswersArray} />
     </div>
   );
