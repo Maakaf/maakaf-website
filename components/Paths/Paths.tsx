@@ -1,6 +1,6 @@
 'use client';
 
-import UpperTitle from '../Common/UpperTitle';
+import SectionTitle from '../Common/SectionTitle';
 import PathItem from './PathItem';
 import { motion } from 'framer-motion';
 
@@ -42,9 +42,8 @@ export default function Paths() {
   return (
     <section className="flex flex-col justify-start py-32 darkmode-section">
       <div className="flex flex-col-reverse md:flex-row self-start md:items-center">
-        <UpperTitle title="המסלולים שלנו" />
+        <SectionTitle title="המסלולים שלנו" />
       </div>
-
       <div className="flex flex-row grow flex-wrap justify-evenly gap-y-20 mt-6 py-4 md:gap-y-4 md:py-20 lg:mt-0 lg:flex-row lg:py-20">
         {paths.map((path, index) => (
           <motion.div

@@ -1,6 +1,6 @@
 'use client';
 
-import UpperTitle from '../Common/UpperTitle';
+import SectionTitle from '../Common/SectionTitle';
 import BenefitCard from './BenefitCard';
 import { motion } from 'framer-motion';
 
@@ -49,7 +49,7 @@ export default function BeOurFriends() {
   return (
     <section className="flex flex-col justify-start py-16 md:py-32">
       <div className="flex flex-col-reverse self-start md:flex-row md:items-center">
-        <UpperTitle title="מה תקבלו מלהיות חברים במעקף" />
+        <SectionTitle title="מה תקבלו מלהיות חברים במעקף" />
       </div>
       <div className="grid grid-cols-1 gap-4 mx-10 my-8 gap-x-20 md:mx-36 md:grid-cols-2 place-content-around">
         {cards.map((card, index) => (
