@@ -55,13 +55,13 @@ const faqs = [
     answer: (
       <p>
         ממש אצלנו בקהילה!{' '}
-        <span className="text-decoration-line: underline  text-purple-500">
+        <span className="underline  text-purple-500">
           <a href="/projects" target="_blank">
             בעמוד הפרויקטים
           </a>
         </span>{' '}
         תוכלו למצוא מידע על פרויקטים בקוד פתוח במגוון שפות ותחומים. <br />
-        <span className="text-decoration-line: underline  text-purple-500">
+        <span className="underline  text-purple-500">
           <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
             בדיסקורד שלנו
           </a>
@@ -91,7 +91,7 @@ const faqs = [
 
 const FaqsSection = () => {
   return (
-    <div className="w-full py-12 px-4 md:py-20">
+    <div className="w-full py-12 md:py-20">
       <Faqs faqs={faqs} />
     </div>
   );
