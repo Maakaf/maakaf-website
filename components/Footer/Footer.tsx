@@ -2,6 +2,8 @@ import Link from 'next/link';
 import FacebookIconLink from './FacebookIconLink';
 import LinkedinIconLink from './LinkedinIconLink';
 import TwitterIconLink from './TwitterIconLink';
+import React from "react";
+import GithubIconLink from "@/components/Footer/GithubIconLink";
 
 const links = [
   {
@@ -52,9 +54,12 @@ const Footer: React.FC = () => {
       <div className="flex flex-col items-center w-full h-auto md:px-24 md:items-end ">
         <div className="flex flex-col justify-around h-full ">
           <div className="flex justify-center gap-4 lg:gap-6 ">
+            <GithubIconLink repoUrl="https://github.com/Maakaf/maakaf-website" />
             <FacebookIconLink />
             <LinkedinIconLink />
             <TwitterIconLink />
+
+
           </div>
 
           <div className="flex justify-center w-full gap-10 text-center lg:gap-16 ">

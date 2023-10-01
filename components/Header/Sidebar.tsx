@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Darkmode from '../Common/Darkmode';
 import { useEffect, useRef } from 'react';
 import useFocusTrap from '../hooks/useFocusTrap';
-import GitHubButton from '../Header/GitHubButton';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 
@@ -127,7 +126,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
               </li>
             ))}
           </ul>
-          <GitHubButton />
         </div>
       ) : null}
     </div>
