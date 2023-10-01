@@ -58,8 +58,6 @@ const Footer: React.FC = () => {
             <FacebookIconLink />
             <LinkedinIconLink />
             <TwitterIconLink />
-
-
           </div>
 
           <div className="flex justify-center w-full gap-10 text-center lg:gap-16 ">
