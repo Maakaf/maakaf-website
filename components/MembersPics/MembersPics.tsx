@@ -8,7 +8,7 @@ type MemberPicProps = {
 
 const MemberPic = ({ borderColorClass, imageSrc }: MemberPicProps) => {
   return (
-    <div className={`placeholder-circle ${borderColorClass}`}>
+    <div className={`bg-gray-700 rounded-[50px] h-[65px] md:h-[100px] overflow-hidden ${borderColorClass}`}>
       <Image
         loading="lazy"
         src={`/images/avatars/${imageSrc}.jpg`}
@@ -34,6 +34,7 @@ const CommunityLink = () => {
 
 const MembersPics = () => {
   const rowClassesPrefix = `grid grid-rows-1 gap-4 grid-cols-[repeat(24,65px)] md:grid-cols-[repeat(24,100px)]`;
+  const placeHolderCircle = `bg-gray-700 h-[65px] md:h-[100px] overflow-hidden rounded-full`;
 
   const patterns: (
     | MemberPicProps
@@ -45,8 +46,7 @@ const MembersPics = () => {
   )[][] = [
     [
       {
-        placeholderCss:
-          'col-span-2 ml-4 placeholder-size rounded-e-[50px] overflow-hidden',
+        placeholderCss: `col-span-2 ml-4 bg-gray-700 h-[65px] md:h-[100px] rounded-e-[50px] overflow-hidden`,
       },
       {
         borderColorClass: 'border-green-300',
@@ -56,8 +56,8 @@ const MembersPics = () => {
         borderColorClass: 'border-blue-600',
         imageSrc: 'avatar',
       },
-      { placeholderCss: 'col-span-2 placeholder-circle' },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: `col-span-2 ${placeHolderCircle}` },
+      { placeholderCss: placeHolderCircle },
       {
         borderColorClass: 'border-purple-500',
         imageSrc: 'avatar2',
@@ -70,12 +70,12 @@ const MembersPics = () => {
         borderColorClass: 'border-blue-600',
         imageSrc: 'avatar4',
       },
-      { placeholderCss: 'col-span-2 placeholder-circle' },
+      { placeholderCss: `col-span-2 ${placeHolderCircle}` },
       {
         borderColorClass: 'border-blue-600',
         imageSrc: 'avatar',
       },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
       {
         borderColorClass: 'border-green-300',
         imageSrc: 'avatar5',
@@ -85,14 +85,12 @@ const MembersPics = () => {
         imageSrc: 'avatar',
       },
       {
-        placeholderCss:
-          'col-span-2 rounded-s-[50px] placeholder-size overflow-hidden',
+        placeholderCss: `col-span-2 rounded-s-[50px] bg-gray-700 h-[65px] md:h-[100px] overflow-hidden`,
       },
     ],
     [
       {
-        placeholderCss:
-          'col-span-2 sm:col-span-3 ml-4 placeholder-size rounded-e-[50px] overflow-hidden',
+        placeholderCss: `col-span-2 sm:col-span-3 ml-4 bg-gray-700 h-[65px] md:h-[100px] rounded-e-[50px] overflow-hidden`,
       },
       {
         borderColorClass: 'border-blue-600 border',
@@ -102,7 +100,7 @@ const MembersPics = () => {
         borderColorClass: 'border-green-300 border rounded-full',
         imageSrc: 'avatar5',
       },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
       {
         placeholderCss: 'hidden md:block',
         subPattern: {
@@ -117,7 +115,7 @@ const MembersPics = () => {
           imageSrc: 'avatar',
         },
       },
-      { placeholderCss: 'col-span-2 placeholder-circle' },
+      { placeholderCss: `col-span-2 ${placeHolderCircle}` },
       {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar',
@@ -126,24 +124,22 @@ const MembersPics = () => {
         borderColorClass: 'border-green-300 border rounded-full',
         imageSrc: 'avatar3',
       },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
       {
         borderColorClass: 'border-purple-500 border',
         imageSrc: 'avatar2',
       },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
       {
-        placeholderCss:
-          'col-span-2 bg-gray-700 rounded-s-[50px] h-[65px] md:h-[100px] overflow-hidden',
+        placeholderCss: `col-span-2 ${placeHolderCircle}`,
       },
     ],
     [
       {
-        placeholderCss:
-          'hidden md:block sm:col-span-2 md:col-span-2 lg:col-span-3 ml-4 placeholder-size rounded-e-[50px] overflow-hidden',
+        placeholderCss: `hidden md:block sm:col-span-2 md:col-span-2 lg:col-span-3 ml-4 bg-gray-700 h-[65px] md:h-[100px] rounded-e-[50px] overflow-hidden`,
       },
       {
-        placeholderCss: 'col-span-6 md:col-span-6 items-center flex',
+        placeholderCss: `col-span-6 md:col-span-6 items-center flex`,
         component: <CommunityLink />,
       },
       {
@@ -158,7 +154,7 @@ const MembersPics = () => {
         borderColorClass: 'border-green-300 border rounded-full',
         imageSrc: 'avatar3',
       },
-      { placeholderCss: 'col-span-3 placeholder-circle' },
+      { placeholderCss: `col-span-3 ${placeHolderCircle}` },
       {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar',
@@ -167,11 +163,10 @@ const MembersPics = () => {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar4',
       },
-      { placeholderCss: 'placeholder-circle' },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
+      { placeholderCss: placeHolderCircle },
       {
-        placeholderCss:
-          'col-span-2 bg-gray-700 rounded-s-[50px] h-[65px] md:h-[100px] overflow-hidden',
+        placeholderCss: `col-span-2 ${placeHolderCircle}`,
       },
     ],
     [
@@ -183,8 +178,8 @@ const MembersPics = () => {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar',
       },
-      { placeholderCss: 'placeholder-circle' },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
+      { placeholderCss: placeHolderCircle },
       {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar',
@@ -197,7 +192,7 @@ const MembersPics = () => {
         borderColorClass: 'border-green-300 border rounded-full',
         imageSrc: 'avatar5',
       },
-      { placeholderCss: 'col-span-3 placeholder-circle' },
+      { placeholderCss: `col-span-3 ${placeHolderCircle}` },
       {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar',
@@ -206,24 +201,23 @@ const MembersPics = () => {
         borderColorClass: 'border-purple-500 border',
         imageSrc: 'avatar2',
       },
-      { placeholderCss: 'placeholder-circle' },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
+      { placeholderCss: placeHolderCircle },
       {
         borderColorClass: 'border-green-300 border rounded-full',
         imageSrc: 'avatar3',
       },
       {
-        placeholderCss:
-          'col-span-3 rounded-s-[50px] placeholder-size overflow-hidden',
+        placeholderCss: `col-span-3 rounded-s-[50px] bg-gray-700 h-[65px] md:h-[100px] overflow-hidden`,
       },
     ],
     [
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
       {
         borderColorClass: 'border-green-300 border rounded-full',
         imageSrc: 'avatar5',
       },
-      { placeholderCss: 'sm:col-span-3 placeholder-circle' },
+      { placeholderCss: `sm:col-span-3 ${placeHolderCircle}` },
       {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar4',
@@ -235,8 +229,8 @@ const MembersPics = () => {
           imageSrc: 'avatar3',
         },
       },
-      { placeholderCss: 'placeholder-circle' },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
+      { placeholderCss: placeHolderCircle },
       {
         placeholderCss: 'hidden md:block',
         subPattern: {
@@ -251,9 +245,9 @@ const MembersPics = () => {
           imageSrc: 'avatar4',
         },
       },
-      { placeholderCss: 'placeholder-circle' },
-      { placeholderCss: 'col-span-2 placeholder-circle' },
-      { placeholderCss: 'placeholder-circle' },
+      { placeholderCss: placeHolderCircle },
+      { placeholderCss: `col-span-2 ${placeHolderCircle}` },
+      { placeholderCss: placeHolderCircle },
       {
         borderColorClass: 'border-blue-600 border',
         imageSrc: 'avatar',
