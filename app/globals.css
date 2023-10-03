@@ -11,10 +11,13 @@
 @layer components {
   /* temp fix for pics */
   .placeholder-circle {
-    @apply bg-gray-700 rounded-[50px] h-[65px] md:h-[100px] overflow-hidden;
+    @apply bg-gray-700 rounded-[50px] h-[65px] md:h-[100px] overflow-hidden border;
   }
   .placeholder-size {
     @apply bg-gray-700 h-[65px] md:h-[100px];
+  }
+  .member-pic-row {
+    @apply grid grid-rows-1 gap-4 grid-cols-[repeat(24,65px)] md:grid-cols-[repeat(24,100px)];
   }
   /* Common */
   .darkmode-main {
