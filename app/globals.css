@@ -9,13 +9,6 @@
 }
 
 @layer components {
-  /* temp fix for pics */
-  .placeholder-circle {
-    @apply bg-gray-700 rounded-[50px] h-[65px] md:h-[100px] overflow-hidden;
-  }
-  .placeholder-size {
-    @apply bg-gray-700 h-[65px] md:h-[100px];
-  }
   /* Common */
   .darkmode-main {
     @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
