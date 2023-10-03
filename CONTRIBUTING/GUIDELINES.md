@@ -1,4 +1,4 @@
-# Project Name Guidelines
+# Maakaf Website Contribution Guidelines
 
 Welcome to the **Maakaf Website** open source project! These guidelines will help you contribute effectively to our project. Please make sure to read and follow them to ensure a smooth collaboration.
 
@@ -19,7 +19,7 @@ Welcome to the **Maakaf Website** open source project! These guidelines will hel
 
 ### Code Conventions
 
-To maintain code consistency, adhere to our coding conventions outlined in our [Conventions](CONVENTIONS.md). Consistent code makes it easier for everyone to read and contribute.
+To maintain code consistency, adhere to our coding conventions outlined in our [CONVENTIONS.md](CONVENTIONS.md). Consistent code makes it easier for everyone to read and contribute.
 
 ### Assigning Issues
 
@@ -49,7 +49,7 @@ When you've completed your work on an issue, it's time to create a pull request 
 3. Commit your changes with clear and concise messages.
 4. Push your changes to your fork.
 5. Open a PR against the main repository's `main` branch.
-6. **Describe the purpose of your PR and reference the related issue (e.g., "Closes #1").
+6. **Describe the purpose of your PR and reference the related issue (e.g., "Closes #1").**
 
 `Feel free to contact the maintainers for giving you a code review`
 
@@ -58,6 +58,8 @@ When you've completed your work on an issue, it's time to create a pull request 
 ### Communication
 
 Join our [Discord Channel](https://discord.gg/uZvKfvG7NU) to connect with other contributors, ask questions, and share your experiences. We welcome your feedback and ideas!
+
+If you feel the maintainers are not noticing your PR or changes you've made on it, shouting out in the channel will grab our attention :)  
 
 ### License
 
