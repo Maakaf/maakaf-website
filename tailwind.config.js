@@ -40,7 +40,13 @@ module.exports = {
       },
       colors: {
         //notice the convenient naming...
-        gray: colors.slate,
+        gray: {
+          ...colors.slate,
+          50: '#F8FAFC',
+          100: '#F1F5F9',
+          600: '#344154',
+          800: '#0F1729',
+        },
         pink: colors.pink,
         green: colors.teal,
         purple: colors.indigo,
@@ -66,6 +72,7 @@ module.exports = {
       inter: ['Inter', 'sans-serif'],
     },
     fontSize: {
+      xs: '12px',
       sm: '14px',
       base: '16px',
       lg: '18px',

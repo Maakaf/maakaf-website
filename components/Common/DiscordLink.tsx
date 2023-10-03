@@ -1,22 +1,29 @@
 import Image from 'next/image';
 import classNames from 'classnames';
+import Link from 'next/link';
 
 type DiscordLinkProps = {
   className?: string;
+  children?: React.ReactNode;
+  href: string;
 };
 
-export default function DiscordLink({ className }: DiscordLinkProps) {
+export default function DiscordLink({
+  className,
+  children,
+  href,
+}: DiscordLinkProps) {
   return (
-    <a
-      href="https://discord.com/invite/a2VyCjRk2M"
+    <Link
+      href={href}
       target="_blank"
       className={classNames(
-        'text-xs discord-btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition w-48',
+        'discord-btn rounded-full flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition',
         className
       )}
     >
-      בואו לדיסקורד
+      {children}
       <Image src={'/images/discord.png'} alt="discord" width={20} height={20} />
-    </a>
+    </Link>
   );
 }
