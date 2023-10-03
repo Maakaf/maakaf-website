@@ -270,7 +270,7 @@ const MembersPics = () => {
       {patterns.map((pattern, rowIndex) => (
         <div
           key={rowIndex}
-          className={`${rowClassesPrefix} YOUR_MARGIN_STYLES_HERE`}
+          className={`${rowClassesPrefix}`}
         >
           {pattern.map((item, itemIndex) => {
             if ('borderColorClass' in item && 'imageSrc' in item) {
