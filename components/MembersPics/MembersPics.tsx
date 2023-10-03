@@ -268,10 +268,7 @@ const MembersPics = () => {
   return (
     <div className="darkmode-section pb-60 flex flex-col gap-y-8 overflow-hidden">
       {patterns.map((pattern, rowIndex) => (
-        <div
-          key={rowIndex}
-          className={`${rowClassesPrefix}`}
-        >
+        <div key={rowIndex} className={`${rowClassesPrefix}`}>
           {pattern.map((item, itemIndex) => {
             if ('borderColorClass' in item && 'imageSrc' in item) {
               return (
