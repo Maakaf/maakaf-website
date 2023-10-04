@@ -172,7 +172,7 @@ export function Page() {
 export function Laptop() {
   const laptopRef = createRef<SVGSVGElement>();
   const laptopIsInView = useInView(laptopRef, {
-    margin: '0px 0px -200px 0px',
+    margin: '0px 0px -80px 0px',
     once: true,
   });
   return (

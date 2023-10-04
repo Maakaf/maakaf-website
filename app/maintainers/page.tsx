@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import MaintainerForm from '@/components/Maintainers/MaintainerForm';
 import FaqsSection from '@/components/Maintainers/FaqsSection';
-import Steps from '@/components/Maintainers/Steps';
+import StepsSection from '@/components/Maintainers/StepsSection';
 
 export const metadata: Metadata = {
   title: 'בעלי פרויקטים - Maintainers',
@@ -28,7 +28,7 @@ const MaintainersPage: React.FC = () => {
   return (
     <>
       <MaintainerForm />
-      <Steps />
+      <StepsSection />
       <FaqsSection />
     </>
   );
