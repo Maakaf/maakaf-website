@@ -6,6 +6,8 @@ import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import Radiobox from '@/components/utils/Radiobox';
 import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
+import { useSearchParams, usePathname } from 'next/navigation';
+import { uniqueArray } from '@/lib/utils';
 
 const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
@@ -13,6 +15,14 @@ const FiltersBar: React.FC = () => {
   const [toggleFiltersWindow, setToggleFiltersWindow] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState('עודכן לאחרונה');
   const [selectedFilters, setSelectedFilters] = useState<ProjectFilter[]>([]);
+
+  const pathname = usePathname();
+  let currentUrl = '';
+  if (typeof window !== 'undefined') {
+    currentUrl = window.location.origin + pathname;
+  }
+
+  const searchParams = useSearchParams();
 
   const filterRef = useRef<HTMLDivElement | null>(null);
 
@@ -24,15 +34,84 @@ const FiltersBar: React.FC = () => {
     setSelectedSortOption(event.target.value);
   };
 
-  const handleFilterOptionChange = (filter: ProjectFilter) => {
-    // TODO: check that logic and change - might be broken
-    const newFilter: ProjectFilter = {
-      name: filter.name,
-      isActive: true,
-    };
+  const silentUpdateUrl = (filterQuery: string) => {
+    // Split filter query to array
+    const queryArray = filterQuery.split(',');
 
-    setSelectedFilters(prevFilters => [...prevFilters, newFilter]);
+    // Set filter query in url, remove duplicates by converting to Set and back to array
+    const newUrl = filterQuery
+      ? currentUrl + '?filters=' + uniqueArray(queryArray).join(',')
+      : currentUrl;
+
+    // Set new url without reloading page
+    window.history.pushState({}, '', newUrl);
   };
+
+  const addFilter = (filter: ProjectFilter) => {
+    setSelectedFilters(
+      uniqueArray<ProjectFilter>([...selectedFilters, filter])
+    );
+    silentUpdateUrl(
+      [...selectedFilters, filter].map(item => item.name).join(',')
+    );
+  };
+
+  const removeFilter = (filter: ProjectFilter) => {
+    const filteredFilters = selectedFilters.filter(
+      item => item.name !== filter.name
+    );
+    setSelectedFilters(uniqueArray<ProjectFilter>(filteredFilters));
+    silentUpdateUrl(filteredFilters.map(item => item.name).join(','));
+  };
+
+  const handleFilterOptionChange = (filter: ProjectFilter) => {
+    // Check if filter is already in list
+    const isFilterInList = selectedFilters.some(
+      item => item.name === filter.name
+    );
+
+    // If filter is already in list, remove it, else add it
+    if (isFilterInList) {
+      removeFilter(filter);
+    } else {
+      addFilter(filter);
+    }
+  };
+
+  // xarielah: I think using "isActive" is not clear for this purpose.
+
+  // A "clean" useEffect to run only once when loading the page.
+  useEffect(() => {
+    // Handle predefined filter option for projects
+    const searchFilters = searchParams.get('filters');
+    if (!searchFilters) return;
+
+    // If there are filters in url, set them as selected filters
+    const searchFiltersArray = searchFilters.split(',');
+    if (searchFiltersArray.length === 0) return;
+
+    let verifiedFilterNames: string[] = [];
+    let verifiedFilters: ProjectFilter[] = [];
+
+    // Loop through filters in url and check if they are valid && are active
+    for (const filter of searchFiltersArray) {
+      const isValidFilter = filters.find(item => item.name === filter);
+
+      if (isValidFilter) {
+        // If filter is valid, add it to verified filters
+        verifiedFilterNames.push(filter);
+
+        // If filter is valid, add it to selected filters
+        verifiedFilters.push(isValidFilter);
+      }
+    }
+
+    // Cleaning up invalid filters from url
+    silentUpdateUrl(verifiedFilterNames.join(','));
+
+    // Set selected filters to verified filters
+    setSelectedFilters(verifiedFilters);
+  }, []);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -117,7 +196,9 @@ const FiltersBar: React.FC = () => {
                               key={filter.name}
                               btnText={filter.name}
                               onClick={() => handleFilterOptionChange(filter)}
-                              isSelected={filter.isActive}
+                              isSelected={selectedFilters.some(
+                                item => item.name === filter.name
+                              )}
                             />
                           ))}
                         </div>
@@ -147,7 +228,10 @@ const FiltersBar: React.FC = () => {
           </div>
           <div className="flex gap-6">
             <span className="body-roman text-gray-400">מסננים</span>
-            <FilterBtnsGroup />
+            <FilterBtnsGroup
+              activeFilters={selectedFilters}
+              removeFilter={(filter: ProjectFilter) => removeFilter(filter)}
+            />
           </div>
         </div>
       </div>

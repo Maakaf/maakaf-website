@@ -2,7 +2,7 @@
 
 type FilterBtnProps = {
   btnText: string;
-  onBtnClick: (filterName: string) => void;
+  onBtnClick: () => void;
 };
 
 const FilterBtn: React.FC<FilterBtnProps> = ({
@@ -12,7 +12,7 @@ const FilterBtn: React.FC<FilterBtnProps> = ({
   return (
     <button
       className="font-inter text-[12px] font-normal px-6 py-2 flex items-center justify-center bg-purple-200 dark:bg-blue-600 rounded-[50px] leading-none"
-      onClick={e => onBtnClick}
+      onClick={onBtnClick}
       type="button"
     >
       &#10005;&nbsp;&nbsp;{btnText}

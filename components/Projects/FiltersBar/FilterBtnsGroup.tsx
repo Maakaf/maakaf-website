@@ -60,24 +60,29 @@ export const filters: ProjectFilter[] = [
   },
 ];
 
-const FilterBtnsGroup = () => {
-  const handleBtnFilterClick = (filterName: string) => {
-    console.log(filterName);
+const FilterBtnsGroup = ({ activeFilters, removeFilter }: IFilterBtnsGroup) => {
+  const handleBtnFilterClick = (filter: ProjectFilter) => {
+    removeFilter(filter);
   };
 
   return (
     <div className="flex gap-2 flex-wrap">
-      {filters.map(filter =>
+      {activeFilters.map(filter =>
         filter.isActive ? (
           <FilterBtn
             key={filter.name}
             btnText={filter.name}
-            onBtnClick={handleBtnFilterClick}
+            onBtnClick={() => handleBtnFilterClick(filter)}
           />
         ) : null
       )}
     </div>
   );
 };
+
+interface IFilterBtnsGroup {
+  activeFilters: ProjectFilter[];
+  removeFilter: (filter: ProjectFilter) => void;
+}
 
 export default FilterBtnsGroup;
