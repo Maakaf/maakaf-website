@@ -39,7 +39,12 @@ const AboutPage = () => {
           <p>{pageContent.thirdParagraph}</p>
         </div>
 
-        <DiscordLink className="mx-auto" />
+        <DiscordLink
+          href="https://discord.com/invite/a2VyCjRk2M"
+          className="mx-auto w-48 py-2 px-7 text-xs"
+        >
+          בואו לדיסקורד
+        </DiscordLink>
       </div>
 
       <Carousel className="mb-28" />
