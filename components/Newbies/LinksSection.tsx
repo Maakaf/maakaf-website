@@ -25,7 +25,7 @@ const linksData = [
 
 const LinksSection = () => {
   return (
-    <div className="w-full py-12 md:pt-20 md:pb-36">
+    <div className="w-full py-12 md:py-20">
       <SectionTitle title="איפה הכל קורה?" />
 
       <div className="flex flex-col items-center mt-8 gap-4 sm:flex-row sm:items-center sm:justify-center sm:flex-wrap">

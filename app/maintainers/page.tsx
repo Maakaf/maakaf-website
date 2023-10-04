@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import MaintainerForm from '@/components/Maintainers/MaintainerForm';
-import QuestionsAnswers from '@/components/Maintainers/QuestionsAnswers';
+import FaqsSection from '@/components/Maintainers/FaqsSection';
 import Steps from '@/components/Maintainers/Steps';
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ const MaintainersPage: React.FC = () => {
     <>
       <MaintainerForm />
       <Steps />
-      <QuestionsAnswers />
+      <FaqsSection />
     </>
   );
 };

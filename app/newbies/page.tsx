@@ -1,6 +1,7 @@
 import HeroSection from '@/components/Newbies/HeroSection';
 import { Metadata } from 'next';
 import LinksSection from '@/components/Newbies/LinksSection';
+import FaqsSection from '@/components/Newbies/FaqsSection';
 import Terms from '@/components/Newbies/Terms/Terms';
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ const NewbiesPage: React.FC = () => {
       <HeroSection />
       <Terms />
       <LinksSection />
+      <FaqsSection />
     </>
   );
 };
