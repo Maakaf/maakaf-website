@@ -70,6 +70,8 @@ module.exports = {
     fontFamily: {
       birzia: ['Birzia', 'sans-serif'],
       inter: ['Inter', 'sans-serif'],
+      assistant: ['Assistant', 'sans-serif'],
+      amiro: ['Amiro', 'sans-serif'],
     },
     fontSize: {
       xs: '12px',
