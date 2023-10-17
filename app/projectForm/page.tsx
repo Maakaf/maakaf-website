@@ -19,7 +19,8 @@ import { Input } from '@/components/ui/input';
 
 import { Check, ChevronLeft } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
+// https://github.com/shadcn-ui/ui/issues/690
+import { asOptionalField, cn } from '@/lib/utils';
 import {
   Command,
   CommandEmpty,
@@ -55,12 +56,7 @@ const arimo = Arimo({
   weight: ['400', '500', '600'],
 });
 
-// https://github.com/shadcn-ui/ui/issues/690
-const emptyStringToUndefined = z.literal('').transform(() => undefined);
 
-export function asOptionalField<T extends z.ZodTypeAny>(schema: T) {
-  return schema.optional().or(emptyStringToUndefined);
-}
 
 const formSchema = z.object({
   username: z.string().min(5, {
