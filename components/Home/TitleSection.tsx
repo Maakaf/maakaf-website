@@ -11,13 +11,9 @@ export default function TitleSection() {
         </h1>
         <h4 className="w-full text-center md:text-right">
           מטרת הקהילה היא חיבור
-          <br />
           בין מפתחים ישראלים המעוניינים
-          <br />
           לתרום לקוד פתוח,
-          <br />
           ובין ספריות קוד פתוח ישראליות.
-          <br />
           <br />
           פרטים מלאים על הקהילה ניתן למצוא <br />
           באתר הזמני של הקהילה
