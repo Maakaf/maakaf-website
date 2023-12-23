@@ -16,14 +16,13 @@ export default function DiscordLink({
   return (
     <Link
       href={href}
-      target="_blank"
       className={classNames(
         'discord-btn rounded-full flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition',
         className
       )}
     >
       {children}
-      <Image src={'/images/discord.png'} alt="discord" width={20} height={20} />
+      {/* <Image src={'/images/discord.png'} alt="discord" width={20} height={20} /> */}
     </Link>
   );
 }
