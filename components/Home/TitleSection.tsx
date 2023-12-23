@@ -19,16 +19,22 @@ export default function TitleSection() {
           ובין ספריות קוד פתוח ישראליות.
           <br />
           <br />
-          הפעילות של הקהילה מתקיימת
+          פרטים מלאים על הקהילה ניתן למצוא <br />
+          באתר הזמני של הקהילה
           <br />
-          בשרת הדיסקורד שלנו.
+          <br />
+          <a href="https://maakaf.netlify.app/">
+            <b>למעבר לאתר הזמני לחצו כאן</b>
+            <br />
+            maakaf.netlify.app
+          </a>
         </h4>
-        <DiscordLink
+        {/* <DiscordLink
           className="w-48 py-2 px-7 text-xs"
           href="https://discord.com/invite/a2VyCjRk2M"
         >
           בואו לדיסקורד
-        </DiscordLink>
+        </DiscordLink> */}
       </div>
       <div className="absolute lg:min-h-[800px] xl:w-[650px] top-0 left-0 w-full h-full -z-10 md:z-0 opacity-40 md:w-1/2 md:min-h-screen md:opacity-100 md:static">
         <div
