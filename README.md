@@ -1,5 +1,7 @@
 # מעקף - מחפשי עבודה (תורמים) לקוד פתוח
 
+![App Screenshot](public/images/screenshot.png)
+
 ### Project Stack:
 
 <img src="https://raw.githubusercontent.com/gilbarbara/logos/c8749cfc4be0e67a266be0554282d73d967db910/logos/nextjs-icon.svg" width="40" height="40" align="center" alt="Next.js Logo">&nbsp;&nbsp;This is a Next.js project.
