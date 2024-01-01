@@ -6,12 +6,12 @@ import { useTheme } from 'next-themes';
 
 const Darkmode: React.FC = () => {
   const { theme, setTheme } = useTheme();
-  if (theme === 'system') setTheme('dark')
+  if (theme === 'system') setTheme('dark');
   return (
     <button
       id="שינוי פלטה"
       aria-label={`לחץ פה למעבר לפלטה ${theme === 'dark' ? 'בהירה' : 'כהה'}`}
-      className="w-6 h-6 cursor-pointer inset-0 bg-transparent border-none p-0 m-0"
+      className="flex justify-center content-center w-6 h-6 cursor-pointer inset-0 bg-transparent border-none p-0 m-0"
       onClick={() => {
         setTheme(theme === 'dark' ? 'light' : 'dark');
       }}

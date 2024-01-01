@@ -84,7 +84,7 @@ export const Dropdown = <T extends OptionValue>({
         <div
           onClick={toggleDropdown}
           onKeyDown={handleKeyDown}
-          className="flex gap-5 items-center"
+          className="flex gap-2 items-center"
           aria-label="Dropdown"
           tabIndex={0}
         >

@@ -1,5 +1,3 @@
-'use client';
-
 const Quote: React.FC = () => {
   return (
     <div className="bg-purple-100/50 dark:bg-gray-800/50 h-96">
