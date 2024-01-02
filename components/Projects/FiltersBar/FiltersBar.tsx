@@ -61,7 +61,7 @@ const FiltersBar: React.FC = () => {
   useFocusTrap(filterRef, toggleFiltersWindow);
 
   return (
-    <div className="px-4 md:px-14 flex flex-col justify-center items-center gap-[51px]">
+    <div className="w-full flex flex-col justify-center items-center gap-[51px]">
       <div className="flex flex-col items-center gap-[5px]">
         <h1 className="h1 font-bold">הפרויקטים</h1>
         <h2 className="h4-roman text-xl text-center">

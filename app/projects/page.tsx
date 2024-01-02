@@ -48,9 +48,11 @@ const ProjectsPage = () => {
   };
 
   return (
-    <section className="h-full">
+    <section className="self-center w-full h-[90vh] px-20 pb-6 flex flex-col justify-center gap-4">
       <FiltersBar />
-      <ProjectCard {...exampleProjectCardData}></ProjectCard>
+      <div className="projects flex flex-col justify-center gap-4">
+        <ProjectCard {...exampleProjectCardData}></ProjectCard>
+      </div>
     </section>
   );
 };
