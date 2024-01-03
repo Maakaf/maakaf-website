@@ -42,7 +42,7 @@ export default function ProjectCard({
 
   return (
     <article
-      className="flex p-4 sm:p-6 gap-7 rounded-lg bg-purple-100 dark:bg-darkAccBg
+      className="w-full flex p-4 sm:p-6 gap-7 rounded-lg bg-purple-100 dark:bg-darkAccBg
       hover:bg-purple-200 dark:hover:bg-[#253245] item-hover-transition"
     >
       <aside className="hidden sm:flex flex-col items-center gap-4">

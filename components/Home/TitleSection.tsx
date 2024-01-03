@@ -26,7 +26,7 @@ export default function TitleSection() {
         </DiscordLink>
       </div>
 
-      <div className="absolute xl:w-[650px] top-0 left-0 w-full h-full -z-10 md:z-0 opacity-40 md:w-1/2 md:opacity-100 md:static">
+      <div className="absolute top-0 left-0 w-full h-full opacity-40 -z-10 2xl:h-[90%] xl:w-[650px] md:z-0 md:w-1/2 md:opacity-100 md:static">
         <div
           className={
             'bg-[url("/images/skeleton_loader.png")] dark:bg-[url("/images/skeleton_loader_dark.png")] w-full h-full bg-top bg-no-repeat bg-contain '
