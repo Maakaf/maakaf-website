@@ -4,31 +4,32 @@ import LinkedinIconLink from './LinkedinIconLink';
 import TwitterIconLink from './TwitterIconLink';
 import React from 'react';
 import GithubIconLink from '@/components/Footer/GithubIconLink';
+import { LINKS } from '@/config/consts';
 
 const links = [
   {
     text: 'Contributors',
-    href: '/',
+    href: LINKS.CONTRIBUTORS,
   },
   {
     text: 'הפרויקטים',
-    href: '/',
+    href: LINKS.PROJECTS,
   },
   {
     text: 'Newbies',
-    href: '/',
+    href: LINKS.NEWBIES,
   },
   {
     text: 'יצירת קשר',
-    href: '/',
+    href: LINKS.CONTACT_US,
   },
   {
     text: 'Maintainers',
-    href: '/',
+    href: LINKS.MAINTAINERS,
   },
   {
     text: 'מי אנחנו',
-    href: '/',
+    href: LINKS.ABOUT_US,
   },
 ];
 
@@ -60,11 +61,11 @@ const Footer: React.FC = () => {
             <TwitterIconLink />
           </div>
 
-          <div className="flex justify-center w-full gap-10 text-center lg:gap-16 ">
-            <Link className="text-sm" href="#">
+          <div className="flex justify-center w-full gap-10 text-center lg:gap-16">
+            <Link className="text-sm" href={LINKS.TERMS_OF_USE}>
               תנאי שימוש
             </Link>
-            <Link className="text-sm" href="#">
+            <Link className="text-sm" href={LINKS.PRIVACY_SETTINGS}>
               הגדרות פרטיות
             </Link>
           </div>

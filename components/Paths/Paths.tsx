@@ -1,5 +1,6 @@
 'use client';
 
+import { LINKS } from '@/config/consts';
 import SectionTitle from '../Common/SectionTitle';
 import PathItem from './PathItem';
 import { motion } from 'framer-motion';
@@ -9,20 +10,20 @@ const paths = [
     title: 'Newbies',
     description:
       'פעם ראשונה עם קוד פתוח? אל דאגה... בואו נבין ביחד מאיפה להתחיל',
-    link: { name: 'צעד ראשון', href: '/' },
+    link: { name: 'צעד ראשון', href: LINKS.NEWBIES },
     btnColor: 'bg-pink-500',
   },
   {
     title: 'Contributors',
     description: 'מכירים כבר את הקונספט ורוצים להצטרף לקהילה? בבקשה',
-    link: { name: 'ערוץ דיסקורד', href: '/' },
+    link: { name: 'ערוץ דיסקורד', href: LINKS.DISCORD },
     btnColor: 'bg-purple-500',
   },
   {
     title: 'Maintainers',
     description:
       'יש לכם פרויקט שאתם רוצים לצרף למעקף? מלאו טופס הצטרפות ונתחיל',
-    link: { name: 'טופס הצטרפות', href: '/' },
+    link: { name: 'טופס הצטרפות', href: LINKS.MAINTAINERS },
     btnColor: 'bg-green-500',
   },
 ];

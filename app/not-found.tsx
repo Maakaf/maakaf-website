@@ -1,3 +1,4 @@
+import { LINKS } from '@/config/consts';
 import Link from 'next/link';
 import { SVGProps } from 'react';
 
@@ -7,7 +8,7 @@ export default function NotFound() {
       <h1>לא נמצא</h1>
       <p>לא יכולנו למצוא את העמוד שביקשת</p>
       <Link
-        href="/"
+        href={LINKS.HOME}
         className="w-[250px] my-8 text-xs discord-btn rounded-full px-7 py-2 flex items-start justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition"
       >
         בחזרה לדף הראשי

@@ -1,3 +1,4 @@
+import { LINKS } from '@/config/consts';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -25,7 +26,7 @@ const CommunityLink = () => {
   return (
     <p className="text-3xl md:text-[60px] font-bold pr-5">
       הכירו את חברי{' '}
-      <Link className="text-purple-500 hover:underline" href="/members">
+      <Link className="text-purple-500 hover:underline" href={LINKS.MEMBERS}>
         הקהילה
       </Link>
     </p>

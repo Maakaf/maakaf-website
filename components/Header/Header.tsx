@@ -3,6 +3,7 @@ import Link from 'next/link';
 import SizeIndicator from './SizeIndicator';
 import dynamic from 'next/dynamic';
 import { NavDropdown } from './NavDropdown';
+import { LINKS } from '@/config/consts';
 
 const NavRightSide = dynamic(() => import('./NavRightSide'), {
   ssr: false,
@@ -25,13 +26,13 @@ const Header: React.FC = () => {
             <NavDropdown />
           </li>
           <li className="cursor-pointer body-roman">
-            <Link href="/projects">הפרויקטים</Link>
+            <Link href={LINKS.PROJECTS}>הפרויקטים</Link>
           </li>
           <li className="cursor-pointer body-roman">
-            <Link href="/about">מי אנחנו</Link>
+            <Link href={LINKS.ABOUT_US}>מי אנחנו</Link>
           </li>
         </ul>
-        <Link href="/">
+        <Link href={LINKS.HOME}>
           <Image
             src="/images/maakafLogo.png"
             alt="maakafLogo"
