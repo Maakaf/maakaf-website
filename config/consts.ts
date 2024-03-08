@@ -1,8 +1,8 @@
 export const LINKS = {
   NEWBIES: '/newbies',
-  MEMBERS: '/members',
+  COMMUNITY_MEMBERS: '/members',
   CONTRIBUTORS: 'https://github.com/Maakaf/maakaf-website/graphs/contributors',
-  MAINTAINERS: '/maintainers', // TODO a
+  COMMUNITY_MAINTAINERS: '/maintainers',
   PROJECTS: '/projects',
   CONTACT_US: '/not-found',
   ABOUT_US: '/about',
