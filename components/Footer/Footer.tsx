@@ -45,7 +45,7 @@ const FooterLink = ({ href, text }: FooterLinkProps) => (
 
 const Footer: React.FC = () => {
   return (
-    <footer className="z-10 sticky bottom-0 grid py-6 font-inter md:grid-cols-2 border-t-[1px] w-full h-96 md:h-40 border-blue-600 bg-lightBg dark:bg-darkAccBg text-darkText dark:text-lightText">
+    <footer className="z-10 sticky bottom-0 grid py-6 font-inter md:grid-cols-2 border-t-[1px] w-full h-96 md:h-40 border-blue-600 bg-blue-100 dark:bg-darkAccBg text-darkText dark:text-lightText">
       <div className="grid w-full grid-cols-2 2xl:w-2/3 md:px-16 lg:px-24 ">
         {links.map((link, index) => (
           <FooterLink key={index} href={link.href} text={link.text} />
@@ -55,16 +55,16 @@ const Footer: React.FC = () => {
         <div className="flex flex-col justify-around h-full ">
           <div className="flex justify-center gap-4 lg:gap-6 ">
             <GithubIconLink repoUrl="https://github.com/Maakaf/maakaf-website" />
-            <FacebookIconLink />
-            <LinkedinIconLink />
             <TwitterIconLink />
+            <LinkedinIconLink />
+            <FacebookIconLink />
           </div>
 
           <div className="flex justify-center w-full gap-10 text-center lg:gap-16 ">
-            <Link className="text-sm" href="#">
+            <Link className="text-sm font-normal" href="#">
               תנאי שימוש
             </Link>
-            <Link className="text-sm" href="#">
+            <Link className="text-sm font-normal" href="#">
               הגדרות פרטיות
             </Link>
           </div>
