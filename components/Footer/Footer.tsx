@@ -25,7 +25,7 @@ const links = [
   },
   {
     text: 'Maintainers',
-    href: LINKS.MAINTAINERS,
+    href: LINKS.COMMUNITY_MAINTAINERS,
   },
   {
     text: 'מי אנחנו',

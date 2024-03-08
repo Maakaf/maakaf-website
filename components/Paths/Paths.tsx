@@ -23,7 +23,7 @@ const paths = [
     title: 'Maintainers',
     description:
       'יש לכם פרויקט שאתם רוצים לצרף למעקף? מלאו טופס הצטרפות ונתחיל',
-    link: { name: 'טופס הצטרפות', href: LINKS.MAINTAINERS },
+    link: { name: 'טופס הצטרפות', href: LINKS.COMMUNITY_MAINTAINERS },
     btnColor: 'bg-green-500',
   },
 ];
