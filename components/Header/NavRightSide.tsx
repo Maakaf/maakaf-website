@@ -5,6 +5,7 @@ import useMediaQuery from '../hooks/useMediaQuery';
 import Image from 'next/image';
 import Sidebar from './Sidebar';
 import Darkmode from '../Common/Darkmode';
+import LocalSwitcher from './LocalSwitcher';
 
 const NavRightSide = () => {
   const isMobile = useMediaQuery('sm');
@@ -40,7 +41,10 @@ const NavRightSide = () => {
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </>
   ) : (
+    <div className='flex gap-3'>
+    {process.env.NODE_ENV === 'development' && <LocalSwitcher/>}
     <Darkmode />
+    </div>
   );
 };
 
