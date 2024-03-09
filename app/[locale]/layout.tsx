@@ -57,7 +57,7 @@ export default function RootLayout({
   params: {locale: string};
 }) {
   return (
-    <html lang="he" dir="rtl" suppressHydrationWarning={true}>
+    <html lang={locale} dir="rtl" suppressHydrationWarning={true}>
       <body
         className={`min-h-screen flex flex-col items-stretch m-0 darkmode-main ${birzia.className} ${inter.variable}`}
       >
