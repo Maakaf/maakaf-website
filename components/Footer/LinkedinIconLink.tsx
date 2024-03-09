@@ -8,7 +8,7 @@ const LinkedinIconLink = () => {
 
   return (
     <a
-      href="https://www.linkedin.com/"
+      href="https://www.linkedin.com/company/maakaf/"
       target="_blank"
       aria-label="תבקרו אותנו בלינקדאין"
     >
