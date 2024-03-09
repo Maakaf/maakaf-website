@@ -10,7 +10,7 @@ const FacebookIconLink = () => {
     <a
       href="https://www.facebook.com/"
       target="_blank"
-      aria-label="Visit us on Facebook"
+      aria-label="תבקרו אותנו בפייסבוק"
     >
       <svg
         width="52"
