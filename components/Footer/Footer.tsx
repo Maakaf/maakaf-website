@@ -44,7 +44,7 @@ const FooterLink = ({ href, text }: FooterLinkProps) => (
 );
 const Footer: React.FC = () => {
   return (
-    <footer className="z-10 bottom-0 grid py-6 font-inter md:grid-cols-2 border-t-[1px] w-full border-blue-600 bg-blue-100 dark:bg-darkAccBg text-darkText dark:text-lightText">
+    <footer className="z-10 bottom-0 grid py-6 font-inter md:grid-cols-2 border-t-[1px] w-full border-blue-600 bg-blue-100 dark:bg-darkAccBg text-darkTex dark:text-lightText">
       <div className="grid w-full grid-cols-1 md:grid-cols-2 2xl:w-2/3 md:px-2 lg:px-4 md:gap-4 lg:gap-6">
         {links.map((link, index) => (
           <FooterLink key={index} href={link.href} text={link.text} />
