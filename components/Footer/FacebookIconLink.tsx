@@ -1,10 +1,10 @@
 "use client" 
+
 import React from 'react';
-import { useTheme } from 'next-themes';
+import { useStrokeColor } from './useStrokeColor'
 
 const FacebookIconLink = () => {
-  const { theme } = useTheme();
-  const strokeColor = theme === 'dark' ? '#dddfe7' : '#020616';
+  const strokeColor = useStrokeColor();
 
   return (
     <a
