@@ -27,6 +27,7 @@ export const metadata = {
 };
 
 export default function Home() {
+
   return (
     <section className="mb-8">
       <TitleSection />

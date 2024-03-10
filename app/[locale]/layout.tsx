@@ -9,15 +9,15 @@ import Footer from '@/components/Footer/Footer';
 const birzia = Birzia({
   src: [
     {
-      path: '../public/fonts/Birzia-Black.woff2',
+      path: '../../public/fonts/Birzia-Black.woff2',
       weight: '900',
     },
     {
-      path: '../public/fonts/Birzia-Bold.woff2',
+      path: '../../public/fonts/Birzia-Bold.woff2',
       weight: '700',
     },
     {
-      path: '../public/fonts/Birzia-Medium.woff2',
+      path: '../../public/fonts/Birzia-Medium.woff2',
       weight: '500',
     },
   ],
@@ -51,8 +51,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params: {locale}
 }: {
   children: React.ReactNode;
+  params: {locale: string};
 }) {
   return (
     <html lang="he" dir="rtl" suppressHydrationWarning={true}>
