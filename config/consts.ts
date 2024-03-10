@@ -14,5 +14,5 @@ export const LINKS = {
 };
 
 export const HOST = {
-  PATH: 'https://maakaf-website.vercel.app/',
+  PATH: 'https://maakaf-website.vercel.app',
 };
