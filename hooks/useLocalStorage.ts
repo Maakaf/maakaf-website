@@ -5,7 +5,8 @@ function useLocalStorage<T>(
   initialValue: T
 ): [T, (value: T | ((val: T) => T)) => void] {
   const [state, setState] = useState<T>(() => {
-    // Initialize the state
+    // Initialize the
+    if (!window) return;
     try {
       const value = window.localStorage.getItem(key);
       // Check if the local storage already has any values,
@@ -21,7 +22,7 @@ function useLocalStorage<T>(
       // If the passed value is a callback function,
       //  then call it with the existing state.
       const valueToStore = value instanceof Function ? value(state) : value;
-      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      window?.localStorage.setItem(key, JSON.stringify(valueToStore));
       setState(value);
     } catch (error) {
       console.log(error);
