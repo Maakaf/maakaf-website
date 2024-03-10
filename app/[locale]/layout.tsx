@@ -31,6 +31,9 @@ export const metadata: Metadata = {
     template: '%s | מעקף',
     default: 'מעקף',
   },
+  icons: {
+    icon: `${HOST.PATH}/favicon.ico`,
+  },
   description:
     'קהילת מעק"ף היא קהילה ישראלית שמטרתה לשנות את צורת העבודה על קוד פתוח. הקהילה פתוחה לכל מי שמעוניין בתרומה קוד פתוח, בין אם הוא מתחיל או מומחה.',
   openGraph: {
