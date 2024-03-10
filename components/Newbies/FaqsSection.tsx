@@ -1,3 +1,4 @@
+import { LINKS } from '@/config/consts';
 import Faqs from '../Common/Faqs';
 
 const faqs = [
@@ -56,13 +57,13 @@ const faqs = [
       <p>
         ממש אצלנו בקהילה!{' '}
         <span className="underline  text-purple-500">
-          <a href="/projects" target="_blank">
+          <a href={LINKS.PROJECTS} target="_blank">
             בעמוד הפרויקטים
           </a>
         </span>{' '}
         תוכלו למצוא מידע על פרויקטים בקוד פתוח במגוון שפות ותחומים. <br />
         <span className="underline  text-purple-500">
-          <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
+          <a href={LINKS.DISCORD}target="_blank">
             בדיסקורד שלנו
           </a>
         </span>{' '}

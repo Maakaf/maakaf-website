@@ -1,3 +1,4 @@
+import { LINKS } from '@/config/consts';
 import Faqs from '../Common/Faqs';
 
 const faqs = [
@@ -30,7 +31,7 @@ const faqs = [
         טכנולוגיה. המון חברות מוכרות עובדות בקוד פתוח. עדיין יש ספקות? תמיד אפשר
         להתייעץ{' '}
         <span className="underline  text-purple-500">
-          <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
+          <a href={LINKS.DISCORD} target="_blank">
             בדיסקורד.
           </a>
         </span>
@@ -43,7 +44,7 @@ const faqs = [
       <p>
         בהחלט! תוכלו תמיד להיעזר ולהתייעץ עם חברי וחברות קהילת הקוד הפתוח שלנו{' '}
         <span className="underline  text-purple-500">
-          <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
+          <a href={LINKS.DISCORD} target="_blank">
             בדיסקורד.
           </a>
         </span>
@@ -56,15 +57,12 @@ const faqs = [
       <p>
         הצטרפו לקהילה שלנו{' '}
         <span className="underline  text-purple-500">
-          <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
+          <a href={LINKS.DISCORD} target="_blank">
             בדיסקורד
           </a>
         </span>{' '}
         <span className="underline  text-purple-500">
-          <a
-            href="https://chat.whatsapp.com/E5a59DtSaHNBwnczxVW1FY"
-            target="_blank"
-          >
+          <a href={LINKS.WHATSAPP} target="_blank">
             ובוואטספ
           </a>
         </span>
@@ -99,7 +97,7 @@ const faqs = [
         <br />
         לא לשכוח כמובן לשתף אותנו{' '}
         <span className="underline  text-purple-500">
-          <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
+          <a href={LINKS.DISCORD} target="_blank">
             בדיסקורד!
           </a>
         </span>
