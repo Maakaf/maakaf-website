@@ -5,7 +5,7 @@ export default function TitleSection() {
   const t = useTranslations('TitleSection');
 
   return (
-    <div className="relative mx-auto max-w-[1600px] px-4 flex justify-between h-[70vh] 2xl:h-[80vh] xl:h-[70vh] md:h-[70vh] md:px-14 pb-10 sm:h-[80vh]">
+    <div className="relative mx-auto max-w-[1600px] px-4 flex justify-between h-[90vh] 2xl:h-[90vh] xl:h-[90vh] md:h-[70vh] md:px-14 pb-10 sm:h-[80vh]">
       <div className="flex flex-col items-center w-full gap-6 mt-[1.2rem] 2xl:gap-12 lg:px-12 lg:mt-0 lg:gap-8 md:-mt-2 md:px-10 md:w-1/2 md:items-start md:gap-4">
         <h1 className="w-full text-center 2xl:text-5xl xl:text-3xl lg:text-3xl md:text-right md:text-2xl">
           {t('title')}&nbsp;-
