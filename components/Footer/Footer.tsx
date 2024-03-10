@@ -5,6 +5,8 @@ import TwitterIconLink from './TwitterIconLink';
 import React from 'react';
 import GithubIconLink from '@/components/Footer/GithubIconLink';
 import { LINKS } from '@/config/consts';
+import MeetupIconLink from './MeetupIconLink';
+import YoutubeIconLink from './YoutubeIconLink';
 
 const links = [
   {
@@ -58,6 +60,8 @@ const Footer: React.FC = () => {
             <FacebookIconLink />
             <LinkedinIconLink />
             <TwitterIconLink />
+            <YoutubeIconLink />
+            <MeetupIconLink />
           </div>
           <div className="flex justify-center w-full gap-10 text-center lg:gap-16">
             <Link className="text-sm" href={LINKS.TERMS_OF_USE}>
