@@ -1,59 +1,58 @@
+'use client';
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
-import { Metadata } from 'next';
-import ProjectCard, {
-  ProjectCardProps,
-} from '@/components/Projects/ProjectCard/ProjectCard';
-
-export const metadata: Metadata = {
-  title: 'הפרויקטים',
-  description:
-    'הכירו את פרויקטי הקוד הפתוח של חברי הקהילה, ובחרו לאילו פרויקטים תרצו להצטרף',
-  openGraph: {
-    title: 'הפרויקטים | מעקף',
-    description:
-      'הכירו את פרויקטי הקוד הפתוח של חברי הקהילה, ובחרו לאילו פרויקטים תרצו להצטרף',
-    url: 'https://maakaf-website.vercel.app/projects',
-    siteName: 'Maakaf',
-    type: 'website',
-    images: [
-      {
-        url: 'https://maakaf-website.vercel.app/favicon.ico',
-        width: 600,
-        height: 600,
-      },
-    ],
-  },
-};
+import { ProjectCardProps } from '@/components/Projects/ProjectCard/ProjectCard';
+import { MempmizedProjectsDisplay } from '@/components/Projects/ProjectDisplay';
+import useFetchProjects from '@/hooks/useFetchProjects';
+import React from 'react';
 
 const ProjectsPage = () => {
   const exampleProjectCardData: ProjectCardProps = {
-    projectThumbnailSrc: '/',
-    updatedDate: new Date('2023/3/14'),
-    createdDate: new Date('2023/3/14'),
-    projectName: 'פרויקט אקראי 45HG',
-    contributorCount: 125,
-    contributorAvatars: [
-      { imageSrc: '/images/avatars/avatar.jpg?0', name: 'ברוך אודם' },
-      { imageSrc: '/images/avatars/avatar.jpg?1', name: 'ברוך אודם' },
-    ],
-    description: `פסקת תיאור של הפרויקטים פה שתתן חשק לעשייה, שתדבר קצת על הפרויקט ומה
-    יש בו, מה מחפשים בדיוק במפתחים שמתנדבים, איזה פונקציות קיימות ואולי
-    מה הלך הרוח של הפרויקט. מה שצריך כדי לתת כמה שיותר מידע לככה הכרטיס
-    מתרחב כשיש יותר מ-3 שורות. בגדול הטקסט נשאר בגבולות ה700 פיקסלים,
-    אבל השפות תכנות והכפתורים יורדים למטה, כשכל השאר נשאר למעלה ותמיד
-    נשאר רווח של 24 פיקסלים בין התיבת טקסט לשפות תכנות והכפתורים.`,
-    tags: ['Java', 'Python', 'CSS', 'CSS1', 'CSS2', 'CSS3'],
-    githubLink: 'https://github.com/Maakaf/maakaf-website',
-    discordLink: 'https://discord.gg/ayh8HtRQXk',
+    project: {
+      name: 'MAAKAF_MeOnTheLine',
+      openGraphImageUrl: '',
+      collaborators: { totalCount: 0 },
+      description:
+        "Maakaf community project - At it's core - Digital business card system.",
+      url: 'https://github.com/shefyg/MAAKAF_MeOnTheLine',
+      createdAt: '2024-03-07T09:09:06Z',
+      updatedAt: '2024-03-07T15:43:38Z',
+      stargazerCount: 0,
+      languages: {
+        edges: [
+          {
+            node: {
+              name: 'JavaScript',
+            },
+          },
+        ],
+      },
+      contributors: {
+        edges: [
+          {
+            node: {
+              avatarUrl: 'https://avatars.githubusercontent.com/u/1272318?v=4',
+              login: 'shefyg',
+            },
+          },
+        ],
+      },
+    },
   };
 
+  const { projects, loading } = useFetchProjects();
+
+  if (loading) return <div>Loading...</div>;
+
   return (
-    <section className="self-center w-full h-[90vh] px-20 pb-6 flex flex-col justify-center gap-4">
+    <>
       <FiltersBar />
-      <div className="projects flex flex-col justify-center gap-4">
-        <ProjectCard {...exampleProjectCardData}></ProjectCard>
+      <div className="overflow-y-auto projects flex flex-col justify-center gap-4">
+        {/* <ProjectCard {...exampleProjectCardData}></ProjectCard> */}
+        {projects?.items?.items?.length && (
+          <MempmizedProjectsDisplay projects={projects.items} />
+        )}
       </div>
-    </section>
+    </>
   );
 };
 

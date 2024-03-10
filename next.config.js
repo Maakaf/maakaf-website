@@ -7,6 +7,19 @@ const nextConfig = {
   eslint: {
     dirs: ['app', 'components'],
   },
+  images: {
+    // domains: ['opengraph.githubassets.com', 'avatars.githubusercontent.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: '**',
+      },
+    ],
+  },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find(rule =>

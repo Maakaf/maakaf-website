@@ -6,37 +6,29 @@ import TagList from './TagList';
 import AvatarList from './AvatarList';
 import { AvatarData } from './Avatar';
 import DiscordLink from '@/components/Common/DiscordLink';
+import { RepoItem } from '@/hooks/useFetchProjects';
 
 export interface ProjectCardProps {
-  projectThumbnailSrc: string;
-  updatedDate: Date;
-  createdDate: Date;
-  projectName: string;
-  contributorCount: number;
-  contributorAvatars: AvatarData[];
-  description: string;
-  tags: string[];
-  githubLink?: string;
-  discordLink?: string;
+  project: RepoItem;
 }
 
 export default function ProjectCard({
-  projectThumbnailSrc,
-  updatedDate,
-  createdDate,
-  projectName,
-  contributorCount,
-  contributorAvatars,
-  description,
-  tags,
-  githubLink,
-  discordLink,
+  project: {
+    openGraphImageUrl,
+    updatedAt,
+    createdAt,
+    name,
+    collaborators,
+    description,
+    languages,
+    contributors: { edges: contributors },
+  },
 }: ProjectCardProps) {
-  const updatedDateString = updatedDate
+  const updatedDateString = new Date(updatedAt)
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
 
-  const createdDateString = createdDate
+  const createdDateString = new Date(createdAt)
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
 
@@ -49,7 +41,7 @@ export default function ProjectCard({
         <ImageWithFallback
           width="108"
           height="108"
-          src={projectThumbnailSrc}
+          src={openGraphImageUrl}
           alt="project name"
           fallback={ProjectImagePlaceholder}
         ></ImageWithFallback>
@@ -65,31 +57,36 @@ export default function ProjectCard({
       <div className="flex grow flex-col justify-between gap-6">
         <div className="flex flex-col gap-4">
           <div className="flex flex-wrap flex-col sm:flex-row sm:items-center gap-6 gap-y-2">
-            <div className="font-birzia text-xl font-bold">{projectName}</div>
+            <div className="font-birzia text-xl font-bold">{name}</div>
             <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
-                {contributorCount} תורמים
+                {collaborators?.totalCount || 0} תורמים
               </div>
-              <AvatarList avatars={contributorAvatars}></AvatarList>
+              <AvatarList
+                avatars={contributors.map(c => ({
+                  imageSrc: c.node.avatarUrl,
+                  name: c.node.login,
+                }))}
+              ></AvatarList>
             </div>
           </div>
-          <ProjectCardDescription text={description}></ProjectCardDescription>
+          <ProjectCardDescription
+            text={description || 'none set'}
+          ></ProjectCardDescription>
         </div>
         <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6 sm:items-end">
           <TagList
             className="flex-wrap grow basis-[min-content]"
-            tags={tags}
+            tags={languages.edges.map(l => l.node.name)}
           ></TagList>
           <div className="flex gap-2">
-            {githubLink && <GithubButton link={githubLink} />}
-            {discordLink && (
-              <DiscordLink
-                href={discordLink}
-                className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
-              >
-                ערוץ דיסקורד
-              </DiscordLink>
-            )}
+            {/* <GithubButton link={LINKS.GITHUB_LINK} />
+            <DiscordLink
+              href={LINKS.DISCORD_LINK}
+              className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+            >
+              ערוץ דיסקורד
+            </DiscordLink> */}
           </div>
         </div>
       </div>
