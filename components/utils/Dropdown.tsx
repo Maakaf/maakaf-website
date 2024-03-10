@@ -16,24 +16,24 @@ interface Field {
 
 export type OptionValue = number | string;
 
-interface Option<T extends OptionValue> {
-  title: T;
-  titleHoverColor: T;
-  text?: T;
-  linkPath?: T;
+interface Option{
+  title: string;
+  titleHoverColor: string;
+  text?: string;
+  linkPath?: string;
 }
 
-type DropdownProps<T extends OptionValue> = {
+type DropdownProps= {
   field: Field;
-  options: Option<T>[];
+  options: Option[];
 };
 
-type ItemBodyProps<T extends OptionValue> = Omit<Option<T>, 'linkPath'>;
+type ItemBodyProps= Omit<Option, 'linkPath'>;
 
 export const Dropdown = <T extends OptionValue>({
   field,
   options = [],
-}: DropdownProps<T>) => {
+}: DropdownProps) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const { label, iconPath, darkIconPath, alt, width, height } = field;
@@ -119,7 +119,7 @@ export const Dropdown = <T extends OptionValue>({
           {options.map(item =>
             item.linkPath ? (
               <Link
-                href={item.linkPath as string}
+                href={item.linkPath}
                 onClick={toggleDropdown}
                 onKeyUp={e => (e.key === 'Escape' ? toggleDropdown() : null)}
                 key={`${item.title} ${item.text}`}
@@ -150,7 +150,7 @@ const ItemBody = <T extends OptionValue>({
   title,
   titleHoverColor,
   text,
-}: ItemBodyProps<T>) => {
+}: ItemBodyProps) => {
   return (
     <div className="flex flex-col gap-[10px]">
       <h5 className={`text-base font-bold dark:font-medium ${titleHoverColor}`}>
