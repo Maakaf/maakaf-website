@@ -1,25 +1,9 @@
 'use client';
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
-import ProjectCard, {
-  ProjectCardProps,
-} from '@/components/Projects/ProjectCard/ProjectCard';
-import useFetchProjects, {
-  IRepositoriesAPIResponse,
-} from '@/hooks/useFetchProjects';
+import { ProjectCardProps } from '@/components/Projects/ProjectCard/ProjectCard';
+import { MempmizedProjectsDisplay } from '@/components/Projects/ProjectDisplay';
+import useFetchProjects from '@/hooks/useFetchProjects';
 import React from 'react';
-
-const ProjectsDisplay = React.memo(
-  ({ projects }: { projects: IRepositoriesAPIResponse }) => {
-    console.log('🚀 ~ projects:', projects);
-    return (
-      <div className="flex flex-col gap-4">
-        {projects.items.map(project => (
-          <ProjectCard project={project} />
-        ))}
-      </div>
-    );
-  }
-);
 
 const ProjectsPage = () => {
   const exampleProjectCardData: ProjectCardProps = {
@@ -65,7 +49,7 @@ const ProjectsPage = () => {
       <div className="overflow-y-auto projects flex flex-col justify-center gap-4">
         {/* <ProjectCard {...exampleProjectCardData}></ProjectCard> */}
         {projects?.items?.items?.length && (
-          <ProjectsDisplay projects={projects.items} />
+          <MempmizedProjectsDisplay projects={projects.items} />
         )}
       </div>
     </>
