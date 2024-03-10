@@ -12,3 +12,7 @@ export const LINKS = {
   DISCORD: 'https://discord.com/invite/a2VyCjRk2M',
   WHATSAPP: 'https://chat.whatsapp.com/E5a59DtSaHNBwnczxVW1FY',
 };
+
+export const HOST = {
+  PATH: 'https://maakaf-website.vercel.app/',
+};

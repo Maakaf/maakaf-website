@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import { HOST } from '@/config/consts';
 
 const birzia = Birzia({
   src: [
@@ -36,12 +37,12 @@ export const metadata: Metadata = {
     title: 'קהילת מעקף',
     description:
       'קהילת מעק"ף היא קהילה ישראלית שמטרתה לשנות את צורת העבודה על קוד פתוח. הקהילה פתוחה לכל מי שמעוניין בתרומה קוד פתוח, בין אם הוא מתחיל או מומחה.',
-    url: 'https://maakaf-website.vercel.app/',
+    url: `${HOST.PATH}`,
     siteName: 'Maakaf',
     type: 'website',
     images: [
       {
-        url: 'https://maakaf-website.vercel.app/favicon.ico',
+        url: `${HOST.PATH}/favicon.ico`,
         width: 600,
         height: 600,
       },
@@ -51,10 +52,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  params: {locale}
+  params: { locale },
 }: {
   children: React.ReactNode;
-  params: {locale: string};
+  params: { locale: string };
 }) {
   return (
     <html lang={locale} dir="rtl" suppressHydrationWarning={true}>
