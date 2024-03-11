@@ -22,7 +22,7 @@ function WhatNow() {
           שמספרת כמה האנשים מגניבים ונחמדים וכמה לומדים הרבה מהעשייה שם. איך זה
           יגרום לאדם להסתכל אחרת על פיתוח ולחולל שינוי משמעותי בעולם ובחיים שלו.
         </h4>
-        <button className="bg-purple-400 dark:bg-purple-500 text-white body-bold px-6 py-3.5 sm:w-1/6 sm:rounded-full rounded-md ">
+        <button className="bg-purple-400 dark:bg-purple-500 text-white body-bold px-6 py-3.5 sm:w-1/6 sm:rounded-full rounded-md sm:mx-0 mx-5">
           רוצה להתחיל
         </button>
       </div>
