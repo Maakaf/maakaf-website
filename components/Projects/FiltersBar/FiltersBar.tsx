@@ -1,7 +1,7 @@
 'use client'; // TODO: move to client compt
 
 import Image from 'next/image';
-import FilterBtnsGroup, { ProjectFilter, filters } from './FilterBtnsGroup';
+import FilterBtnsGroup, { ProjectFilter } from './FilterBtnsGroup';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import Radiobox from '@/components/utils/Radiobox';
 import FilterTagBtn from './FilterTagBtn';
@@ -9,10 +9,17 @@ import useFocusTrap from '@/components/hooks/useFocusTrap';
 
 const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
-const FiltersBar: React.FC = () => {
+interface FiltersBarProps {
+  filters: ProjectFilter[];
+  setTagsToFilterBy: (tags: ProjectFilter) => void;
+}
+
+const FiltersBar: React.FC<FiltersBarProps> = ({
+  filters,
+  setTagsToFilterBy,
+}: FiltersBarProps) => {
   const [toggleFiltersWindow, setToggleFiltersWindow] = useState(false);
   const [selectedSortOption, setSelectedSortOption] = useState('עודכן לאחרונה');
-  const [selectedFilters, setSelectedFilters] = useState<ProjectFilter[]>([]);
 
   const filterRef = useRef<HTMLDivElement | null>(null);
 
@@ -26,12 +33,7 @@ const FiltersBar: React.FC = () => {
 
   const handleFilterOptionChange = (filter: ProjectFilter) => {
     // TODO: check that logic and change - might be broken
-    const newFilter: ProjectFilter = {
-      name: filter.name,
-      isActive: true,
-    };
-
-    setSelectedFilters(prevFilters => [...prevFilters, newFilter]);
+    setTagsToFilterBy(filter);
   };
 
   useEffect(() => {
@@ -85,12 +87,13 @@ const FiltersBar: React.FC = () => {
                 <>
                   <div
                     ref={filterRef}
-                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[400px] md:min-w-0 md:w-[863px] h-[360px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-600"
+                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[400px] md:min-w-0 md:w-[863px] min-h-[260px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-600"
                   >
                     <div className="flex flex-col gap-[22px]">
                       <h3 className="text-base font-bold leading-normal">
                         פילטרים לפרויקטים
                       </h3>
+                      {/* sort by set 1 */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
                           מיון לפי
@@ -107,6 +110,7 @@ const FiltersBar: React.FC = () => {
                           ))}
                         </div>
                       </div>
+                      {/* sort by set 2 */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px] leading-tight">
                           סינון לפי תגיות
@@ -116,7 +120,9 @@ const FiltersBar: React.FC = () => {
                             <FilterTagBtn
                               key={filter.name}
                               btnText={filter.name}
-                              onClick={() => handleFilterOptionChange(filter)}
+                              toggleIsFilterActive={() =>
+                                handleFilterOptionChange(filter)
+                              }
                               isSelected={filter.isActive}
                             />
                           ))}
@@ -147,7 +153,10 @@ const FiltersBar: React.FC = () => {
           </div>
           <div className="flex gap-6">
             <span className="body-roman text-gray-400">מסננים</span>
-            <FilterBtnsGroup />
+            <FilterBtnsGroup
+              filters={filters}
+              handleFilterOptionChange={handleFilterOptionChange}
+            />
           </div>
         </div>
       </div>

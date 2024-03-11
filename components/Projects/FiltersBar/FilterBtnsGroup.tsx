@@ -9,60 +9,68 @@ export interface ProjectFilter {
 }
 
 // TODO: Move mock data to external folder
-export const filters: ProjectFilter[] = [
-  {
-    name: 'Java',
-    isActive: false,
-  },
-  {
-    name: 'Python',
-    isActive: false,
-  },
-  {
-    name: 'CSS',
-    isActive: false,
-  },
-  {
-    name: 'Spring',
-    isActive: false,
-  },
-  {
-    name: 'Javascript',
-    isActive: true,
-  },
-  {
-    name: 'Angular',
-    isActive: false,
-  },
-  {
-    name: 'Vue',
-    isActive: false,
-  },
-  {
-    name: 'Next.js',
-    isActive: true,
-  },
-  {
-    name: 'Node.js',
-    isActive: false,
-  },
-  {
-    name: 'C#',
-    isActive: false,
-  },
-  {
-    name: 'C++',
-    isActive: false,
-  },
-  {
-    name: 'React',
-    isActive: true,
-  },
-];
+// export const filters: ProjectFilter[] = [
+//   {
+//     name: 'Java',
+//     isActive: false,
+//   },
+//   {
+//     name: 'Python',
+//     isActive: false,
+//   },
+//   {
+//     name: 'CSS',
+//     isActive: false,
+//   },
+//   {
+//     name: 'Spring',
+//     isActive: false,
+//   },
+//   {
+//     name: 'Javascript',
+//     isActive: true,
+//   },
+//   {
+//     name: 'Angular',
+//     isActive: false,
+//   },
+//   {
+//     name: 'Vue',
+//     isActive: false,
+//   },
+//   {
+//     name: 'Next.js',
+//     isActive: true,
+//   },
+//   {
+//     name: 'Node.js',
+//     isActive: false,
+//   },
+//   {
+//     name: 'C#',
+//     isActive: false,
+//   },
+//   {
+//     name: 'C++',
+//     isActive: false,
+//   },
+//   {
+//     name: 'React',
+//     isActive: true,
+//   },
+// ];
 
-const FilterBtnsGroup = () => {
-  const handleBtnFilterClick = (filterName: string) => {
-    console.log(filterName);
+interface FilterBtnsGroupProps {
+  filters: ProjectFilter[];
+  handleFilterOptionChange: (filter: ProjectFilter) => void;
+}
+
+const FilterBtnsGroup = ({
+  filters,
+  handleFilterOptionChange,
+}: FilterBtnsGroupProps) => {
+  const handleBtnFilterClick = (filter: ProjectFilter) => {
+    handleFilterOptionChange(filter);
   };
 
   return (
@@ -71,8 +79,8 @@ const FilterBtnsGroup = () => {
         filter.isActive ? (
           <FilterBtn
             key={filter.name}
-            btnText={filter.name}
-            onBtnClick={handleBtnFilterClick}
+            filter={filter}
+            onBtnClick={() => handleBtnFilterClick(filter)}
           />
         ) : null
       )}
