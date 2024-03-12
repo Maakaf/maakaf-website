@@ -26,10 +26,14 @@ const Header: React.FC = () => {
             <NavDropdown />
           </li>
           <li className="cursor-pointer body-roman">
-            <Link href={LINKS.PROJECTS}>הפרויקטים</Link>
+            <Link href={LINKS.PROJECTS} className='transition duration-300 group'>הפרויקטים
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"/>
+            </Link>
           </li>
-          <li className="cursor-pointer body-roman">
-            <Link href={LINKS.ABOUT_US}>מי אנחנו</Link>
+          <li className="cursor-pointer body-roman ">
+            <Link href={LINKS.ABOUT_US} className='transition duration-300 group'>מי אנחנו
+            <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600"/>
+            </Link>
           </li>
         </ul>
         <Link href={LINKS.HOME}>
