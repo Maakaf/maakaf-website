@@ -7,6 +7,7 @@ import AvatarList from './AvatarList';
 import { AvatarData } from './Avatar';
 import DiscordLink from '@/components/Common/DiscordLink';
 import { RepoItem } from '@/hooks/useFetchProjects';
+import { LINKS } from '@/config/consts';
 
 export interface ProjectCardProps {
   project: RepoItem;
@@ -24,6 +25,7 @@ export default function ProjectCard({
     contributors: { edges: contributors },
   },
 }: ProjectCardProps) {
+
   const updatedDateString = new Date(updatedAt)
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
@@ -80,13 +82,13 @@ export default function ProjectCard({
             tags={languages.edges.map(l => l.node.name)}
           ></TagList>
           <div className="flex gap-2">
-            {/* <GithubButton link={LINKS.GITHUB_LINK} />
+            <GithubButton link={LINKS.MAAKAF_GITHUB} />
             <DiscordLink
-              href={LINKS.DISCORD_LINK}
+              href={LINKS.DISCORD}
               className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
             >
               ערוץ דיסקורד
-            </DiscordLink> */}
+            </DiscordLink>
           </div>
         </div>
       </div>
