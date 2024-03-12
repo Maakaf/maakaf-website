@@ -22,7 +22,7 @@ export default function DiscordLink({
       )}
     >
       {children}
-      {/* <Image src={'/images/discord.png'} alt="discord" width={20} height={20} /> */}
+      <Image src={'/images/discord.png'} alt="discord" width={20} height={20} />
     </Link>
   );
 }

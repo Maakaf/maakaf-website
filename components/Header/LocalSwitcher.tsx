@@ -9,7 +9,7 @@ export default function LocalSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
   const localActive = useLocale();
-  
+
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const nextLocale = e.target.value;
     const newPath = pathname.replace(localActive, nextLocale);
@@ -20,7 +20,7 @@ export default function LocalSwitcher() {
   return (
     <label className="border-2 rounded">
       <select
-        className="bg-transparent"
+        className="bg-transparent dark:bg-darkBg"
         defaultValue={localActive}
         onChange={onSelectChange}
         disabled={isPending}
