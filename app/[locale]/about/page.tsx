@@ -29,7 +29,7 @@ const AboutPage = () => {
   // const pageContent = content.about;
   return (
     <div
-      className="bg-no-repeat bg-[-20%_100px] bg-[length:60%] md:bg-left-top md:bg-auto"
+      className="bg-no-repeat bg-[length:60lvw_48lvh] md:bg-[length:38vw_95vh] sm:bg-local  bg-left"
       style={{ backgroundImage: 'url(/about/about_logo.png)' }}
     >
       <div className="w-[660px] px-4 max-w-full mx-auto text-center mb-20 relative">
