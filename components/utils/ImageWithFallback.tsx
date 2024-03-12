@@ -33,6 +33,7 @@ export default function ImageWithFallback({
       alt={alt}
       onError={handleError}
       src={error ? fallback : src}
+      className="image-project-card"
       {...props}
     />
   );

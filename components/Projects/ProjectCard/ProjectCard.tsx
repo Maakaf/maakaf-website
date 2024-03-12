@@ -1,12 +1,12 @@
 import ProjectCardDescription from './ProjectCardDescription';
-import GithubButton from './GithubButton';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import TagList from './TagList';
 import AvatarList from './AvatarList';
 import DiscordLink from '@/components/Common/DiscordLink';
-import { RepoItem } from '@/hooks/useFetchProjects';
 import { LINKS } from '@/config/consts';
+import { RepoItem } from '@/types';
+import GithubButton from './GithubButton';
 
 export interface ProjectCardProps {
   project: RepoItem;
@@ -24,7 +24,6 @@ export default function ProjectCard({
     contributors: { edges: contributors },
   },
 }: ProjectCardProps) {
-
   const updatedDateString = new Date(updatedAt)
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
@@ -80,7 +79,7 @@ export default function ProjectCard({
             className="flex-wrap grow basis-[min-content]"
             tags={languages.edges.map(l => l.node.name)}
           ></TagList>
-          <div className="flex gap-2">  
+          <div className="flex gap-2">
             <GithubButton link={url || LINKS.MAAKAF_GITHUB} />
             <DiscordLink
               href={LINKS.DISCORD}

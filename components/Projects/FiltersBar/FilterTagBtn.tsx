@@ -5,13 +5,13 @@ import { ChangeEvent } from 'react';
 
 type FilterTagBtnProps = {
   btnText: string;
-  onClick: () => void;
+  toggleIsFilterActive: () => void;
   isSelected: boolean;
 };
 
 const FilterTagBtn: React.FC<FilterTagBtnProps> = ({
   btnText,
-  onClick = () => {},
+  toggleIsFilterActive,
   isSelected,
 }) => {
   const isSelectedTagBtn = isSelected
@@ -24,7 +24,7 @@ const FilterTagBtn: React.FC<FilterTagBtnProps> = ({
         isSelectedTagBtn,
         'font-inter text-gray-50 text-[12px] font-normal px-6 py-2 flex items-center justify-center rounded-[50px] leading-none'
       )}
-      onClick={onClick}
+      onClick={toggleIsFilterActive}
       type="button"
     >
       {btnText}
