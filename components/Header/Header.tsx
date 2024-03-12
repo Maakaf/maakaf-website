@@ -37,10 +37,10 @@ const Header: React.FC = () => {
           <li className="flex items-center gap-2 cursor-pointer body-roman">
             <NavDropdown />
           </li>
-          <li className={`cursor-pointer body-roman ${currentPage === HeaderPages.PROJECTS ? 'font-bold' : ''}`}>
+          <li className={`cursor-pointer body-roman hover:border-b border-black ${currentPage === HeaderPages.PROJECTS ? 'font-bold' : ''}`}>
             <Link href={LINKS.PROJECTS}>הפרויקטים</Link>
           </li>
-          <li className={`cursor-pointer body-roman ${currentPage === HeaderPages.ABOUT ? 'font-bold' : ''}`}>
+          <li className={`cursor-pointer body-roman hover:border-b border-black ${currentPage === HeaderPages.ABOUT ? 'font-bold' : ''}`}>
             <Link href={LINKS.ABOUT_US}>מי אנחנו</Link>
           </li>
         </ul>
