@@ -1,9 +1,14 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import SizeIndicator from './SizeIndicator';
 import dynamic from 'next/dynamic';
 import { NavDropdown } from './NavDropdown';
 import { LINKS } from '@/config/consts';
+
+import { usePathname } from 'next/navigation';
+
 
 const NavRightSide = dynamic(() => import('./NavRightSide'), {
   ssr: false,
@@ -16,7 +21,14 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
   ),
 });
 
+enum HeaderPages {
+  ABOUT='about',
+  PROJECTS='projects'
+}
+
 const Header: React.FC = () => {
+ const pathname = usePathname();
+ const currentPage = pathname.split("/").at(-1);
   return (
     <>
       <nav className="fixed inset-0 z-50 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24">
@@ -25,10 +37,10 @@ const Header: React.FC = () => {
           <li className="flex items-center gap-2 cursor-pointer body-roman">
             <NavDropdown />
           </li>
-          <li className="cursor-pointer body-roman">
+          <li className={`cursor-pointer body-roman ${currentPage === HeaderPages.PROJECTS ? 'font-bold' : ''}`}>
             <Link href={LINKS.PROJECTS}>הפרויקטים</Link>
           </li>
-          <li className="cursor-pointer body-roman">
+          <li className={`cursor-pointer body-roman ${currentPage === HeaderPages.ABOUT ? 'font-bold' : ''}`}>
             <Link href={LINKS.ABOUT_US}>מי אנחנו</Link>
           </li>
         </ul>
