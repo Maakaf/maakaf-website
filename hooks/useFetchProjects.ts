@@ -27,9 +27,6 @@ const filterProjectsByTags = (projects: RepoItem[], tags: ProjectFilter[]) => {
       tags.some(t => t.name === tag && t.isActive)
     );
   });
-  console.log('🚀 ~ projectsFiltered ~ projectsFiltered:', {
-    projectsFiltered,
-  });
   return projectsFiltered;
 };
 
