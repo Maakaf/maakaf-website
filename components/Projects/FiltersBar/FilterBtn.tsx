@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/utils/tailwind/cn';
-import { ProjectFilter } from './FilterBtnsGroup';
+import { ProjectFilter } from '@/types';
 
 type FilterBtnProps = {
   filter: ProjectFilter;

@@ -1,12 +1,9 @@
 import ProjectCardDescription from './ProjectCardDescription';
-import GithubButton from './GithubButton';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import TagList from './TagList';
 import AvatarList from './AvatarList';
-import { AvatarData } from './Avatar';
-import DiscordLink from '@/components/Common/DiscordLink';
-import { RepoItem } from '@/hooks/useFetchProjects';
+import { RepoItem } from '@/types';
 
 export interface ProjectCardProps {
   project: RepoItem;

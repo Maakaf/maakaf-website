@@ -1,4 +1,4 @@
-import { RepoItem } from '@/hooks/useFetchProjects';
+import { RepoItem } from '@/types';
 import ProjectCard from './ProjectCard/ProjectCard';
 import React from 'react';
 

@@ -1,11 +1,12 @@
 'use client'; // TODO: move to client compt
 
 import Image from 'next/image';
-import FilterBtnsGroup, { ProjectFilter } from './FilterBtnsGroup';
+import FilterBtnsGroup from './FilterBtnsGroup';
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 import Radiobox from '@/components/utils/Radiobox';
 import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
+import { ProjectFilter } from '@/types';
 
 const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
