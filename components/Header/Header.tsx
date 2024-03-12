@@ -28,7 +28,6 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
 const Header: React.FC = () => {
   const pathname = usePathname();
   const currentPage = pathname.split("/").at(-1);
-  console.log({ currentPage });
 
   return (
     <>
