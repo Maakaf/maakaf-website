@@ -94,7 +94,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                       <h3 className="text-base font-bold leading-normal">
                         פילטרים לפרויקטים
                       </h3>
-                      {/* sort by set 1 */}
+                      {/* sort by set 1 TODO:IMPLEMENT */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
                           מיון לפי
@@ -111,7 +111,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                           ))}
                         </div>
                       </div>
-                      {/* sort by set 2 */}
+                      {/* sort by set languages */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px] leading-tight">
                           סינון לפי תגיות
