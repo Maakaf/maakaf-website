@@ -1,4 +1,4 @@
-import { IGithubProjectsMaakafResponse } from '@/hooks/useFetchProjects';
+import { IGithubProjectsMaakafResponse } from '@/types';
 import { NextResponse, NextRequest } from 'next/server';
 
 const url =
