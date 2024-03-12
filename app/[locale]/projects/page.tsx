@@ -1,7 +1,7 @@
 'use client';
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
 import { MempmizedProjectsDisplay } from '@/components/Projects/ProjectDisplay';
-import useFetchProjects, { RepoItem } from '@/hooks/useFetchProjects';
+import useFetchProjects from '@/hooks/useFetchProjects';
 import React from 'react';
 
 const ProjectsPage = () => {
