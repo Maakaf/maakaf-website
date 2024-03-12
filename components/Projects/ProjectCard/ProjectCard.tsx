@@ -19,7 +19,7 @@ export default function ProjectCard({
     updatedAt,
     createdAt,
     name,
-    collaborators,
+    url,
     description,
     languages,
     contributors: { edges: contributors },
@@ -62,7 +62,7 @@ export default function ProjectCard({
             <div className="font-birzia text-xl font-bold">{name}</div>
             <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
-                {collaborators?.totalCount || 0} תורמים
+                {contributors.length || 0} תורמים
               </div>
               <AvatarList
                 avatars={contributors.map(c => ({
@@ -82,7 +82,7 @@ export default function ProjectCard({
             tags={languages.edges.map(l => l.node.name)}
           ></TagList>
           <div className="flex gap-2">
-            <GithubButton link={LINKS.MAAKAF_GITHUB} />
+            <GithubButton link={url || LINKS.MAAKAF_GITHUB} />
             <DiscordLink
               href={LINKS.DISCORD}
               className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
