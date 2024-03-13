@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TwitterIconLink = () => {
-
   return (
     <a
       href="https://twitter.com/"
@@ -9,11 +8,11 @@ const TwitterIconLink = () => {
       aria-label="תבקרו אותנו בטוויטר"
     >
       <svg
-        width="52"  
+        width="52"
         height="52"
         viewBox="0 0 52 52"
         xmlns="http://www.w3.org/2000/svg"
-        className="text-transparent transition duration-300 cursor-pointer fill-current hover:text-blue-400 stroke-[#020616] dark:stroke-[#dddfe7]"
+        className="text-transparent transition duration-300 cursor-pointer fill-current hover:text-blue-400 stroke-[#020616] dark:stroke-[#dddfe7] w-10 md:w-12 lg:w-14"
       >
         <g id="Twitter">
           <path
