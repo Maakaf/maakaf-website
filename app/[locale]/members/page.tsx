@@ -4,6 +4,7 @@ import { LINKS } from '@/config/consts';
 
 
 import { Metadata } from 'next';
+import { MembersSearch } from '@/components/Members/MembersSearch/MembersSearch';
 
 export const metadata: Metadata = {
   title: 'חברי קהילה - Members',
@@ -48,6 +49,7 @@ const MembersPage: React.FC = () => {
   return <div>
     <h1 className='text-center'>Members</h1>
     <WelcomeMessage/>
+    <MembersSearch/>
     <MembersList/>
   </div>;
 };
