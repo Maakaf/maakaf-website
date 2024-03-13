@@ -1,0 +1,17 @@
+{
+  "TitleSection": {
+    "title": "Maakaf Community"
+  },
+  "Metadata": {
+    "HomePage": {
+      "title": "Home page | Maakaf",
+      "description": "Maakaf is a community of open source developers"
+    }
+  },
+  "about": {
+    "welcome": "Welcome to Maakaf",
+    "firstParagraph": "We believe in sharing information and knowledge as a way to promote technology and innovation. Open source is an approach that allows us to collaborate in software development openly and transparently.",
+    "secondParagraph": "When we talk about open source, we refer to software whose source code is available to the public for viewing, modification, and improvement. Open source gives us the opportunity to understand how software works, to enhance it, and to tailor it to our needs. We invite you to join us, to be impressed, to share, and to influence. Here in the Israeli open source community, there is a place for everyone, from beginners to experts.",
+    "thirdParagraph": "Join us"
+  }
+}

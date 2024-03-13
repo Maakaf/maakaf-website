@@ -1,30 +1,28 @@
-import { useState, useEffect } from 'react';
-import { useTheme } from 'next-themes'
-import LightMode from '../../public/images/lightMode.svg'
-import NightMode from '../../public/images/nightMode.svg'
+'use client';
+
+import Sun from './Sun.svg';
+import Moon from './Moon.svg';
+import { useTheme } from 'next-themes';
 
 const Darkmode: React.FC = () => {
-  const [isMounted, setIsMounted] = useState(false);
-  const { setTheme, theme, resolvedTheme } = useTheme()
-  const currentTheme = isMounted ? theme : resolvedTheme; // Use resolvedTheme as a fallback before mount
-  const isDark = (c: typeof currentTheme) => c === 'dark';
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
-
-  if (!isMounted) return null;
-
-
+  const { theme, setTheme } = useTheme();
+  if (theme === 'system') setTheme('dark');
   return (
-    <div className='relative w-6 h-6 cursor-pointer group'
-      onClick={() =>
-        setTheme(isDark(currentTheme) ? 'light' : 'dark')
-      }
+    <button
+      id="שינוי פלטה"
+      aria-label={`לחץ פה למעבר לפלטה ${theme === 'dark' ? 'בהירה' : 'כהה'}`}
+      className="flex justify-center content-center w-6 h-6 cursor-pointer inset-0 bg-transparent border-none p-0 m-0"
+      onClick={() => {
+        setTheme(theme === 'dark' ? 'light' : 'dark');
+      }}
     >
-      {isDark(currentTheme) ? <LightMode className="stroke-white group-hover:stroke-red-500" /> : <NightMode className="stroke-black group-hover:stroke-green-500" />}
-    </div>
-  )
-}
+      {theme === 'dark' ? (
+        <Sun className="w-[26px] h-[26px] stroke-white stroke-2 hover:stroke-green-200 hover:transition hover:duration-300 hover:ease-in-out" />
+      ) : (
+        <Moon className="w-6 h-6 stroke-black stroke-2 hover:stroke-purple-500 hover:transition hover:duration-300 hover:ease-in-out" />
+      )}
+    </button>
+  );
+};
 
-export default Darkmode
+export default Darkmode;
