@@ -8,7 +8,7 @@ const YoutubeIconLink = () => {
       aria-label="תבקרו אותנו ביוטיוב"
     >
       <svg
-        className="text-transparent hover:text-blue-400 transition fill-current stroke-[#020616] dark:stroke-[#dddfe7]"
+        className="text-transparent hover:text-blue-400 transition fill-current stroke-[#020616] dark:stroke-[#dddfe7] w-10 md:w-12 lg:w-14"
         xmlns="http://www.w3.org/2000/svg"
         width="52"
         height="52"

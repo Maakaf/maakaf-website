@@ -8,7 +8,7 @@ const MeetupIconLink = () => {
       aria-label="תבקרו אותנו באפליקציה של מיטאפ"
     >
       <svg
-        className="text-transparent transition fill-current hover:text-blue-400 stroke-[#020616] dark:stroke-[#dddfe7]"
+        className="text-transparent transition fill-current hover:text-blue-400 stroke-[#020616] dark:stroke-[#dddfe7] w-10 md:w-12 lg:w-14"
         xmlns="http://www.w3.org/2000/svg"
         width="52"
         height="52"

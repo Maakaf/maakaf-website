@@ -55,7 +55,7 @@ const Footer: React.FC = () => {
       </div>
       <div className="flex flex-col items-center w-full h-auto md:px-2 md:items-end md:gap-4 lg:gap-6">
         <div className="flex flex-col justify-around h-full">
-          <div className="flex justify-center gap-2 md:gap-4 lg:gap-6">
+          <div className="flex justify-center gap-1 md:gap-4 lg:gap-6">
             <GithubIconLink repoUrl="https://github.com/Maakaf/maakaf-website" />
             <FacebookIconLink />
             <LinkedinIconLink />
