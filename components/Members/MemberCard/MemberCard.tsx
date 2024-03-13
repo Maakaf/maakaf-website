@@ -1,20 +1,19 @@
 import React from 'react';
-import {MemberCardInfo} from './MemberCardInfo'
-import { MemberCardSocialButtons } from './MemberCardSocialButtons';
+
+import DiscordLink from '@/components/Common/DiscordLink';
+import { MembersList } from './MembersList';
 
 export const MemberCard = () => {
-  const imgUrl  = "http://localhost:3000/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F19125%3Fv%3D4&w=48&q=75"
 
   return (
-    <div className='flex flex-wrap gap-6 bg-slate-700 dark:bg-slate-500 rounded-sm'>
-    {
-        [1,1,1,1,1,1].map((item) => {
-            return <div className='flex justify-around' key="item">
-                <MemberCardInfo  imgUrl={imgUrl}/>
-                <MemberCardSocialButtons/>
-            </div>
-        })
-    }
+    <div className='flex flex-col'>
+      
+    <div className='flex'>
+      <h3>כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד</h3>
+      <DiscordLink href='https://github.com/Maakaf/maakaf-website'/>
+    </div>
+
+    <MembersList/>
   </div>
   )
 }
