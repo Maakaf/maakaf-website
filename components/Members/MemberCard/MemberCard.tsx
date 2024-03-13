@@ -1,19 +1,16 @@
 import React from 'react';
+import { MemberCardInfo } from './MemberCardInfo';
+import { MemberCardSocialButtons } from './MemberCardSocialButtons';
 
-import DiscordLink from '@/components/Common/DiscordLink';
-import { MembersList } from './MembersList';
-
-export const MemberCard = () => {
-
-  return (
-    <div className='flex flex-col'>
-      
-    <div className='flex'>
-      <h3>כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד</h3>
-      <DiscordLink href='https://github.com/Maakaf/maakaf-website'/>
-    </div>
-
-    <MembersList/>
-  </div>
-  )
+interface MemberCardProps {
+  imgUrl:string
 }
+
+export const MemberCard = ({ imgUrl }: MemberCardProps) => {
+  return (
+    <div className='flex bg-purple-100 dark:bg-gray-600 rounded-lg p-4'>
+      <MemberCardInfo imgUrl={imgUrl} />
+      <MemberCardSocialButtons />
+    </div>
+  );
+};

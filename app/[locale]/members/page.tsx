@@ -1,4 +1,6 @@
-import { MemberCard } from '@/components/Members/MemberCard/MemberCard';
+import { MembersList } from '@/components/Members/MembersLIst/MembersList';
+import DiscordLink from '@/components/Common/DiscordLink';
+
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -24,7 +26,13 @@ export const metadata: Metadata = {
 
 const MembersPage: React.FC = () => {
   return <div>
-    <MemberCard/>
+    <div className='flex flex-col'>
+      <div className='flex'>
+        <h3>כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד</h3>
+        <DiscordLink href='https://github.com/Maakaf/maakaf-website'/>
+      </div>
+      </div>
+    <MembersList/>
   </div>;
 };
 

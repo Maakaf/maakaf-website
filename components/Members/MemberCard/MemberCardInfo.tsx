@@ -5,7 +5,6 @@ interface MemberCardInfoProps {
     imgUrl:string
 }
 
-
 export const MemberCardInfo = ({imgUrl}: MemberCardInfoProps) => {
   return (
     <div className='flex flex-col'>
