@@ -8,7 +8,7 @@ export const MembersList = () => {
 
   return (
     <div className='flex mx-auto w-4/5 flex-wrap gap-4 justify-around'>
-      {members.map((item, i) => (
+      {members.map((member, i) => (
         <MemberCard key={i} imgUrl={imgUrl} />
       ))}
     </div>
