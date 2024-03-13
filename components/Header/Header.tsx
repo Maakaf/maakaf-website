@@ -7,12 +7,6 @@ import dynamic from 'next/dynamic';
 import { NavDropdown } from './NavDropdown';
 import { LINKS } from '@/config/consts';
 import { usePathname } from 'next/navigation';
-import { log } from 'console';
-
-enum HeaderPages {
-  ABOUT='about',
-  PROJECTS='projects'
-}
 
 const NavRightSide = dynamic(() => import('./NavRightSide'), {
   ssr: false,
