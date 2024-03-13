@@ -1,5 +1,6 @@
 import ProjectCardDescription from './ProjectCardDescription';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
+import ImageWithFalllaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import TagList from './TagList';
 import AvatarList from './AvatarList';

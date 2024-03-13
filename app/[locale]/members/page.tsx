@@ -1,3 +1,4 @@
+import { MemberCard } from '@/components/Members/MemberCard/MemberCard';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -22,7 +23,9 @@ export const metadata: Metadata = {
 };
 
 const MembersPage: React.FC = () => {
-  return <div>MembersPage</div>;
+  return <div>
+    <MemberCard/>
+  </div>;
 };
 
 export default MembersPage;
