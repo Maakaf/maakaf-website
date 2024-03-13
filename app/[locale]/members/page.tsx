@@ -1,5 +1,7 @@
 import { MembersList } from '@/components/Members/MembersLIst/MembersList';
 import DiscordLink from '@/components/Common/DiscordLink';
+import { LINKS } from '@/config/consts';
+
 
 import { Metadata } from 'next';
 
@@ -24,14 +26,28 @@ export const metadata: Metadata = {
   },
 };
 
+const WelcomeMessage = () => {
+  return (
+    <div className='flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mt-24 mb-16 h-20'>
+      <div className='flex justify-evenly flex-wrap'>
+        <p className='text-2xl'>כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד</p>
+        <div>
+           <DiscordLink
+              href={LINKS.DISCORD}
+              className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+            >
+              ערוץ דיסקורד
+            </DiscordLink>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const MembersPage: React.FC = () => {
   return <div>
-    <div className='flex flex-col'>
-      <div className='flex'>
-        <h3>כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד</h3>
-        <DiscordLink href='https://github.com/Maakaf/maakaf-website'/>
-      </div>
-      </div>
+    <h1 className='text-center'>Members</h1>
+    <WelcomeMessage/>
     <MembersList/>
   </div>;
 };
