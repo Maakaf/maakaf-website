@@ -7,6 +7,7 @@ import Radiobox from '@/components/utils/Radiobox';
 import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
 import { ProjectFilter } from '@/types';
+import Link from 'next/link';
 
 const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
@@ -148,9 +149,12 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 height={24}
               />
             </div>
-            <h5 className="hidden md:block text-base font-normal dark:font-bold">
-              איך מתחילים לכתוב קוד פתוח?
-            </h5>
+            <Link href="/newbies" className="transition duration-300 group">
+              <h5 className="hidden md:block text-base font-normal dark:font-bold">
+                איך מתחילים לכתוב קוד פתוח?
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600" />
+              </h5>
+            </Link>
           </div>
           <div className="flex gap-6">
             <span className="body-roman text-gray-400">מסננים</span>
