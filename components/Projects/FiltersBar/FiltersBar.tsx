@@ -71,7 +71,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
           עמוד הפרויקטים של הקהילה. תתפנקו...
         </h2>
       </div>
-      <div className="w-full bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
+      <div className="w-[95%] bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
         <div className="flex flex-col gap-4 px-[24px] py-[22px]">
           <div className="flex items-center gap-6">
             <div className="relative flex items-center justify-center px-[10px] py-[6.75px] h-10 bg-gray-50 dark:bg-gray-900 rounded-md">
