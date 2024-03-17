@@ -1,6 +1,7 @@
 import { LINKS } from '@/config/consts';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 type MemberPicProps = {
   borderColorClass: string;
@@ -9,7 +10,9 @@ type MemberPicProps = {
 
 const MemberPic = ({ borderColorClass, imageSrc }: MemberPicProps) => {
   return (
-    <div className={`bg-gray-700 rounded-[50px] h-[65px] md:h-[100px] overflow-hidden ${borderColorClass}`}>
+    <div
+      className={`bg-gray-700 rounded-[50px] h-[65px] md:h-[100px] overflow-hidden ${borderColorClass}`}
+    >
       <Image
         loading="lazy"
         src={`/images/avatars/${imageSrc}.jpg`}
@@ -23,11 +26,15 @@ const MemberPic = ({ borderColorClass, imageSrc }: MemberPicProps) => {
 };
 
 const CommunityLink = () => {
+  const t = useTranslations('components.home.memberPics');
   return (
     <p className="text-3xl md:text-[60px] font-bold pr-5">
-      הכירו את חברי{' '}
-      <Link className="text-purple-500 hover:text-purple-700 hover:underline" href={LINKS.COMMUNITY_MEMBERS}>
-        הקהילה
+      {t('firstParagraph')}{' '}
+      <Link
+        className="text-purple-500 hover:text-purple-700 hover:underline"
+        href={LINKS.COMMUNITY_MEMBERS}
+      >
+        {t('secondParagraph')}
       </Link>
     </p>
   );

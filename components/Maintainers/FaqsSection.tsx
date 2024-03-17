@@ -1,5 +1,8 @@
 import { LINKS } from '@/config/consts';
 import Faqs from '../Common/Faqs';
+import { useTranslations } from 'next-intl';
+
+// const t = useTranslations('maintainers');
 
 const faqs = [
   {

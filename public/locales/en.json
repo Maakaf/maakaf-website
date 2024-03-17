@@ -1,6 +1,12 @@
 {
   "TitleSection": {
-    "title": "Maakaf Community"
+    "title": "Maakaf Community",
+    "subTitle": "Open Source Israel",
+    "firstParagraph": "The goal of the community is to connect Israeli developers",
+    "secondParagraph": "who are interested in contributing to open source, with Israeli open source libraries.",
+    "thirdParagraph": "Full details about the community can be found",
+    "fourthParagraph": "on the community's temporary website",
+    "discordLink": "Click here for the temporary website"
   },
   "Metadata": {
     "HomePage": {
@@ -12,6 +18,71 @@
     "welcome": "Welcome to Maakaf",
     "firstParagraph": "We believe in sharing information and knowledge as a way to promote technology and innovation. Open source is an approach that allows us to collaborate in software development openly and transparently.",
     "secondParagraph": "When we talk about open source, we refer to software whose source code is available to the public for viewing, modification, and improvement. Open source gives us the opportunity to understand how software works, to enhance it, and to tailor it to our needs. We invite you to join us, to be impressed, to share, and to influence. Here in the Israeli open source community, there is a place for everyone, from beginners to experts.",
-    "thirdParagraph": "Join us"
+    "thirdParagraph": "Join us",
+    "button": "Discord"
+  },
+  "maintainers": {
+    "FaqSection": {
+
+    },
+    "maintainerForm" : {
+      "header": "Maintainers",
+      "firstParagraph": "Project maintainer and want to join Maakaf?",
+      "secondParagraph": "Random text that explains some things about combining projects for bypass,",
+      "thirdParagraph": "what to do to join, how the process works in general.",
+      "joinButton": "Joining form"
+    },
+    "steps": {
+      "title": "how does the process works?",
+      "step-1-h": "Step 1",
+      "step-1-p": "Filling out a community membership form",
+      "step-2-h": "Step 2",
+      "step-2-p": "The project will be reviewed by one of the community managers",
+      "step-3-h": "Step 3",
+      "step-3-p": "Commencing work with the developers and advancing the project tasks"
+    }
+  },
+  "components": {
+    "home": {
+      "quotes": {
+        "header": "Open source is the foundation of a community that works together, shares knowledge, and collaborates to create something amazing",  
+        "paragraph": "Founder of Linux, Linus Torvalds"
+      },
+      "beOurFriends": {
+        "title": "What you get from being a Maakaf member"
+      },
+      "whatNow": {
+        "title": "What now?",
+        "paragraph": "It's simpler than it seems. Here will be another paragraph that encourages sharing and joining the community, telling how cool and nice the people are and how much they learn from doing things there. How will this make a person look at development differently and make a significant change in the world and in his life?",
+        "startButton": "start"
+      },
+      "memberPics": {
+        "firstParagraph": "Meet the community",
+        "secondParagraph": "members"
+      }
+    },
+    "faqs": {
+      "title" : "Qustions & answers",
+      "firstParagraph": "It's worth trying our Questions & Answers section, and if the answer isn't there, we have the",
+      "discordTitle" : "Discord Channel",
+      "secondParagraph": "with genuinely, the nicest people you'll ever meet, who are always willing to help anyone who needs it"
+    },
+    "navDropDown": {
+      "label": "Community",
+      "newbies": "פעם ראשונה בקוד פתוח",
+      "members": "מי שכבר התנסה בקוד פתוח",
+      "maintainer": "בעלי פרויקטים שרוצים להצטרף"
+    }
+  },
+  "header": {
+    "projects": "הפרויקטים",
+    "aboutUs": "מי אנחנו"
+  },
+  "footer": {
+    "projects": "Projects",
+    "contact": "Contact",
+    "aboutUs": "Who we are",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy policy"
   }
 }

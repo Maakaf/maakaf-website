@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import SectionTitle from '@/components/Common/SectionTitle';
+import { useTranslations } from 'next-intl';
 
 interface FaqsProps {
   faqs: {
@@ -14,18 +15,18 @@ interface FaqsProps {
 }
 
 const Faqs = ({ faqs }: FaqsProps) => {
+  const t = useTranslations('components.faqs');
   return (
     <>
-      <SectionTitle title="שאלות ותשובות" />
-
+      <SectionTitle title={t('title')} />
       <p className="hidden md:block w-2/3 py-5 px-4 md:mx-20 text-right  text-lg font-Birzia font-light break-words">
-        שווה לנסות את סקטור השאלות תשובות שלנו, ואם התשובה לא כאן, יש לנו את{' '}
+        {t('firstParagraph')}{' '}
         <span className="underline whitespace-nowrap text-purple-500">
           <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
-            ערוץ הדיסקורד
+          {t('discordTitle')}
           </a>
         </span>{' '}
-        עם אנשים באמת, אבל באמת, הכי נחמדים שיש ומוכנים לעזור לכל מי שרק צריך.
+        {t('secondParagraph')}
       </p>
 
       <div className="min-h-[60px] px-4 md:mx-20 ">

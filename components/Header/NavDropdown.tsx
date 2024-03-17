@@ -34,7 +34,7 @@ export const NavDropdown = () => {
   return (
     <Dropdown
       field={{
-        label: 'קהילה',
+        label: 'הפרויקטים',
         iconPath: '/images/polygon_white.svg',
         darkIconPath: '/images/polygon_dark.svg',
         alt: 'polygon',

@@ -3,9 +3,10 @@ import Link from 'next/link';
 
 type ButtonProps = {
   className?: string;
+  title: string;
 };
 
-export default function Button({ className }: ButtonProps) {
+export default function Button({ className, title }: ButtonProps) {
   return (
     <Link
       href="#"
@@ -14,7 +15,7 @@ export default function Button({ className }: ButtonProps) {
         className
       )}
     >
-      טופס הצטרפות
+      {title}
     </Link>
   );
 }

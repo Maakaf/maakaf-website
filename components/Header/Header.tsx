@@ -22,7 +22,6 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
 const Header: React.FC = () => {
   const pathname = usePathname();
   const currentPage = pathname.split("/").at(-1);
-
   return (
     <>
       <nav className="fixed inset-0 z-50 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24">
