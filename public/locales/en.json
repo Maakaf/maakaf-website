@@ -23,7 +23,6 @@
   },
   "maintainers": {
     "FaqSection": {
-
     },
     "maintainerForm" : {
       "header": "Maintainers",
@@ -41,6 +40,29 @@
       "step-3-h": "Step 3",
       "step-3-p": "Commencing work with the developers and advancing the project tasks"
     }
+  },
+  "newbies": {
+    "subTitle": "Welcome to Open Source Israel",
+    "paragraph": "Start Your Coding Journey Today! Ever wanted to learn how to code but didn't know where to start?  Open source is a great way to get started in coding. It's all about sharing and collaborating with other coders to create amazing things.",
+    "terms": {
+      "title": "Important concepts to know",
+      "maintainers": "Project owners who want to contribute their project to open source",
+      "contributers": "Discord users with prior experience in open source communities are invited to become Contributors after completing our quick onboarding process",
+      "newbies": "Our future generation. An uncut diamond. The one who is reading these lines right now."
+    },
+    "linksSection": {
+      "title": "Where everything happening?",
+      "header1": "Practice website",
+      "paragraph1": "A community website where you can learn about open source and get involved before joining the Discord server",
+      "header2":"Discord",
+      "paragraph2": "Project owners who want to contribute their project to open source",
+      "header3": "WhatsApp",
+      "paragraph3": "Other groups that are active, primarily for coordinating events and making important announcements"
+    }
+  },
+  "members": {
+    "paragraph": "Here you can meet the entire family! When your'e done, come to Discord",
+    "discordButton": "Discord Channel"
   },
   "components": {
     "home": {
@@ -66,17 +88,15 @@
       "firstParagraph": "It's worth trying our Questions & Answers section, and if the answer isn't there, we have the",
       "discordTitle" : "Discord Channel",
       "secondParagraph": "with genuinely, the nicest people you'll ever meet, who are always willing to help anyone who needs it"
-    },
-    "navDropDown": {
-      "label": "Community",
-      "newbies": "פעם ראשונה בקוד פתוח",
-      "members": "מי שכבר התנסה בקוד פתוח",
-      "maintainer": "בעלי פרויקטים שרוצים להצטרף"
     }
   },
   "header": {
-    "projects": "הפרויקטים",
-    "aboutUs": "מי אנחנו"
+    "projects": "Projects",
+    "aboutUs": "About Us",
+    "community": "Community",
+    "newbies": "First time in Open Source",
+    "members": "already participated in Open Source",
+    "maintainers": "Project maintainers who wants to join"
   },
   "footer": {
     "projects": "Projects",

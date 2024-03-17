@@ -1,32 +1,34 @@
 import Image from 'next/image';
 import SectionTitle from '../Common/SectionTitle';
-
-const linksData = [
-  {
-    icon: 'Maakaf_Logo',
-    title: 'אתר תרגול',
-    description:
-      'אתר של הקהילה שבו ניתן להתחמם עם הקוד הפתוח לפני שצוללים לבריכת הדיסקורד',
-    link: 'https://github.com/UrielOfir/os-practice',
-  },
-  {
-    icon: 'Discord_Logo',
-    title: 'דיסקורד',
-    description: 'בעלי פרויקטים שמעוניינים לצרף את הפרויקט שלהם אל הקוד הפתוח ',
-    link: 'https://discord.com/invite/a2VyCjRk2M',
-  },
-  {
-    icon: 'WhatsApp_Logo',
-    title: 'וואטספ',
-    description: 'עוד קבוצות עם פעילות, בעיקר לתיאום אירועים והודעות חשובות',
-    link: 'https://chat.whatsapp.com/E5a59DtSaHNBwnczxVW1FY',
-  },
-];
+import { useTranslations } from 'next-intl';
 
 const LinksSection = () => {
+  const t = useTranslations('newbies.linksSection');
+
+  const linksData = [
+    {
+      icon: 'Maakaf_Logo',
+      title: t('header1'),
+      description: t('paragraph1'),
+      link: 'https://github.com/UrielOfir/os-practice',
+    },
+    {
+      icon: 'Discord_Logo',
+      title: t('header2'),
+      description: t('paragraph2'),
+      link: 'https://discord.com/invite/a2VyCjRk2M',
+    },
+    {
+      icon: 'WhatsApp_Logo',
+      title: t('header3'),
+      description: t('paragraph3'),
+      link: 'https://chat.whatsapp.com/E5a59DtSaHNBwnczxVW1FY',
+    },
+  ];
+
   return (
     <div className="w-full py-12 md:py-20">
-      <SectionTitle title="איפה הכל קורה?" />
+      <SectionTitle title={t('title')} />
 
       <div className="flex flex-col items-center mt-8 gap-4 sm:flex-row sm:items-center sm:justify-center sm:flex-wrap">
         {linksData.map((linkData, index) => (

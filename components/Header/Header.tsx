@@ -1,12 +1,10 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import SizeIndicator from './SizeIndicator';
 import dynamic from 'next/dynamic';
-import { NavDropdown } from './NavDropdown';
 import { LINKS } from '@/config/consts';
-import { usePathname } from 'next/navigation';
+import HeaderItems from './HeaderItems';
+import { useTranslations } from 'next-intl';
 
 const NavRightSide = dynamic(() => import('./NavRightSide'), {
   ssr: false,
@@ -20,31 +18,27 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
 });
 
 const Header: React.FC = () => {
-  const pathname = usePathname();
-  const currentPage = pathname.split("/").at(-1);
+  const t = useTranslations('header');
+  const headerText = {
+    projects: t('projects'),
+    aboutUs: t('aboutUs'),
+    community: t('community'),
+    newbies: t('newbies'),
+    members: t('members'),
+    maintainers: t('maintainers')
+  }
   return (
     <>
       <nav className="fixed inset-0 z-50 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24">
         <NavRightSide />
-        <ul className="hidden md:flex md:gap-10">
-          <li className="flex items-center gap-2 cursor-pointer body-roman">
-            <NavDropdown />
-          </li>
-          <li className={`cursor-pointer body-roman ${currentPage === 'projects' ? 'font-bold' : ''}`}>
-            <Link href={LINKS.PROJECTS} className="transition duration-300 group">
-              <span>הפרויקטים</span>
-              <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600" />
-            </Link>
-          </li>
-          <li className={`cursor-pointer body-roman ${currentPage === 'about' ? 'font-bold' : ''}`}>
-            <Link href={LINKS.ABOUT_US} className="transition duration-300 group">
-              <span>מי אנחנו</span>
-              <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600" />
-            </Link>
-          </li>
-        </ul>
+        <HeaderItems headerText = {headerText} /> 
         <Link href={LINKS.HOME}>
-          <Image src="/images/maakafLogo.png" alt="maakafLogo" width={40} height={42} />
+          <Image
+            src="/images/maakafLogo.png"
+            alt="maakafLogo"
+            width={40}
+            height={42}
+          />
         </Link>
       </nav>
       <SizeIndicator />
