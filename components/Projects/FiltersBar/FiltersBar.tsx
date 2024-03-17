@@ -7,6 +7,7 @@ import Radiobox from '@/components/utils/Radiobox';
 import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
 import { ProjectFilter } from '@/types';
+import Link from 'next/link';
 
 const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
@@ -64,14 +65,14 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
   useFocusTrap(filterRef, toggleFiltersWindow);
 
   return (
-    <div className="w-full flex flex-col justify-center items-center gap-[51px]">
+    <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-center items-center gap-[51px]">
       <div className="flex flex-col items-center gap-[5px]">
         <h1 className="h1 font-bold">הפרויקטים</h1>
         <h2 className="h4-roman text-xl text-center">
           עמוד הפרויקטים של הקהילה. תתפנקו...
         </h2>
       </div>
-      <div className="w-full bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
+      <div className="w-[90%] md:w-full bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
         <div className="flex flex-col gap-4 px-[24px] py-[22px]">
           <div className="flex items-center gap-6">
             <div className="relative flex items-center justify-center px-[10px] py-[6.75px] h-10 bg-gray-50 dark:bg-gray-900 rounded-md">
@@ -148,9 +149,12 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 height={24}
               />
             </div>
-            <h5 className="hidden md:block text-base font-normal dark:font-bold">
-              איך מתחילים לכתוב קוד פתוח?
-            </h5>
+            <Link href="/newbies" className="transition duration-300 group">
+              <h5 className="hidden md:block text-base font-normal dark:font-bold">
+                איך מתחילים לכתוב קוד פתוח?
+                <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600" />
+              </h5>
+            </Link>
           </div>
           <div className="flex gap-6">
             <span className="body-roman text-gray-400">מסננים</span>

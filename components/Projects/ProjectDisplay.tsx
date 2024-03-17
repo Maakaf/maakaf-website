@@ -4,7 +4,7 @@ import React from 'react';
 
 const ProjectsDisplay = ({ projects }: { projects: RepoItem[] }) => {
   return (
-    <div className="flex flex-col gap-4 h-[75vh] overflow-y-scroll  mb-10">
+    <div className="flex flex-col gap-4 h-[75vh] overflow-y-scroll  mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
       {projects.map((project, i) => (
         <ProjectCard key={project.url + i} project={project} />
       ))}
