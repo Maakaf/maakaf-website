@@ -82,7 +82,7 @@ export default function ProjectCard({
           <div className="flex gap-2">
             <GithubButton link={url || LINKS.MAAKAF_GITHUB} />
             <DiscordLink
-              href={LINKS.DISCORD}
+              href={"https://discord.com/channels/1089589164707684443/1163081100034326570"}
               className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
             >
               ערוץ דיסקורד
