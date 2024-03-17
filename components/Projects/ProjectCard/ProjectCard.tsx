@@ -1,6 +1,5 @@
 import ProjectCardDescription from './ProjectCardDescription';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
-import ImageWithFalllaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import TagList from './TagList';
 import AvatarList from './AvatarList';
@@ -8,6 +7,8 @@ import DiscordLink from '@/components/Common/DiscordLink';
 import { LINKS } from '@/config/consts';
 import { RepoItem } from '@/types';
 import GithubButton from './GithubButton';
+import { getChannelUrl } from '../linkToDiscordChannel';
+
 
 export interface ProjectCardProps {
   project: RepoItem;
@@ -83,7 +84,7 @@ export default function ProjectCard({
           <div className="flex gap-2">
             <GithubButton link={url || LINKS.MAAKAF_GITHUB} />
             <DiscordLink
-              href={"https://discord.com/channels/1089589164707684443/1163081100034326570"}
+              href={getChannelUrl(name)}
               className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
             >
               ערוץ דיסקורד

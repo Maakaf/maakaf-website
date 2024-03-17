@@ -1,6 +1,6 @@
 const MAAKAF_SERVER_ID = "1089589164707684443"
 
-const projectsChannelsId : { [key: string]: string } = {
+const PROJECT_CHANNELS_IDS : { [key: string]: string } = {
  "url-title-preview": "1216300095931158558",
  "progit2" : "1216603861071040572",
  "MAAKAF_MeOnTheLine" : "1215351169225064448",
@@ -28,6 +28,6 @@ const projectsChannelsId : { [key: string]: string } = {
 }
 
 export const getChannelUrl = (projectName : string) => {
-    let projectDiscordChannel  = projectsChannelsId[projectName] || "";
+    let projectDiscordChannel  = PROJECT_CHANNELS_IDS[projectName] || "";
     return `https://discord.com/channels/${MAAKAF_SERVER_ID}/${projectDiscordChannel}`
 }
