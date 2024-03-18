@@ -6,16 +6,23 @@ import { NavDropdown } from './NavDropdown';
 import Link from 'next/link';
 
 interface HeaderItemsProps {
-  headerText: string[];
+  headerText: {
+    projects: string;
+    aboutUs: string;
+    community: string;
+    newbies: string;
+    members: string;
+    maintainers: string;
+  };
 }
 
-const HeaderItems = ({headerText}: any) => {
+const HeaderItems = ({ headerText }: HeaderItemsProps) => {
   const pathname = usePathname();
   const currentPage = pathname.split('/').at(-1);
   return (
     <ul className="hidden md:flex md:gap-10">
       <li className="flex items-center gap-2 cursor-pointer body-roman">
-        <NavDropdown headerText= {headerText}/>
+        <NavDropdown headerText={headerText} />
       </li>
       <li
         className={`cursor-pointer body-roman ${

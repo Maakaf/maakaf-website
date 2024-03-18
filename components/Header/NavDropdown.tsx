@@ -1,4 +1,3 @@
-
 import { Dropdown } from '../utils/Dropdown';
 
 type CommunityDropdownItems = {
@@ -8,8 +7,18 @@ type CommunityDropdownItems = {
   linkPath?: string;
 };
 
-export const NavDropdown = ({headerText} : any) => {
+interface NavDropdownProps {
+  headerText: {
+    projects: string;
+    aboutUs: string;
+    community: string;
+    newbies: string;
+    members: string;
+    maintainers: string;
+  };
+}
 
+export const NavDropdown = ({ headerText }: NavDropdownProps) => {
   const communityDropdownItems: CommunityDropdownItems[] = [
     {
       title: 'Newbies',
