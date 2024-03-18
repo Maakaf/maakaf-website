@@ -1,6 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export const MembersSearch = () => {
+interface MembersSearchProps {
+  onSearchInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const MembersSearch : React.FC<MembersSearchProps> = ({ onSearchInputChange })=> {
   return (
     <div className="flex mx-auto justify-evenly m-6 w-4/5">
       <select
@@ -18,10 +22,6 @@ export const MembersSearch = () => {
         className='w-4/5 pr-4 bg-purple-100 dark:bg-gray-800 rounded-md'
         placeholder="חפש לפי שם, תפקיד"
         onChange={onSearchInputChange}
-      />
-      <input
-        className='type="text" w-4/5 pr-4  bg-purple-100 dark:bg-gray-800 rounded-md'
-        placeholder="חפש לפי שם, תפקיד"
       />
     </div>
   );
