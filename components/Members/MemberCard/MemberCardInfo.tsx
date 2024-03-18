@@ -22,12 +22,12 @@ export const MemberCardInfo = ({ imgUrl, name, shortDescription, longDescription
         />
 
         <div className="titles-container block">
-          <p className='text-xl'>{name}</p>
-          <p className='text-l'>{shortDescription}</p>
+          <p className='text-base'>{name}</p>
+          <p className='text-sm text-slate-500 dark:text-slate-300'>{shortDescription}</p>
         </div>
       </div>
-      <p className='text-sm w-48 h-20'>{longDescription}</p>
-      <p className='text-sm'>{joinDate}</p>
+      <p className='text-sm w-48 h-20 mt-1 mb-1'>{longDescription}</p>
+      <p className='text-sm text-slate-500 dark:text-slate-300'>{joinDate}</p>
     </div>
   );
 };

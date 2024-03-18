@@ -18,7 +18,7 @@ export const MemberCard = ({
   joinDate,
 }: MemberCardProps) => {
   return (
-    <div className='flex bg-purple-100 dark:bg-gray-600 rounded-2xl'>
+    <div className='flex bg-purple-100 dark:bg-gray-600 rounded-2xl shadow-2xl'>
       <MemberCardInfo
         imgUrl={imgUrl}
         name={name}
