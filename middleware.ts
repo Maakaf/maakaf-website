@@ -6,8 +6,8 @@ export default createMiddleware({
   // localePrefix: undefined,
   defaultLocale: 'he',
 });
- 
+
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(he|en)/:path*', '/((?!_next|_vercel|.*\\..*).*)']
+  matcher: ['/', '/(he|en)/:path*', '/((?!_next|_vercel|.*\\..*).*)'],
 };

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import useLocalStorage from './useLocalStorage';
-import { CachedProjects, IRepositoriesAPIResponse, ProjectFilter, RepoItem } from '@/types';
-
-
+import {
+  CachedProjects,
+  IRepositoriesAPIResponse,
+  ProjectFilter,
+  RepoItem,
+} from '@/types';
 
 const cacheKey = 'projectsData';
 const apiEndpoint = '/api/projects'; // The new API endpoint
