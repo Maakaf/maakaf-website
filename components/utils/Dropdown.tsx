@@ -16,19 +16,19 @@ interface Field {
 
 export type OptionValue = number | string;
 
-interface Option{
+interface Option {
   title: string;
   titleHoverColor: string;
   text?: string;
   linkPath?: string;
 }
 
-type DropdownProps= {
+type DropdownProps = {
   field: Field;
   options: Option[];
 };
 
-type ItemBodyProps= Omit<Option, 'linkPath'>;
+type ItemBodyProps = Omit<Option, 'linkPath'>;
 
 export const Dropdown = <T extends OptionValue>({
   field,
