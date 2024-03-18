@@ -63,7 +63,7 @@ const faqs = [
         </span>{' '}
         תוכלו למצוא מידע על פרויקטים בקוד פתוח במגוון שפות ותחומים. <br />
         <span className="underline  text-purple-500">
-          <a href={LINKS.DISCORD}target="_blank">
+          <a href={LINKS.DISCORD} target="_blank">
             בדיסקורד שלנו
           </a>
         </span>{' '}

@@ -60,21 +60,23 @@ const dummyMembers = [
 
 const WelcomeMessage = () => {
   return (
-    <div className='flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mt-16 mb-16 h-20'>
-      <div className='flex justify-evenly flex-wrap'>
-        <p className='text-2xl'>כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד</p>
+    <div className="flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mt-16 mb-16 h-20">
+      <div className="flex justify-evenly flex-wrap">
+        <p className="text-2xl">
+          כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד
+        </p>
         <div>
-           <DiscordLink
-              href={LINKS.DISCORD}
-              className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
-            >
-              ערוץ דיסקורד
-            </DiscordLink>
+          <DiscordLink
+            href={LINKS.DISCORD}
+            className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+          >
+            ערוץ דיסקורד
+          </DiscordLink>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const MembersPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');

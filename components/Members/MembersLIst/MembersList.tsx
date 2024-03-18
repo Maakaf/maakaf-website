@@ -27,4 +27,4 @@ export const MembersList: React.FC<MembersListProps> = ({ members }) => {
       ))}
     </div>
   );
-}
+};
