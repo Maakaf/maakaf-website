@@ -1,5 +1,4 @@
 import React from 'react';
-import GithubIconLink from '@/components/Footer/GithubIconLink';
 import { TwitterMemberLink } from './socialIcons/TwiterMemberLink';
 import { LinkedInMemberLink } from './socialIcons/LinkedInMemberLink';
 import { GithubMemberLink } from './socialIcons/GithubMemberLink';
