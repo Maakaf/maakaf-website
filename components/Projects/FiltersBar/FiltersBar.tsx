@@ -144,7 +144,8 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
             <div className="relative flex-1 h-10">
             <SearchInput onChange={function (event: ChangeEvent<HTMLInputElement>): void {
                 console.log('NEED TO IMPLEMENT SEARCH FUNCTION');
-              } } placeHolderText={'חיפוש לפי שם, תפקיד'}/>
+              } } placeHolderText={'חיפוש לפי שם, תפקיד'}
+              />
             </div>
             <Link href="/newbies" className="transition duration-300 group">
               <h5 className="hidden md:block text-base font-normal dark:font-bold">

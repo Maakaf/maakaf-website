@@ -7,9 +7,9 @@ interface MembersSearchProps {
 
 export const MembersSearch : React.FC<MembersSearchProps> = ({ onSearchInputChange })=> {
   return (
-    <div className="flex mx-auto justify-evenly m-6 w-4/5 h-10">
+    <div className="flex mx-auto justify-evenly gap-4 m-6 w-4/5 h-10">
       <select
-        className="bg-purple-100 dark:bg-gray-800 rounded-md"
+        className="h-full pl-[42px] pr-[18px] rounded-[50px] bg-purple-100 dark:bg-gray-600 outline-none focus:outline-2 focus:outline-purple-500"
         name="activitySelect"
         id="activitySelect"
       >
@@ -18,7 +18,8 @@ export const MembersSearch : React.FC<MembersSearchProps> = ({ onSearchInputChan
         <option value="אופציה 3">אופציה 3</option>
       </select>
 
-      <SearchInput onChange={onSearchInputChange} placeHolderText='חפש לפי שם, תפקיד'/>
+      <SearchInput onChange={onSearchInputChange} placeHolderText='חפש לפי שם,' 
+      backgroundColor='bg-purple-100' darkBackgroundColor='bg-gray-600'/>
     </div>
   );
 }
