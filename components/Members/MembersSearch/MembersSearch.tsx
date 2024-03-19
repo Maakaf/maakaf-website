@@ -1,3 +1,4 @@
+import { SearchInput } from '@/components/Common/inputs/SearchInput';
 import React from 'react';
 
 interface MembersSearchProps {
@@ -6,7 +7,7 @@ interface MembersSearchProps {
 
 export const MembersSearch : React.FC<MembersSearchProps> = ({ onSearchInputChange })=> {
   return (
-    <div className="flex mx-auto justify-evenly m-6 w-4/5">
+    <div className="flex mx-auto justify-evenly m-6 w-4/5 h-10">
       <select
         className="bg-purple-100 dark:bg-gray-800 rounded-md"
         name="activitySelect"
@@ -17,12 +18,7 @@ export const MembersSearch : React.FC<MembersSearchProps> = ({ onSearchInputChan
         <option value="אופציה 3">אופציה 3</option>
       </select>
 
-      <input
-        type="text"
-        className='w-4/5 pr-4 bg-purple-100 dark:bg-gray-800 rounded-md'
-        placeholder="חפש לפי שם, תפקיד"
-        onChange={onSearchInputChange}
-      />
+      <SearchInput onChange={onSearchInputChange} placeHolderText='חפש לפי שם, תפקיד'/>
     </div>
   );
 }
