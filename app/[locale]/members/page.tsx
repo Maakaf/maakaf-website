@@ -72,18 +72,16 @@ const dummyMembers = [
 const WelcomeMessage = () => {
   return (
     <div className="flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mb-6 mt-2 md:mb-12 py-8 px-4 md:p-4">
-      <div className="flex flex-col md:flex-row justify-evenly">
-        <p className="text-2xl text-center md:text-right">
+      <div className="flex flex-col md:flex-row md:justify-center gap-2 md:gap-4 mx-auto">
+        <p className="text-2xl text-center">
           כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד
         </p>
-        <div className="">
-          <DiscordLink
-            href={LINKS.DISCORD}
-            className="w-48 mx-auto mt-4 md:mt-0 font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
-          >
-            ערוץ דיסקורד
-          </DiscordLink>
-        </div>
+        <DiscordLink
+          href={LINKS.DISCORD}
+          className="w-48 mx-auto mt-4 md:mt-0 font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+        >
+          ערוץ דיסקורד
+        </DiscordLink>
       </div>
     </div>
   );
