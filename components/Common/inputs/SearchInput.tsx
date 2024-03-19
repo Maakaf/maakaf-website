@@ -10,9 +10,9 @@ interface SearchInputProps {
 
 export const SearchInput = ({
   onChange,
-  placeHolderText = "חיפוש...",
+  placeHolderText = 'חיפוש...',
   backgroundColor = 'bg-gray-50',
-  darkBackgroundColor = 'bg-gray-600'
+  darkBackgroundColor = 'bg-gray-600',
 }: SearchInputProps) => {
   return (
     <>

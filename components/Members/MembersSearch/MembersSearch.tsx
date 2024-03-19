@@ -5,7 +5,9 @@ interface MembersSearchProps {
   onSearchInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const MembersSearch : React.FC<MembersSearchProps> = ({ onSearchInputChange })=> {
+export const MembersSearch: React.FC<MembersSearchProps> = ({
+  onSearchInputChange,
+}) => {
   return (
     <div className="flex mx-auto justify-evenly gap-4 m-6 w-4/5 h-10">
       <select
@@ -18,8 +20,12 @@ export const MembersSearch : React.FC<MembersSearchProps> = ({ onSearchInputChan
         <option value="אופציה 3">אופציה 3</option>
       </select>
 
-      <SearchInput onChange={onSearchInputChange} placeHolderText='חפש לפי שם,' 
-      backgroundColor='bg-purple-100' darkBackgroundColor='bg-gray-600'/>
+      <SearchInput
+        onChange={onSearchInputChange}
+        placeHolderText="חפש לפי שם,"
+        backgroundColor="bg-purple-100"
+        darkBackgroundColor="bg-gray-600"
+      />
     </div>
   );
-}
+};

@@ -142,9 +142,13 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
               ) : null}
             </div>
             <div className="relative flex-1 h-10">
-            <SearchInput onChange={function (event: ChangeEvent<HTMLInputElement>): void {
-                console.log('NEED TO IMPLEMENT SEARCH FUNCTION');
-              } } placeHolderText={'חיפוש לפי שם, תפקיד'}
+              <SearchInput
+                onChange={function (
+                  event: ChangeEvent<HTMLInputElement>
+                ): void {
+                  console.log('NEED TO IMPLEMENT SEARCH FUNCTION');
+                }}
+                placeHolderText={'חיפוש לפי שם, תפקיד'}
               />
             </div>
             <Link href="/newbies" className="transition duration-300 group">
