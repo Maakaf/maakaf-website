@@ -1,12 +1,14 @@
 import ProjectCardDescription from './ProjectCardDescription';
-import GithubButton from './GithubButton';
 import ProjectImagePlaceholder from './ProjectImagePlaceholder.png';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import TagList from './TagList';
 import AvatarList from './AvatarList';
-import { AvatarData } from './Avatar';
 import DiscordLink from '@/components/Common/DiscordLink';
-import { RepoItem } from '@/hooks/useFetchProjects';
+import { LINKS } from '@/config/consts';
+import { RepoItem } from '@/types';
+import GithubButton from './GithubButton';
+import { getChannelUrl } from '../linkToDiscordChannel';
+
 
 export interface ProjectCardProps {
   project: RepoItem;
@@ -18,7 +20,7 @@ export default function ProjectCard({
     updatedAt,
     createdAt,
     name,
-    collaborators,
+    url,
     description,
     languages,
     contributors: { edges: contributors },
@@ -60,7 +62,7 @@ export default function ProjectCard({
             <div className="font-birzia text-xl font-bold">{name}</div>
             <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
-                {collaborators?.totalCount || 0} תורמים
+                {contributors.length || 0} תורמים
               </div>
               <AvatarList
                 avatars={contributors.map(c => ({
@@ -80,13 +82,13 @@ export default function ProjectCard({
             tags={languages.edges.map(l => l.node.name)}
           ></TagList>
           <div className="flex gap-2">
-            {/* <GithubButton link={LINKS.GITHUB_LINK} />
+            <GithubButton link={url || LINKS.MAAKAF_GITHUB} />
             <DiscordLink
-              href={LINKS.DISCORD_LINK}
+              href={getChannelUrl(name)}
               className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
             >
               ערוץ דיסקורד
-            </DiscordLink> */}
+            </DiscordLink>
           </div>
         </div>
       </div>

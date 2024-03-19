@@ -6,6 +6,10 @@
   html {
     -webkit-tap-highlight-color: transparent;
   }
+  .image-project-card {
+    width: auto;
+    height: auto;
+  }
 }
 
 @layer components {

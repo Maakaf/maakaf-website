@@ -1,7 +1,6 @@
 import React from 'react';
 
 const LinkedinIconLink = () => {
-
   return (
     <a
       href="https://www.linkedin.com/company/maakaf/"
@@ -9,7 +8,7 @@ const LinkedinIconLink = () => {
       aria-label="תבקרו אותנו בלינקדאין"
     >
       <svg
-        className="text-transparent transition fill-current hover:text-blue-600 stroke-[#020616] dark:stroke-[#dddfe7]"
+        className="text-transparent transition fill-current hover:text-blue-600 stroke-[#020616] dark:stroke-[#dddfe7] w-10 md:w-12 lg:w-14"
         width="52"
         height="52"
         viewBox="0 0 52 52"

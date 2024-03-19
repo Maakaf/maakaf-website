@@ -22,11 +22,7 @@ export const metadata: Metadata = {
 };
 
 const ProjectsLayout = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <section className="self-center w-full h-[90vh] px-20 pb-6 flex flex-col justify-center gap-4">
-      {children}
-    </section>
-  );
+  return <section className="flex flex-col h-full gap-4">{children}</section>;
 };
 
 export default ProjectsLayout;
