@@ -1,6 +1,11 @@
+'use client'
+
+import React, { useState } from 'react';
 import Modal from '../Common/Modals/Modal';
 
 const MaintainerForm = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="px-4 mx-auto text-center text-[#020616] dark:text-[#F8FAFC]">
       <h1 className="mb-3 font-black text-4xl mx-auto md:text-5xl">
@@ -18,7 +23,13 @@ const MaintainerForm = () => {
         </p>
       </div>
 
-      <button className='text-xs mx-auto mb-9 btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 dark:hover:text-darkText transition-all w-48'>טופס הצטרפות</button>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <button
+        className="text-xs mx-auto mb-9 btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 dark:hover:text-darkText transition-all w-48"
+        onClick={() => setIsModalOpen(true)}
+      >
+        טופס הצטרפות
+      </button>
     </div>
   );
 };
