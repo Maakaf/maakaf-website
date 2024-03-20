@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 import { z, ZodError  } from "zod";
+import FormTextInput from '../Inputs/FormTextInput';
 
 export const AddProjectModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -15,21 +16,29 @@ export const AddProjectModal = () => {
 
 
 const schema = z.object({
+  name: z.string().min(2),
   projectName: z.string().min(4),
   email: z.string().email(),
 });
 
 type FormErrors = {
+  name? : string
   projectName?: string;
   email?: string;
 };
 
 const ModalContent = () => {
   const [projectName, setProjectName] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [repoLink, setRepoLink] = useState('');
   const [errors, setErrors] = useState<FormErrors>({});
 
   const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleProjectNameChange = (e) => {
     setProjectName(e.target.value);
   };
 
@@ -37,11 +46,15 @@ const ModalContent = () => {
     setEmail(e.target.value);
   };
 
+    const handleRepoLinkChange = (e) => {
+    setRepoLink(e.target.value);
+  };
+
 const handleSubmit = () => {
   try {
-    schema.parse({ projectName, email });
+    schema.parse({ name,projectName, email });
     setErrors({}); 
-    
+
   } catch (error: any) {
     if (error instanceof ZodError) {
 
@@ -55,29 +68,37 @@ const handleSubmit = () => {
   }
 };
 
-  return (
-    <div className='bg-gray-600 dark:bg-gray-300 p-4'>
+   return (
+    <div className="bg-gray-600 dark:bg-gray-300 p-4">
       <p className="text-xl font-bold mb-4 text-right">בקשה להוספת פרויקט</p>
-      <div className="mb-4">
-        <input
-          type="text"
-          placeholder='שם הפרוייקט'
-          className={`mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${errors['projectName'] && 'border-red-500'}`}
-          value={projectName}
-          onChange={handleNameChange}
-        />
-        {errors["projectName"] && <p className="text-red-500 text-sm">{errors['projectName']}</p>}
-      </div>
-      <div className="mb-4">
-        <input
-          type="text"
-          placeholder='מייל'
-          className={`mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${errors['email'] && 'border-red-500'}`}
-          value={email}
-          onChange={handleEmailChange}
-        />
-        {errors['email'] && <p className="text-red-500 text-sm">{errors['email']}</p>}
-      </div>
+
+      <FormTextInput
+        placeholder="שם"
+        value={name}
+        onChange={handleNameChange}
+        error={errors.name}
+      />
+
+      <FormTextInput
+        placeholder="שם הפרוייקט"
+        value={projectName}
+        onChange={handleProjectNameChange}
+        error={errors.projectName}
+      />
+
+      <FormTextInput
+        placeholder="מייל"
+        value={email}
+        onChange={handleEmailChange}
+        error={errors.email}
+      />
+
+      <FormTextInput
+        placeholder="קישור לריפו"
+        value={repoLink}
+        onChange={handleRepoLinkChange}
+      />
+
       <button
         className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
         onClick={handleSubmit}
