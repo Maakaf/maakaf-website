@@ -1,17 +1,6 @@
 import React from 'react';
 import { MemberCard } from '../MemberCard/MemberCard';
-
-interface MembersListProps {
-  members: Array<{
-    id: number;
-    imgUrl: string;
-    name: string;
-    shortDescription: string;
-    longDescription: string;
-    joinDate: string;
-    isAdmin: boolean;
-  }>;
-}
+import { MembersListProps } from '../../../types';
 
 export const MembersList: React.FC<MembersListProps> = ({ members }) => {
   return (

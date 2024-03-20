@@ -1,14 +1,6 @@
 import React, { SVGProps } from 'react';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
-
-interface MemberCardInfoProps {
-  imgUrl: string;
-  name: string;
-  shortDescription: string;
-  longDescription: string;
-  joinDate: string;
-  isAdmin: boolean;
-}
+import { MemberCardProps } from '../../../types';
 
 function Crown(props: SVGProps<SVGSVGElement>) {
   return (
@@ -34,7 +26,7 @@ export const MemberCardInfo = ({
   longDescription,
   joinDate,
   isAdmin,
-}: MemberCardInfoProps) => {
+}: MemberCardProps) => {
   return (
     <div className="flex flex-col rounded-md p-[10px] pr-6 w-full">
       <div className="flex gap-6">

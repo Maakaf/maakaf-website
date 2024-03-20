@@ -1,15 +1,7 @@
 import React from 'react';
 import { MemberCardInfo } from './MemberCardInfo';
 import { MemberCardSocialButtons } from './MemberCardSocialButtons';
-
-interface MemberCardProps {
-  imgUrl: string;
-  name: string;
-  shortDescription: string;
-  longDescription: string;
-  joinDate: string;
-  isAdmin: boolean;
-}
+import { MemberCardProps } from '../../../types';
 
 export const MemberCard = ({
   imgUrl,
