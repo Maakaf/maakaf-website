@@ -9,11 +9,11 @@ type FormTextInputProps = {
 
 const FormTextInput: React.FC<FormTextInputProps> = ({ placeholder, value, onChange, error }) => {
   return (
-    <div className="mb-4">
+    <div>
       <input
+        className={`w-[462px] h-14 p-2 block rounded-md focus:outline-non bg-gray-700 dark:bg-gray-200 ${error && 'border-red-500'}`}
         type="text"
         placeholder={placeholder}
-        className={`mt-1 p-2 block w-full border border-gray-300 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 ${error && 'border-red-500'}`}
         value={value}
         onChange={onChange}
       />

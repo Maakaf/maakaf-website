@@ -13,7 +13,7 @@ const Modal = ({ isOpen,modalContent } : ModalProps) => {
   return (
     <div className="fixed z-10 inset-0 overflow-y-auto">
       <div className="flex items-center justify-center min-h-screen">
-        <div className="relative bg-white w-96 rounded-lg shadow-lg">
+        <div className="relative rounded-sm shadow-lg">
           <div>
             {modalContent}
           </div>

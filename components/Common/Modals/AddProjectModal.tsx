@@ -7,7 +7,7 @@ export const AddProjectModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div>
+    <div className='w-4/5'>
       <Modal isOpen={isModalOpen} modalContent={<ModalContent closeModal={() => setIsModalOpen(false)} />} />
       <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
     </div>
@@ -59,6 +59,10 @@ const ModalContent = ({closeModal} : ModalContentProps) => {
     setProjectDescription(e.target.value);
   };
 
+    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    alert("Continue from here")
+    };
+
   const handleSubmit = () => {
     try {
       schema.parse({ name, projectName, email });
@@ -79,10 +83,10 @@ const ModalContent = ({closeModal} : ModalContentProps) => {
   };
 
   return (
-    <div className="bg-gray-600 dark:bg-gray-300">
+    <div className="p-4 mt-24 bg-[#0F1729] text-white dark:bg-gray-100 dark:text-black">
       <p className="text-xl font-bold mb-4 text-right">בקשה להוספת פרויקט</p>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 max-w-[1100px] flex-wrap">
             <FormTextInput
                 placeholder="שם מלא *"
                 value={name}
@@ -106,27 +110,42 @@ const ModalContent = ({closeModal} : ModalContentProps) => {
                 onChange={handleProjectNameChange}
                 error={errors.projectName}
             />
+
+            <div className='flex flex-row flex-nowrap'>
+                <p>לוגו (אם יש)</p>
+                 <input 
+                 type="file"
+                  className='rounded-sm'
+                  onChange={handleFileChange}
+                   />
+            </div>
         </div>
 
       <div className="flex flex-col">
         <p className="text-xl font-bold mb-4 text-right">תיאור פרוייקט</p>
         <textarea
+          className='h-56 bg-gray-700 dark:bg-gray-200 rounded-md'
           placeholder="טקסט חופשי"
           value={projectDescription}
           onChange={handleProjectDescriptionChange}
         />
 
-        <div className="flex justify-center flex-wrap">
-          <input type='checkbox'/>
-          <p>קראתי ואני מסכים לתנאי השימוש באתר</p>
-          <p> קראתי ואני מסכימ/ה<span className='underline'>לתנאי השימוש והצהרת הפרטיות *</span></p>
-          <button onClick={closeModal}>ביטול</button>
-          <button
-            className="w-48 h-7 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-            onClick={handleSubmit}
-          >
-            שליחה
-          </button>
+        <div className="flex justify-around mt-1">
+          <div className='flex justify-center'>
+                
+                        <input className='' type='checkbox'/>
+                        <p> קראתי ואני מסכימ/ה <span className='underline'>לתנאי השימוש והצהרת הפרטיות *</span></p>
+          </div>
+          <div className='flex gap-4'>
+              
+              <button onClick={closeModal}>ביטול</button>
+              <button
+                className="w-48 h-7 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                onClick={handleSubmit}
+              >
+                שליחה
+              </button>
+          </div>        
         </div>
       </div>
     </div>
