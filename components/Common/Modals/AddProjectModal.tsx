@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
-import { z, ZodError  } from "zod";
+import { z, ZodError } from "zod";
 import FormTextInput from '../Inputs/FormTextInput';
 
 export const AddProjectModal = () => {
@@ -8,12 +8,11 @@ export const AddProjectModal = () => {
 
   return (
     <div>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} modalContent={<ModalContent />} />
+      <Modal isOpen={isModalOpen} modalContent={<ModalContent closeModal={() => setIsModalOpen(false)} />} />
       <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
     </div>
   );
 };
-
 
 const schema = z.object({
   name: z.string().min(2),
@@ -21,90 +20,115 @@ const schema = z.object({
   email: z.string().email(),
 });
 
-type FormErrors = {
-  name? : string
-  projectName?: string;
-  email?: string;
-};
+interface ModalContentProps {
+    closeModal: any;
+}
 
-const ModalContent = () => {
+const ModalContent = ({closeModal} : ModalContentProps) => {
+    type FormErrors = {
+        name? : string
+        projectName?: string;
+        email?: string;
+    };
+
   const [projectName, setProjectName] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [repoLink, setRepoLink] = useState('');
+  const [projectIcon, setProjectIcon] = useState('');
+  const [projectDescription, setProjectDescription] = useState('');
   const [errors, setErrors] = useState<FormErrors>({});
 
-  const handleNameChange = (e) => {
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
-  const handleProjectNameChange = (e) => {
+  const handleProjectNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setProjectName(e.target.value);
   };
 
-  const handleEmailChange = (e) => {
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
-    const handleRepoLinkChange = (e) => {
+  const handleRepoLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRepoLink(e.target.value);
   };
 
-const handleSubmit = () => {
-  try {
-    schema.parse({ name,projectName, email });
-    setErrors({}); 
+  const handleProjectDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setProjectDescription(e.target.value);
+  };
 
-  } catch (error: any) {
-    if (error instanceof ZodError) {
-
-      const parsedErrors = {};
-      for (const err of error.errors) {
-        parsedErrors[err.path[0]] = err.message;
+  const handleSubmit = () => {
+    try {
+      schema.parse({ name, projectName, email });
+      setErrors({}); 
+      //TODO Add logic behind this later
+      console.log({name, projectName,projectDescription, repoLink, email});
+      
+    } catch (error: any) {
+      if (error instanceof ZodError) {
+        const parsedErrors = {};
+        
+        for (const { path, message } of error.errors) {
+        parsedErrors[path[0]] = message;
+        }
+        setErrors(parsedErrors);
       }
-      setErrors(parsedErrors);
     }
+  };
 
-  }
-};
-
-   return (
-    <div className="bg-gray-600 dark:bg-gray-300 p-4">
+  return (
+    <div className="bg-gray-600 dark:bg-gray-300">
       <p className="text-xl font-bold mb-4 text-right">בקשה להוספת פרויקט</p>
 
-      <FormTextInput
-        placeholder="שם"
-        value={name}
-        onChange={handleNameChange}
-        error={errors.name}
-      />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormTextInput
+                placeholder="שם מלא *"
+                value={name}
+                onChange={handleNameChange}
+                error={errors.name}
+            />
+                <FormTextInput
+                placeholder="אימייל ליצירת קשר *"
+                value={email}
+                onChange={handleEmailChange}
+                error={errors.email}
+                />
+                <FormTextInput
+                placeholder="קישור לריפו"
+                value={repoLink}
+                onChange={handleRepoLinkChange}
+                />
+            <FormTextInput
+                placeholder="שם הפרוייקט *"
+                value={projectName}
+                onChange={handleProjectNameChange}
+                error={errors.projectName}
+            />
+        </div>
 
-      <FormTextInput
-        placeholder="שם הפרוייקט"
-        value={projectName}
-        onChange={handleProjectNameChange}
-        error={errors.projectName}
-      />
+      <div className="flex flex-col">
+        <p className="text-xl font-bold mb-4 text-right">תיאור פרוייקט</p>
+        <textarea
+          placeholder="טקסט חופשי"
+          value={projectDescription}
+          onChange={handleProjectDescriptionChange}
+        />
 
-      <FormTextInput
-        placeholder="מייל"
-        value={email}
-        onChange={handleEmailChange}
-        error={errors.email}
-      />
-
-      <FormTextInput
-        placeholder="קישור לריפו"
-        value={repoLink}
-        onChange={handleRepoLinkChange}
-      />
-
-      <button
-        className="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-        onClick={handleSubmit}
-      >
-        שליחה
-      </button>
+        <div className="flex justify-center flex-wrap">
+          <input type='checkbox'/>
+          <p>קראתי ואני מסכים לתנאי השימוש באתר</p>
+          <p> קראתי ואני מסכימ/ה<span className='underline'>לתנאי השימוש והצהרת הפרטיות *</span></p>
+          <button onClick={closeModal}>ביטול</button>
+          <button
+            className="w-48 h-7 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+            onClick={handleSubmit}
+          >
+            שליחה
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

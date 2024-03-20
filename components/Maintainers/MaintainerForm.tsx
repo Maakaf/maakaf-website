@@ -1,11 +1,11 @@
 'use client'
 
 import React, { useState } from 'react';
-import Modal from '../Common/Modals/Modal';
 import { AddProjectModal } from '../Common/Modals/AddProjectModal';
 
 const MaintainerForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
 
   return (
     <div className="px-4 mx-auto text-center text-[#020616] dark:text-[#F8FAFC]">
