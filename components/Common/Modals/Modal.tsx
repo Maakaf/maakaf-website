@@ -1,13 +1,14 @@
 'use client'
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  modalContent: ReactNode
 }
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose,modalContent } : ModalProps) => {
   if (!isOpen) return null;
 
   const closeModal = () => {
@@ -38,8 +39,7 @@ const Modal = ({ isOpen, onClose }) => {
             </svg>
           </button>
           <div className="p-4">
-            <h2 className="text-xl font-bold mb-4">Modal Title</h2>
-            <p className="text-gray-700">Modal Content Goes Here</p>
+            {modalContent}
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Modal from '../Common/Modals/Modal';
+import { AddProjectModal } from '../Common/Modals/AddProjectModal';
 
 const MaintainerForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,7 +24,8 @@ const MaintainerForm = () => {
         </p>
       </div>
 
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <AddProjectModal/>
+
       <button
         className="text-xs mx-auto mb-9 btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 dark:hover:text-darkText transition-all w-48"
         onClick={() => setIsModalOpen(true)}
