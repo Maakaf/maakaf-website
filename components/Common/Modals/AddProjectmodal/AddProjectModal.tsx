@@ -1,7 +1,6 @@
-
 import React, { useState } from 'react';
 import Modal from '../Modal';
-import { z, ZodError } from "zod";
+import { z, ZodError } from 'zod';
 import { FormTextInput } from '../../Inputs/FormTextInput';
 import { FileUploader } from './FileUploader';
 import { ProjectDescription } from './ProjectDescription';
@@ -13,10 +12,15 @@ interface AddProjectModalProps {
   closeModal: () => void;
 }
 
-export const AddProjectModal: React.FC<AddProjectModalProps> = ({ isOpen, closeModal }) => {
+export const AddProjectModal: React.FC<AddProjectModalProps> = ({
+  isOpen,
+  closeModal,
+}) => {
   return (
-    <div className='w-4/5'>
-      <Modal isOpen={isOpen} modalContent={<ModalContent closeModal={closeModal} />} />
+    <div className="w-4/5">
+      <Modal isOpen={isOpen} closeModal={closeModal}>
+        <ModalContent closeModal={closeModal} />
+      </Modal>
     </div>
   );
 };
@@ -61,7 +65,9 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
     setRepoLink(e.target.value);
   };
 
-  const handleProjectDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleProjectDescriptionChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setProjectDescription(e.target.value);
   };
 
@@ -80,9 +86,9 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
       //TODO Add logic behind this later
     } catch (error: any) {
       if (error instanceof ZodError) {
-        const parsedErrors : { [key: string]: string }  = {};
+        const parsedErrors: { [key: string]: string } = {};
 
-        for (const { path , message } of error.errors) {
+        for (const { path, message } of error.errors) {
           parsedErrors[path[0]] = message;
         }
         setErrors(parsedErrors);
@@ -91,8 +97,13 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
   };
 
   return (
-    <div className="p-4 mt-24 bg-[#0F1729] text-white dark:bg-gray-100 dark:text-black">
-      <p className="text-xl font-bold mb-4 text-right">בקשה להוספת פרויקט</p>
+    <div className="p-4 mt-24 dark:bg-[#0F1729] bg-gray-100 dark:text-white  text-black rounded-[12px]">
+      <div className="flex justify-between mb-4">
+        <p className="text-xl font-bold text-right items-center">
+          בקשה להוספת פרויקט
+        </p>
+        <button onClick={closeModal}>X</button>
+      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 max-w-[1100px] flex-wrap">
         <FormTextInput
@@ -120,10 +131,12 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
         />
 
         <FileUploader onChange={handleFileChange} />
-
       </div>
 
-      <ProjectDescription projectDescription={projectDescription} handleProjectDescriptionChange={handleProjectDescriptionChange} />
+      <ProjectDescription
+        projectDescription={projectDescription}
+        handleProjectDescriptionChange={handleProjectDescriptionChange}
+      />
       <TermsAndConditions closeModal={closeModal} handleSubmit={handleSubmit} />
       <MustIncludeMessage />
     </div>
