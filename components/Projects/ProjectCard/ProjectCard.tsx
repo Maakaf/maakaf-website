@@ -9,7 +9,6 @@ import { RepoItem } from '@/types';
 import GithubButton from './GithubButton';
 import { getChannelUrl } from '../linkToDiscordChannel';
 
-
 export interface ProjectCardProps {
   project: RepoItem;
 }

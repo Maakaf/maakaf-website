@@ -1,4 +1,4 @@
-'use client'; // TODO: move to client compt
+'use client';
 
 import Image from 'next/image';
 import FilterBtnsGroup from './FilterBtnsGroup';
@@ -8,6 +8,7 @@ import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
 import { ProjectFilter } from '@/types';
 import Link from 'next/link';
+import { SearchInput } from '@/components/Common/inputs/SearchInput';
 
 const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
@@ -140,13 +141,13 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
               ) : null}
             </div>
             <div className="relative flex-1 h-10">
-              <input className="h-full w-full pl-[42px] pr-[18px] rounded-[50px] bg-gray-50 dark:bg-gray-500 outline-none focus:outline-2 focus:outline-purple-500" />
-              <Image
-                className="cursor-pointer absolute left-[9px] top-[9px]"
-                src={`/images/search.svg`}
-                alt="search"
-                width={24}
-                height={24}
+              <SearchInput
+                onChange={function (
+                  event: ChangeEvent<HTMLInputElement>
+                ): void {
+                  console.log('NEED TO IMPLEMENT SEARCH FUNCTION');
+                }}
+                placeHolderText={'חיפוש לפי שם, תפקיד'}
               />
             </div>
             <Link href="/newbies" className="transition duration-300 group">
