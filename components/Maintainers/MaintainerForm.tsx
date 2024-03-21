@@ -5,7 +5,10 @@ import { AddProjectModal } from '../Common/Modals/AddProjectmodal/AddProjectModa
 
 const MaintainerForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
   return (
     <div className="px-4 mx-auto text-center text-[#020616] dark:text-[#F8FAFC]">
@@ -24,15 +27,11 @@ const MaintainerForm = () => {
         </p>
       </div>
 
-      
-
-      <AddProjectModal/>
-      
-      
+      <AddProjectModal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
 
       <button
         className="text-xs mx-auto mb-9 btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 dark:hover:text-darkText transition-all w-48"
-        onClick={() => setIsModalOpen(true)}
+        onClick={openModal}
       >
         טופס הצטרפות
       </button>

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Modal from '../Modal';
 import { z, ZodError } from "zod";
@@ -7,17 +8,18 @@ import { ProjectDescription } from './ProjectDescription';
 import { TermsAndConditions } from './TermsAndConditions';
 import { MustIncludeMessage } from './MustIncludeMessage';
 
-export const AddProjectModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+interface AddProjectModalProps {
+  isOpen: boolean;
+  closeModal: () => void;
+}
 
+export const AddProjectModal: React.FC<AddProjectModalProps> = ({ isOpen, closeModal }) => {
   return (
     <div className='w-4/5'>
-      <Modal isOpen={isModalOpen} modalContent={<ModalContent closeModal={() => setIsModalOpen(false)} />} />
-      <button onClick={() => setIsModalOpen(true)}>Open Modal</button>
+      <Modal isOpen={isOpen} modalContent={<ModalContent closeModal={closeModal} />} />
     </div>
   );
 };
-
 const schema = z.object({
   name: z.string().min(2),
   projectName: z.string().min(4),
