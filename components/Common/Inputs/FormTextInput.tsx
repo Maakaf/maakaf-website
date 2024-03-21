@@ -11,8 +11,8 @@ const FormTextInput: React.FC<FormTextInputProps> = ({ placeholder, value, onCha
   return (
     <div>
       <input
-        className={`w-[462px] h-14 p-2 block rounded-md focus:outline-non bg-gray-700 dark:bg-gray-200 ${error && 'border-red-500'}`}
-        type="text"
+        className={`mw-[462px] w-[100%] mx-auto h-14 p-2 block rounded-md focus:outline-non bg-gray-700 dark:bg-gray-200 ${error && 'border-red-500'}`}
+        type="text" 
         placeholder={placeholder}
         value={value}
         onChange={onChange}

@@ -21,15 +21,15 @@ const schema = z.object({
 });
 
 interface ModalContentProps {
-    closeModal: any;
+  closeModal: any;
 }
 
-const ModalContent = ({closeModal} : ModalContentProps) => {
-    type FormErrors = {
-        name? : string
-        projectName?: string;
-        email?: string;
-    };
+const ModalContent = ({ closeModal }: ModalContentProps) => {
+  type FormErrors = {
+    name?: string;
+    projectName?: string;
+    email?: string;
+  };
 
   const [projectName, setProjectName] = useState('');
   const [name, setName] = useState('');
@@ -59,23 +59,22 @@ const ModalContent = ({closeModal} : ModalContentProps) => {
     setProjectDescription(e.target.value);
   };
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    alert("Continue from here")
-    };
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    alert("Continue from here");
+  };
 
   const handleSubmit = () => {
     try {
       schema.parse({ name, projectName, email });
-      setErrors({}); 
+      setErrors({});
       //TODO Add logic behind this later
-      console.log({name, projectName,projectDescription, repoLink, email});
-      
+      console.log({ name, projectName, projectDescription, repoLink, email });
     } catch (error: any) {
       if (error instanceof ZodError) {
         const parsedErrors = {};
-        
+
         for (const { path, message } of error.errors) {
-        parsedErrors[path[0]] = message;
+          parsedErrors[path[0]] = message;
         }
         setErrors(parsedErrors);
       }
@@ -86,40 +85,40 @@ const ModalContent = ({closeModal} : ModalContentProps) => {
     <div className="p-4 mt-24 bg-[#0F1729] text-white dark:bg-gray-100 dark:text-black">
       <p className="text-xl font-bold mb-4 text-right">בקשה להוספת פרויקט</p>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 max-w-[1100px] flex-wrap">
-            <FormTextInput
-                placeholder="שם מלא *"
-                value={name}
-                onChange={handleNameChange}
-                error={errors.name}
-            />
-                <FormTextInput
-                placeholder="אימייל ליצירת קשר *"
-                value={email}
-                onChange={handleEmailChange}
-                error={errors.email}
-                />
-                <FormTextInput
-                placeholder="קישור לריפו"
-                value={repoLink}
-                onChange={handleRepoLinkChange}
-                />
-            <FormTextInput
-                placeholder="שם הפרוייקט *"
-                value={projectName}
-                onChange={handleProjectNameChange}
-                error={errors.projectName}
-            />
+      <div className="grid grid-cols-1 md:grid-cols-2 justify-center gap-4 max-w-[1100px] flex-wrap">
+        <FormTextInput
+          placeholder="שם מלא *"
+          value={name}
+          onChange={handleNameChange}
+          error={errors.name}
+        />
+        <FormTextInput
+          placeholder="אימייל ליצירת קשר *"
+          value={email}
+          onChange={handleEmailChange}
+          error={errors.email}
+        />
+        <FormTextInput
+          placeholder="קישור לריפו"
+          value={repoLink}
+          onChange={handleRepoLinkChange}
+        />
+        <FormTextInput
+          placeholder="שם הפרוייקט *"
+          value={projectName}
+          onChange={handleProjectNameChange}
+          error={errors.projectName}
+        />
 
-            <div className='flex flex-row flex-nowrap'>
-                <p>לוגו (אם יש)</p>
-                 <input 
-                 type="file"
-                  className='rounded-sm'
-                  onChange={handleFileChange}
-                   />
-            </div>
+        <div className='flex flex-row flex-nowrap'>
+          <p className='text-2xl'>לוגו (אם יש)</p>
+          <input
+            type="file"
+            className='rounded-sm'
+            onChange={handleFileChange}
+          />
         </div>
+      </div>
 
       <div className="flex flex-col">
         <p className="text-xl font-bold mb-4 text-right">תיאור פרוייקט</p>
@@ -130,22 +129,21 @@ const ModalContent = ({closeModal} : ModalContentProps) => {
           onChange={handleProjectDescriptionChange}
         />
 
-        <div className="flex justify-around mt-1">
+        <div className="flex justify-around flex-wrap mt-1">
           <div className='flex justify-center'>
-                
-                        <input className='' type='checkbox'/>
-                        <p> קראתי ואני מסכימ/ה <span className='underline'>לתנאי השימוש והצהרת הפרטיות *</span></p>
+            <input className='' type='checkbox' />
+            <p> קראתי ואני מסכימ/ה <span className='underline'>לתנאי השימוש והצהרת הפרטיות *</span></p>
           </div>
           <div className='flex gap-4'>
-              
-              <button onClick={closeModal}>ביטול</button>
-              <button
-                className="w-48 h-7 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-                onClick={handleSubmit}
-              >
-                שליחה
-              </button>
-          </div>        
+
+            <button onClick={closeModal}>ביטול</button>
+            <button
+              className="w-48 h-7 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+              onClick={handleSubmit}
+            >
+              שליחה
+            </button>
+          </div>
         </div>
       </div>
     </div>
