@@ -57,6 +57,8 @@ module.exports = {
         darkText: colors.slate[950],
         discordLight: colors.indigo[400],
 
+        'error': '#DA1E1E',
+        
         // Dark Mode Colors
         darkBg: colors.slate[950],
         darkAccBg: colors.slate[800],

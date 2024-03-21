@@ -170,6 +170,7 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
           </div>
         </div>
       </div>
+      <p className='text-error mt-2'>על מנת לשלוח בקשה לפרויקט חדש, יש למלא את סעיף שם מלא, שם פרוייקט</p>
     </div>
   );
 };
