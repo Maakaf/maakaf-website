@@ -59,7 +59,7 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
     setRepoLink(e.target.value);
   };
 
-  const handleProjectDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleProjectDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setProjectDescription(e.target.value);
   };
 
@@ -76,10 +76,9 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
       schema.parse({ name, projectName, email });
       setErrors({});
       //TODO Add logic behind this later
-      console.log({ name, projectName, projectDescription, repoLink, email, projectIcon });
     } catch (error: any) {
       if (error instanceof ZodError) {
-        const parsedErrors = {};
+        const parsedErrors : { [key: string]: string }  = {};
 
         for (const { path , message } of error.errors) {
           parsedErrors[path[0]] = message;

@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ProjectDescriptionProps {
   projectDescription: string;
-  handleProjectDescriptionChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleProjectDescriptionChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 export const ProjectDescription: React.FC<ProjectDescriptionProps> = ({ projectDescription, handleProjectDescriptionChange }) => {
