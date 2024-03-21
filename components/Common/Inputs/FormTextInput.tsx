@@ -7,7 +7,7 @@ type FormTextInputProps = {
   error?: string;
 };
 
-const FormTextInput: React.FC<FormTextInputProps> = ({ placeholder, value, onChange, error }) => {
+export const FormTextInput: React.FC<FormTextInputProps> = ({ placeholder, value, onChange, error }) => {
   return (
     <div>
       <input
@@ -22,4 +22,3 @@ const FormTextInput: React.FC<FormTextInputProps> = ({ placeholder, value, onCha
   );
 };
 
-export default FormTextInput;

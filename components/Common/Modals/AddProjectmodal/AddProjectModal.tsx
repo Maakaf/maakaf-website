@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Modal from '../Modal';
 import { z, ZodError } from "zod";
-import FormTextInput from '../../Inputs/FormTextInput';
-import { UploadIcon } from './UploadIcon';
+import { FormTextInput } from '../../Inputs/FormTextInput';
+import { FileUploader } from './FileUploader';
+import { ProjectDescription } from './ProjectDescription';
+import { TermsAndConditions } from './TermsAndConditions';
+import { MustIncludeMessage } from './MustIncludeMessage';
 
 export const AddProjectModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,15 +63,12 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
     setProjectDescription(e.target.value);
   };
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-     const file = e.target.files[0]; 
-    if (file) {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        setProjectIcon(reader.result as string);
-      };
-    }
+  const handleFileChange = (file: File) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      setProjectIcon(reader.result as string);
+    };
   };
 
   const handleSubmit = () => {
@@ -118,59 +118,13 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
           error={errors.projectName}
         />
 
-      <div className='flex flex-row items-center'>
-        <p className='text-2xl'>לוגו (אם יש)</p>
-        <div className="ml-4 flex items-center bg-gray-700 dark:bg-gray-200 ">
-          <div>
-
-          <label 
-          htmlFor="file-input" 
-          className="cursor-pointer">
-
-            <input
-              id="file-input"
-              type="file"
-              className="hidden"
-              onChange={handleFileChange}
-              />
-
-          <div className='flex justify-center items-center rounded-md'>
-            <UploadIcon />
-          </div>
-          </label>
-            </div>
-        </div>
-        </div>
+        <FileUploader onChange={handleFileChange} />
 
       </div>
 
-      <div className="flex flex-col">
-        <p className="text-xl font-bold mb-4 text-right">תיאור פרוייקט</p>
-        <textarea
-          className='h-56 bg-gray-700 dark:bg-gray-200 rounded-md'
-          placeholder="טקסט חופשי"
-          value={projectDescription}
-          onChange={handleProjectDescriptionChange}
-        />
-
-        <div className="flex justify-around flex-wrap mt-1">
-          <div className='flex justify-center'>
-            <input className='' type='checkbox' />
-            <p> קראתי ואני מסכימ/ה <span className='underline'>לתנאי השימוש והצהרת הפרטיות *</span></p>
-          </div>
-          <div className='flex gap-4'>
-
-            <button onClick={closeModal}>ביטול</button>
-            <button
-              className="w-48 h-7 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-              onClick={handleSubmit}
-            >
-              שליחה
-            </button>
-          </div>
-        </div>
-      </div>
-      <p className='text-error mt-2'>על מנת לשלוח בקשה לפרויקט חדש, יש למלא את סעיף שם מלא, שם פרוייקט</p>
+      <ProjectDescription projectDescription={projectDescription} handleProjectDescriptionChange={handleProjectDescriptionChange} />
+      <TermsAndConditions closeModal={closeModal} handleSubmit={handleSubmit} />
+      <MustIncludeMessage />
     </div>
   );
 };
