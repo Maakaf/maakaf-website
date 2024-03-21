@@ -56,3 +56,24 @@ export interface CachedProjects {
   items: IRepositoriesAPIResponse;
   cacheTimestamp: string;
 }
+
+export interface MembersListProps {
+  members: Array<{
+    id: number;
+    imgUrl: string;
+    name: string;
+    shortDescription: string;
+    longDescription: string;
+    joinDate: string;
+    isAdmin: boolean;
+  }>;
+}
+
+export interface MemberCardProps {
+  imgUrl: string;
+  name: string;
+  shortDescription: string;
+  longDescription: string;
+  joinDate: string;
+  isAdmin: boolean;
+}
