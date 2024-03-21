@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import Modal from './Modal';
+import Modal from '../Modal';
 import { z, ZodError } from "zod";
-import FormTextInput from '../Inputs/FormTextInput';
+import FormTextInput from '../../Inputs/FormTextInput';
+import { UploadIcon } from './UploadIcon';
 
 export const AddProjectModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -60,7 +61,14 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    alert("Continue from here");
+     const file = e.target.files[0]; 
+    if (file) {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        setProjectIcon(reader.result as string);
+      };
+    }
   };
 
   const handleSubmit = () => {
@@ -68,7 +76,7 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
       schema.parse({ name, projectName, email });
       setErrors({});
       //TODO Add logic behind this later
-      console.log({ name, projectName, projectDescription, repoLink, email });
+      console.log({ name, projectName, projectDescription, repoLink, email, projectIcon });
     } catch (error: any) {
       if (error instanceof ZodError) {
         const parsedErrors = {};
@@ -110,14 +118,30 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
           error={errors.projectName}
         />
 
-        <div className='flex flex-row flex-nowrap'>
-          <p className='text-2xl'>לוגו (אם יש)</p>
-          <input
-            type="file"
-            className='rounded-sm'
-            onChange={handleFileChange}
-          />
+      <div className='flex flex-row items-center'>
+        <p className='text-2xl'>לוגו (אם יש)</p>
+        <div className="ml-4 flex items-center bg-gray-700 dark:bg-gray-200 ">
+          <div>
+
+          <label 
+          htmlFor="file-input" 
+          className="cursor-pointer">
+
+            <input
+              id="file-input"
+              type="file"
+              className="hidden"
+              onChange={handleFileChange}
+              />
+
+          <div className='flex justify-center items-center rounded-md'>
+            <UploadIcon />
+          </div>
+          </label>
+            </div>
         </div>
+        </div>
+
       </div>
 
       <div className="flex flex-col">

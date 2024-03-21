@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { AddProjectModal } from '../Common/Modals/AddProjectModal';
+import { AddProjectModal } from '../Common/Modals/AddProjectmodal/AddProjectModal';
 
 const MaintainerForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
