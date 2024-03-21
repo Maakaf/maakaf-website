@@ -4,17 +4,15 @@ import BeOurFriends from '@/components/BeOurFriends/BeOurFriends';
 import Paths from '@/components/Paths/Paths';
 import WhatNow from '@/components/Home/WhatNow';
 import MembersPics from '@/components/MembersPics';
-
-import { getTranslations, getLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { HOST } from '@/config/consts';
 
 export async function generateMetadata() {
-  const t = await getTranslations('Metadata.HomePage');
-  const locale = await getLocale();
+  const metaData = await getTranslations('Metadata.HomePage');
 
   return {
-    title: t('title'),
-    description: t('description'),
+    title: metaData('title'),
+    description: metaData('description'),
     openGraph: {
       title: 'קהילת מעקף',
       description:

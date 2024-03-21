@@ -44,7 +44,7 @@ const AboutPage = () => {
           href="https://discord.com/invite/a2VyCjRk2M"
           className="mx-auto w-48 py-2 px-7 text-xs"
         >
-          בואו לדיסקורד
+          {t('button')}
         </DiscordLink>
       </div>
 

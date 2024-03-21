@@ -3,8 +3,9 @@
 import { MembersList } from '@/components/Members/MembersLIst/MembersList';
 import DiscordLink from '@/components/Common/DiscordLink';
 import { LINKS } from '@/config/consts';
-import { MembersSearch } from '@/components/Members/MembersSearch/MembersSearch';
 import { useState } from 'react';
+import { MembersSearch } from '@/components/Members/MembersSearch/MembersSearch';
+import { useTranslations } from 'next-intl';
 
 const dummyMembers = [
   {
@@ -70,18 +71,19 @@ const dummyMembers = [
 ];
 
 const WelcomeMessage = () => {
+  const t = useTranslations('members');
   return (
-    <div className="flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mb-6 mt-2 md:mb-12 py-8 px-4 md:p-4">
-      <div className="flex flex-col md:flex-row md:justify-center gap-2 md:gap-4 mx-auto">
-        <p className="text-2xl text-center">
-          כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד
-        </p>
-        <DiscordLink
-          href={LINKS.DISCORD}
-          className="w-48 mx-auto mt-4 md:mt-0 font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
-        >
-          ערוץ דיסקורד
-        </DiscordLink>
+    <div className='flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mt-16 mb-16 h-20'>
+      <div className='flex justify-evenly flex-wrap'>
+        <p className='text-2xl'>{t('paragraph')}</p>
+        <div>
+           <DiscordLink
+              href={LINKS.DISCORD}
+              className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+            >
+              {t('discordButton')}
+            </DiscordLink>
+        </div>
       </div>
     </div>
   );
