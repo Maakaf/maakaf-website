@@ -81,7 +81,7 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
       if (error instanceof ZodError) {
         const parsedErrors = {};
 
-        for (const { path, message } of error.errors) {
+        for (const { path , message } of error.errors) {
           parsedErrors[path[0]] = message;
         }
         setErrors(parsedErrors);
