@@ -1,4 +1,3 @@
-import { SearchInput } from '@/components/Common/inputs/SearchInput';
 import React, { SVGProps } from 'react';
 
 interface MembersSearchProps {

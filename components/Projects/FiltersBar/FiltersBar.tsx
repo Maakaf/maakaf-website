@@ -1,4 +1,4 @@
-'use client'; // TODO: move to client compt
+'use client';
 
 import Image from 'next/image';
 import FilterBtnsGroup from './FilterBtnsGroup';
@@ -8,7 +8,6 @@ import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
 import { ProjectFilter } from '@/types';
 import Link from 'next/link';
-import { SearchIcon } from 'lucide-react';
 import { SearchInput } from '@/components/Common/inputs/SearchInput';
 
 const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
