@@ -7,15 +7,16 @@ import { ProjectDescription } from './ProjectDescription';
 import { TermsAndConditions } from './TermsAndConditions';
 import { MustIncludeMessage } from './MustIncludeMessage';
 
-interface AddProjectModalProps {
+interface AddProjectModalProps<T> {
   isOpen: boolean;
   closeModal: () => void;
+  translations: T;
 }
 
-export const AddProjectModal: React.FC<AddProjectModalProps> = ({
+export const AddProjectModal = <T,>({
   isOpen,
   closeModal,
-}) => {
+}: AddProjectModalProps<T>) => {
   return (
     <div className="w-4/5">
       <Modal isOpen={isOpen} closeModal={closeModal}>

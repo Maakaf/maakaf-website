@@ -3,6 +3,9 @@ import MaintainersModal from './MaintainersModal';
 
 const MaintainerForm = () => {
   const t = useTranslations('maintainers.maintainerForm');
+  const translations = {
+    joinBtnText: t('joinButton'),
+  };
   return (
     <div className="px-4 mx-auto text-center text-[#020616] dark:text-[#F8FAFC]">
       <h1 className="mb-3 font-black text-4xl mx-auto md:text-5xl">
@@ -19,7 +22,7 @@ const MaintainerForm = () => {
         </p>
       </div>
 
-      <MaintainersModal />
+      <MaintainersModal translations={translations} />
     </div>
   );
 };
