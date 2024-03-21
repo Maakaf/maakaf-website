@@ -24,7 +24,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({ onChange }) => {
             className="hidden"
             onChange={handleFileChange}
           />
-          <div className='flex justify-center items-center rounded-md'>
+          <div className='flex justify-center items-center rounded-md max-w-[150px]'>
             <UploadIcon />
           </div>
         </label>
