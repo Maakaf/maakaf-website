@@ -1,6 +1,15 @@
-import Button from '../Common/Button';
+'use client'
+
+import React, { useState } from 'react';
+import { AddProjectModal } from '../Common/Modals/AddProjectmodal/AddProjectModal';
 
 const MaintainerForm = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="px-4 mx-auto text-center text-[#020616] dark:text-[#F8FAFC]">
       <h1 className="mb-3 font-black text-4xl mx-auto md:text-5xl">
@@ -18,7 +27,14 @@ const MaintainerForm = () => {
         </p>
       </div>
 
-      <Button className="mx-auto font-inter my-11" />
+      <AddProjectModal isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
+
+      <button
+        className="text-xs mx-auto mb-9 btn rounded-full px-7 py-2 flex items-center justify-center gap-2 dark:hover:bg-purple-200 dark:hover:text-darkText transition-all w-48"
+        onClick={openModal}
+      >
+        טופס הצטרפות
+      </button>
     </div>
   );
 };
