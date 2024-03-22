@@ -1,83 +1,11 @@
+'use client';
 import DiscordLink from '@/components/Common/DiscordLink';
 import { LINKS } from '@/config/consts';
-import { useTranslations } from 'next-intl';
-import { SVGProps } from 'react';
-import { revalidatePath } from 'next/cache';
+import { SVGProps, useEffect, useState } from 'react';
 import { MembersList } from '@/components/Members/MembersLIst/MembersList';
-import { getTranslations } from 'next-intl/server';
-
-export type Member = {
-  id: number;
-  imgUrl: string;
-  name: string;
-  shortDescription: string;
-  longDescription: string;
-  joinDate: string;
-  isAdmin: boolean;
-};
-
-const dummyMembers: Member[] = [
-  {
-    id: 1,
-    imgUrl: '/images/avatars/avatar.jpg',
-    name: 'יוסף כהן',
-    shortDescription: 'מפתח אינטרנט',
-    longDescription:
-      'מפתח אינטרנט מכור ליצירת ממשקים ידידותיים למשתמש באמצעות React ו-Node.js.',
-    joinDate: '2022-01-01',
-    isAdmin: true,
-  },
-  {
-    id: 2,
-    imgUrl: '/images/avatars/avatar2.jpg',
-    name: 'שרה לוי',
-    shortDescription: 'מפתחת אינטרנט',
-    longDescription:
-      'מפתחת אינטרנט מכורה ליצירת ממשקים ידידותיים למשתמש באמצעות React ו-Node.js.',
-    joinDate: '2022-01-01',
-    isAdmin: false,
-  },
-  {
-    id: 3,
-    imgUrl: '/images/avatars/avatar4.jpg',
-    name: 'דניאל כהן',
-    shortDescription: 'מפתח אינטרנט',
-    longDescription:
-      'מפתח אינטרנט מכור ליצירת ממשקים ידידותיים למשתמש באמצעות React ו-Node.js.',
-    joinDate: '2022-01-01',
-    isAdmin: false,
-  },
-  {
-    id: 4,
-    imgUrl: '/images/avatars/avatar8.jpg',
-    name: 'רבקה כהן',
-    shortDescription: 'מפתחת אינטרנט',
-    longDescription:
-      'מפתחת אינטרנט מכורה ליצירת ממשקים ידידותיים למשתמש באמצעות React ו-Node.js.',
-    joinDate: '2022-01-01',
-    isAdmin: false,
-  },
-  {
-    id: 5,
-    imgUrl: '/images/avatars/avatar6.jpg',
-    name: 'רבקה כהן',
-    shortDescription: 'מפתחת אינטרנט',
-    longDescription:
-      'מפתחת אינטרנט מכורה ליצירת ממשקים ידידותיים למשתמש באמצעות React ו-Node.js.',
-    joinDate: '2022-01-01',
-    isAdmin: false,
-  },
-  {
-    id: 6,
-    imgUrl: '/images/avatars/avatar7.jpg',
-    name: 'רבקה כהן',
-    shortDescription: 'מפתחת אינטרנט',
-    longDescription:
-      'מפתחת אינטרנט מכורה ליצירת ממשקים ידידותיים למשתמש באמצעות React ו-Node.js.',
-    joinDate: '2022-01-01',
-    isAdmin: false,
-  },
-];
+import { Member } from '@/types';
+import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
+import { useTranslations } from 'next-intl';
 
 const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
   return (
@@ -122,39 +50,19 @@ const WelcomeMessage = () => {
   );
 };
 
-const SEARCH_TEXT_INPUT_NAME = 'search-text';
-let filteredMembers: Member[] = structuredClone(dummyMembers);
-// Handle search input change to redirect or update URL with new query
-const fetchFilteredMemebers = async (formData: FormData) => {
-  'use server';
-  const newQuery = formData.get(SEARCH_TEXT_INPUT_NAME) as string;
-  filteredMembers = filterMembers(newQuery);
-  return revalidatePath('/');
-};
-const filterMembers = (query: string) => {
-  return dummyMembers.filter(
-    member =>
-      member.name.includes(query) || member.shortDescription.includes(query)
-  );
-};
+const MembersPage: React.FC<{}> = ({}) => {
+  const [members, setMembers] = useState<Member[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const t = useTranslations('members');
 
-// TODO figure out how to set memebers from query params without it conflicting with form action
+  useEffect(() => {
+    const timeoutId = setTimeout(async () => {
+      const filteredMembers = await fetchFilteredMemebers(searchTerm);
+      setMembers(filteredMembers);
+    }, 500);
 
-const MembersPage: React.FC<{
-  // params: { slug: string };
-  // searchParams?: { [key: string]: string | string[] | undefined };
-}> = async (
-  {
-    /* params, searchParams */
-  }
-) => {
-  const t = await getTranslations('members');
-  // const term =
-  //   decodeURIComponent(searchParams?.[SEARCH_TEXT_INPUT_NAME]+'');
-
-  // if (term.length) {
-  //   filteredMembers = filterMembers(decodeURIComponent(term));
-  // }
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm]);
 
   return (
     <div className="py-6">
@@ -171,22 +79,18 @@ const MembersPage: React.FC<{
           <option value="אופציה 3">אופציה 3</option>
         </select>
 
-        <form
-          action={fetchFilteredMemebers}
-          className="w-full relative h-[45px]"
-        >
+        <div className="w-full relative h-[45px]">
           <input
             type="text"
-            name={SEARCH_TEXT_INPUT_NAME}
+            name={searchTerm}
             className="pr-4 top-0 right-0 w-full h-full bg-purple-100 dark:bg-gray-800 rounded-r-3xl rounded-l-3xl"
             placeholder="חפש לפי שם, תפקיד"
+            onChange={e => setSearchTerm(e.target.value)}
           />
-          <button>
-            <Magnifier className="absolute top-4 left-3 w-4 h-4 stroke-black dark:stroke-white" />
-          </button>
-        </form>
+          <Magnifier className="absolute top-4 left-3 w-4 h-4 stroke-black dark:stroke-white" />
+        </div>
       </div>
-      <MembersList members={filteredMembers} />
+      <MembersList members={members} />
     </div>
   );
 };

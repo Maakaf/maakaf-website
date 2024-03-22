@@ -77,3 +77,13 @@ export interface MemberCardProps {
   joinDate: string;
   isAdmin: boolean;
 }
+
+export type Member = {
+  id: number;
+  imgUrl: string;
+  name: string;
+  shortDescription: string;
+  longDescription: string;
+  joinDate: string;
+  isAdmin: boolean;
+};

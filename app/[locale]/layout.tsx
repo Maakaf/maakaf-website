@@ -7,6 +7,7 @@ import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { HOST } from '@/config/consts';
 import { unstable_setRequestLocale } from 'next-intl/server';
+import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 const birzia = Birzia({
   src: [
@@ -62,6 +63,7 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   unstable_setRequestLocale(locale);
+  const messages = useMessages();
 
   return (
     <html lang={locale} dir="rtl" suppressHydrationWarning={true}>
@@ -73,7 +75,9 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           <main className="flex flex-col flex-1 h-full pt-24 md:pt-32">
-            {children}
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              {children}
+            </NextIntlClientProvider>
           </main>
           <Footer />
         </ThemeProvider>

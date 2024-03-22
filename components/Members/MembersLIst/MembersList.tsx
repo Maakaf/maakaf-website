@@ -4,7 +4,7 @@ import { MembersListProps } from '../../../types';
 
 export const MembersList: React.FC<MembersListProps> = ({ members }) => {
   return (
-    <div className="flex mx-auto w-[90%] flex-wrap gap-4 mt-6 justify-between">
+    <div className="flex mx-auto w-[90%] flex-wrap gap-4 mt-6 justify-start">
       {members.map(member => (
         <MemberCard
           key={member.id}
