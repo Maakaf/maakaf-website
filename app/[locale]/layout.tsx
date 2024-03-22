@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { HOST } from '@/config/consts';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
 const birzia = Birzia({
   src: [
@@ -60,8 +61,12 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
+
   return (
     <html lang={locale} dir="rtl" suppressHydrationWarning={true}>
+      <meta charSet="ISO-8859-1" />
+
       <body
         className={`min-h-screen flex flex-col items-stretch m-0 darkmode-main ${birzia.className} ${inter.variable}`}
       >
@@ -76,3 +81,7 @@ export default function RootLayout({
     </html>
   );
 }
+
+// export function generateStaticParams() {
+//   return locales.map(locale => ({ locale }));
+// }
