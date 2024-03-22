@@ -14,8 +14,8 @@ export const FileUploader: React.FC<FileUploaderProps> = ({ onChange }) => {
   };
 
   return (
-    <div className='flex flex-row items-center'>
-      <p className='text-2xl whitespace-nowrap'>לוגו (אם יש)</p>
+    <div className="flex flex-row items-center">
+      <p className="text-2xl whitespace-nowrap">לוגו (אם יש)</p>
       <div className="ml-4 flex items-center dark:bg-gray-700 bg-gray-200 rounded-md m-auto">
         <label htmlFor="file-input" className="cursor-pointer">
           <input
@@ -24,7 +24,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({ onChange }) => {
             className="hidden"
             onChange={handleFileChange}
           />
-          <div className='flex justify-center items-center rounded-md max-w-[150px]'>
+          <div className="flex justify-center items-center rounded-md max-w-[150px]">
             <UploadIcon />
           </div>
         </label>

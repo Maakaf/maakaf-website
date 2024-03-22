@@ -14,13 +14,12 @@ const Terms = () => {
     {
       id: 2,
       title: 'Contributers',
-      description: t('contributers')
+      description: t('contributers'),
     },
     {
       id: 3,
       title: 'Newbies',
-      description:
-      t('newbies')
+      description: t('newbies'),
     },
   ];
 

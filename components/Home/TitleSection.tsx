@@ -16,7 +16,8 @@ export default function TitleSection() {
           {t('firstParagraph')}
           <br /> {t('secondParagraph')}
           <br />
-          {t('thirdParagraph')}<br />
+          {t('thirdParagraph')}
+          <br />
           {t('fourthParagraph')}
         </h4>
 

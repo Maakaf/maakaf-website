@@ -19,7 +19,6 @@ const variants = {
 };
 
 export default function BeOurFriends() {
-
   const cards = [
     {
       title: 'קבלת נסיון בפרויקטים מגוונים',

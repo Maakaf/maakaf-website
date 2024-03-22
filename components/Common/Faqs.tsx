@@ -23,7 +23,7 @@ const Faqs = ({ faqs }: FaqsProps) => {
         {t('firstParagraph')}{' '}
         <span className="underline whitespace-nowrap text-purple-500">
           <a href="https://discord.com/invite/a2VyCjRk2M" target="_blank">
-          {t('discordTitle')}
+            {t('discordTitle')}
           </a>
         </span>{' '}
         {t('secondParagraph')}
