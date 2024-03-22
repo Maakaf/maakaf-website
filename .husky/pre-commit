@@ -1,24 +1,24 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-# Run ESLint with automatic fixes, and store the result
+# Run ESLint with automatic fixes, and capture the result and exit code
 eslint_result=$(npx eslint . --fix)
-if [ $? -eq 0 ]; then
-    echo "✅ ESLint checks passed!"
+eslint_exit_code=$?
+if [ $eslint_exit_code -eq 0 ]; then
+    printf "✅ ESLint checks passed!\n"
 else
-    echo "❌ ESLint found issues that could not be automatically fixed."
-    echo "$eslint_result"
+    printf "❌ ESLint found issues that could not be automatically fixed.\n%s\n" "$eslint_result"
     exit 1
 fi
 
-# Run Prettier with write option, and store the result
+# Run Prettier with write option, capture the result and exit code
 prettier_result=$(npx prettier --write .)
-if [ $? -eq 0 ]; then
-    echo "✅ Prettier formatting passed!"
+prettier_exit_code=$?
+if [ $prettier_exit_code -eq 0 ]; then
+    printf "✅ Prettier formatting passed!\n"
 else
-    echo "❌ Prettier found formatting issues."
-    echo "$prettier_result"
+    printf "❌ Prettier found formatting issues.\n%s\n" "$prettier_result"
     exit 1
 fi
 
-echo "✨ All checks passed! Your code is clean and formatted! ✨"
+printf "✨ All checks passed! Your code is clean and formatted! ✨\n"
