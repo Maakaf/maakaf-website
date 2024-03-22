@@ -22,9 +22,8 @@
     "button": "Discord"
   },
   "maintainers": {
-    "FaqSection": {
-    },
-    "maintainerForm" : {
+    "FaqSection": {},
+    "maintainerForm": {
       "header": "Maintainers",
       "firstParagraph": "Project maintainer and want to join Maakaf?",
       "secondParagraph": "Random text that explains some things about combining projects for bypass,",
@@ -54,20 +53,21 @@
       "title": "Where everything happening?",
       "header1": "Practice website",
       "paragraph1": "A community website where you can learn about open source and get involved before joining the Discord server",
-      "header2":"Discord",
+      "header2": "Discord",
       "paragraph2": "Project owners who want to contribute their project to open source",
       "header3": "WhatsApp",
       "paragraph3": "Other groups that are active, primarily for coordinating events and making important announcements"
     }
   },
   "members": {
+    "title": "MEMBERS",
     "paragraph": "Here you can meet the entire family! When your'e done, come to Discord",
     "discordButton": "Discord Channel"
   },
   "components": {
     "home": {
       "quotes": {
-        "header": "Open source is the foundation of a community that works together, shares knowledge, and collaborates to create something amazing",  
+        "header": "Open source is the foundation of a community that works together, shares knowledge, and collaborates to create something amazing",
         "paragraph": "Founder of Linux, Linus Torvalds"
       },
       "beOurFriends": {
@@ -84,9 +84,9 @@
       }
     },
     "faqs": {
-      "title" : "Qustions & answers",
+      "title": "Qustions & answers",
       "firstParagraph": "It's worth trying our Questions & Answers section, and if the answer isn't there, we have the",
-      "discordTitle" : "Discord Channel",
+      "discordTitle": "Discord Channel",
       "secondParagraph": "with genuinely, the nicest people you'll ever meet, who are always willing to help anyone who needs it"
     }
   },
