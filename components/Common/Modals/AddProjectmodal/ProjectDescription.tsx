@@ -1,9 +1,7 @@
+import { FormFieldRegistration } from '@/types/forms';
 import React from 'react';
-import { UseFormRegister, FieldValues, FieldErrors } from 'react-hook-form';
 
-interface ProjectDescriptionProps {
-  register: UseFormRegister<FieldValues>;
-  errors: FieldErrors;
+interface ProjectDescriptionProps extends FormFieldRegistration {
   name: string;
 }
 
@@ -21,7 +19,7 @@ export const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
         className="h-56 dark:bg-gray-700 bg-gray-200 w-[100%] rounded-md"
         placeholder="טקסט חופשי"
       />
-      {errors[name] && <p className="text-red-500 text-sm">{'Error'}</p>}
+      {errors?.[name] && <p className="text-red-500 text-sm">{'Error'}</p>}
     </div>
   );
 };

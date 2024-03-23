@@ -1,8 +1,9 @@
 import React from 'react';
 import { UploadIcon } from './UploadIcon';
 import { UseFormRegister, FieldValues } from 'react-hook-form';
+import { FormFieldRegistration } from '@/types/forms';
 
-interface FileUploaderProps {
+interface FileUploaderProps extends FormFieldRegistration {
   register: UseFormRegister<FieldValues>;
   name: string;
 }
