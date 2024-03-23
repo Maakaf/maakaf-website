@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from '../Modal';
 import { z, ZodError } from 'zod';
 import { FormTextInput } from '../../Inputs/FormTextInput';
@@ -6,7 +6,7 @@ import { FileUploader } from './FileUploader';
 import { ProjectDescription } from './ProjectDescription';
 import { TermsAndConditions } from './TermsAndConditions';
 import { MustIncludeMessage } from './MustIncludeMessage';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 
 interface AddProjectModalProps<T> {
   isOpen: boolean;
@@ -26,37 +26,19 @@ export const AddProjectModal = <T,>({
     </div>
   );
 };
-const schema = z.object({
-  name: z.string().min(2),
-  projectName: z.string().min(4),
-  email: z.string().email(),
-});
 
 interface ModalContentProps {
-  closeModal: any;
+  closeModal: () => void;
 }
 
 const ModalContent = ({ closeModal }: ModalContentProps) => {
-  type FormErrors = {
-    name?: string;
-    projectName?: string;
-    email?: string;
-  };
-
-  const onSubmit = data => console.log(data);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const handleFileChange = (file: File) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      // setProjectIcon(reader.result as string);
-    };
-  };
+  const onSubmit = data => console.log(data);
 
   return (
     <form
@@ -99,19 +81,17 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
           name={'projectName'}
         />
 
-        <FileUploader
-          register={register}
-          name={'fileUploader'}
-          onChange={handleFileChange}
-        />
+        <FileUploader register={register} name={'fileUploader'} />
       </div>
 
-      {/* <ProjectDescription
-        projectDescription={projectDescription}
-        handleProjectDescriptionChange={handleProjectDescriptionChange}
-      /> */}
-      {/* <TermsAndConditions closeModal={closeModal} handleSubmit={onSubmit} /> */}
-      {/* <MustIncludeMessage /> */}
+      <ProjectDescription
+        register={register}
+        name={'projectDescription'}
+        errors={errors}
+      />
+
+      <MustIncludeMessage />
+      <TermsAndConditions closeModal={closeModal} />
 
       <button
         type="submit"

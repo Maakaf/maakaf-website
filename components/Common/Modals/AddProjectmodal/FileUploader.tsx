@@ -3,23 +3,14 @@ import { UploadIcon } from './UploadIcon';
 import { UseFormRegister, FieldValues } from 'react-hook-form';
 
 interface FileUploaderProps {
-  onChange: (file: File) => void;
   register: UseFormRegister<FieldValues>;
   name: string;
 }
 
 export const FileUploader: React.FC<FileUploaderProps> = ({
-  onChange,
   register,
   name,
 }) => {
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      onChange(file);
-    }
-  };
-
   return (
     <div className="flex flex-row items-center">
       <p className="text-2xl whitespace-nowrap">לוגו (אם יש)</p>
@@ -31,7 +22,6 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
             type="file"
             name={name}
             className="hidden"
-            onChange={handleFileChange}
           />
           <div className="flex justify-center items-center rounded-md max-w-[150px]">
             <UploadIcon />

@@ -1,11 +1,9 @@
 interface TermsAndConditions {
   closeModal: () => void;
-  handleSubmit: () => void;
 }
 
 export const TermsAndConditions: React.FC<TermsAndConditions> = ({
   closeModal,
-  handleSubmit,
 }) => {
   return (
     <div className="flex justify-around flex-wrap mt-1">
