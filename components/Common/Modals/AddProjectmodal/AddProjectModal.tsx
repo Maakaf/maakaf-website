@@ -1,6 +1,6 @@
 import React from 'react';
 import Modal from '../Modal';
-import { z, ZodError } from 'zod';
+import { z } from 'zod';
 import { FormTextInput } from '../../Inputs/FormTextInput';
 import { FileUploader } from './FileUploader';
 import { ProjectDescription } from './ProjectDescription';
