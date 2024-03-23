@@ -21,12 +21,6 @@ export const TermsAndConditions: React.FC<TermsAndConditions> = ({
         <button className="mr-1" onClick={closeModal}>
           ביטול
         </button>
-        <button
-          className="w-48 h-7 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
-          onClick={handleSubmit}
-        >
-          שליחה
-        </button>
       </div>
     </div>
   );
