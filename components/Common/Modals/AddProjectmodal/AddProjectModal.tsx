@@ -7,6 +7,7 @@ import { ProjectDescription } from './ProjectDescription';
 import { TermsAndConditions } from './TermsAndConditions';
 import { MustIncludeMessage } from './MustIncludeMessage';
 import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 interface AddProjectModalProps<T> {
   isOpen: boolean;
@@ -32,11 +33,19 @@ interface ModalContentProps {
 }
 
 const ModalContent = ({ closeModal }: ModalContentProps) => {
+  const schema = z.object({
+    fullName: z.string().min(2, 'לפחות 2 תווים'),
+    email: z.string().email('אימייל לא תקין').min(1),
+    projectName: z.string().min(1, 'לפחות 2 תווים'),
+    projectDescription: z.string(),
+  });
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
 
   const onSubmit = data => console.log(data);
 
