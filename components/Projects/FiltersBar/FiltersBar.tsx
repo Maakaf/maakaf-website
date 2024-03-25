@@ -9,20 +9,30 @@ import useFocusTrap from '@/components/hooks/useFocusTrap';
 import { ProjectFilter } from '@/types';
 import Link from 'next/link';
 import { SearchInput } from '@/components/Common/inputs/SearchInput';
-
-const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
+import { ProjectPaginationFilter } from '@/types/project';
 
 interface FiltersBarProps {
   filters: ProjectFilter[];
   setTagsToFilterBy: (tags: ProjectFilter) => void;
+  setFetchByCategory: (filter: ProjectPaginationFilter) => void;
 }
 
 const FiltersBar: React.FC<FiltersBarProps> = ({
   filters,
   setTagsToFilterBy,
+  setFetchByCategory,
 }: FiltersBarProps) => {
+  const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
+
+  const sortOptionsMapper: Record<string, ProjectPaginationFilter> = {
+    אקראי: ProjectPaginationFilter.ALL,
+    'עודכן לאחרונה': ProjectPaginationFilter.RECENTLY_UPDATED,
+    'מספר תורמים': ProjectPaginationFilter.MOST_CONTROBUTORS,
+    'נוצר לאחרונה': ProjectPaginationFilter.RECENTLY_CREATED,
+  };
+
   const [toggleFiltersWindow, setToggleFiltersWindow] = useState(false);
-  const [selectedSortOption, setSelectedSortOption] = useState('עודכן לאחרונה');
+  const [selectedSortOption, setSelectedSortOption] = useState(sortOptions[0]);
 
   const filterRef = useRef<HTMLDivElement | null>(null);
 
@@ -30,12 +40,29 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
     setToggleFiltersWindow(!toggleFiltersWindow);
   }, [toggleFiltersWindow]);
 
-  const handleSortOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedSortOption(event.target.value);
+  // will trigger refetch of projects
+  const handleCategoryOptionSelection = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    console.log('🚀 ~ event:', {
+      event: event.target.value,
+      sortOptions,
+      wtf: sortOptions.includes(event.target.value),
+    });
+
+    for (const option of sortOptions) {
+      if (option === event.target.value) {
+        setFetchByCategory(sortOptionsMapper[option]);
+        setSelectedSortOption(option);
+        return;
+      }
+    }
+
+    setFetchByCategory(ProjectPaginationFilter.ALL);
+    setSelectedSortOption(sortOptions[0]);
   };
 
   const handleFilterOptionChange = (filter: ProjectFilter) => {
-    // TODO: check that logic and change - might be broken
     setTagsToFilterBy(filter);
   };
 
@@ -85,7 +112,6 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 width={24}
                 height={27}
               />
-              {/* CHANGE TO CLIENT COMPT */}
               {toggleFiltersWindow ? (
                 <>
                   <div
@@ -96,7 +122,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                       <h3 className="text-base font-bold leading-normal">
                         פילטרים לפרויקטים
                       </h3>
-                      {/* sort by set 1 TODO:IMPLEMENT */}
+                      {/* sort by ProjectPaginationFilter (sortoptions,sortoptionsmapper) */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
                           מיון לפי
@@ -108,7 +134,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                               id={sortOption}
                               value={sortOption}
                               checked={selectedSortOption === sortOption}
-                              onChange={handleSortOptionChange}
+                              onChange={handleCategoryOptionSelection}
                             />
                           ))}
                         </div>
