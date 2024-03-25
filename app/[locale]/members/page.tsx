@@ -44,7 +44,7 @@ const WelcomeMessage = () => {
         <div>
           <DiscordLink
             href={LINKS.DISCORD}
-            className="font-inter w-56 mx-auto mt-4 md:mt-0 font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+            className="font-inter mx-auto mt-4 md:mt-0 font-semibold bg-gray-50 text-gray-600 py-2 px-6 w-fit md:w-auto"
           >
             {t('discordButton')}
           </DiscordLink>
