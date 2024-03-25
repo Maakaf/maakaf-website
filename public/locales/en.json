@@ -39,7 +39,11 @@
       "termsAndConditions": "I have read and agree to the",
       "termsAndConditionsUnderline": "Terms of Use and Privacy Statement *",
       "cancel": "Cancel",
-      "send": "Send"
+      "send": "Send",
+      "requestAddProject": "Add project request",
+      "fullNameError": "At least 2 characters",
+      "wrongMailError": "Invalid email",
+      "projectNameError": "At least 2 characters"
     },
     "steps": {
       "title": "how does the process works?",

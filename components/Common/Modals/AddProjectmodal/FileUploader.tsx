@@ -2,6 +2,7 @@ import React from 'react';
 import { UploadIcon } from './UploadIcon';
 import { UseFormRegister, FieldValues } from 'react-hook-form';
 import { FormFieldRegistration } from '@/types/forms';
+import { useTranslations } from 'next-intl';
 
 interface FileUploaderProps extends FormFieldRegistration {
   register: UseFormRegister<FieldValues>;
@@ -12,9 +13,11 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   register,
   name,
 }) => {
+  const t = useTranslations('maintainers.maintainerForm');
+
   return (
     <div className="flex flex-row items-center">
-      <p className="text-2xl whitespace-nowrap">לוגו (אם יש)</p>
+      <p className="text-2xl whitespace-nowrap">{t('logo')}</p>
       <div className="ml-4 flex items-center dark:bg-gray-700 bg-gray-200 rounded-md m-auto">
         <label htmlFor="file-input" className="cursor-pointer">
           <input

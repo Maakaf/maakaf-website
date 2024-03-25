@@ -1,3 +1,5 @@
+import { useTranslations } from 'next-intl';
+
 interface TermsAndConditions {
   closeModal: () => void;
 }
@@ -5,19 +7,19 @@ interface TermsAndConditions {
 export const TermsAndConditions: React.FC<TermsAndConditions> = ({
   closeModal,
 }) => {
+  const t = useTranslations('maintainers.maintainerForm');
   return (
     <div className="flex justify-around flex-wrap mt-1">
       <div className="flex justify-center">
         <input className="mb-1 ml-4" type="checkbox" />
         <p>
-          {' '}
-          קראתי ואני מסכימ/ה{' '}
-          <span className="underline">לתנאי השימוש והצהרת הפרטיות *</span>
+          {t('termsAndConditions')}
+          <span className="underline">{t('termsAndConditionsUnderline')}</span>
         </p>
       </div>
       <div className="flex gap-4">
         <button className="mr-1" onClick={closeModal}>
-          ביטול
+          {t('cancel')}
         </button>
       </div>
     </div>
