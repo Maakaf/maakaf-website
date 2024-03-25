@@ -1,5 +1,5 @@
 'use server';
 
 export const addNewProject = async data => {
-  console.log({ data });
+  console.log(data);
 };

@@ -37,11 +37,20 @@ interface ModalContentProps {
 const ModalContent = ({ closeModal }: ModalContentProps) => {
   const t = useTranslations('maintainers.maintainerForm');
 
+  interface FormData {
+    fullName: string;
+    email: string;
+    projectName: string;
+    projectDescription: string;
+    repoLink?: string;
+  }
+
   const schema = z.object({
     fullName: z.string().min(2, t('fullNameError')),
     email: z.string().email(t('wrongMailError')).min(1),
     projectName: z.string().min(1, t('projectNameError')),
     projectDescription: z.string(),
+    repoLink: z.string().optional(),
   });
   const {
     register,
@@ -93,7 +102,7 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
           name={'projectName'}
         />
 
-        <FileUploader register={register} name={'fileUploader'} />
+        <FileUploader register={register} name={'file'} />
       </div>
 
       <ProjectDescription
