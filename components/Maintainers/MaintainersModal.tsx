@@ -11,6 +11,7 @@ function MaintainersModal({ translations }: MaintainersModalProps) {
   const modalOpenHandler = () => {
     setIsModalOpen(true);
   };
+
   return (
     <>
       <AddProjectModal
