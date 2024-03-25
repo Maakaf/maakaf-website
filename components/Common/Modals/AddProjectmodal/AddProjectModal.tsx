@@ -9,6 +9,7 @@ import { MustIncludeMessage } from './MustIncludeMessage';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
+import { addNewProject } from '@/actions/addNewProject';
 
 interface AddProjectModalProps<T> {
   isOpen: boolean;
@@ -50,7 +51,7 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = data => console.log(data);
+  const onSubmit = data => addNewProject(data);
 
   return (
     <form
