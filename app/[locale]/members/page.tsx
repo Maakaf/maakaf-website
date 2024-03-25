@@ -5,7 +5,7 @@ import { SVGProps, useEffect, useState } from 'react';
 import { MembersList } from '@/components/Members/MembersLIst/MembersList';
 import { Member } from '@/types';
 import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 
 const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
   return (
@@ -33,14 +33,18 @@ const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
 
 const WelcomeMessage = () => {
   const t = useTranslations('members');
+  const localLang = useLocale();
   return (
-    <div className="flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mt-16 mb-16 h-20">
-      <div className="flex justify-evenly flex-wrap">
-        <p className="text-2xl">{t('paragraph')}</p>
+    <div
+      dir={localLang === 'he' ? 'rtl' : 'ltr'}
+      className="flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mb-6 mt-2 md:mb-12 py-8 px-4 md:p-4"
+    >
+      <div className="flex flex-col md:flex-row md:justify-center md:items-center gap-2 md:gap-8 mx-auto">
+        <p className="text-2xl text-center ">{t('paragraph')}</p>
         <div>
           <DiscordLink
             href={LINKS.DISCORD}
-            className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
+            className="font-inter mx-auto mt-4 md:mt-0 font-semibold bg-gray-50 text-gray-600 py-2 px-6 w-fit md:w-auto"
           >
             {t('discordButton')}
           </DiscordLink>
@@ -66,7 +70,7 @@ const MembersPage: React.FC<{}> = ({}) => {
 
   return (
     <div className="py-6">
-      <h1 className="text-center">{t('title')}</h1>
+      <h1 className="text-center leading-[1.2]">{t('title')}</h1>
       <WelcomeMessage />
       <div className="flex items-center justify-between mx-auto w-[90%] gap-4">
         <select

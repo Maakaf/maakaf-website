@@ -29,7 +29,7 @@ export const MemberCardInfo = ({
 }: MemberCardProps) => {
   return (
     <div className="flex flex-col rounded-md p-[10px] pr-6 w-full">
-      <div className="flex gap-6">
+      <div className="flex gap-4">
         <ImageWithFallback
           width="50"
           height="50"
@@ -38,7 +38,7 @@ export const MemberCardInfo = ({
           fallback={imgUrl}
         />
 
-        <div className="titles-container block">
+        <div className="titles-container block pt-1">
           <div className="flex items-center">
             <p className="text-base ml-4">{name}</p>
             {isAdmin && (
