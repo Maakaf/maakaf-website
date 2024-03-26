@@ -18,15 +18,13 @@ const FilterBtnsGroup = ({
 
   return (
     <div className="flex gap-2 flex-wrap">
-      {filters.map(filter =>
-        filter.isActive ? (
-          <FilterBtn
-            key={filter.name}
-            filter={filter}
-            onBtnClick={() => handleBtnFilterClick(filter)}
-          />
-        ) : null
-      )}
+      {filters.map(filter => (
+        <FilterBtn
+          key={filter.name}
+          filter={filter}
+          onBtnClick={() => handleBtnFilterClick(filter)}
+        />
+      ))}
     </div>
   );
 };
