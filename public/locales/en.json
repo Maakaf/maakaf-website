@@ -35,7 +35,7 @@
       "logo": "Logo (if any)",
       "projectDescription": "Project Description",
       "freeText": "Free Text",
-      "mustReadMessage": "In order to submit a request for a new project, you must fill in the Full Name and Project Name section.",
+      "mustReadMessage": "Must fill in the Full Name and Project Name section.",
       "termsAndConditions": "I have read and agree to the",
       "termsAndConditionsUnderline": "Terms of Use and Privacy Statement *",
       "cancel": "Cancel",
