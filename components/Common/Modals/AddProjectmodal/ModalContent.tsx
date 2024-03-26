@@ -1,14 +1,14 @@
-import { addNewProject } from "@/actions/addNewProject";
-import { IAddProjectForm } from "@/types/forms";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useTranslations } from "next-intl";
-import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
-import { z } from "zod";
-import { FormTextInput } from "../../Inputs/FormTextInput";
-import { FileUploader } from "./FileUploader";
-import { MustIncludeMessage } from "./MustIncludeMessage";
-import { ProjectDescription } from "./ProjectDescription";
-import { TermsAndConditions } from "./TermsAndConditions ";
+import { addNewProject } from '@/actions/addNewProject';
+import { IAddProjectForm } from '@/types/forms';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useTranslations } from 'next-intl';
+import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
+import { z } from 'zod';
+import { FormTextInput } from '../../Inputs/FormTextInput';
+import { FileUploader } from './FileUploader';
+import { MustIncludeMessage } from './MustIncludeMessage';
+import { ProjectDescription } from './ProjectDescription';
+import { TermsAndConditions } from './TermsAndConditions ';
 
 interface ModalContentProps {
   closeModal: () => void;

@@ -1,4 +1,4 @@
-import React, { useTransition } from 'react';
+import React from 'react';
 import Modal from '../Modal';
 import { ModalContent } from './ModalContent';
 
