@@ -18,20 +18,20 @@ async function fetchProjectsData({
   limit = 100,
   filter = ProjectPaginationFilter.ALL,
 }: ProjectPaginationRequest) {
+  const response = await fetch(PROJECT_API_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ page, limit, filter }),
+  });
+
   // fetch from endpoint POST with page, limit, filter as IProjectsDataResponse
-  const { projects, total, languages, pageLanguages, timestamp } = await fetch(
-    PROJECT_API_ENDPOINT,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ page, limit, filter }),
-    }
-  ).then(res => res.json() as Promise<IProjectsDataResponse>);
+  const { projects, total, languages, pageLanguages, timestamp } =
+    await response.json();
 
   return {
-    projects: projects,
+    projects,
     pageLanguages,
   };
 }
