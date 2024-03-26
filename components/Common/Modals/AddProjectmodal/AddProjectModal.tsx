@@ -6,10 +6,11 @@ import { FileUploader } from './FileUploader';
 import { ProjectDescription } from './ProjectDescription';
 import { TermsAndConditions } from './TermsAndConditions ';
 import { MustIncludeMessage } from './MustIncludeMessage';
-import { useForm } from 'react-hook-form';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { addNewProject } from '@/actions/addNewProject';
+import { IAddProjectForm } from '@/types/forms';
 
 interface AddProjectModalProps<T> {
   isOpen: boolean;
@@ -37,14 +38,6 @@ interface ModalContentProps {
 const ModalContent = ({ closeModal }: ModalContentProps) => {
   const t = useTranslations('maintainers.maintainerForm');
 
-  interface FormData {
-    fullName: string;
-    email: string;
-    projectName: string;
-    projectDescription: string;
-    repoLink?: string;
-  }
-
   const schema = z.object({
     fullName: z.string().min(2, t('fullNameError')),
     email: z.string().email(t('wrongMailError')).min(1),
@@ -60,11 +53,13 @@ const ModalContent = ({ closeModal }: ModalContentProps) => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit = data => addNewProject(data);
+const onSubmit: SubmitHandler<IAddProjectForm> = async (data) => {
+  await addNewProject(data);
+};
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit as SubmitHandler<FieldValues>)}
       className="p-4 mt-24 dark:bg-[#0F1729] bg-gray-100 dark:text-white  text-black rounded-[12px]"
     >
       <div className="flex justify-between mb-4">
