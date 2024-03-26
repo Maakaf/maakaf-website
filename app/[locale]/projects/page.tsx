@@ -79,7 +79,7 @@ const ProjectsPage = () => {
       });
 
       setProjects(
-        projects.filter((p :Project) =>
+        projects.filter((p: Project) =>
           p.item.data.repository.name
             .toLocaleLowerCase()
             .trim()
@@ -88,7 +88,7 @@ const ProjectsPage = () => {
       );
 
       const newTags: ProjectFilter[] = [];
-      pageLanguages.forEach((lang : string) => {
+      pageLanguages.forEach((lang: string) => {
         newTags.push({ name: lang, isActive: true });
       });
       setTags(newTags);
