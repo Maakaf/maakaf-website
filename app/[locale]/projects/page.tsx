@@ -7,16 +7,18 @@ import { Project, ProjectPaginationFilter } from '@/types/project';
 import React, { useCallback, useEffect, useState } from 'react';
 
 const ProjectsPage = () => {
-  //project state
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   // tags to filter by state based on fetched languages
   const [tags, setTags] = useState<ProjectFilter[]>([]);
-  // filter state <ProjectPaginationFilter>
   const [filter, setFilter] = useState(ProjectPaginationFilter.ALL);
+  const [searchByProjectNameValue, setSearchByProjectNameValue] = useState('');
 
-  // a useCallback fn projectIncludesActiveTags that takes a project and returns a boolean
-  // that checks if the project includes any of the active tags
+  /**
+   * @param {Project} project
+   * @returns {boolean}
+   * @description checks if project includes active tags
+   */
   const projectIncludesActiveTags = useCallback(
     (project: Project) => {
       return project.item.data.repository.languages.edges.some(edge =>
@@ -26,22 +28,19 @@ const ProjectsPage = () => {
     [tags]
   );
 
+  /**
+   *
+   * @param {ProjectFilter} tag
+   * @description toggles tag active state
+   */
   const toggleTagActive = (tag: ProjectFilter) => {
+    setLoading(true);
     const existingTags = structuredClone(tags);
-
-    // we set all tags to not active except clickedTag
-    if (tag.isActive) {
-      existingTags.forEach(t => {
-        t.isActive = t.name === tag.name;
-      });
-      setTags(existingTags);
-      return;
-    }
 
     // we set tag active to true
     for (const exisitingTag of existingTags) {
       if (exisitingTag.name === tag.name) {
-        exisitingTag.isActive = true;
+        exisitingTag.isActive = !exisitingTag.isActive;
         break;
       }
     }
@@ -49,51 +48,82 @@ const ProjectsPage = () => {
     setTags(existingTags);
   };
 
+  useEffect(() => {
+    setLoading(false);
+  }, [tags]);
+
+  /**
+   *
+   * @param {ProjectPaginationFilter} filter
+   * @description sets filter to fetch projects by
+   */
   const setFetchByCategoryHandler: (
     filter: ProjectPaginationFilter
   ) => void = filter => {
     setFilter(filter);
   };
 
-  useEffect(() => {
+  // setSearchByProjectName handler
+  const setNewSearchInputValueHandler = (value: string) => {
+    setSearchByProjectNameValue(value);
+  };
+
+  const debouncedFetchProjectsData = useCallback(async () => {
+    console.log('first', Date.now());
     setLoading(true);
-    fetchProjectsData({
-      page: 1,
-      limit: 100,
-      filter,
-    })
-      .then(payload => {
-        setProjects(payload.projects);
-        //convert langauges to tags
-        const newTags: ProjectFilter[] = [];
-        payload.pageLanguages.forEach(lang => {
-          // const existingTag = tags.find(t => t.name === lang);
-          // if (!existingTag) {
-          newTags.push({ name: lang, isActive: true });
-          // return;
-          // }
-          // newTags.push(structuredClone(existingTag));
-        });
-        setTags(newTags);
-      })
-      .catch(error => {
-        console.error('Failed to fetch projects:', error);
-      })
-      .finally(() => {
-        setLoading(false);
+    try {
+      const { projects, pageLanguages } = await fetchProjectsData({
+        page: 1,
+        limit: 100,
+        filter,
       });
+
+      setProjects(
+        projects.filter(p =>
+          p.item.data.repository.name
+            .toLocaleLowerCase()
+            .trim()
+            .includes(searchByProjectNameValue.toLocaleLowerCase().trim())
+        )
+      );
+
+      const newTags: ProjectFilter[] = [];
+      pageLanguages.forEach(lang => {
+        newTags.push({ name: lang, isActive: true });
+      });
+      setTags(newTags);
+    } catch (error) {
+      console.error('Failed to fetch projects:', error);
+    } finally {
+      setLoading(false);
+    }
+  }, [filter, searchByProjectNameValue]);
+
+  useEffect(() => {
+    debouncedFetchProjectsData();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter]);
+  }, [filter, searchByProjectNameValue]);
 
   return (
     <div className="projects flex flex-col gap-4">
+      <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-center items-center gap-[51px]">
+        <div className="flex flex-col items-center gap-[5px]">
+          <h1 className="h1 font-bold">הפרויקטים</h1>
+          <h2 className="h4-roman text-xl text-center">
+            עמוד הפרויקטים של הקהילה. תתפנקו...
+          </h2>
+        </div>
+      </div>
       {projects && (
         <>
           <FiltersBar
             filters={tags}
             setTagsToFilterBy={toggleTagActive}
             setFetchByCategory={setFetchByCategoryHandler}
+            setSearchByProjectName={setNewSearchInputValueHandler}
           />
+          {/* Project list */}
           {loading ? (
             <div className="flex flex-col gap-4 h-[75vh]  mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
               Populating projects...
@@ -106,7 +136,9 @@ const ProjectsPage = () => {
                 .map(tag => tag.name)}
             />
           ) : (
-            <>No projects found</>
+            <div className="flex flex-col gap-4 h-[75vh]  mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
+              No projects found
+            </div>
           )}
         </>
       )}
