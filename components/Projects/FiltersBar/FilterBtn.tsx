@@ -22,7 +22,7 @@ const FilterBtn: React.FC<FilterBtnProps> = ({ filter, onBtnClick }) => {
       onClick={onBtnClick}
       type="button"
     >
-      &#10005;&nbsp;&nbsp;{filter.name}
+      {filter.name}
     </button>
   );
 };
