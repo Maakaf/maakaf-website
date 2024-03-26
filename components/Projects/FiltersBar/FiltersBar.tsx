@@ -15,12 +15,14 @@ interface FiltersBarProps {
   filters: ProjectFilter[];
   setTagsToFilterBy: (tags: ProjectFilter) => void;
   setFetchByCategory: (filter: ProjectPaginationFilter) => void;
+  setSearchByProjectName: (value: string) => void;
 }
 
 const FiltersBar: React.FC<FiltersBarProps> = ({
   filters,
   setTagsToFilterBy,
   setFetchByCategory,
+  setSearchByProjectName,
 }: FiltersBarProps) => {
   const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
 
@@ -44,12 +46,6 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
   const handleCategoryOptionSelection = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
-    console.log('🚀 ~ event:', {
-      event: event.target.value,
-      sortOptions,
-      wtf: sortOptions.includes(event.target.value),
-    });
-
     for (const option of sortOptions) {
       if (option === event.target.value) {
         setFetchByCategory(sortOptionsMapper[option]);
@@ -94,16 +90,11 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
 
   return (
     <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-center items-center gap-[51px]">
-      <div className="flex flex-col items-center gap-[5px]">
-        <h1 className="h1 font-bold">הפרויקטים</h1>
-        <h2 className="h4-roman text-xl text-center">
-          עמוד הפרויקטים של הקהילה. תתפנקו...
-        </h2>
-      </div>
       <div className="w-[90%] md:w-full bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
         <div className="flex flex-col gap-4 px-[24px] py-[22px]">
           <div className="flex items-center gap-6">
             <div className="relative flex items-center justify-center px-[10px] py-[6.75px] h-10 bg-gray-50 dark:bg-gray-900 rounded-md">
+              {/* settings window burger click */}
               <Image
                 src={`/images/filters-burger-menu.svg`}
                 alt="filters-burger-menu"
@@ -112,6 +103,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 width={24}
                 height={27}
               />
+              {/* settings window on burger click */}
               {toggleFiltersWindow ? (
                 <>
                   <div
@@ -166,16 +158,10 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 </>
               ) : null}
             </div>
-            <div className="relative flex-1 h-10">
-              <SearchInput
-                onChange={function (
-                  event: ChangeEvent<HTMLInputElement>
-                ): void {
-                  console.log('NEED TO IMPLEMENT SEARCH FUNCTION');
-                }}
-                placeHolderText={'חיפוש לפי שם, תפקיד'}
-              />
-            </div>
+            <SearchInput
+              onChange={setSearchByProjectName}
+              placeHolderText={'חיפוש לפי שם, תפקיד'}
+            />
             <Link href="/newbies" className="transition duration-300 group">
               <h5 className="hidden md:block text-base font-normal dark:font-bold">
                 איך מתחילים לכתוב קוד פתוח?
