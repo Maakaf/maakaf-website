@@ -15,8 +15,8 @@ export default function TagList({
     <div className={`flex gap-2 items-center ${className}`}>
       {tags.map(tag => {
         const isSelectedTagBtn = activeLanguagesNames.includes(tag)
-          ? 'bg-blue-600'
-          : 'bg-gray-400 dark:bg-[#0F1729]';
+          ? 'bg-purple-200 dark:bg-blue-600'
+          : 'bg-gray-200 dark:bg-gray-700';
         return (
           <div
             key={tag}
