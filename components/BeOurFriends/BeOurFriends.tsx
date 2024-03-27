@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { useLocale, useTranslations } from 'next-intl';
@@ -53,7 +53,10 @@ const BeOurFriends = () => {
   ];
 
   return (
-    <section dir={direction} className="flex flex-col justify-start py-16 md:py-32">
+    <section
+      dir={direction}
+      className="flex flex-col justify-start py-16 md:py-32"
+    >
       <div className="flex flex-col-reverse self-start md:flex-row md:items-center">
         <SectionTitle title={t('title')} />
       </div>
