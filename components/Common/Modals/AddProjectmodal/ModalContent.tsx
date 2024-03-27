@@ -40,7 +40,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
 
   return (
     <form
-      dir={localLang === 'he' ? 'rtl' : 'ltr'}
+      dir={direction}
       onSubmit={handleSubmit(onSubmit as SubmitHandler<FieldValues>)}
       className="p-4 mt-24 dark:bg-[#0F1729] bg-gray-100 dark:text-white  text-black rounded-[12px]"
     >
