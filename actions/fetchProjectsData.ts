@@ -2,6 +2,7 @@
 
 import {
   IProjectsDataResponse,
+  Project,
   ProjectPaginationFilter,
 } from '@/types/project';
 
@@ -9,6 +10,8 @@ export type ProjectPaginationRequest = {
   page?: number;
   limit?: number;
   filter?: ProjectPaginationFilter;
+  projects?: Project[];
+  pageLanguages?: string[];
 };
 
 const PROJECT_API_ENDPOINT = 'https://baas-data-provider.onrender.com/projects';
