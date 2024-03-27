@@ -1,5 +1,7 @@
-'use client';
+'use client'
 
+import React from 'react';
+import { useLocale, useTranslations } from 'next-intl';
 import SectionTitle from '../Common/SectionTitle';
 import BenefitCard from './BenefitCard';
 import { motion } from 'framer-motion';
@@ -18,38 +20,42 @@ const variants = {
   initial: { opacity: 0, y: 100, rotateZ: '-15deg' },
 };
 
-export default function BeOurFriends() {
+const BeOurFriends = () => {
+  const t = useTranslations('components.home.beOurFriends');
+  const localLang = useLocale();
+  const direction = localLang == 'he' ? 'rtl' : 'ltr';
+
   const cards = [
     {
-      title: 'קבלת נסיון בפרויקטים מגוונים',
-      description: 'קהילת מעקף מנגישה לכם פרויקטים מעניינים ואקסקלוסיביים',
-    },
-    { title: 'קשרים', description: 'צרו קשרים עם אנשים נוספים מהמקצוע שלכם' },
-    {
-      title: 'שמירה על רלוונטיות בשוק',
-      description: 'מקום שמאפשר להתעדכן בשינויים האחרונים ולא להישאר מאחור',
+      title: t('gettingExperience'),
+      description: t('gettingExperienceDescription'),
     },
     {
-      title: 'משרות',
-      description:
-        'עצם ההשתתפות בקהילה מאפשרת להיחשף להזדמנויות רבות ומגוונות של תעסוקה',
+      title: t('contacts'),
+      description: t('contactsDescription'),
     },
     {
-      title: 'ליווי ותמיכה של חברים מהתחום',
-      description:
-        'בקהילה תוכלו להיעזר בקלות בענייני קוד. יש לנו מומחים לכל השפות וכל הבעיות',
+      title: t('marketRelevance'),
+      description: t('marketRelevanceDescription'),
     },
     {
-      title: 'קהילה מטורפת',
-      description:
-        'על אף שהקהילה שלנו הולכת וגדלה, איכות האנשים נשמרת. בואו להכיר חברים חדשים.',
+      title: t('jobs'),
+      description: t('jobsDescription'),
+    },
+    {
+      title: t('support'),
+      description: t('supportDescription'),
+    },
+    {
+      title: t('vibrantCommunity'),
+      description: t('vibrantCommunityDescription'),
     },
   ];
 
   return (
-    <section className="flex flex-col justify-start py-16 md:py-32">
+    <section dir={direction} className="flex flex-col justify-start py-16 md:py-32">
       <div className="flex flex-col-reverse self-start md:flex-row md:items-center">
-        <SectionTitle title="מה תקבלו מלהיות חברים במעקף" />
+        <SectionTitle title={t('title')} />
       </div>
       <div className="grid grid-cols-1 gap-4 mx-10 my-8 gap-x-20 md:mx-36 md:grid-cols-2 place-content-around">
         {cards.map((card, index) => (
@@ -71,4 +77,6 @@ export default function BeOurFriends() {
       </div>
     </section>
   );
-}
+};
+
+export default BeOurFriends;
