@@ -69,7 +69,6 @@ const ProjectsPage = () => {
   };
 
   const debouncedFetchProjectsData = useCallback(async () => {
-    console.log('first', Date.now());
     setLoading(true);
     try {
       const { projects, pageLanguages } = await fetchProjectsData({
