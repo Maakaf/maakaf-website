@@ -17,8 +17,7 @@ interface ModalContentProps {
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
   const t = useTranslations('maintainers.maintainerForm');
   const localLang = useLocale();
-  const direction = localLang == 'he' ? 'rtl' : 'ltr'
-  
+  const direction = localLang == 'he' ? 'rtl' : 'ltr';
 
   const schema = z.object({
     fullName: z.string().min(2, t('fullNameError')),
@@ -43,7 +42,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
     <form
       dir={localLang === 'he' ? 'rtl' : 'ltr'}
       onSubmit={handleSubmit(onSubmit as SubmitHandler<FieldValues>)}
-      className='p-4 mt-24 dark:bg-[#0F1729] bg-gray-100 dark:text-white  text-black rounded-[12px]'
+      className="p-4 mt-24 dark:bg-[#0F1729] bg-gray-100 dark:text-white  text-black rounded-[12px]"
     >
       <div className="flex justify-between mb-4">
         <p className="text-xl font-bold text-right items-center">
