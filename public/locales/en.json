@@ -104,5 +104,10 @@
     "aboutUs": "Who we are",
     "terms": "Terms and conditions",
     "privacy": "Privacy policy"
+  },
+  "projects": {
+    "communityProjects": "The communioty projects page, enjoy...",
+    "populatingProjectMessage": "Loading projects...",
+    "noProjectsFound": "No projects found"
   }
 }
