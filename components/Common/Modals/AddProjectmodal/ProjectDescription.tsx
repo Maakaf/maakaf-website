@@ -11,7 +11,7 @@ export const ProjectDescription: React.FC<ProjectDescriptionProps> = ({
   name,
   errors,
 }) => {
-  const t = useTranslations('maintainers.maintainerForm');
+  const t = useTranslations('Maintainers.maintainerForm');
 
   return (
     <div className="w-[100%]">

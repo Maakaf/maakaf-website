@@ -21,7 +21,7 @@ const variants = {
 };
 
 const BeOurFriends = () => {
-  const t = useTranslations('components.home.beOurFriends');
+  const t = useTranslations('Components.home.beOurFriends');
   const localLang = useLocale();
   const direction = localLang == 'he' ? 'rtl' : 'ltr';
 

@@ -7,7 +7,7 @@ interface TermsAndConditions {
 export const TermsAndConditions: React.FC<TermsAndConditions> = ({
   closeModal,
 }) => {
-  const t = useTranslations('maintainers.maintainerForm');
+  const t = useTranslations('Maintainers.maintainerForm');
   return (
     <div className="flex justify-around flex-wrap mt-1">
       <div className="flex justify-center">

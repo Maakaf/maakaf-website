@@ -13,7 +13,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   register,
   name,
 }) => {
-  const t = useTranslations('maintainers.maintainerForm');
+  const t = useTranslations('Maintainers.maintainerForm');
 
   return (
     <div className="flex flex-row items-center">

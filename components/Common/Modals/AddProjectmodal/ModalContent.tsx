@@ -15,7 +15,7 @@ interface ModalContentProps {
 }
 
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
-  const t = useTranslations('maintainers.maintainerForm');
+  const t = useTranslations('Maintainers.maintainerForm');
   const localLang = useLocale();
   const direction = localLang == 'he' ? 'rtl' : 'ltr';
 
@@ -36,6 +36,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
 
   const onSubmit: SubmitHandler<IAddProjectForm> = async data => {
     await addNewProject(data);
+    closeModal();
   };
 
   return (
