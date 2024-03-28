@@ -72,6 +72,26 @@
       "paragraph2": "Project owners who want to contribute their project to open source",
       "header3": "WhatsApp",
       "paragraph3": "Other groups that are active, primarily for coordinating events and making important announcements"
+    },
+    "Faq": {
+      "whatIsopenSource": "What is open source",
+      "whatIsopenSourceAnswer": "Open source refers to software or projects whose source code is available to the public, allowing anyone to view, modify, and distribute it. It encourages collaboration and transparency among developers worldwide.",
+      "whyOpenSourceImportant": "Why is open source important?",
+      "whyOpenSourceImportantAnswer": "Open source provides transparency, community support, and opportunities for improving existing software. It also grants freedom in software usage and helps prevent dependence on certain software providers.",
+      "whyContributeOpenSource": "Why contribute to open source?",
+      "whyContributeOpenSourceAnswer": "Participating in open source projects allows you to gain real-world experience, receive feedback from experienced developers, learn new working methods, learn new technologies, contribute to and promote significant projects, and collaborate with a local and global community.",
+      "openSourceForEveryone": "Is open source for everyone?",
+      "openSourceForEveryoneAnswer": "No! Open source projects need diverse people with a variety of skills, including developers, testers, designers, community managers, and more! Anyone can contribute to open source.",
+      "openSourceForNewbies": "I have no experience in open source / projects, is open source suitable for me?",
+      "openSourceForNewbiesAnswer": "Absolutely! Open source projects welcome contributors at all levels. Many projects have tasks suitable for beginners, sometimes marked as 'beginner-friendly' or 'good first issue.' You can always consult Discord to find out where you can fit in.",
+      "findOpenSourceProjects": "Where can I find open source projects to contribute to?",
+      "findOpenSourceProjectsAnswer": "Right here in the community! In the Projects page, you can find information about open source projects in various languages and fields. In our Discord, there are channels for each project where you can ask questions, seek advice, and get help from community members.",
+      "howToContribute": "How can I contribute to an open source project?",
+      "howToContributeAnswer": "It's very important to read the contribution guidelines for the project you want to join. Each project may have slightly different focuses and processes. In general, the contribution process to an open source project includes the following steps: - Checking which Issues exist in the project, or finding a bug that needs fixing - Request to handle the Issue - Duplicating the project using Fork - Creating a branch for the feature / bug - Working on the feature / bug - Creating a Pull Request to merge the changes.",
+      "projectsPage": "בעמוד הפרויקטים",
+      "discordInfo": "בדיסקורד שלנו",
+      "ourDiscord": "הדיסקורד שלנו",
+      "discordChannels": "ערוצי דיסקורד"
     }
   },
   "Members": {
