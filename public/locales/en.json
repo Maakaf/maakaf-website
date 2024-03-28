@@ -105,6 +105,11 @@
     "terms": "Terms and conditions",
     "privacy": "Privacy policy"
   },
+  "projects": {
+    "communityProjects": "The communioty projects page, enjoy...",
+    "populatingProjectMessage": "Loading projects...",
+    "noProjectsFound": "No projects found"
+  },
   "terms-of-use": {
     "title": "Terms of Use",
     "firstParagraph": "Welcome to Maakaf! We're thrilled to have you join our community of developers and programmers dedicated to contributing code to a diverse range of projects. Before you dive in, please take a moment to review the following terms of use. By accessing or using our website, you agree to abide by these terms and conditions.",

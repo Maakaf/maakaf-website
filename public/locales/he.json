@@ -108,5 +108,10 @@
     "aboutUs": "מי אנחנו",
     "terms": "תנאי השימוש",
     "privacy": "הגדרות פרטיות"
+  },
+  "projects": {
+    "communityProjects": "עמוד הפרויקטים של הקהילה. תתפנקו...",
+    "populatingProjectMessage": "טוען פרוייקטים...",
+    "noProjectsFound": "לא נמצאו פרוייקטים"
   }
 }
