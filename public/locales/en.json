@@ -71,7 +71,19 @@
         "paragraph": "Founder of Linux, Linus Torvalds"
       },
       "beOurFriends": {
-        "title": "What you get from being a Maakaf member"
+        "title": "What you get from being a Maakaf member",
+        "gettingExperience": "Gaining experience in various projects",
+        "gettingExperienceDescription": "Ma'akaf community provides you with interesting and exclusive projects",
+        "contacts": "Contacts",
+        "contactsDescription": "Connect with additional professionals in your field",
+        "marketRelevance": "Maintaining relevance in the market",
+        "marketRelevanceDescription": "A place that allows you to stay updated on the latest changes and not fall behind",
+        "jobs": "Jobs",
+        "jobsDescription": "Participating in the community exposes you to numerous and diverse employment opportunities",
+        "support": "Guidance and support from industry peers",
+        "supportDescription": "In the community, you can easily get help with code matters. We have experts in all languages and all problems",
+        "vibrantCommunity": "Vibrant Community",
+        "vibrantCommunityDescription": "Although our community is growing, the quality of people remains. Come meet new friends."
       },
       "whatNow": {
         "title": "What now?",
