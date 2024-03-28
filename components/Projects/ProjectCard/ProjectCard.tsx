@@ -5,26 +5,33 @@ import TagList from './TagList';
 import AvatarList from './AvatarList';
 import DiscordLink from '@/components/Common/DiscordLink';
 import { LINKS } from '@/config/consts';
-import { RepoItem } from '@/types';
 import GithubButton from './GithubButton';
 import { getChannelUrl } from '../linkToDiscordChannel';
-
+import { Project } from '@/types/project';
 
 export interface ProjectCardProps {
-  project: RepoItem;
+  project: Project;
+  activeLanguagesNames: string[];
 }
 
 export default function ProjectCard({
   project: {
-    openGraphImageUrl,
-    updatedAt,
-    createdAt,
-    name,
-    url,
-    description,
-    languages,
-    contributors: { edges: contributors },
+    item: {
+      data: {
+        repository: {
+          openGraphImageUrl,
+          updatedAt,
+          createdAt,
+          name,
+          url,
+          description,
+          languages,
+          contributors: { edges: contributors },
+        },
+      },
+    },
   },
+  activeLanguagesNames,
 }: ProjectCardProps) {
   const updatedDateString = new Date(updatedAt)
     .toLocaleDateString('he-IL')
@@ -80,6 +87,7 @@ export default function ProjectCard({
           <TagList
             className="flex-wrap grow basis-[min-content]"
             tags={languages.edges.map(l => l.node.name)}
+            activeLanguagesNames={activeLanguagesNames}
           ></TagList>
           <div className="flex gap-2">
             <GithubButton link={url || LINKS.MAAKAF_GITHUB} />

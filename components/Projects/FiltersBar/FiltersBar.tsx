@@ -1,4 +1,4 @@
-'use client'; // TODO: move to client compt
+'use client';
 
 import Image from 'next/image';
 import FilterBtnsGroup from './FilterBtnsGroup';
@@ -8,20 +8,33 @@ import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
 import { ProjectFilter } from '@/types';
 import Link from 'next/link';
-
-const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
+import { SearchInput } from '@/components/Common/inputs/SearchInput';
+import { ProjectPaginationFilter } from '@/types/project';
 
 interface FiltersBarProps {
   filters: ProjectFilter[];
   setTagsToFilterBy: (tags: ProjectFilter) => void;
+  setFetchByCategory: (filter: ProjectPaginationFilter) => void;
+  setSearchByProjectName: (value: string) => void;
 }
 
 const FiltersBar: React.FC<FiltersBarProps> = ({
   filters,
   setTagsToFilterBy,
+  setFetchByCategory,
+  setSearchByProjectName,
 }: FiltersBarProps) => {
+  const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
+
+  const sortOptionsMapper: Record<string, ProjectPaginationFilter> = {
+    אקראי: ProjectPaginationFilter.ALL,
+    'עודכן לאחרונה': ProjectPaginationFilter.RECENTLY_UPDATED,
+    'מספר תורמים': ProjectPaginationFilter.MOST_CONTROBUTORS,
+    'נוצר לאחרונה': ProjectPaginationFilter.RECENTLY_CREATED,
+  };
+
   const [toggleFiltersWindow, setToggleFiltersWindow] = useState(false);
-  const [selectedSortOption, setSelectedSortOption] = useState('עודכן לאחרונה');
+  const [selectedSortOption, setSelectedSortOption] = useState(sortOptions[0]);
 
   const filterRef = useRef<HTMLDivElement | null>(null);
 
@@ -29,12 +42,23 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
     setToggleFiltersWindow(!toggleFiltersWindow);
   }, [toggleFiltersWindow]);
 
-  const handleSortOptionChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedSortOption(event.target.value);
+  // will trigger refetch of projects
+  const handleCategoryOptionSelection = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
+    for (const option of sortOptions) {
+      if (option === event.target.value) {
+        setFetchByCategory(sortOptionsMapper[option]);
+        setSelectedSortOption(option);
+        return;
+      }
+    }
+
+    setFetchByCategory(ProjectPaginationFilter.ALL);
+    setSelectedSortOption(sortOptions[0]);
   };
 
   const handleFilterOptionChange = (filter: ProjectFilter) => {
-    // TODO: check that logic and change - might be broken
     setTagsToFilterBy(filter);
   };
 
@@ -66,16 +90,11 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
 
   return (
     <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-center items-center gap-[51px]">
-      <div className="flex flex-col items-center gap-[5px]">
-        <h1 className="h1 font-bold">הפרויקטים</h1>
-        <h2 className="h4-roman text-xl text-center">
-          עמוד הפרויקטים של הקהילה. תתפנקו...
-        </h2>
-      </div>
       <div className="w-[90%] md:w-full bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
         <div className="flex flex-col gap-4 px-[24px] py-[22px]">
           <div className="flex items-center gap-6">
             <div className="relative flex items-center justify-center px-[10px] py-[6.75px] h-10 bg-gray-50 dark:bg-gray-900 rounded-md">
+              {/* settings window burger click */}
               <Image
                 src={`/images/filters-burger-menu.svg`}
                 alt="filters-burger-menu"
@@ -84,18 +103,18 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 width={24}
                 height={27}
               />
-              {/* CHANGE TO CLIENT COMPT */}
+              {/* settings window on burger click */}
               {toggleFiltersWindow ? (
                 <>
                   <div
                     ref={filterRef}
-                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[400px] md:min-w-0 md:w-[863px] min-h-[260px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-600"
+                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[300px] md:min-w-0 md:w-[863px] min-h-[260px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-600"
                   >
                     <div className="flex flex-col gap-[22px]">
                       <h3 className="text-base font-bold leading-normal">
                         פילטרים לפרויקטים
                       </h3>
-                      {/* sort by set 1 TODO:IMPLEMENT */}
+                      {/* sort by ProjectPaginationFilter (sortoptions,sortoptionsmapper) */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
                           מיון לפי
@@ -107,7 +126,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                               id={sortOption}
                               value={sortOption}
                               checked={selectedSortOption === sortOption}
-                              onChange={handleSortOptionChange}
+                              onChange={handleCategoryOptionSelection}
                             />
                           ))}
                         </div>
@@ -139,16 +158,10 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 </>
               ) : null}
             </div>
-            <div className="relative flex-1 h-10">
-              <input className="h-full w-full pl-[42px] pr-[18px] rounded-[50px] bg-gray-50 dark:bg-gray-500 outline-none focus:outline-2 focus:outline-purple-500" />
-              <Image
-                className="cursor-pointer absolute left-[9px] top-[9px]"
-                src={`/images/search.svg`}
-                alt="search"
-                width={24}
-                height={24}
-              />
-            </div>
+            <SearchInput
+              onChange={setSearchByProjectName}
+              placeHolderText={'חיפוש לפי שם, תפקיד'}
+            />
             <Link href="/newbies" className="transition duration-300 group">
               <h5 className="hidden md:block text-base font-normal dark:font-bold">
                 איך מתחילים לכתוב קוד פתוח?

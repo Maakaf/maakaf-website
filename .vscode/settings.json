@@ -21,5 +21,12 @@
   "tailwindCSS.includeLanguages": {
     "vue": "html"
   },
-  "css.customData": ["./.vscode/css-data.json"]
+  "css.customData": ["./.vscode/css-data.json"],
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.fixAll.format": "always"
+  }
 }

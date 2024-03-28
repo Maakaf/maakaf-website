@@ -1,5 +1,3 @@
-'use client';
-
 import { Dropdown } from '../utils/Dropdown';
 
 type CommunityDropdownItems = {
@@ -9,32 +7,43 @@ type CommunityDropdownItems = {
   linkPath?: string;
 };
 
-const communityDropdownItems: CommunityDropdownItems[] = [
-  {
-    title: 'Newbies',
-    titleHoverColor: 'group-hover:text-purple-400',
-    text: 'פעם ראשונה בקוד פתוח',
-    linkPath: '/newbies',
-  },
-  {
-    title: 'Members',
-    titleHoverColor: 'group-hover:text-green-200',
-    text: 'מי שכבר התנסה בקוד פתוח',
-    linkPath: '/members',
-  },
-  {
-    title: 'Maintainers',
-    titleHoverColor: 'group-hover:text-pink-500',
-    text: 'בעלי פרויקטים שרוצים להצטרף',
-    linkPath: '/maintainers',
-  },
-];
+interface NavDropdownProps {
+  headerText: {
+    projects: string;
+    aboutUs: string;
+    community: string;
+    newbies: string;
+    members: string;
+    maintainers: string;
+  };
+}
 
-export const NavDropdown = () => {
+export const NavDropdown = ({ headerText }: NavDropdownProps) => {
+  const communityDropdownItems: CommunityDropdownItems[] = [
+    {
+      title: 'Newbies',
+      titleHoverColor: 'group-hover:text-purple-400',
+      text: headerText.newbies,
+      linkPath: '/newbies',
+    },
+    {
+      title: 'Members',
+      titleHoverColor: 'group-hover:text-green-200',
+      text: headerText.members,
+      linkPath: '/members',
+    },
+    {
+      title: 'Maintainers',
+      titleHoverColor: 'group-hover:text-pink-500',
+      text: headerText.maintainers,
+      linkPath: '/maintainers',
+    },
+  ];
+
   return (
     <Dropdown
       field={{
-        label: 'קהילה',
+        label: headerText.community,
         iconPath: '/images/polygon_white.svg',
         darkIconPath: '/images/polygon_dark.svg',
         alt: 'polygon',

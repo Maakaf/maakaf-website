@@ -41,8 +41,8 @@ const NavRightSide = () => {
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
     </>
   ) : (
-    <div className="flex gap-3">
-      {process.env.NODE_ENV === 'development' && <LocalSwitcher />}
+    <div className="flex gap-3 items-center">
+      <LocalSwitcher />
       <Darkmode />
     </div>
   );

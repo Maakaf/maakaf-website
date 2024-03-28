@@ -21,6 +21,9 @@ export const metadata: Metadata = {
   },
 };
 
+// Layout here due to dynamic page nature as a client component
+// (Layout serves metadata as rsc while page serves client component)
+
 const ProjectsLayout = ({ children }: { children: React.ReactNode }) => {
   return <section className="flex flex-col h-full gap-4">{children}</section>;
 };
