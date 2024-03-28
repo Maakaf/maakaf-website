@@ -15,7 +15,7 @@ const ProjectsPage = () => {
   const [filter, setFilter] = useState(ProjectPaginationFilter.ALL);
   const [searchByProjectNameValue, setSearchByProjectNameValue] = useState('');
 
-  const t = useTranslations('projects');
+  const t = useTranslations('Projects');
 
   /**
    * @param {Project} project

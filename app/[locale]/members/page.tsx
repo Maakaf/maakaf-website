@@ -32,7 +32,7 @@ const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
 };
 
 const WelcomeMessage = () => {
-  const t = useTranslations('members');
+  const t = useTranslations('Members');
   const localLang = useLocale();
   return (
     <div
@@ -57,7 +57,7 @@ const WelcomeMessage = () => {
 const MembersPage: React.FC<{}> = ({}) => {
   const [members, setMembers] = useState<Member[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const t = useTranslations('members');
+  const t = useTranslations('Members');
 
   useEffect(() => {
     const timeoutId = setTimeout(async () => {
