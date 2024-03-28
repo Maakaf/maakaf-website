@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import MaintainerForm from '@/components/Maintainers/MaintainerForm';
 import FaqsSection from '@/components/Maintainers/FaqsSection';
 import Steps from '@/components/Maintainers/Steps';
+import useTextDirection from '@/hooks/useTextDirection';
 
 export const metadata: Metadata = {
   title: 'בעלי פרויקטים - Maintainers',
@@ -25,12 +26,14 @@ export const metadata: Metadata = {
 };
 
 const MaintainersPage: React.FC = () => {
+
+  const direction = useTextDirection()
   return (
-    <>
+    <div dir={direction}>
       <MaintainerForm />
       <Steps />
       <FaqsSection />
-    </>
+    </div>
   );
 };
 

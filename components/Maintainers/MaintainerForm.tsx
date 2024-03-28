@@ -11,7 +11,7 @@ const MaintainerForm = () => {
       <h1 className="mb-3 font-black text-4xl mx-auto md:text-5xl">
         {t('header')}
       </h1>
-      <div className="w-[316px] md:w-[720px] flex flex-col gap-5 text-xl mb-5">
+      <div className="mx-auto w-[316px] md:w-[720px] flex flex-col gap-5 text-xl mb-5">
         <p className="font-bold text-xl md:text-2xl leading-7">
           {t('firstParagraph')}
         </p>
