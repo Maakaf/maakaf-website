@@ -8,6 +8,7 @@ import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
 import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
 import Magnifier from '@/components/SvgCmps/Magnifier';
+import classNames from 'classnames';
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
@@ -66,11 +67,16 @@ const MembersPage: React.FC<{}> = ({}) => {
           <input
             type="text"
             name={searchTerm}
-            className="pr-4 top-0 right-0 w-full h-full bg-purple-100 dark:bg-gray-800 rounded-r-3xl rounded-l-3xl"
+            className="px-4 top-0 right-0 w-full h-full bg-purple-100 dark:bg-gray-800 rounded-r-3xl rounded-l-3xl"
             placeholder={t('searchPlaceholder')}
             onChange={e => setSearchTerm(e.target.value)}
           />
-          <Magnifier className="absolute top-4 left-3 w-4 h-4 stroke-black dark:stroke-white" />
+          <Magnifier
+            className={classNames(
+              direction === 'ltr' ? 'right-3' : 'left-3',
+              'absolute top-4 w-4 h-4 stroke-black dark:stroke-white'
+            )}
+          />
         </div>
       </div>
       <MembersList members={members} />
