@@ -8,8 +8,6 @@ import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
 import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
 
-
-
 const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
   return (
     <svg
