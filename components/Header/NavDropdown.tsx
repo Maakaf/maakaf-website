@@ -42,6 +42,7 @@ export const NavDropdown = ({ headerText }: NavDropdownProps) => {
 
   return (
     <Dropdown
+    data-testId={"lalalallala"}
       field={{
         label: headerText.community,
         iconPath: '/images/polygon_white.svg',
