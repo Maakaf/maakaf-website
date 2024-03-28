@@ -201,8 +201,8 @@
         "contributors": "Contributors",
         "newest": "Newest"
       },
-      "filterByProjects": "Filter by projects",
-      "filterBy": "filters",
+      "filterByProjects": "Filter to projects",
+      "projectsFilters": "filter by",
       "tags": "filter by tags"
     }
   }
