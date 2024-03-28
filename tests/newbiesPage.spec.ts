@@ -11,4 +11,9 @@ test.describe('Test Newbies page', () => {
     const pageTitle = await page.title();
     expect(pageTitle).toContain('Newbies');
   });
+
+  test('should render NEWBIES', async ({ page }) => {
+    await page.goto('http://localhost:3000/he/newbies');
+    expect(await page.textContent('h1')).toContain('NEWBIES');
+  });
 });
