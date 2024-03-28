@@ -23,7 +23,9 @@
   },
   "terms-of-use": {
     "title": "תנאי שימוש",
-    "firstParagraph": "תנאי שימוש"
+    "firstParagraph": "תנאי שימוש",
+    "secondParagraph": "vhh",
+    "thirdParagraph": "hello"
   },
   "maintainers": {
     "FaqSection": {},
