@@ -41,7 +41,7 @@ test.describe('Test Newbies page', () => {
       expect(linkExists).toBeTruthy();
 
       const linkElement = await page.$(linkSelector);
-      const linkURL = await linkElement.getAttribute('href');
+      const linkURL = await linkElement?.getAttribute('href');
       console.log({ linkURL, linkData: linkData.link });
     }
   });
