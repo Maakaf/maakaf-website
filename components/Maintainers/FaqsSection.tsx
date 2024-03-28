@@ -1,114 +1,93 @@
 import { LINKS } from '@/config/consts';
 import Faqs from '../Common/Faqs';
-
-const faqs = [
-  {
-    question: '1. מהו פרויקט קוד פתוח?',
-    answer: (
-      <p>
-        פרויקט קוד פתוח הוא פרויקט תוכנה או יוזמה שבה קוד המקור זמין לציבור
-        לצורך שיתוף פעולה, שינוי והפצה. הוא מעודד שקיפות, מעורבות קהילתית וגישה
-        חופשית לקוד.
-      </p>
-    ),
-  },
-  {
-    question: '2. למה כדאי לי להפוך את הפרויקט שלי לקוד פתוח?',
-    answer: (
-      <p>
-        עבודה בקוד פתוח מאפשרת יתרונות כמו יצירת שיתופי פעולה עם מפתחים נוספים,
-        פיתוח מהיר יותר, קוד איכותי יותר, למידה משותפת ופתרון בעיות. פרויקט קוד
-        פתוח יכול למשוך אליו תורמים ומשתמשים שמתעניינים בתחום בו הוא עוסק.
-      </p>
-    ),
-  },
-  {
-    question:
-      '3. איך אוכל לדעת אם הפרויקט שלי מספיק גדול או חשוב כדי לשתף בקוד פתוח?',
-    answer: (
-      <p>
-        כל הפרויקטים חשובים! יש פרוייקטי קוד פתוח קטנים וגדולים, בכל תחום ובכל
-        טכנולוגיה. המון חברות מוכרות עובדות בקוד פתוח. עדיין יש ספקות? תמיד אפשר
-        להתייעץ{' '}
-        <span className="underline  text-purple-500">
-          <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד.
-          </a>
-        </span>
-      </p>
-    ),
-  },
-  {
-    question: '4. האם אוכל לקבל עזרה כדי להבין איך לבנות את הפרויקט שלי?',
-    answer: (
-      <p>
-        בהחלט! תוכלו תמיד להיעזר ולהתייעץ עם חברי וחברות קהילת הקוד הפתוח שלנו{' '}
-        <span className="underline  text-purple-500">
-          <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד.
-          </a>
-        </span>
-      </p>
-    ),
-  },
-  {
-    question: '5. איך אוכל למשוך תורמים לפרויקט הקוד הפתוח שלי?',
-    answer: (
-      <p>
-        הצטרפו לקהילה שלנו{' '}
-        <span className="underline  text-purple-500">
-          <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד
-          </a>
-        </span>{' '}
-        <span className="underline  text-purple-500">
-          <a href={LINKS.WHATSAPP} target="_blank">
-            ובוואטספ
-          </a>
-        </span>
-        , הוסיפו את הפרויקט וספרו לנו עליו. <br />
-        תוכלו ליצור סרטון הדרכה בו תסבירו על הפרויקט, מה המטרה שלו, באילו שפות
-        וספריות הוא משתמש וכו&apos;. <br />
-        צרו מעורבות של תורמי קוד פתוח בקהילה על ידי פעילות בדיסקורד ובוואטספ.{' '}
-        <br />
-        הקפידו לתחזק באופן שוטף את הפרויקט והדוקומנטציה, כדי לאפשר למצטרפים
-        חדשים השתלבות מהירה. <br />
-      </p>
-    ),
-  },
-  {
-    question: '6. מה כולל התפקיד של ניהול פרויקט בקוד פתוח?',
-    answer: (
-      <p>
-        ניהול פרויקט קוד פתוח יכול להיראות אחרת בין פרויקטים. באופן כללי, התפקיד
-        כולל פיקוח על הקוד, בדיקה ומיזוג של שינויים ועדכונים של תורמים לפרויקט,
-        קביעת יעדי הפרויקט, הובלה וקבלת החלטות בנוגע לפרויקט.
-      </p>
-    ),
-  },
-  {
-    question: '7. איך אפשר להתחיל עם קוד פתוח?',
-    answer: (
-      <p>
-        כדי להתחיל פרויקט קוד פתוח או להפוך פרויקט קיים לקוד פתוח, צריך לבחור
-        רישיון, להגדיר מערכת בקרת גרסאות כמו Git, ליצור Repository בפלטפורמה כמו
-        GitHub, ולהתחיל לתעד את הפרויקט וליצור דוקומנטציה. <br />
-        חשוב ליצור הנחיות מסודרות לגבי תרומה לפרויקט, כדי להקל על תורמים להצטרף.{' '}
-        <br />
-        לא לשכוח כמובן לשתף אותנו{' '}
-        <span className="underline  text-purple-500">
-          <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד!
-          </a>
-        </span>
-      </p>
-    ),
-  },
-];
+import { useTranslations } from 'next-intl';
+import useTextDirection from '@/hooks/useTextDirection';
 
 const FaqsSection = () => {
+  const t = useTranslations('Maintainers.FaqSection');
+  const direction = useTextDirection();
+
+  const faqs = [
+    {
+      question: t('whatIsOpenSource'),
+      answer: <p>{t('whatIsopenSourceAnswer')}</p>,
+    },
+    {
+      question: t('whyMakeTheProjectOpenSource'),
+      answer: <p>{t('whyMakeTheProjectOpenSourceAnswer')}</p>,
+    },
+    {
+      question: t('isTheProjectLargeEnough'),
+      answer: (
+        <p>
+          {t('isTheProjectLargeEnoughAnswer')}{' '}
+          <span className="underline  text-purple-500">
+            <a href={LINKS.DISCORD} target="_blank">
+              {t('atDiscord')}
+            </a>
+          </span>
+        </p>
+      ),
+    },
+    {
+      question: t('canIGetHelp'),
+      answer: (
+        <p>
+          {t('canIGetHelpAnswer')}{' '}
+          <span className="underline  text-purple-500">
+            <a href={LINKS.DISCORD} target="_blank">
+              {t('atDiscord')}
+            </a>
+          </span>
+        </p>
+      ),
+    },
+    {
+      question: t('howToMakeProjectAtratcibe'),
+      answer: (
+        <p>
+          {t('howToMakeProjectAtratcibeAnswer')}
+          <span className="underline  text-purple-500">
+            <a href={LINKS.DISCORD} target="_blank">
+              {t('atDiscord')}
+            </a>
+          </span>{' '}
+          <span className="underline  text-purple-500">
+            <a href={LINKS.WHATSAPP} target="_blank">
+              {t('andsWhatsapp')}
+            </a>
+          </span>
+          {t('addPRojectAndTellAbout')} <br />
+          {t('tellAboutProjectMeaning')}&apos;. <br />
+          {t('createInvolvment')}
+          <br />
+          {t('maintainProjectRegulary')} <br />
+        </p>
+      ),
+    },
+    {
+      question: t('openSourceManagmant'),
+      answer: <p>{t('openSourceManagmantAnswer')}</p>,
+    },
+    {
+      question: t('howToStartWithOpenSource'),
+      answer: (
+        <p>
+          {t('howToStartWithOpenSourceAnswer1')}
+          <br />
+          {t('howToStartWithOpenSourceAnswer2')} <br />
+          {t('shareUs')}{' '}
+          <span className="underline  text-purple-500">
+            <a href={LINKS.DISCORD} target="_blank">
+              {t('andAtDiscord')}
+            </a>
+          </span>
+        </p>
+      ),
+    },
+  ];
   return (
-    <div className="w-full py-12 md:py-20">
+    <div className="w-full py-12 md:py-20" dir={direction}>
       <Faqs faqs={faqs} />
     </div>
   );

@@ -22,7 +22,32 @@
     "button": "Discord"
   },
   "Maintainers": {
-    "FaqSection": {},
+    "FaqSection": {
+      "whatIsOpenSource": "1. What is open source?",
+      "whatIsopenSourceAnswer": "Open source project is a software project or initiative in which the source code is available to the public for collaboration, modification, and distribution. It encourages transparency, community involvement, and free access to the code.",
+      "whyMakeTheProjectOpenSource": "2. Why should I make my project open source?",
+      "whyMakeTheProjectOpenSourceAnswer": "Working with open source code allows benefits such as creating collaborations with other developers, faster development, higher quality code, shared learning, and problem-solving. An open source project can attract contributors and users interested in the field it addresses.",
+      "isTheProjectLargeEnough": "3. How can I know if my project is large or important enough to share as open source?",
+      "isTheProjectLargeEnoughAnswer": "All projects are important! There are open source projects small and large, in every field and technology. Many well-known companies work with open source code. Still have doubts? You can always consult on Discord.",
+      "atDiscord": "At Discord",
+      "andAtDiscord": "At Discord",
+      "andsWhatsapp": "and on WhatsApp",
+      "canIGetHelp": "4. Can I get help to understand how to build my project?",
+      "canIGetHelpAnswer": "Definitely! You can always seek help and advice from members of our open source community.",
+      "howToMakeProjectAtratcibe": "5. How can I attract contributors to my open source project?",
+      "howToMakeProjectAtratcibeAnswer": "Join our community",
+      "howToStartWithOpenSource": "7. How can I get started with open source?",
+      "howToStartWithOpenSourceAnswer1": "To start an open source project or turn an existing project into open source, you need to choose a license, define a version control system like Git, create a repository on a platform like GitHub, and start documenting the project and creating documentation.",
+      "howToStartWithOpenSourceAnswer2": "It's important to create clear guidelines for contributing to the project, to make it easier for contributors to join.",
+      "shareUs": "And of course, don't forget to share us",
+      "addPRojectAndTellAbout": "Add the project and tell us about it,",
+      "tellAboutProjectMeaning": "You could create a tutorial video where you explain about the project, its purpose, which languages it uses, etc.",
+      "createInvolvment": "Create involvement of open source contributors in the community through activity on Discord and WhatsApp.",
+      "maintainProjectRegulary": "Ensure to maintain the project and documentation regularly, to facilitate quick integration of new contributors.",
+      "openSourceManagmant": "6. What does project management in open source entail?",
+      "openSourceManagmantAnswer": "Project management in open source may vary among projects. Generally, it involves monitoring the code, testing and merging changes and updates from contributors to the project, setting project goals, leading and making decisions regarding the project."
+    },
+
     "maintainerForm": {
       "header": "Maintainers",
       "firstParagraph": "Project maintainer and want to join Maakaf?",
@@ -72,12 +97,36 @@
       "paragraph2": "Project owners who want to contribute their project to open source",
       "header3": "WhatsApp",
       "paragraph3": "Other groups that are active, primarily for coordinating events and making important announcements"
+    },
+    "Faq": {
+      "whatIsopenSource": "What is open source",
+      "whatIsopenSourceAnswer": "Open source refers to software or projects whose source code is available to the public, allowing anyone to view, modify, and distribute it. It encourages collaboration and transparency among developers worldwide.",
+      "whyOpenSourceImportant": "Why is open source important?",
+      "whyOpenSourceImportantAnswer": "Open source provides transparency, community support, and opportunities for improving existing software. It also grants freedom in software usage and helps prevent dependence on certain software providers.",
+      "whyContributeOpenSource": "Why contribute to open source?",
+      "whyContributeOpenSourceAnswer": "Participating in open source projects allows you to gain real-world experience, receive feedback from experienced developers, learn new working methods, learn new technologies, contribute to and promote significant projects, and collaborate with a local and global community.",
+      "openSourceForEveryone": "Is open source for everyone?",
+      "openSourceForEveryoneAnswer": "No! Open source projects need diverse people with a variety of skills, including developers, testers, designers, community managers, and more! Anyone can contribute to open source.",
+      "openSourceForNewbies": "I have no experience in open source / projects, is open source suitable for me?",
+      "openSourceForNewbiesAnswer": "Absolutely! Open source projects welcome contributors at all levels. Many projects have tasks suitable for beginners, sometimes marked as 'beginner-friendly' or 'good first issue.' You can always consult Discord to find out where you can fit in.",
+      "findOpenSourceProjects": "Where can I find open source projects to contribute to?",
+      "findOpenSourceProjectsAnswer": "Right here in the community! In the Projects page, you can find information about open source projects in various languages and fields. In our Discord, there are channels for each project where you can ask questions, seek advice, and get help from community members.",
+      "howToContribute": "How can I contribute to an open source project?",
+      "howToContributeAnswer": "It's very important to read the contribution guidelines for the project you want to join. Each project may have slightly different focuses and processes. In general, the contribution process to an open source project includes the following steps: - Checking which Issues exist in the project, or finding a bug that needs fixing - Request to handle the Issue - Duplicating the project using Fork - Creating a branch for the feature / bug - Working on the feature / bug - Creating a Pull Request to merge the changes.",
+      "projectsPage": "בעמוד הפרויקטים",
+      "discordInfo": "בדיסקורד שלנו",
+      "ourDiscord": "הדיסקורד שלנו",
+      "discordChannels": "ערוצי דיסקורד"
     }
   },
   "Members": {
     "title": "MEMBERS",
     "paragraph": "Here you can meet the entire family! When your'e done, come to Discord",
-    "discordButton": "Discord Channel"
+    "discordButton": "Discord Channel",
+    "startOfActivity": "Start of activity",
+    "searchPlaceholder": "Search by name, role",
+    "secondOption": "Second option",
+    "thirdOption": "Third option"
   },
   "Components": {
     "home": {
@@ -136,6 +185,11 @@
     "communityProjects": "The communioty projects page, enjoy...",
     "populatingProjectMessage": "Loading projects...",
     "noProjectsFound": "No projects found",
+    "github": "Github",
+    "discord": "Discord channel",
+    "contributers": "Contributors",
+    "updateDate": "Update Date",
+    "creationDate": "Creation Date",
     "title": "Projects",
     "FiltersBar": {
       "howToContribute": "How to contribute to open source?",
@@ -147,8 +201,8 @@
         "contributors": "Contributors",
         "newest": "Newest"
       },
-      "filterByProjects": "Filter by projects",
-      "filterBy": "filters",
+      "filterByProjects": "Filter to projects",
+      "projectsFilters": "Filter by projects",
       "tags": "filter by tags"
     }
   }

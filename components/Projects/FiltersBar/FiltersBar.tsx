@@ -123,12 +123,12 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                   >
                     <div className="flex flex-col gap-[22px]">
                       <h3 className="text-base font-bold leading-normal">
-                        {t('filterByProjects')}{' '}
+                        {t('projectsFilters')}{' '}
                       </h3>
                       {/* sort by ProjectPaginationFilter (sortoptions,sortoptionsmapper) */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
-                          {t('filterBy')}
+                          {t('filters')}
                         </span>
                         <div className="flex gap-[18px] md:gap-10 flex-wrap w-full">
                           {sortOptions.map(sortOption => (
