@@ -42,7 +42,7 @@ export default function ProjectCard({
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
 
-    const t = useTranslations("Projects");
+  const t = useTranslations('Projects');
 
   return (
     <article
@@ -59,7 +59,7 @@ export default function ProjectCard({
         ></ImageWithFallback>
         <div className="flex flex-col items-center w-fit gap-2">
           <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
-            {t('updateDate')} {updatedDateString} 
+            {t('updateDate')} {updatedDateString}
           </div>
           <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
             {t('creationDate')} {createdDateString}
@@ -72,7 +72,7 @@ export default function ProjectCard({
             <div className="font-birzia text-xl font-bold">{name}</div>
             <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
-                {contributors.length || 0} { t('contributers') } 
+                {contributors.length || 0} {t('contributers')}
               </div>
               <AvatarList
                 avatars={contributors.map(c => ({

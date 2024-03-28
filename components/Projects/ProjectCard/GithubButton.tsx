@@ -4,7 +4,7 @@ export interface GithubButtonProps {
   link: string;
 }
 export default function GithubButton({ link }: GithubButtonProps) {
-  const t = useTranslations("Projects");
+  const t = useTranslations('Projects');
 
   return (
     <Link
