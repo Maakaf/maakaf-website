@@ -28,7 +28,22 @@
       "firstParagraph": "בעל פרויקט ורוצה להצטרף למעקף?",
       "secondParagraph": "טקסט אקראי שמסביר כמה דברים על צירוף פרוייקטים למעקף,",
       "thirdParagraph": "מה צריך לעשות כדי להצטרף , איך התהליך עובד בצורה מאוד כללית ומזמינה כי תכף יהיה הסבר יותר מפורט ואין צורך להרחיב כאן.",
-      "joinButton": "טופס הצטרפות"
+      "joinButton": "טופס הצטרפות",
+      "fullName": "שם מלא *",
+      "email": "אמייל ליצירת קשר",
+      "repoLink": "קישור לריפו",
+      "logo": "לוגו (אם יש)",
+      "projectDescription": "תיאור הפרוייקט",
+      "freeText": "טקסט חופשי",
+      "mustReadMessage": "על מנת לשלוח בקשה לפרויקט חדש, יש למלא את סעיף שם מלא, שם פרוייקט",
+      "termsAndConditions": "קראתי ואני מסכימ/ה",
+      "termsAndConditionsUnderline": "לתנאי השימוש והצהרת הפרטיות *",
+      "cancel": "ביטול",
+      "send": "שליחה",
+      "requestAddProject": "בקשה להוספת פרוייקט",
+      "fullNameError": "לפחות 2 תווים",
+      "wrongMailError": "אימייל לא תקין",
+      "projectNameError": "לפחות 2 תווים"
     },
     "steps": {
       "title": "איך התהליך עובד?",
