@@ -2,7 +2,7 @@ import { useTranslations } from 'next-intl';
 import MaintainersModal from './MaintainersModal';
 
 const MaintainerForm = () => {
-  const t = useTranslations('maintainers.maintainerForm');
+  const t = useTranslations('Maintainers.maintainerForm');
   const translations = {
     joinBtnText: t('joinButton'),
   };

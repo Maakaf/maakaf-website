@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
 const HeroSection = () => {
-  const t = useTranslations('newbies');
+  const t = useTranslations('Newbies');
   return (
     <div className="px-4 mx-auto text-center text-[#020616] dark:text-[#F8FAFC] pb-[80px] md:pb-[110px]">
       <h1 className="mb-3 font-black text-4xl mx-auto md:text-5xl">NEWBIES</h1>

@@ -3,7 +3,7 @@ import SectionTitle from '../Common/SectionTitle';
 import { useTranslations } from 'next-intl';
 
 const LinksSection = () => {
-  const t = useTranslations('newbies.linksSection');
+  const t = useTranslations('Newbies.linksSection');
 
   const linksData = [
     {

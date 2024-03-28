@@ -3,7 +3,7 @@ import SectionTitle from '../Common/SectionTitle';
 import { useTranslations } from 'next-intl';
 
 const Steps = () => {
-  const t = useTranslations('maintainers.steps');
+  const t = useTranslations('Maintainers.steps');
   return (
     <div className="w-full bg-purple-100 dark:bg-gray-800 py-12 md:pt-20 md:pb-36">
       <SectionTitle title={t('title')} />

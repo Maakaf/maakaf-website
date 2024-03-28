@@ -15,7 +15,7 @@ interface FaqsProps {
 }
 
 const Faqs = ({ faqs }: FaqsProps) => {
-  const t = useTranslations('components.faqs');
+  const t = useTranslations('Components.faqs');
   return (
     <>
       <SectionTitle title={t('title')} />

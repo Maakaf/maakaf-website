@@ -5,6 +5,8 @@ import { MempmizedProjectsDisplay } from '@/components/Projects/ProjectDisplay';
 import { ProjectFilter } from '@/types';
 import { Project, ProjectPaginationFilter } from '@/types/project';
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslations } from 'next-intl';
+import useTextDirection from '@/hooks/useTextDirection';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -13,6 +15,9 @@ const ProjectsPage = () => {
   const [tags, setTags] = useState<ProjectFilter[]>([]);
   const [filter, setFilter] = useState(ProjectPaginationFilter.ALL);
   const [searchByProjectNameValue, setSearchByProjectNameValue] = useState('');
+  const direction = useTextDirection();
+
+  const t = useTranslations('Projects');
 
   /**
    * @param {Project} project
@@ -105,12 +110,12 @@ const ProjectsPage = () => {
   }, [filter, searchByProjectNameValue]);
 
   return (
-    <div className="projects flex flex-col gap-4">
+    <div className="projects flex flex-col gap-4" dir={direction}>
       <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-center items-center gap-[51px]">
         <div className="flex flex-col items-center gap-[5px]">
-          <h1 className="h1 font-bold">הפרויקטים</h1>
+          <h1 className="h1 font-bold">{t('title')}</h1>
           <h2 className="h4-roman text-xl text-center">
-            עמוד הפרויקטים של הקהילה. תתפנקו...
+            {t('communityProjects')}
           </h2>
         </div>
       </div>
@@ -125,7 +130,7 @@ const ProjectsPage = () => {
           {/* Project list */}
           {loading ? (
             <div className="flex flex-col gap-4 h-[75vh]  mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
-              Populating projects...
+              {t('populatingProjectMessage')}
             </div>
           ) : projects?.length ? (
             <MempmizedProjectsDisplay
@@ -136,7 +141,7 @@ const ProjectsPage = () => {
             />
           ) : (
             <div className="flex flex-col gap-4 h-[75vh]  mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
-              No projects found
+              {t('noProjectsFound')}
             </div>
           )}
         </>

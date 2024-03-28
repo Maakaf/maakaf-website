@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 };
 
 const AboutPage = () => {
-  const t = useTranslations('about');
+  const t = useTranslations('About');
   // const pageContent = content.about;
   return (
     <div
