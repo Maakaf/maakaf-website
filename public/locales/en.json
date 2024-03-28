@@ -22,7 +22,32 @@
     "button": "Discord"
   },
   "Maintainers": {
-    "FaqSection": {},
+    "FaqSection": {
+      "whatIsOpenSource": "1. What is open source?",
+      "whatIsopenSourceAnswer": "Open source project is a software project or initiative in which the source code is available to the public for collaboration, modification, and distribution. It encourages transparency, community involvement, and free access to the code.",
+      "whyMakeTheProjectOpenSource": "2. Why should I make my project open source?",
+      "whyMakeTheProjectOpenSourceAnswer": "Working with open source code allows benefits such as creating collaborations with other developers, faster development, higher quality code, shared learning, and problem-solving. An open source project can attract contributors and users interested in the field it addresses.",
+      "isTheProjectLargeEnough": "3. How can I know if my project is large or important enough to share as open source?",
+      "isTheProjectLargeEnoughAnswer": "All projects are important! There are open source projects small and large, in every field and technology. Many well-known companies work with open source code. Still have doubts? You can always consult on Discord.",
+      "atDiscord": "At Discord",
+      "andAtDiscord": "At Discord",
+      "andsWhatsapp": "and on WhatsApp",
+      "canIGetHelp": "4. Can I get help to understand how to build my project?",
+      "canIGetHelpAnswer": "Definitely! You can always seek help and advice from members of our open source community.",
+      "howToMakeProjectAtratcibe": "5. How can I attract contributors to my open source project?",
+      "howToMakeProjectAtratcibeAnswer": "Join our community",
+      "howToStartWithOpenSource": "7. How can I get started with open source?",
+      "howToStartWithOpenSourceAnswer1": "To start an open source project or turn an existing project into open source, you need to choose a license, define a version control system like Git, create a repository on a platform like GitHub, and start documenting the project and creating documentation.",
+      "howToStartWithOpenSourceAnswer2": "It's important to create clear guidelines for contributing to the project, to make it easier for contributors to join.",
+      "shareUs": "And of course, don't forget to share us",
+      "addPRojectAndTellAbout": "Add the project and tell us about it,",
+      "tellAboutProjectMeaning": "You could create a tutorial video where you explain about the project, its purpose, which languages it uses, etc.",
+      "createInvolvment": "Create involvement of open source contributors in the community through activity on Discord and WhatsApp.",
+      "maintainProjectRegulary": "Ensure to maintain the project and documentation regularly, to facilitate quick integration of new contributors.",
+      "openSourceManagmant": "6. What does project management in open source entail?",
+      "openSourceManagmantAnswer": "Project management in open source may vary among projects. Generally, it involves monitoring the code, testing and merging changes and updates from contributors to the project, setting project goals, leading and making decisions regarding the project."
+    },
+
     "maintainerForm": {
       "header": "Maintainers",
       "firstParagraph": "Project maintainer and want to join Maakaf?",

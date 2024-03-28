@@ -1,112 +1,105 @@
 import { LINKS } from '@/config/consts';
 import Faqs from '../Common/Faqs';
+import { useTranslations } from 'next-intl';
 
+
+const FaqsSection = () => {
+const t = useTranslations('Maintainers.FaqSection')
+  
 const faqs = [
   {
-    question: '1. מהו פרויקט קוד פתוח?',
+    question: t('whatIsOpenSource'),
     answer: (
       <p>
-        פרויקט קוד פתוח הוא פרויקט תוכנה או יוזמה שבה קוד המקור זמין לציבור
-        לצורך שיתוף פעולה, שינוי והפצה. הוא מעודד שקיפות, מעורבות קהילתית וגישה
-        חופשית לקוד.
+        {t('whatIsopenSourceAnswer')}
       </p>
     ),
   },
   {
-    question: '2. למה כדאי לי להפוך את הפרויקט שלי לקוד פתוח?',
+    question: t('whyMakeTheProjectOpenSource'),
     answer: (
       <p>
-        עבודה בקוד פתוח מאפשרת יתרונות כמו יצירת שיתופי פעולה עם מפתחים נוספים,
-        פיתוח מהיר יותר, קוד איכותי יותר, למידה משותפת ופתרון בעיות. פרויקט קוד
-        פתוח יכול למשוך אליו תורמים ומשתמשים שמתעניינים בתחום בו הוא עוסק.
+        {t('whyMakeTheProjectOpenSourceAnswer')}
       </p>
     ),
   },
   {
     question:
-      '3. איך אוכל לדעת אם הפרויקט שלי מספיק גדול או חשוב כדי לשתף בקוד פתוח?',
+      t('isTheProjectLargeEnough'),
     answer: (
       <p>
-        כל הפרויקטים חשובים! יש פרוייקטי קוד פתוח קטנים וגדולים, בכל תחום ובכל
-        טכנולוגיה. המון חברות מוכרות עובדות בקוד פתוח. עדיין יש ספקות? תמיד אפשר
-        להתייעץ{' '}
+        {t('isTheProjectLargeEnoughAnswer')}{' '}
         <span className="underline  text-purple-500">
           <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד.
+            {t('atDiscord')}
           </a>
         </span>
       </p>
     ),
   },
   {
-    question: '4. האם אוכל לקבל עזרה כדי להבין איך לבנות את הפרויקט שלי?',
+    question: t('canIGetHelp'),
     answer: (
       <p>
-        בהחלט! תוכלו תמיד להיעזר ולהתייעץ עם חברי וחברות קהילת הקוד הפתוח שלנו{' '}
+        {t('canIGetHelpAnswer')}{' '}
         <span className="underline  text-purple-500">
           <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד.
+            {t('atDiscord')}
           </a>
         </span>
       </p>
     ),
   },
   {
-    question: '5. איך אוכל למשוך תורמים לפרויקט הקוד הפתוח שלי?',
+    question: t('howToMakeProjectAtratcibe'),
     answer: (
       <p>
-        הצטרפו לקהילה שלנו{' '}
+        {t('howToMakeProjectAtratcibeAnswer')}
         <span className="underline  text-purple-500">
           <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד
+            {t('atDiscord')}
           </a>
         </span>{' '}
         <span className="underline  text-purple-500">
           <a href={LINKS.WHATSAPP} target="_blank">
-            ובוואטספ
+            {t('andsWhatsapp')}
           </a>
         </span>
-        , הוסיפו את הפרויקט וספרו לנו עליו. <br />
-        תוכלו ליצור סרטון הדרכה בו תסבירו על הפרויקט, מה המטרה שלו, באילו שפות
-        וספריות הוא משתמש וכו&apos;. <br />
-        צרו מעורבות של תורמי קוד פתוח בקהילה על ידי פעילות בדיסקורד ובוואטספ.{' '}
+        {t('addPRojectAndTellAbout')} <br />
+        {t('tellAboutProjectMeaning')}&apos;. <br />
+        {t('createInvolvment')}
         <br />
-        הקפידו לתחזק באופן שוטף את הפרויקט והדוקומנטציה, כדי לאפשר למצטרפים
-        חדשים השתלבות מהירה. <br />
+         {t('maintainProjectRegulary')} <br />
       </p>
     ),
   },
   {
-    question: '6. מה כולל התפקיד של ניהול פרויקט בקוד פתוח?',
+    question: t('openSourceManagmant'),
     answer: (
       <p>
-        ניהול פרויקט קוד פתוח יכול להיראות אחרת בין פרויקטים. באופן כללי, התפקיד
-        כולל פיקוח על הקוד, בדיקה ומיזוג של שינויים ועדכונים של תורמים לפרויקט,
-        קביעת יעדי הפרויקט, הובלה וקבלת החלטות בנוגע לפרויקט.
+        {t('openSourceManagmantAnswer')}
       </p>
     ),
   },
   {
-    question: '7. איך אפשר להתחיל עם קוד פתוח?',
+    question: t('howToStartWithOpenSource'),
     answer: (
       <p>
-        כדי להתחיל פרויקט קוד פתוח או להפוך פרויקט קיים לקוד פתוח, צריך לבחור
-        רישיון, להגדיר מערכת בקרת גרסאות כמו Git, ליצור Repository בפלטפורמה כמו
-        GitHub, ולהתחיל לתעד את הפרויקט וליצור דוקומנטציה. <br />
-        חשוב ליצור הנחיות מסודרות לגבי תרומה לפרויקט, כדי להקל על תורמים להצטרף.{' '}
+        {t('howToStartWithOpenSourceAnswer1')} 
         <br />
-        לא לשכוח כמובן לשתף אותנו{' '}
+         {t('howToStartWithOpenSourceAnswer2')}
+       {' '}
+        <br />
+        {t('shareUs')}{' '}
         <span className="underline  text-purple-500">
           <a href={LINKS.DISCORD} target="_blank">
-            בדיסקורד!
+            {t('andAtDiscord')}
           </a>
         </span>
       </p>
     ),
   },
 ];
-
-const FaqsSection = () => {
   return (
     <div className="w-full py-12 md:py-20">
       <Faqs faqs={faqs} />
