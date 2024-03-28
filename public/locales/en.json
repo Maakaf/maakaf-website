@@ -205,5 +205,10 @@
       "projectsFilters": "Filter by projects",
       "tags": "filter by tags"
     }
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "paragraph": "We could not locate the page you are looking for.",
+    "home": "Return to the home page"
   }
 }
