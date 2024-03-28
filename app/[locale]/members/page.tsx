@@ -59,6 +59,7 @@ const MembersPage: React.FC<{}> = ({}) => {
   const [members, setMembers] = useState<Member[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const t = useTranslations('Members');
+  const direction = useTextDirection();
 
   useEffect(() => {
     const timeoutId = setTimeout(async () => {
@@ -70,7 +71,7 @@ const MembersPage: React.FC<{}> = ({}) => {
   }, [searchTerm]);
 
   return (
-    <div className="py-6">
+    <div className="py-6" dir={direction}>
       <h1 className="text-center leading-[1.2]">{t('title')}</h1>
       <WelcomeMessage />
       <div className="flex items-center justify-between mx-auto w-[90%] gap-4">
@@ -79,9 +80,9 @@ const MembersPage: React.FC<{}> = ({}) => {
           name="activitySelect"
           id="activitySelect"
         >
-          <option value="תחילת פעילות">תחילת פעילות</option>
-          <option value="אופציה 2">אופציה 2</option>
-          <option value="אופציה 3">אופציה 3</option>
+          <option value="תחילת פעילות">{t('startOfActivity')}</option>
+          <option value="אופציה 2">{t('secondOption')}</option>
+          <option value="אופציה 3">{t('thirdOption')}</option>
         </select>
 
         <div className="w-full relative h-[45px]">
@@ -89,7 +90,7 @@ const MembersPage: React.FC<{}> = ({}) => {
             type="text"
             name={searchTerm}
             className="pr-4 top-0 right-0 w-full h-full bg-purple-100 dark:bg-gray-800 rounded-r-3xl rounded-l-3xl"
-            placeholder="חפש לפי שם, תפקיד"
+            placeholder={t('searchPlaceholder')}
             onChange={e => setSearchTerm(e.target.value)}
           />
           <Magnifier className="absolute top-4 left-3 w-4 h-4 stroke-black dark:stroke-white" />

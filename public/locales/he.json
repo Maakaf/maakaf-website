@@ -97,7 +97,11 @@
   "Members": {
     "title": "חברי וחברות הקהילה",
     "paragraph": "כאן אפשר להכיר את כל המשפחה! וכשתסיימו, בואו לדיסקורד",
-    "discordButton": "ערוץ דיסקורד"
+    "discordButton": "ערוץ דיסקורד",
+    "startOfActivity": "תחילת פעילות",
+    "searchPlaceholder": "חפש לפי שם תפקיד...",
+    "secondOption": "אופציה שניה",
+    "thirdOption": "אופציה שלישית"
   },
   "Components": {
     "home": {

@@ -97,7 +97,11 @@
   "Members": {
     "title": "MEMBERS",
     "paragraph": "Here you can meet the entire family! When your'e done, come to Discord",
-    "discordButton": "Discord Channel"
+    "discordButton": "Discord Channel",
+    "startOfActivity": "Start of activity",
+    "searchPlaceholder": "Search by name, role",
+    "secondOption": "Second option",
+    "thirdOption": "Third option"
   },
   "Components": {
     "home": {
