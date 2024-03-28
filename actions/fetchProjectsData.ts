@@ -31,10 +31,7 @@ async function fetchProjectsData({
   const { projects, total, languages, pageLanguages, timestamp } =
     await response.json();
 
-  return {
-    projects,
-    pageLanguages,
-  };
+  return { projects, total, languages, pageLanguages, timestamp };
 }
 
 export default fetchProjectsData;
