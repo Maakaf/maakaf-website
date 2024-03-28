@@ -5,7 +5,8 @@ import { SVGProps, useEffect, useState } from 'react';
 import { MembersList } from '@/components/Members/MembersLIst/MembersList';
 import { Member } from '@/types';
 import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import useTypedLocale from '@/hooks/useTypedLocale';
 
 const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
   return (
@@ -33,7 +34,7 @@ const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
-  const localLang = useLocale();
+  const localLang = useTypedLocale();
   return (
     <div
       dir={localLang === 'he' ? 'rtl' : 'ltr'}

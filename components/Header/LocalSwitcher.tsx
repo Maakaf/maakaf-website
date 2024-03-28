@@ -1,6 +1,7 @@
 'use client';
 
-import { useLocale } from 'next-intl';
+import { Locale } from '@/app/i18n';
+import useTypedLocale from '@/hooks/useTypedLocale';
 import { usePathname, useRouter } from 'next/navigation';
 import { SVGProps, useEffect, useRef, useState, useTransition } from 'react';
 
@@ -33,6 +34,7 @@ export function FlagIL(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
 export function FlagUS(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -64,13 +66,13 @@ export default function LocalSwitcher() {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
-  const localActive = useLocale();
-  const [selectedLocale, setSelectedLocale] = useState(localActive);
+  const localActive = useTypedLocale();
+  const [selectedLocale, setSelectedLocale] = useState<Locale>(localActive);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const pathname = usePathname();
 
   const localeOptions: {
-    code: string;
+    code: Locale;
     name: string;
     Icon: (props: SVGProps<SVGSVGElement>) => JSX.Element;
   }[] = [
@@ -95,7 +97,7 @@ export default function LocalSwitcher() {
     };
   }, [dropdownRef]);
 
-  const handleLocaleChange = (nextLocale: string) => {
+  const handleLocaleChange = (nextLocale: Locale) => {
     setSelectedLocale(nextLocale);
     setIsOpen(false);
     const newPath = pathname.replace(localActive, nextLocale);
