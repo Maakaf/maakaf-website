@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const NewbiesPage: React.FC = () => {
-  const direction = useTextDirection()
+  const direction = useTextDirection();
   return (
     <div dir={direction}>
       <HeroSection />
