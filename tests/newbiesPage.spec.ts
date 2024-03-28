@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+const BASE_URL = 'http://localhost:3000/he';
+
 test.describe('Test Newbies page', () => {
-  test('should navigate to the Newbis page', async ({ page }) => {
-    await page.goto('http://localhost:3000/he');
+  test('should navigate to the Newbies page', async ({ page }) => {
+    await page.goto(BASE_URL);
     await page.click('text="קהילה"');
     await page.click('[data-testid="Newbies"]');
 
@@ -13,12 +15,12 @@ test.describe('Test Newbies page', () => {
   });
 
   test('should render NEWBIES', async ({ page }) => {
-    await page.goto('http://localhost:3000/he/newbies');
+    await page.goto(`${BASE_URL}/newbies`);
     expect(await page.textContent('h1')).toContain('NEWBIES');
   });
 
-  test('External links contains corrent urls', async ({ page }) => {
-    await page.goto('http://localhost:3000/he/newbies');
+  test('External links contain correct URLs', async ({ page }) => {
+    await page.goto(`${BASE_URL}/newbies`);
 
     const linksData = [
       {
@@ -42,12 +44,12 @@ test.describe('Test Newbies page', () => {
 
       const linkElement = await page.$(linkSelector);
       const linkURL = await linkElement?.getAttribute('href');
-      console.log({ linkURL, linkData: linkData.link });
+      expect(linkURL).toBe(linkData.link);
     }
   });
 
   test('FAQ items are clickable and expandable', async ({ page }) => {
-    await page.goto('http://localhost:3000/he/newbies');
+    await page.goto(`${BASE_URL}/newbies`);
     await page.waitForSelector('[data-testid="faq-section"]');
 
     const faqItems = await page.$$('[data-testid^="faq-item-"]');

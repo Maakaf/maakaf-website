@@ -45,7 +45,10 @@ const Faqs = ({ faqs }: FaqsProps) => {
               <AccordionTrigger className="text-lg text-right">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-base font-inter pl-6" data-testid={`faq-content-${index + 1}`}>
+              <AccordionContent
+                className="text-base font-inter pl-6"
+                data-testid={`faq-content-${index + 1}`}
+              >
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
