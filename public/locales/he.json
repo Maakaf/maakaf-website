@@ -108,6 +108,21 @@
   "Projects": {
     "communityProjects": "עמוד הפרויקטים של הקהילה. תתפנקו...",
     "populatingProjectMessage": "טוען פרוייקטים...",
-    "noProjectsFound": "לא נמצאו פרוייקטים"
+    "noProjectsFound": "לא נמצאו פרוייקטים",
+    "title": "הפרויקטים",
+    "FiltersBar": {
+      "howToContribute": "איך מתחילים לכתוב קוד פתוח?",
+      "placeHolder": "חיפוש לפי שם",
+      "filters": "מסננים",
+      "sortOptions": {
+        "recentlyUpdated": "עודכן לאחרונה",
+        "random": "אקראי",
+        "contributors": "מספר תורמים",
+        "newest": "נוצר לאחרונה"
+      },
+      "filterByProjects": "פילטרים לפרויקטים",
+      "filterBy": "מיון לפי",
+      "tags": "סינון לפי תגיות"
+    }
   }
 }

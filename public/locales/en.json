@@ -108,6 +108,21 @@
   "Projects": {
     "communityProjects": "The communioty projects page, enjoy...",
     "populatingProjectMessage": "Loading projects...",
-    "noProjectsFound": "No projects found"
+    "noProjectsFound": "No projects found",
+    "title": "Projects",
+    "FiltersBar": {
+      "howToContribute": "How to contribute to open source?",
+      "placeHolder": "Search by name",
+      "filters": "Filters",
+      "sortOptions": {
+        "recentlyUpdated": "Recently updated",
+        "random": "Random",
+        "contributors": "Contributors",
+        "newest": "Newest"
+      },
+      "filterByProjects": "Filter by projects",
+      "filterBy": "filters",
+      "tags": "filter by tags"
+    }
   }
 }
