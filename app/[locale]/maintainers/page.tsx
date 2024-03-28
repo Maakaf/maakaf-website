@@ -26,8 +26,7 @@ export const metadata: Metadata = {
 };
 
 const MaintainersPage: React.FC = () => {
-
-  const direction = useTextDirection()
+  const direction = useTextDirection();
   return (
     <div dir={direction}>
       <MaintainerForm />
