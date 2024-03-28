@@ -1,36 +1,13 @@
 'use client';
 import DiscordLink from '@/components/Common/DiscordLink';
 import { LINKS } from '@/config/consts';
-import { SVGProps, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MembersList } from '@/components/Members/MembersLIst/MembersList';
 import { Member } from '@/types';
 import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
 import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
-
-const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
-  return (
-    <svg
-      viewBox="0 0 21 21"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M19.35 19.35L15 15"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
+import Magnifier from '@/components/SvgCmps/Magnifier';
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
