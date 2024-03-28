@@ -136,6 +136,11 @@
     "communityProjects": "The communioty projects page, enjoy...",
     "populatingProjectMessage": "Loading projects...",
     "noProjectsFound": "No projects found",
+    "github": "Github",
+    "discord": "Discord channel",
+    "contributers": "Contributors",
+    "updateDate": "Update Date",
+    "creationDate": "Creation Date",
     "title": "Projects",
     "FiltersBar": {
       "howToContribute": "How to contribute to open source?",

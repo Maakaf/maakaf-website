@@ -8,6 +8,7 @@ import { LINKS } from '@/config/consts';
 import GithubButton from './GithubButton';
 import { getChannelUrl } from '../linkToDiscordChannel';
 import { Project } from '@/types/project';
+import { useTranslations } from 'next-intl';
 
 export interface ProjectCardProps {
   project: Project;
@@ -41,6 +42,8 @@ export default function ProjectCard({
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
 
+    const t = useTranslations("Projects");
+
   return (
     <article
       className="w-full flex p-4 sm:p-6 gap-7 rounded-lg bg-purple-100 dark:bg-darkAccBg
@@ -56,10 +59,10 @@ export default function ProjectCard({
         ></ImageWithFallback>
         <div className="flex flex-col items-center w-fit gap-2">
           <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
-            ת. עדכון {updatedDateString}
+            {t('updateDate')} {updatedDateString} 
           </div>
           <div className="w-fit min-w-max font-inter text-xs text-darkText dark:text-lightText">
-            ת. הקמה {createdDateString}
+            {t('creationDate')} {createdDateString}
           </div>
         </div>
       </aside>
@@ -69,7 +72,7 @@ export default function ProjectCard({
             <div className="font-birzia text-xl font-bold">{name}</div>
             <div className="flex grow sm:justify-between items-center gap-2">
               <div className="font-inter text-xs text-lightText bg-blue-400 dark:bg-pink-500 rounded-[50px] px-6 py-2 font-semibold">
-                {contributors.length || 0} תורמים
+                {contributors.length || 0} { t('contributers') } 
               </div>
               <AvatarList
                 avatars={contributors.map(c => ({
@@ -95,7 +98,7 @@ export default function ProjectCard({
               href={getChannelUrl(name)}
               className="flex-grow-[2] font-inter font-semibold bg-gray-50 text-gray-600 py-2 px-6"
             >
-              ערוץ דיסקורד
+              {t('discord')}
             </DiscordLink>
           </div>
         </div>
