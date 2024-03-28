@@ -10,8 +10,6 @@ export type ProjectPaginationRequest = {
   page?: number;
   limit?: number;
   filter?: ProjectPaginationFilter;
-  projects?: Project[];
-  pageLanguages?: string[];
 };
 
 const PROJECT_API_ENDPOINT = 'https://baas-data-provider.onrender.com/projects';
@@ -20,7 +18,7 @@ async function fetchProjectsData({
   page = 1,
   limit = 100,
   filter = ProjectPaginationFilter.ALL,
-}: ProjectPaginationRequest) {
+}: ProjectPaginationRequest): Promise<IProjectsDataResponse> {
   const response = await fetch(PROJECT_API_ENDPOINT, {
     method: 'POST',
     headers: {
