@@ -6,7 +6,7 @@ import { MembersList } from '@/components/Members/MembersLIst/MembersList';
 import { Member } from '@/types';
 import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
 import { useTranslations } from 'next-intl';
-import useTypedLocale from '@/hooks/useTypedLocale';
+import useTextDirection from '@/hooks/useTextDirection';
 
 const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
   return (
@@ -34,10 +34,10 @@ const Magnifier: React.FC<SVGProps<SVGSVGElement>> = props => {
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
-  const localLang = useTypedLocale();
+  const direction = useTextDirection();
   return (
     <div
-      dir={localLang === 'he' ? 'rtl' : 'ltr'}
+      dir={direction}
       className="flex flex-col justify-center bg-purple-100 dark:bg-gray-800 mb-6 mt-2 md:mb-12 py-8 px-4 md:p-4"
     >
       <div className="flex flex-col md:flex-row md:justify-center md:items-center gap-2 md:gap-8 mx-auto">
