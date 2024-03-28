@@ -26,7 +26,7 @@ const MemberPic = ({ borderColorClass, imageSrc }: MemberPicProps) => {
 };
 
 const CommunityLink = () => {
-  const t = useTranslations('components.home.memberPics');
+  const t = useTranslations('Components.home.memberPics');
   return (
     <p className="text-3xl md:text-[60px] font-bold pr-5">
       {t('firstParagraph')}{' '}
