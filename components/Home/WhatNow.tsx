@@ -3,7 +3,7 @@ import SectionTitle from '../Common/SectionTitle';
 import { useTranslations } from 'next-intl';
 
 function WhatNow() {
-  const t = useTranslations('components.home.whatNow');
+  const t = useTranslations('Components.home.whatNow');
   return (
     <div className="relative flex flex-col justify-around gap-3 pb-10 mt-36">
       <div className="hidden sm:flex flex-col gap-2 items-center sm:flex-row-reverse sm:justify-end">

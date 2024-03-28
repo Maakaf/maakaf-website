@@ -10,6 +10,7 @@ import { ProjectFilter } from '@/types';
 import Link from 'next/link';
 import { SearchInput } from '@/components/Common/inputs/SearchInput';
 import { ProjectPaginationFilter } from '@/types/project';
+import { useTranslations } from 'next-intl';
 
 interface FiltersBarProps {
   filters: ProjectFilter[];
@@ -24,7 +25,14 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
   setFetchByCategory,
   setSearchByProjectName,
 }: FiltersBarProps) => {
-  const sortOptions = ['אקראי', 'עודכן לאחרונה', 'מספר תורמים', 'נוצר לאחרונה'];
+  const t = useTranslations('Projects.FiltersBar');
+
+  const sortOptions = [
+    t('sortOptions.random'),
+    t('sortOptions.contributors'),
+    t('sortOptions.newest'),
+    t('sortOptions.recentlyUpdated'),
+  ];
 
   const sortOptionsMapper: Record<string, ProjectPaginationFilter> = {
     אקראי: ProjectPaginationFilter.ALL,
@@ -89,7 +97,10 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
   useFocusTrap(filterRef, toggleFiltersWindow);
 
   return (
-    <div className="w-full max-w-[1240px] mx-auto flex flex-col justify-center items-center gap-[51px]">
+    <div
+      className="w-full max-w-[1240px] mx-auto flex flex-col justify-center items-center gap-[51px]"
+      dir="rtl"
+    >
       <div className="w-[90%] md:w-full bg-lightAccBg dark:bg-darkAccBg rounded-[10px]">
         <div className="flex flex-col gap-4 px-[24px] py-[22px]">
           <div className="flex items-center gap-6">
@@ -108,16 +119,16 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                 <>
                   <div
                     ref={filterRef}
-                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[14rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[300px] md:min-w-0 md:w-[863px] min-h-[260px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-600"
+                    className="z-[101] absolute -bottom-[23.5rem] md:-bottom-[16.75rem] right-2 px-[34px] py-[27px] rounded-md border border-blue-600 min-w-[300px] md:min-w-0 md:w-[863px] min-h-[260px] md:h-[209px] p-5 bg-gray-50 dark:bg-gray-600"
                   >
                     <div className="flex flex-col gap-[22px]">
                       <h3 className="text-base font-bold leading-normal">
-                        פילטרים לפרויקטים
+                        {t('filterByProjects')}{' '}
                       </h3>
                       {/* sort by ProjectPaginationFilter (sortoptions,sortoptionsmapper) */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px]">
-                          מיון לפי
+                          {t('filterBy')}
                         </span>
                         <div className="flex gap-[18px] md:gap-10 flex-wrap w-full">
                           {sortOptions.map(sortOption => (
@@ -134,7 +145,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                       {/* sort by set languages */}
                       <div className="flex gap-4 md:gap-[26px] justify-center md:justify-normal md:items-center">
                         <span className="body-roman text-gray-500 dark:text-gray-400 w-[60px] max-w-[60px] leading-tight">
-                          סינון לפי תגיות
+                          {t('tags')}
                         </span>
                         <div className="flex gap-2 flex-wrap w-full">
                           {filters.map(filter => (
@@ -160,17 +171,17 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
             </div>
             <SearchInput
               onChange={setSearchByProjectName}
-              placeHolderText={'חיפוש לפי שם, תפקיד'}
+              placeHolderText={t('placeHolder')}
             />
             <Link href="/newbies" className="transition duration-300 group">
               <h5 className="hidden md:block text-base font-normal dark:font-bold">
-                איך מתחילים לכתוב קוד פתוח?
+                {t('howToContribute')}
                 <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600" />
               </h5>
             </Link>
           </div>
           <div className="flex gap-6">
-            <span className="body-roman text-gray-400">מסננים</span>
+            <span className="body-roman text-gray-400">{t('filters')}</span>
             <FilterBtnsGroup
               filters={filters}
               handleFilterOptionChange={handleFilterOptionChange}

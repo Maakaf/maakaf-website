@@ -14,14 +14,14 @@
       "description": "Maakaf is a community of open source developers"
     }
   },
-  "about": {
+  "About": {
     "welcome": "Welcome to Maakaf",
     "firstParagraph": "We believe in sharing information and knowledge as a way to promote technology and innovation. Open source is an approach that allows us to collaborate in software development openly and transparently.",
     "secondParagraph": "When we talk about open source, we refer to software whose source code is available to the public for viewing, modification, and improvement. Open source gives us the opportunity to understand how software works, to enhance it, and to tailor it to our needs. We invite you to join us, to be impressed, to share, and to influence. Here in the Israeli open source community, there is a place for everyone, from beginners to experts.",
     "thirdParagraph": "Join us",
     "button": "Discord"
   },
-  "maintainers": {
+  "Maintainers": {
     "FaqSection": {},
     "maintainerForm": {
       "header": "Maintainers",
@@ -55,7 +55,7 @@
       "step-3-p": "Commencing work with the developers and advancing the project tasks"
     }
   },
-  "newbies": {
+  "Newbies": {
     "subTitle": "Welcome to Open Source Israel",
     "paragraph": "Start Your Coding Journey Today! Ever wanted to learn how to code but didn't know where to start?  Open source is a great way to get started in coding. It's all about sharing and collaborating with other coders to create amazing things.",
     "terms": {
@@ -74,19 +74,31 @@
       "paragraph3": "Other groups that are active, primarily for coordinating events and making important announcements"
     }
   },
-  "members": {
+  "Members": {
     "title": "MEMBERS",
     "paragraph": "Here you can meet the entire family! When your'e done, come to Discord",
     "discordButton": "Discord Channel"
   },
-  "components": {
+  "Components": {
     "home": {
       "quotes": {
         "header": "Open source is the foundation of a community that works together, shares knowledge, and collaborates to create something amazing",
         "paragraph": "Founder of Linux, Linus Torvalds"
       },
       "beOurFriends": {
-        "title": "What you get from being a Maakaf member"
+        "title": "What you get from being a Maakaf member",
+        "gettingExperience": "Gaining experience in various projects",
+        "gettingExperienceDescription": "Ma'akaf community provides you with interesting and exclusive projects",
+        "contacts": "Contacts",
+        "contactsDescription": "Connect with additional professionals in your field",
+        "marketRelevance": "Maintaining relevance in the market",
+        "marketRelevanceDescription": "A place that allows you to stay updated on the latest changes and not fall behind",
+        "jobs": "Jobs",
+        "jobsDescription": "Participating in the community exposes you to numerous and diverse employment opportunities",
+        "support": "Guidance and support from industry peers",
+        "supportDescription": "In the community, you can easily get help with code matters. We have experts in all languages and all problems",
+        "vibrantCommunity": "Vibrant Community",
+        "vibrantCommunityDescription": "Although our community is growing, the quality of people remains. Come meet new friends."
       },
       "whatNow": {
         "title": "What now?",
@@ -105,7 +117,7 @@
       "secondParagraph": "with genuinely, the nicest people you'll ever meet, who are always willing to help anyone who needs it"
     }
   },
-  "header": {
+  "Header": {
     "projects": "Projects",
     "aboutUs": "About Us",
     "community": "Community",
@@ -113,11 +125,31 @@
     "members": "already participated in Open Source",
     "maintainers": "Project maintainers who wants to join"
   },
-  "footer": {
+  "Footer": {
     "projects": "Projects",
     "contact": "Contact",
     "aboutUs": "Who we are",
     "terms": "Terms and conditions",
     "privacy": "Privacy policy"
+  },
+  "Projects": {
+    "communityProjects": "The communioty projects page, enjoy...",
+    "populatingProjectMessage": "Loading projects...",
+    "noProjectsFound": "No projects found",
+    "title": "Projects",
+    "FiltersBar": {
+      "howToContribute": "How to contribute to open source?",
+      "placeHolder": "Search by name",
+      "filters": "Filters",
+      "sortOptions": {
+        "recentlyUpdated": "Recently updated",
+        "random": "Random",
+        "contributors": "Contributors",
+        "newest": "Newest"
+      },
+      "filterByProjects": "Filter by projects",
+      "filterBy": "filters",
+      "tags": "filter by tags"
+    }
   }
 }

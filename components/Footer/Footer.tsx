@@ -20,7 +20,7 @@ const FooterLink = ({ href, text }: FooterLinkProps) => (
   </Link>
 );
 const Footer: React.FC = () => {
-  const t = useTranslations('footer');
+  const t = useTranslations('Footer');
 
   const links = [
     {
