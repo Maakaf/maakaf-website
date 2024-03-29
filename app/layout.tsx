@@ -7,9 +7,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang={locale} dir="rtl">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
