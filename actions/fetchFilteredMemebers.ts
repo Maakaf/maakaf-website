@@ -1,5 +1,6 @@
 'use server';
 import { Member } from '@/types';
+import { log } from 'console';
 
 const dummyMembers: Member[] = [
   {
@@ -64,9 +65,63 @@ const dummyMembers: Member[] = [
   },
 ];
 
+const dummyMember: Member = {
+  id: 4,
+  imgUrl: '/images/avatars/avatar8.jpg',
+  name: 'Fill name',
+  shortDescription: 'fill shortDescription',
+  longDescription: 'fill longDescription',
+  joinDate: 'fill joinDate',
+  isAdmin: false,
+};
+
+const MEMBER_ENDPOINT = 'https://baas-data-provider.onrender.com/members';
+
 export const fetchFilteredMemebers = async (term: string) => {
-  return dummyMembers.filter(
-    member =>
-      member.name.includes(term) || member.shortDescription.includes(term)
-  );
+  try {
+    const response = await fetch(MEMBER_ENDPOINT);
+    const membersData: any[] = await response.json();
+    const filteredMembers: any[] = membersData.map(memberData => {
+      const {
+        _id,
+        name,
+        discordUser,
+        links: { github, linkedIn },
+        description,
+        meta,
+        timestamp,
+        item: {
+          item: {
+            data: {
+              user: { avatarUrl },
+            },
+          },
+        },
+      } = memberData;
+      console.log({ github, linkedIn });
+
+      return {
+        id: _id || dummyMember.id,
+        imgUrl: avatarUrl || dummyMember.imgUrl,
+        name: name || dummyMember.name,
+        shortDescription: description || dummyMember.shortDescription,
+        longDescription: dummyMember.longDescription,
+        joinDate: dummyMember.joinDate,
+        isAdmin: dummyMember.isAdmin,
+        github: github || '',
+        linkedIn: linkedIn || '',
+        _id: _id || '',
+        meta: meta || {},
+        timestamp: timestamp || '',
+        discordUser: discordUser || '',
+      };
+    });
+
+    console.log({ filteredMembers });
+
+    return filteredMembers;
+  } catch (error) {
+    console.error('Error fetching or processing member data:', error);
+    return [];
+  }
 };
