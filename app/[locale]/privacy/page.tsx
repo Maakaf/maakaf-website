@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl';
 
-const TermsOfUsePage = () => {
-  const t = useTranslations('terms-of-use');
+const PrivacyPage = () => {
+  const t = useTranslations('privacy');
   return (
     <div
       className="bg-no-repeat bg-[-20%_100px] bg-[length:60%] md:bg-left-top md:bg-auto"
@@ -22,4 +22,4 @@ const TermsOfUsePage = () => {
   );
 };
 
-export default TermsOfUsePage;
+export default PrivacyPage;
