@@ -8,9 +8,9 @@ import FilterTagBtn from './FilterTagBtn';
 import useFocusTrap from '@/components/hooks/useFocusTrap';
 import { ProjectFilter } from '@/types';
 import Link from 'next/link';
-import { SearchInput } from '@/components/Common/inputs/SearchInput';
 import { ProjectPaginationFilter } from '@/types/project';
 import { useTranslations } from 'next-intl';
+import { SearchInput } from '@/components/Common/Inputs/SearchInput';
 
 interface FiltersBarProps {
   filters: ProjectFilter[];

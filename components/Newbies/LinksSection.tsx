@@ -33,6 +33,7 @@ const LinksSection = () => {
       <div className="flex flex-col items-center mt-8 gap-4 sm:flex-row sm:items-center sm:justify-center sm:flex-wrap">
         {linksData.map((linkData, index) => (
           <a
+            data-testid={`NewbiesExternalLink-${linkData.icon}`}
             key={index}
             href={linkData.link}
             target="_blank"

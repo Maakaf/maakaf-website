@@ -12,7 +12,7 @@
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "npx prettier --write . --config ./.prettierrc",
     "prepare": "husky install",
-    "test": "npx playwright test",
+    "test": "npx playwright test --ui",
     "test-result": "npx playwright show-report"
   },
   "lint-staged": {
