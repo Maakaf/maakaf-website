@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl';
+import DiscordLink from '@/components/Common/DiscordLink';
 
 const PrivacyPage = () => {
   const t = useTranslations('privacy');
@@ -15,6 +16,12 @@ const PrivacyPage = () => {
         >
           <p>{t('firstParagraph')}</p>
           <p style={{ direction: 'ltr' }}>{t('secondParagraph')}</p>
+          <DiscordLink
+            href="https://discord.com/invite/a2VyCjRk2M"
+            className="mx-auto w-48 py-2 px-7 text-xs"
+          >
+            {t('button')}
+          </DiscordLink>
           <p>{t('thirdParagraph')}</p>
         </div>
       </div>
