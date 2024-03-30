@@ -57,10 +57,10 @@ const BeOurFriends = () => {
       dir={direction}
       className="flex flex-col justify-start py-16 md:py-32"
     >
-      <div className="flex flex-col-reverse self-start md:flex-row md:items-center">
+      <div  data-testid={`beOurFirendsTitle`} className="flex flex-col-reverse self-start md:flex-row md:items-center">
         <SectionTitle title={t('title')} />
       </div>
-      <div className="grid grid-cols-1 gap-4 mx-10 my-8 gap-x-20 md:mx-36 md:grid-cols-2 place-content-around">
+      <div data-testid={`beOurFirendsItemContainer`} className="grid grid-cols-1 gap-4 mx-10 my-8 gap-x-20 md:mx-36 md:grid-cols-2 place-content-around">
         {cards.map((card, index) => (
           <motion.div
             key={index}
