@@ -11,27 +11,34 @@ async function checkElementVisibility(page: Page, elementTestId: string) {
 test('Check main page elements exist', async ({ page }) => {
   await page.goto(BASE_URL);
 
-  await checkElementVisibility(page, 'homePage-title');
-  await checkElementVisibility(page, 'homePage-discordLink');
+  async function checkElementVisibility(elementTestId: string) {
+    const element = page.getByTestId(elementTestId);
+    element.scrollIntoViewIfNeeded();
+    const isVisible = await element.isVisible();
+    expect(isVisible).toBeTruthy();
+  }
 
-  await checkElementVisibility(page, 'linusTorvaldsQuote');
+  await checkElementVisibility('homePage-title');
+  await checkElementVisibility('homePage-discordLink');
 
-  await checkElementVisibility(page, 'beOurFirendsTitle');
-  await checkElementVisibility(page, 'beOurFirendsItemContainer');
-  await checkElementVisibility(page, 'beOurFirendsItem0');
-  await checkElementVisibility(page, 'beOurFirendsItem1');
-  await checkElementVisibility(page, 'beOurFirendsItem2');
-  await checkElementVisibility(page, 'beOurFirendsItem3');
-  await checkElementVisibility(page, 'beOurFirendsItem4');
-  await checkElementVisibility(page, 'beOurFirendsItem5');
+  await checkElementVisibility('linusTorvaldsQuote');
 
-  await checkElementVisibility(page, 'pathsTitle');
-  await checkElementVisibility(page, 'pathsTitleContainer');
+  await checkElementVisibility('beOurFirendsTitle');
+  await checkElementVisibility('beOurFirendsItemContainer');
+  await checkElementVisibility('beOurFirendsItem0');
+  await checkElementVisibility('beOurFirendsItem1');
+  await checkElementVisibility('beOurFirendsItem2');
+  await checkElementVisibility('beOurFirendsItem3');
+  await checkElementVisibility('beOurFirendsItem4');
+  await checkElementVisibility('beOurFirendsItem5');
 
-  await checkElementVisibility(page, 'pathsTitleItem0');
-  await checkElementVisibility(page, 'pathsTitleItem1');
-  await checkElementVisibility(page, 'pathsTitleItem2');
+  await checkElementVisibility('pathsTitle');
+  await checkElementVisibility('pathsTitleContainer');
 
-  await checkElementVisibility(page, 'whatNowTitle');
-  await checkElementVisibility(page, 'whatNowButton');
+  await checkElementVisibility('pathsTitleItem0');
+  await checkElementVisibility('pathsTitleItem1');
+  await checkElementVisibility('pathsTitleItem2');
+
+  await checkElementVisibility('whatNowTitle');
+  await checkElementVisibility('whatNowButton');
 });
