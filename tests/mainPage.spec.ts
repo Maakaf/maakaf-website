@@ -1,47 +1,37 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
 const BASE_URL = 'http://localhost:3000/he';
 
+async function checkElementVisibility(page: Page, elementTestId: string) {
+  const element = page.getByTestId(elementTestId);
+  element.scrollIntoViewIfNeeded();
+  const isVisible = await element.isVisible();
+  expect(isVisible).toBeTruthy();
+}
 test('Check main page elements exist', async ({ page }) => {
   await page.goto(BASE_URL);
 
-  const title = page.getByTestId('homePage-title');
-  title.scrollIntoViewIfNeeded();
-  expect(title).toBeVisible();
+  await checkElementVisibility(page, 'homePage-title');
+  await checkElementVisibility(page, 'homePage-discordLink');
 
-  const topDiscordLink = page.getByTestId('homePage-discordLink');
-  topDiscordLink.scrollIntoViewIfNeeded();
-  expect(topDiscordLink).toBeVisible();
+  await checkElementVisibility(page, 'linusTorvaldsQuote');
 
-  const linusTorvaldsQuote = page.getByTestId('linusTorvaldsQuote');
-  linusTorvaldsQuote.scrollIntoViewIfNeeded();
-  expect(linusTorvaldsQuote).toBeVisible();
+  await checkElementVisibility(page, 'beOurFirendsTitle');
+  await checkElementVisibility(page, 'beOurFirendsItemContainer');
+  await checkElementVisibility(page, 'beOurFirendsItem0');
+  await checkElementVisibility(page, 'beOurFirendsItem1');
+  await checkElementVisibility(page, 'beOurFirendsItem2');
+  await checkElementVisibility(page, 'beOurFirendsItem3');
+  await checkElementVisibility(page, 'beOurFirendsItem4');
+  await checkElementVisibility(page, 'beOurFirendsItem5');
 
-  const beOurFirendsTitle = page.getByTestId('beOurFirendsTitle');
-  beOurFirendsTitle.scrollIntoViewIfNeeded();
-  expect(beOurFirendsTitle).toBeVisible();
+  await checkElementVisibility(page, 'pathsTitle');
+  await checkElementVisibility(page, 'pathsTitleContainer');
 
-  const beOurFirendsItemContainer = page.getByTestId(
-    'beOurFirendsItemContainer'
-  );
-  beOurFirendsItemContainer.scrollIntoViewIfNeeded();
-  expect(beOurFirendsItemContainer).toBeVisible();
+  await checkElementVisibility(page, 'pathsTitleItem0');
+  await checkElementVisibility(page, 'pathsTitleItem1');
+  await checkElementVisibility(page, 'pathsTitleItem2');
 
-  //TODO check that beOurFirendsItemContainer git 6 childrens
-
-  const pathsTitle = page.getByTestId('pathsTitle');
-  pathsTitle.scrollIntoViewIfNeeded();
-  expect(pathsTitle).toBeVisible();
-
-  const pathsTitleContainer = page.getByTestId('pathsTitleContainer');
-  pathsTitleContainer.scrollIntoViewIfNeeded();
-  expect(pathsTitleContainer).toBeVisible();
-
-  const whatNowTitle = page.getByTestId('whatNowTitle');
-  whatNowTitle.scrollIntoViewIfNeeded();
-  expect(whatNowTitle).toBeVisible();
-
-  const whatNowButton = page.getByTestId('whatNowButton');
-  whatNowButton.scrollIntoViewIfNeeded();
-  expect(whatNowButton).toBeVisible();
+  await checkElementVisibility(page, 'whatNowTitle');
+  await checkElementVisibility(page, 'whatNowButton');
 });

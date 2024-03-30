@@ -20,7 +20,10 @@ function WhatNow() {
       </div>
       <div className="flex flex-col gap-7 sm:pr-4 sm:flex-wrap sm:content-end ">
         <h4 className="sm:w-1/2 sm:pl-6 h4-roman">{t('paragraph')}</h4>
-        <button data-testid={`whatNowButton`}  className="bg-purple-400 dark:bg-purple-500 text-white body-bold px-6 py-3.5 sm:w-1/6 sm:rounded-full rounded-md sm:mx-0 mx-5">
+        <button
+          data-testid={`whatNowButton`}
+          className="bg-purple-400 dark:bg-purple-500 text-white body-bold px-6 py-3.5 sm:w-1/6 sm:rounded-full rounded-md sm:mx-0 mx-5"
+        >
           {t('startButton')}
         </button>
       </div>
