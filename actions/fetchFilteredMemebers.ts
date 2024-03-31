@@ -9,11 +9,14 @@ const dummyMember: Member = {
   longDescription: 'fill longDescription',
   joinDate: 'fill joinDate',
   isAdmin: false,
+  linkedInUrl: '',
+  githubUrl: '',
+  twitterUrl: '',
 };
 
 const MEMBER_ENDPOINT = 'https://baas-data-provider.onrender.com/members';
 
-export const fetchFilteredMemebers = async (term: string) => {
+export const fetchFilteredMembers = async (term: string) => {
   try {
     const response = await fetch(MEMBER_ENDPOINT);
     const membersData: any[] = await response.json();
@@ -43,8 +46,9 @@ export const fetchFilteredMemebers = async (term: string) => {
         longDescription: dummyMember.longDescription,
         joinDate: dummyMember.joinDate,
         isAdmin: dummyMember.isAdmin,
-        github: github || '',
-        linkedIn: linkedIn || '',
+        linkedInUrl: linkedIn || '', // Assign directly to linkedInUrl
+        githubUrl: github || '', // Assign directly to githubUrl
+        twitterUrl: '', // Assuming twitterUrl is also provided from data source
         _id: _id || '',
         meta: meta || {},
         timestamp: timestamp || '',

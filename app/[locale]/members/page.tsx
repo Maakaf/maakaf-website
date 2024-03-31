@@ -4,7 +4,7 @@ import { LINKS } from '@/config/consts';
 import { useEffect, useState } from 'react';
 import { MembersList } from '@/components/Members/MembersLIst/MembersList';
 import { Member } from '@/types';
-import { fetchFilteredMemebers } from '@/actions/fetchFilteredMemebers';
+import { fetchFilteredMembers } from '@/actions/fetchFilteredMemebers';
 import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
 import Magnifier from '@/components/SvgCmps/Magnifier';
@@ -41,7 +41,7 @@ const MembersPage: React.FC<{}> = ({}) => {
 
   useEffect(() => {
     const timeoutId = setTimeout(async () => {
-      const filteredMembers = await fetchFilteredMemebers(searchTerm);
+      const filteredMembers = await fetchFilteredMembers(searchTerm);
       setMembers(filteredMembers);
     }, 500);
 

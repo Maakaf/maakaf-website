@@ -67,6 +67,9 @@ export interface Member {
   longDescription: string;
   joinDate: string;
   isAdmin: boolean;
+  linkedInUrl: string; // Add linkedInUrl property
+  githubUrl: string; // Add githubUrl property
+  twitterUrl: string; // Add twitterUrl property
 }
 
 export interface MemberCardInfoProps extends Omit<Member, 'id'> {}
