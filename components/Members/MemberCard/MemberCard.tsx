@@ -3,7 +3,7 @@ import { MemberCardInfo } from './MemberCardInfo';
 import { MemberCardSocialButtons } from './MemberCardSocialButtons';
 import { MemberCardInfoProps, MemberCardSocialsProps } from '../../../types';
 
-type MemberCardProps = MemberCardInfoProps & MemberCardSocialsProps
+type MemberCardProps = MemberCardInfoProps & MemberCardSocialsProps;
 
 export const MemberCard = ({
   imgUrl,
@@ -14,7 +14,7 @@ export const MemberCard = ({
   isAdmin,
   linkedInUrl,
   twitterUrl,
-  githubUrl
+  githubUrl,
 }: MemberCardProps) => {
   return (
     <div className="flex bg-purple-100 dark:bg-gray-600 rounded-2xl shadow-md w-full xl:w-[400px] xl:h-[173px]">
@@ -26,7 +26,11 @@ export const MemberCard = ({
         joinDate={joinDate}
         isAdmin={isAdmin}
       />
-      <MemberCardSocialButtons linkedInUrl={linkedInUrl} twitterUrl={twitterUrl} githubUrl={githubUrl} />
+      <MemberCardSocialButtons
+        linkedInUrl={linkedInUrl}
+        twitterUrl={twitterUrl}
+        githubUrl={githubUrl}
+      />
     </div>
   );
 };
