@@ -1,5 +1,3 @@
-import { MemberCardSocialButtons } from '@/components/Members/MemberCard/MemberCardSocialButtons';
-
 export interface ProjectFilter {
   name: string;
   isActive: boolean;
@@ -67,9 +65,18 @@ export interface Member {
   longDescription: string;
   joinDate: string;
   isAdmin: boolean;
-  linkedInUrl: string; // Add linkedInUrl property
-  githubUrl: string; // Add githubUrl property
-  twitterUrl: string; // Add twitterUrl property
+  linkedInUrl: string;
+  githubUrl: string;
+  twitterUrl: string;
+}
+
+export interface MemberCardProps {
+  imgUrl: string;
+  name: string;
+  shortDescription: string;
+  longDescription: string;
+  joinDate: string;
+  isAdmin: boolean;
 }
 
 export interface MemberCardInfoProps extends Omit<Member, 'id'> {}
