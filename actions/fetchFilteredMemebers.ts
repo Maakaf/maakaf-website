@@ -52,15 +52,12 @@ export const fetchFilteredMemebers = async (term: string) => {
       };
     });
 
-    const filteredByTerm = members.filter(member => {
+    return members.filter(member => {
       return (
         member.name.toLowerCase().includes(term.toLowerCase()) ||
         member.shortDescription.toLowerCase().includes(term.toLowerCase())
       );
     });
-
-    console.log({ filteredByTerm });
-    return filteredByTerm;
   } catch (error) {
     console.error('Error fetching or processing member data:', error);
     return [];
