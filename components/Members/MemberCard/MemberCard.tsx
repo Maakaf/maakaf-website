@@ -1,9 +1,9 @@
 import React from 'react';
 import { MemberCardInfo } from './MemberCardInfo';
 import { MemberCardSocialButtons } from './MemberCardSocialButtons';
-import { MemberCardInfoProps, MemberCardSocialsProps } from '../../../types';
+import { MemberCardInfoProps } from '../../../types';
 
-type MemberCardProps = MemberCardInfoProps & MemberCardSocialsProps;
+type MemberCardProps = MemberCardInfoProps;
 
 export const MemberCard = ({
   imgUrl,

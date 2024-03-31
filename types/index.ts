@@ -66,27 +66,17 @@ export interface Member {
   joinDate: string;
   isAdmin: boolean;
   linkedInUrl: string;
-  githubUrl: string;
   twitterUrl: string;
-}
-
-export interface MemberCardProps {
-  imgUrl: string;
-  name: string;
-  shortDescription: string;
-  longDescription: string;
-  joinDate: string;
-  isAdmin: boolean;
+  githubUrl: string;
 }
 
 export interface MemberCardInfoProps extends Omit<Member, 'id'> {}
 
-export interface MemberCardSocialsProps {
-  linkedInUrl: string;
-  twitterUrl: string;
-  githubUrl: string;
+export interface MembersListProps {
+  members: Array<Member>;
 }
 
-export interface MembersListProps {
-  members: Array<Member & MemberCardSocialsProps>;
-}
+export type MemberCardProps = Omit<
+  Member,
+  'id' | 'linkedInUrl' | 'githubUrl' | 'twitterUrl'
+>;
