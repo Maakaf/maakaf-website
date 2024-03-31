@@ -9,77 +9,79 @@ const FaqsSection = () => {
 
   const faqs = [
     {
-      question: t('whatIsOpenSource'),
-      answer: <p>{t('whatIsopenSourceAnswer')}</p>,
+      question: t('questions.question1'),
+      answer: <p>{t('answers.answer1')}</p>,
     },
     {
-      question: t('whyMakeTheProjectOpenSource'),
-      answer: <p>{t('whyMakeTheProjectOpenSourceAnswer')}</p>,
+      question: t('questions.question2'),
+      answer: <p>{t('answers.answer2')}</p>,
     },
     {
-      question: t('isTheProjectLargeEnough'),
+      question: t('questions.question3'),
       answer: (
         <p>
-          {t('isTheProjectLargeEnoughAnswer')}{' '}
+          {t('answers.answer3')}{' '}
           <span className="underline  text-purple-500">
             <a href={LINKS.DISCORD} target="_blank">
-              {t('atDiscord')}
+              {t('answers.discordLinkText')}
             </a>
           </span>
         </p>
       ),
     },
     {
-      question: t('canIGetHelp'),
+      question: t('questions.question4'),
       answer: (
         <p>
-          {t('canIGetHelpAnswer')}{' '}
+          {t('answers.answer4')}{' '}
           <span className="underline  text-purple-500">
             <a href={LINKS.DISCORD} target="_blank">
-              {t('atDiscord')}
+              {t('answers.discordLinkText')}
             </a>
           </span>
         </p>
       ),
     },
     {
-      question: t('howToMakeProjectAtratcibe'),
+      question: t('questions.question5'),
       answer: (
         <p>
-          {t('howToMakeProjectAtratcibeAnswer')}
+          {t('answers.answer5')}
           <span className="underline  text-purple-500">
             <a href={LINKS.DISCORD} target="_blank">
-              {t('atDiscord')}
+              {t('answers.discordLinkText')}
             </a>
           </span>{' '}
           <span className="underline  text-purple-500">
             <a href={LINKS.WHATSAPP} target="_blank">
-              {t('andsWhatsapp')}
+              {t('answers.watsappLinkText')}
             </a>
           </span>
-          {t('addPRojectAndTellAbout')} <br />
-          {t('tellAboutProjectMeaning')}&apos;. <br />
-          {t('createInvolvment')}
+          {t('answers.answer5a')} <br />
+          {t('answers.answer5b')}&apos;. <br />
+          {t('answers.answer5c')}
           <br />
-          {t('maintainProjectRegulary')} <br />
+          {t('answers.answer5d')} <br />
         </p>
       ),
     },
+
     {
-      question: t('openSourceManagmant'),
-      answer: <p>{t('openSourceManagmantAnswer')}</p>,
+      question: t('questions.question6'),
+      answer: <p>{t('answers.answer6')}</p>,
     },
+
     {
-      question: t('howToStartWithOpenSource'),
+      question: t('questions.question7'),
       answer: (
         <p>
-          {t('howToStartWithOpenSourceAnswer1')}
+          {t('answers.answer7')}
           <br />
-          {t('howToStartWithOpenSourceAnswer2')} <br />
-          {t('shareUs')}{' '}
+          {t('answers.answer7a')} <br />
+          {t('answers.share')}{' '}
           <span className="underline  text-purple-500">
             <a href={LINKS.DISCORD} target="_blank">
-              {t('andAtDiscord')}
+              {t('answers.discordLinkText')}
             </a>
           </span>
         </p>
