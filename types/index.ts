@@ -1,3 +1,5 @@
+import { MemberCardSocialButtons } from '@/components/Members/MemberCard/MemberCardSocialButtons';
+
 export interface ProjectFilter {
   name: string;
   isActive: boolean;
@@ -57,28 +59,7 @@ export interface CachedProjects {
   cacheTimestamp: string;
 }
 
-export interface MembersListProps {
-  members: Array<{
-    id: number;
-    imgUrl: string;
-    name: string;
-    shortDescription: string;
-    longDescription: string;
-    joinDate: string;
-    isAdmin: boolean;
-  }>;
-}
-
-export interface MemberCardProps {
-  imgUrl: string;
-  name: string;
-  shortDescription: string;
-  longDescription: string;
-  joinDate: string;
-  isAdmin: boolean;
-}
-
-export type Member = {
+export interface Member {
   id: number;
   imgUrl: string;
   name: string;
@@ -86,4 +67,23 @@ export type Member = {
   longDescription: string;
   joinDate: string;
   isAdmin: boolean;
-};
+}
+
+export interface MemberCardInfoProps {
+  imgUrl: string;
+  name: string;
+  shortDescription: string;
+  longDescription: string;
+  joinDate: string;
+  isAdmin: boolean;
+}
+
+export interface MemberCardSocialsProps {
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+}
+
+export interface MembersListProps {
+  members: Array<Member & MemberCardSocialsProps>;
+}
