@@ -46,9 +46,9 @@ export const fetchFilteredMembers = async (term: string) => {
         longDescription: dummyMember.longDescription,
         joinDate: dummyMember.joinDate,
         isAdmin: dummyMember.isAdmin,
-        linkedInUrl: linkedIn || '', // Assign directly to linkedInUrl
-        githubUrl: github || '', // Assign directly to githubUrl
-        twitterUrl: '', // Assuming twitterUrl is also provided from data source
+        linkedInUrl: linkedIn || '',
+        githubUrl: github || '',
+        twitterUrl: '',
         _id: _id || '',
         meta: meta || {},
         timestamp: timestamp || '',
