@@ -69,14 +69,7 @@ export interface Member {
   isAdmin: boolean;
 }
 
-export interface MemberCardInfoProps {
-  imgUrl: string;
-  name: string;
-  shortDescription: string;
-  longDescription: string;
-  joinDate: string;
-  isAdmin: boolean;
-}
+export interface MemberCardInfoProps extends Omit<Member, 'id'> {}
 
 export interface MemberCardSocialsProps {
   linkedInUrl: string;
