@@ -12,10 +12,10 @@ const PrivacyPage = () => {
         <h1 className="mb-3">{t('title')}</h1>
         <div
           className="flex flex-col gap-5 text-xl mb-5"
-          style={{ whiteSpace: 'pre-line', textAlign: 'left' }}
+          style={{ whiteSpace: 'pre-line' }}
         >
           <p>{t('firstParagraph')}</p>
-          <p style={{ direction: 'ltr' }}>{t('secondParagraph')}</p>
+          <p>{t('secondParagraph')}</p>
           <DiscordLink
             href="https://discord.com/invite/a2VyCjRk2M"
             className="mx-auto w-48 py-2 px-7 text-xs"
