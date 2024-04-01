@@ -32,4 +32,15 @@ jobs:
         with:
           node-version: 18.x
       - run: npm install
-      - run: npm run build
+      - run: npm run dev
+  Run-Playwright-Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies and run Playwright tests
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - run: npm install
+      - name: Run Playwright tests
+        run: npm test
