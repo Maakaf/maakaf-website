@@ -57,28 +57,7 @@ export interface CachedProjects {
   cacheTimestamp: string;
 }
 
-export interface MembersListProps {
-  members: Array<{
-    id: number;
-    imgUrl: string;
-    name: string;
-    shortDescription: string;
-    longDescription: string;
-    joinDate: string;
-    isAdmin: boolean;
-  }>;
-}
-
-export interface MemberCardProps {
-  imgUrl: string;
-  name: string;
-  shortDescription: string;
-  longDescription: string;
-  joinDate: string;
-  isAdmin: boolean;
-}
-
-export type Member = {
+export interface Member {
   id: number;
   imgUrl: string;
   name: string;
@@ -86,4 +65,18 @@ export type Member = {
   longDescription: string;
   joinDate: string;
   isAdmin: boolean;
-};
+  linkedInUrl: string;
+  twitterUrl: string;
+  githubUrl: string;
+}
+
+export interface MemberCardInfoProps extends Omit<Member, 'id'> {}
+
+export interface MembersListProps {
+  members: Array<Member>;
+}
+
+export type MemberCardProps = Omit<
+  Member,
+  'id' | 'linkedInUrl' | 'githubUrl' | 'twitterUrl'
+>;
