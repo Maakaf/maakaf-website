@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
 import Magnifier from '@/components/SvgCmps/Magnifier';
 import classNames from 'classnames';
+import SkeletonCards from '@/components/Members/Skeleton/SkeletonCards';
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
@@ -48,6 +49,12 @@ const MembersPage: React.FC<{}> = ({}) => {
     return () => clearTimeout(timeoutId);
   }, [searchTerm]);
 
+  const notFoundJSX = (
+    <p className="mt-8 text-2xl md:text-4xl font-bold text-center text-red-400">
+      {t('noMemberFound')}
+    </p>
+  );
+
   return (
     <div className="py-6" dir={direction}>
       <h1 className="text-center leading-[1.2]">{t('title')}</h1>
@@ -66,7 +73,7 @@ const MembersPage: React.FC<{}> = ({}) => {
         <div className="w-full relative h-[45px]">
           <input
             type="text"
-            name={searchTerm}
+            name="searchTerm"
             className="px-4 top-0 right-0 w-full h-full bg-purple-100 dark:bg-gray-800 rounded-r-3xl rounded-l-3xl"
             placeholder={t('searchPlaceholder')}
             onChange={e => setSearchTerm(e.target.value)}
@@ -79,7 +86,9 @@ const MembersPage: React.FC<{}> = ({}) => {
           />
         </div>
       </div>
-      <MembersList members={members} />
+      {members.length === 0 && searchTerm === '' && <SkeletonCards cards={6} />}
+      {members.length === 0 && searchTerm !== '' && notFoundJSX}
+      {members.length !== 0 && <MembersList members={members} />}
     </div>
   );
 };
