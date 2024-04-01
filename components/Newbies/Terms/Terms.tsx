@@ -3,7 +3,7 @@ import TermsSection from './TermsSection';
 import { useTranslations } from 'next-intl';
 
 const Terms = () => {
-  const t = useTranslations('newbies.terms');
+  const t = useTranslations('Newbies.terms');
 
   const rows = [
     {

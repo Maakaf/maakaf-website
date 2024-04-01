@@ -1,30 +1,34 @@
+import { FormFieldRegistration } from '@/types/forms';
 import React from 'react';
 
-type FormTextInputProps = {
+interface FormTextInputProps extends FormFieldRegistration {
   placeholder: string;
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  error?: string;
+  name: string;
+}
+
+const getErrorMessage = (errors: any, name: string) => {
+  return errors?.[name]?.message || '';
 };
 
 export const FormTextInput: React.FC<FormTextInputProps> = ({
   placeholder,
-  value,
-  onChange,
-  error,
+  errors,
+  name,
+  register,
 }) => {
+  const errorMessage = getErrorMessage(errors, name);
   return (
     <div>
       <input
+        {...register(name, { required: true })}
+        name={name}
         className={`mw-[462px] w-[100%] mx-auto h-14 p-2 block rounded-md focus:outline-non dark:bg-gray-700 bg-gray-200 ${
-          error && 'border-red-500'
+          errorMessage && 'border-red-500'
         }`}
         type="text"
         placeholder={placeholder}
-        value={value}
-        onChange={onChange}
       />
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {errorMessage && <p className="text-error">{errorMessage}</p>}
     </div>
   );
 };

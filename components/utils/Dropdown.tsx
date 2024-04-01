@@ -119,6 +119,7 @@ export const Dropdown = <T extends OptionValue>({
           {options.map(item =>
             item.linkPath ? (
               <Link
+                data-testId={item.title}
                 href={item.linkPath}
                 onClick={toggleDropdown}
                 onKeyUp={e => (e.key === 'Escape' ? toggleDropdown() : null)}

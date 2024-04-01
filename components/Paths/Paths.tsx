@@ -42,12 +42,19 @@ const variants = {
 export default function Paths() {
   return (
     <section className="flex flex-col justify-start py-32 darkmode-section">
-      <div className="flex flex-col-reverse md:flex-row self-start md:items-center">
+      <div
+        data-testid={`pathsTitle`}
+        className="flex flex-col-reverse md:flex-row self-start md:items-center"
+      >
         <SectionTitle title="המסלולים שלנו" />
       </div>
-      <div className="flex flex-row grow flex-wrap justify-evenly gap-y-20 mt-6 py-4 md:gap-y-4 md:py-20 lg:mt-0 lg:flex-row lg:py-20">
+      <div
+        data-testid={`pathsTitleContainer`}
+        className="flex flex-row grow flex-wrap justify-evenly gap-y-20 mt-6 py-4 md:gap-y-4 md:py-20 lg:mt-0 lg:flex-row lg:py-20"
+      >
         {paths.map((path, index) => (
           <motion.div
+            data-testid={`pathsTitleItem${index}`}
             key={path.title}
             custom={index}
             variants={variants}

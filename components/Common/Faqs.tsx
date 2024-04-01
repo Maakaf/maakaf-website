@@ -15,7 +15,7 @@ interface FaqsProps {
 }
 
 const Faqs = ({ faqs }: FaqsProps) => {
-  const t = useTranslations('components.faqs');
+  const t = useTranslations('Components.faqs');
   return (
     <>
       <SectionTitle title={t('title')} />
@@ -29,7 +29,7 @@ const Faqs = ({ faqs }: FaqsProps) => {
         {t('secondParagraph')}
       </p>
 
-      <div className="min-h-[60px] px-4 md:mx-20 ">
+      <div className="min-h-[60px] px-4 md:mx-20" data-testid="faq-section">
         <Accordion
           type="single"
           className="font-medium"
@@ -45,7 +45,10 @@ const Faqs = ({ faqs }: FaqsProps) => {
               <AccordionTrigger className="text-lg text-right">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-base font-inter pl-6">
+              <AccordionContent
+                className="text-base font-inter pl-6"
+                data-testid={`faq-content-${index + 1}`}
+              >
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

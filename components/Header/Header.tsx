@@ -18,7 +18,7 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
 });
 
 const Header: React.FC = () => {
-  const t = useTranslations('header');
+  const t = useTranslations('Header');
   const headerText = {
     projects: t('projects'),
     aboutUs: t('aboutUs'),

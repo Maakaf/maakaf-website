@@ -15,6 +15,7 @@ export default function DiscordLink({
 }: DiscordLinkProps) {
   return (
     <Link
+      data-testid="homePage-discordLink"
       href={href}
       className={classNames(
         'discord-btn rounded-full flex items-center justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition',

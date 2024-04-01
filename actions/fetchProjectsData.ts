@@ -2,6 +2,7 @@
 
 import {
   IProjectsDataResponse,
+  Project,
   ProjectPaginationFilter,
 } from '@/types/project';
 
@@ -17,23 +18,20 @@ async function fetchProjectsData({
   page = 1,
   limit = 100,
   filter = ProjectPaginationFilter.ALL,
-}: ProjectPaginationRequest) {
-  // fetch from endpoint POST with page, limit, filter as IProjectsDataResponse
-  const { projects, total, languages, pageLanguages, timestamp } = await fetch(
-    PROJECT_API_ENDPOINT,
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ page, limit, filter }),
-    }
-  ).then(res => res.json() as Promise<IProjectsDataResponse>);
+}: ProjectPaginationRequest): Promise<IProjectsDataResponse> {
+  const response = await fetch(PROJECT_API_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ page, limit, filter }),
+  });
 
-  return {
-    projects: projects,
-    pageLanguages,
-  };
+  // fetch from endpoint POST with page, limit, filter as IProjectsDataResponse
+  const { projects, total, languages, pageLanguages, timestamp } =
+    await response.json();
+
+  return { projects, total, languages, pageLanguages, timestamp };
 }
 
 export default fetchProjectsData;
