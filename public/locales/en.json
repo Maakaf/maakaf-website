@@ -23,29 +23,32 @@
   },
   "Maintainers": {
     "FaqSection": {
-      "whatIsOpenSource": "1. What is open source?",
-      "whatIsopenSourceAnswer": "Open source project is a software project or initiative in which the source code is available to the public for collaboration, modification, and distribution. It encourages transparency, community involvement, and free access to the code.",
-      "whyMakeTheProjectOpenSource": "2. Why should I make my project open source?",
-      "whyMakeTheProjectOpenSourceAnswer": "Working with open source code allows benefits such as creating collaborations with other developers, faster development, higher quality code, shared learning, and problem-solving. An open source project can attract contributors and users interested in the field it addresses.",
-      "isTheProjectLargeEnough": "3. How can I know if my project is large or important enough to share as open source?",
-      "isTheProjectLargeEnoughAnswer": "All projects are important! There are open source projects small and large, in every field and technology. Many well-known companies work with open source code. Still have doubts? You can always consult on Discord.",
-      "atDiscord": "At Discord",
-      "andAtDiscord": "At Discord",
-      "andsWhatsapp": "and on WhatsApp",
-      "canIGetHelp": "4. Can I get help to understand how to build my project?",
-      "canIGetHelpAnswer": "Definitely! You can always seek help and advice from members of our open source community.",
-      "howToMakeProjectAtratcibe": "5. How can I attract contributors to my open source project?",
-      "howToMakeProjectAtratcibeAnswer": "Join our community",
-      "howToStartWithOpenSource": "7. How can I get started with open source?",
-      "howToStartWithOpenSourceAnswer1": "To start an open source project or turn an existing project into open source, you need to choose a license, define a version control system like Git, create a repository on a platform like GitHub, and start documenting the project and creating documentation.",
-      "howToStartWithOpenSourceAnswer2": "It's important to create clear guidelines for contributing to the project, to make it easier for contributors to join.",
-      "shareUs": "And of course, don't forget to share us",
-      "addPRojectAndTellAbout": "Add the project and tell us about it,",
-      "tellAboutProjectMeaning": "You could create a tutorial video where you explain about the project, its purpose, which languages it uses, etc.",
-      "createInvolvment": "Create involvement of open source contributors in the community through activity on Discord and WhatsApp.",
-      "maintainProjectRegulary": "Ensure to maintain the project and documentation regularly, to facilitate quick integration of new contributors.",
-      "openSourceManagmant": "6. What does project management in open source entail?",
-      "openSourceManagmantAnswer": "Project management in open source may vary among projects. Generally, it involves monitoring the code, testing and merging changes and updates from contributors to the project, setting project goals, leading and making decisions regarding the project."
+      "questions": {
+        "question1": "What is open source code?",
+        "question2": "Why should I contribute to open source code?",
+        "question3": "How can I be sure whether my project is big or important enough to share as open source code?",
+        "question4": "Can I get help with understanding how to build my project?",
+        "question5": "How can I attract contributors to my open source project?",
+        "question6": "What does project management in open source code involve?",
+        "question7": "How to get started with contributing to open source?"
+      },
+      "answers": {
+        "discordLinkText": "Discord",
+        "watsappLinkText": "and on WhatsApp. ",
+        "share": "Of course don't forget to share with us on ",
+        "answer1": "An open source project is a software project or initiative where the source code is open to the public for collaboration, modification and distribution. It encourages transparency and unlimited community involvement in the code.",
+        "answer2": "Working in open source has advantages such as creating collaborations with other developers, faster development, writing high quality code, joint learning and problem solving. Anyone interested in open sourse projects can become contributers and users.",
+        "answer3": "All projects are important! There are small and large open source projects, in every field and in every technology. Lots of well-known companies work in open source. Stil having doubts? Feel free to contact us on ",
+        "answer4": "Of course! You are always welcome to seek advice and assistance from our open source community members on",
+        "answer5": "Join our community on ",
+        "answer5a": "Add the project and privide us with details. ",
+        "answer5b": "You can create a tutorial video in which you explain about the project, its purpose, programming languages ​​and libraries it uses, etc.",
+        "answer5c": "Engage open source contributors in the community by being active on Discord and WhatsApp.",
+        "answer5d": "Assign continuous maintenance of the project and its documentation to ensure a smooth integration of new contributers.",
+        "answer6": "Open source project management can be different for some projects. Overally, the role includes overseeing code management, testing and merging changes and updates from contributors to the project, setting project goals, leading and making decisions regarding the project",
+        "answer7": "To start an open source project or make an existing project open source, you need to choose a license, set up a version control system like Git, create a repository on a platform like GitHub, and start documenting the project and creating documentation.",
+        "answer7a": "It's important to create clear guidelines regarding contributing to the project, in order to make it easier for contributors to join the project. "
+      }
     },
 
     "maintainerForm": {
