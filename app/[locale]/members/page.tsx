@@ -10,6 +10,7 @@ import useTextDirection from '@/hooks/useTextDirection';
 import Magnifier from '@/components/SvgCmps/Magnifier';
 import classNames from 'classnames';
 import SkeletonCards from '@/components/Members/Skeleton/SkeletonCards';
+import { MdiAccountSearch } from '@/components/Members/Skeleton/MdiAccountSearch';
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
@@ -50,9 +51,12 @@ const MembersPage: React.FC<{}> = ({}) => {
   }, [searchTerm]);
 
   const notFoundJSX = (
-    <p className="mt-8 text-2xl md:text-4xl font-bold text-center text-red-400">
-      {t('noMemberFound')}
-    </p>
+    <div className="mt-8 flex items-center justify-center">
+      <p className="text-2xl md:text-4xl font-bold text-red-400">
+        {t('noMemberFound')}
+      </p>
+      <MdiAccountSearch className="mx-2 mb-1 md:mx-4 w-[24px] md:w-[48px] h-[24px] md:h-[48px] fill-red-400" />
+    </div>
   );
 
   return (
