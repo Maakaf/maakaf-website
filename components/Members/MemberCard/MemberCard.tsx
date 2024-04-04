@@ -2,6 +2,7 @@ import React from 'react';
 import { MemberCardInfo } from './MemberCardInfo';
 import { MemberCardSocialButtons } from './MemberCardSocialButtons';
 import { MemberCardInfoProps } from '../../../types';
+import useTextDirection from '@/hooks/useTextDirection';
 
 type MemberCardProps = MemberCardInfoProps;
 
@@ -16,8 +17,12 @@ export const MemberCard = ({
   twitterUrl,
   githubUrl,
 }: MemberCardProps) => {
+  const direction = useTextDirection();
   return (
-    <div className="flex bg-purple-100 dark:bg-gray-600 rounded-2xl shadow-md w-full xl:w-[400px] xl:h-[173px]">
+    <div
+      dir={direction}
+      className="flex bg-purple-100 dark:bg-gray-600 rounded-2xl shadow-md w-full xl:w-[400px] xl:h-[173px]"
+    >
       <MemberCardInfo
         imgUrl={imgUrl}
         name={name}
