@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
 import Magnifier from '@/components/SvgCmps/Magnifier';
 import classNames from 'classnames';
+import MemberCardLoader from '@/components/Members/MemberCard/memberCardLoader/MemberCardLoader';
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
@@ -79,7 +80,12 @@ const MembersPage: React.FC<{}> = ({}) => {
           />
         </div>
       </div>
-      <MembersList members={members} />
+
+      {members.length > 0 ? (
+        <MembersList members={members} />
+      ) : (
+        <MemberCardLoader memberCardNum={6} />
+      )}
     </div>
   );
 };
