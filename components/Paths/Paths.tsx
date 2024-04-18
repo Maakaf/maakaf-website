@@ -41,7 +41,10 @@ const variants = {
 
 export default function Paths() {
   return (
-    <section className="flex flex-col justify-start py-32 darkmode-section">
+    <section
+      id="paths"
+      className="flex flex-col justify-start py-32 darkmode-section"
+    >
       <div
         data-testid={`pathsTitle`}
         className="flex flex-col-reverse md:flex-row self-start md:items-center"
