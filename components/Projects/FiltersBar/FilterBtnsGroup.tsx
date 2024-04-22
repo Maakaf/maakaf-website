@@ -12,9 +12,9 @@ const FilterBtnsGroup = ({
   filters,
   handleFilterOptionChange,
 }: FilterBtnsGroupProps) => {
-  const handleBtnFilterClick = (filter: ProjectFilter) => {
-    handleFilterOptionChange(filter);
-  };
+  // const handleBtnFilterClick = (filter: ProjectFilter) => {
+  //   handleFilterOptionChange(filter);
+  // };
 
   return (
     <div className="flex gap-2 flex-wrap">
@@ -22,7 +22,7 @@ const FilterBtnsGroup = ({
         <FilterBtn
           key={filter.name}
           filter={filter}
-          onBtnClick={() => handleBtnFilterClick(filter)}
+          onBtnClick={() => handleFilterOptionChange(filter)}
         />
       ))}
     </div>
