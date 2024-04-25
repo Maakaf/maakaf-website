@@ -3,5 +3,5 @@
 import { IAddProjectForm } from '@/types/forms';
 
 export const addNewProject = async (data: IAddProjectForm) => {
-  console.log(data);
+  console.log(data.fullName);
 };

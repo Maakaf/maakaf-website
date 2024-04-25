@@ -34,11 +34,11 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
     t('sortOptions.recentlyUpdated'),
   ];
 
-  const sortOptionsMapper: Record<string, ProjectPaginationFilter> = {
-    אקראי: ProjectPaginationFilter.ALL,
-    'עודכן לאחרונה': ProjectPaginationFilter.RECENTLY_UPDATED,
-    'מספר תורמים': ProjectPaginationFilter.MOST_CONTROBUTORS,
-    'נוצר לאחרונה': ProjectPaginationFilter.RECENTLY_CREATED,
+  const sortOptionsMapper: Record<number, ProjectPaginationFilter> = {
+    0: ProjectPaginationFilter.ALL,
+    3: ProjectPaginationFilter.RECENTLY_UPDATED,
+    1: ProjectPaginationFilter.MOST_CONTROBUTORS,
+    2: ProjectPaginationFilter.RECENTLY_CREATED,
   };
 
   const [toggleFiltersWindow, setToggleFiltersWindow] = useState(false);
@@ -54,19 +54,21 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
   const handleCategoryOptionSelection = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
-    for (const option of sortOptions) {
-      if (option === event.target.value) {
-        setFetchByCategory(sortOptionsMapper[option]);
-        setSelectedSortOption(option);
-        return;
-      }
-    }
 
-    setFetchByCategory(ProjectPaginationFilter.ALL);
-    setSelectedSortOption(sortOptions[0]);
+
+
+    sortOptions.forEach((option, index) => {
+      if (option === event.target.value) {
+        setFetchByCategory(sortOptionsMapper[index]);
+        setSelectedSortOption(option);
+      }
+    })
+
   };
 
   const handleFilterOptionChange = (filter: ProjectFilter) => {
+
+
     setTagsToFilterBy(filter);
   };
 
@@ -131,6 +133,7 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                           {t('filters')}
                         </span>
                         <div className="flex gap-[18px] md:gap-10 flex-wrap w-full">
+
                           {sortOptions.map(sortOption => (
                             <Radiobox
                               key={sortOption}
