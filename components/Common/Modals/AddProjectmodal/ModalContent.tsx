@@ -1,7 +1,7 @@
 import { addNewProject } from '@/actions/addNewProject';
 import { IAddProjectForm } from '@/types/forms';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
 import { z } from 'zod';
 import { FormTextInput } from '../../Inputs/FormTextInput';
@@ -9,6 +9,7 @@ import { FileUploader } from './FileUploader';
 import { MustIncludeMessage } from './MustIncludeMessage';
 import { ProjectDescription } from './ProjectDescription';
 import { TermsAndConditions } from './TermsAndConditions ';
+import useTextDirection from '@/hooks/useTextDirection';
 
 interface ModalContentProps {
   closeModal: () => void;
@@ -16,8 +17,7 @@ interface ModalContentProps {
 
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
   const t = useTranslations('Maintainers.maintainerForm');
-  const localLang = useLocale();
-  const direction = localLang == 'he' ? 'rtl' : 'ltr';
+  const direction = useTextDirection();
 
   const schema = z.object({
     fullName: z.string().min(2, t('fullNameError')),
