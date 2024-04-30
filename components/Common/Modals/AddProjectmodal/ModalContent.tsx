@@ -25,11 +25,32 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
     projectName: z.string().min(1, t('projectNameError')),
     projectDescription: z.string(),
     repoLink: z.string().optional(),
+    file: z
+      .custom<File>()
+      .superRefine((file, ctx) => {
+        if (!file) {
+          return;
+        }
+        if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
+          ctx.addIssue({
+            code: 'custom',
+            message: t('fileTypeError'),
+          });
+        }
+        if (file.size > 1000) {
+          ctx.addIssue({
+            code: 'custom',
+            message: t('fileSizeError'),
+          });
+        }
+      })
+      .optional(),
   });
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: zodResolver(schema),
   });
@@ -80,7 +101,12 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
           name={'projectName'}
         />
 
-        <FileUploader register={register} name={'file'} />
+        <FileUploader
+          register={register}
+          name={'file'}
+          errors={errors}
+          onFileChange={setValue}
+        />
       </div>
 
       <ProjectDescription

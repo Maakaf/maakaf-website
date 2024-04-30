@@ -23,8 +23,9 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
 }) => {
   const [fileName, setFileName] = useState('');
   const t = useTranslations('Maintainers.maintainerForm');
+  const errorMessage = getErrorMessage(errors, name);
   return (
-    <>
+    <div>
       <div className="flex flex-row gap-4 items-center">
         <p className="whitespace-nowrap">{t('logo')}</p>
         <div className="flex items-center dark:bg-gray-700 bg-gray-200 rounded-md m-auto justify-center flex-1">
@@ -37,17 +38,32 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
               className="hidden"
               onChange={e => {
                 setFileName(e.target.files?.item(0)?.name || '');
-                onFileChange && onFileChange(name, e.target.files?.item(0))
+                onFileChange && onFileChange(name, e.target.files?.item(0));
               }}
             />
             <div className="flex justify-between items-center h-14 rounded-md w-[150px] gap-2">
-              {fileName ? <SelectedFile fileName={fileName} onCancel={() => setFileName('')} name={name} errors={errors} /> : <div className="w-[26px] h-[26px] mx-auto"><UploadIcon /></div>}
+              {fileName ? (
+                <SelectedFile
+                  fileName={fileName}
+                  onCancel={() => {
+                    setFileName('');
+                    onFileChange &&
+                      onFileChange(name, null, { shouldValidate: true });
+                  }}
+                  name={name}
+                  errors={errors}
+                />
+              ) : (
+                <div className="w-[26px] h-[26px] mx-auto">
+                  <UploadIcon />
+                </div>
+              )}
             </div>
           </label>
         </div>
       </div>
-      {/* {errorMessage && <p className="text-error">{errorMessage}</p>} */}
-    </>
+      {errorMessage && <p className="text-error">{errorMessage}</p>}
+    </div>
   );
 };
 
@@ -60,16 +76,29 @@ interface ISelectedFiled {
 const SelectedFile = ({ fileName, onCancel, errors, name }: ISelectedFiled) => {
   const fileParts = fileName.split('.');
   const extention = fileParts.slice(-1)[0];
-  const base = fileParts.length < 1 ? fileParts : fileParts.slice(0, -1).join('.');
+  const base =
+    fileParts.length < 1 ? fileParts : fileParts.slice(0, -1).join('.');
   const errorMessage = getErrorMessage(errors, name);
-  return <>
-    <span className="" onClick={(e) => {
-      e.preventDefault();
-      onCancel();
-    }}>X</span>
-    <div className="file-name flex min-w-0 justify-start" style={{ direction: 'ltr' }}>
-      <span className='overflow-hidden whitespace-nowrap text-ellipsis'>{base}</span>
-      <span>.{extention}</span>
-    </div>
-  </>;
-}
+  return (
+    <>
+      <span
+        className=""
+        onClick={e => {
+          e.preventDefault();
+          onCancel();
+        }}
+      >
+        X
+      </span>
+      <div
+        className="file-name flex min-w-0 justify-start"
+        style={{ direction: 'ltr' }}
+      >
+        <span className="overflow-hidden whitespace-nowrap text-ellipsis">
+          {base}
+        </span>
+        <span>.{extention}</span>
+      </div>
+    </>
+  );
+};
