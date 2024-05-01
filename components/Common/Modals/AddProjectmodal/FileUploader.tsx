@@ -24,6 +24,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   const [fileName, setFileName] = useState('');
   const t = useTranslations('Maintainers.maintainerForm');
   const errorMessage = getErrorMessage(errors, name);
+  const formProps = register(name, { required: false });
   return (
     <div>
       <div className="flex flex-row gap-4 items-center">
@@ -31,14 +32,14 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         <div className="flex items-center dark:bg-gray-700 bg-gray-200 rounded-md m-auto justify-center flex-1">
           <label htmlFor="file-input" className="cursor-pointer">
             <input
-              {...register(name, { required: false })}
+              {...formProps}
               id="file-input"
               type="file"
               name={name}
               className="hidden"
               onChange={e => {
                 setFileName(e.target.files?.item(0)?.name || '');
-                onFileChange && onFileChange(name, e.target.files?.item(0));
+                formProps.onChange(e);
               }}
             />
             <div className="flex justify-between items-center h-14 rounded-md w-[150px] gap-2">

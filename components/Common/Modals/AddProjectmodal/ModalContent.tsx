@@ -26,8 +26,9 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
     projectDescription: z.string(),
     repoLink: z.string().optional(),
     file: z
-      .custom<File>()
-      .superRefine((file, ctx) => {
+      .custom<FileList>()
+      .superRefine((fileList, ctx) => {
+        const file = fileList?.item(0);
         if (!file) {
           return;
         }
@@ -37,7 +38,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
             message: t('fileTypeError'),
           });
         }
-        if (file.size > 1000) {
+        if (file.size > 2000000) {
           ctx.addIssue({
             code: 'custom',
             message: t('fileSizeError'),
