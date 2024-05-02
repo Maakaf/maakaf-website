@@ -22,7 +22,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   errors,
 }) => {
   const [fileName, setFileName] = useState('');
-  const t = useTranslations('Maintainers.maintainerForm');
+  const t = useTranslations('Maintainers.maintainerForm');``
   const errorMessage = getErrorMessage(errors, name);
   const formProps = register(name, { required: false });
   return (
@@ -36,6 +36,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
               id="file-input"
               type="file"
               name={name}
+              accept="image/*"
               className="hidden"
               onChange={e => {
                 setFileName(e.target.files?.item(0)?.name || '');
