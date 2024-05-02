@@ -23,7 +23,6 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
 }) => {
   const [fileName, setFileName] = useState('');
   const t = useTranslations('Maintainers.maintainerForm');
-  ``;
   const errorMessage = getErrorMessage(errors, name);
   const formProps = register(name, { required: false });
   return (
