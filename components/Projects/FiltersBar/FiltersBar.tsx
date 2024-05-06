@@ -54,21 +54,15 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
   const handleCategoryOptionSelection = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
-
-
-
     sortOptions.forEach((option, index) => {
       if (option === event.target.value) {
         setFetchByCategory(sortOptionsMapper[index]);
         setSelectedSortOption(option);
       }
-    })
-
+    });
   };
 
   const handleFilterOptionChange = (filter: ProjectFilter) => {
-
-
     setTagsToFilterBy(filter);
   };
 
@@ -133,7 +127,6 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
                           {t('filters')}
                         </span>
                         <div className="flex gap-[18px] md:gap-10 flex-wrap w-full">
-
                           {sortOptions.map(sortOption => (
                             <Radiobox
                               key={sortOption}

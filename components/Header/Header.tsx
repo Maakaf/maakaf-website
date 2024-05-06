@@ -16,9 +16,13 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
     </div>
   ),
 });
+type HederProps = {
+  locale: string;
+};
 
-const Header: React.FC = () => {
+const Header: React.FC<HederProps> = ({ locale }) => {
   const t = useTranslations('Header');
+
   const headerText = {
     projects: t('projects'),
     aboutUs: t('aboutUs'),
@@ -29,7 +33,11 @@ const Header: React.FC = () => {
   };
   return (
     <>
-      <nav className="fixed inset-0 z-50 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24">
+      <nav
+        className={`fixed inset-0 z-50 flex items-center justify-between px-10 bg-lightBg dark:bg-darkBg max-h-24 ${
+          locale === 'he' && 'flex-row-reverse'
+        }`}
+      >
         <NavRightSide />
         <HeaderItems headerText={headerText} />
         <Link href={LINKS.HOME}>
