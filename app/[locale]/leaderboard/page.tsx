@@ -33,3 +33,63 @@ const LeaderboardPage: React.FC = () => {
 };
 
 export default LeaderboardPage;
+
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+
+// const UserForm: React.FC = () => {
+//   const [users, setUsers] = useState([]);
+//   const [userId, setUserId] = useState('');
+//   const [password, setPassword] = useState('');
+
+//   useEffect(() => {
+//     // Fetch all users when the component mounts
+//     axios
+//       .get('/api/route')
+//       .then(response => setUsers(response.data))
+//       .catch(error => console.error('Error fetching users:', error));
+//   }, []);
+
+//   const handleSubmit = (event: React.FormEvent) => {
+//     event.preventDefault();
+
+//     // Create a new user when the form is submitted
+//     axios
+//       .post('/api/route', { user_id: userId, password })
+//       .then(response => setUsers([...users, response.data]))
+//       .catch(error => console.error('Error creating user:', error));
+//   };
+
+//   return (
+//     <div>
+//       <form onSubmit={handleSubmit}>
+//         <label>
+//           User ID:
+//           <input
+//             type="text"
+//             value={userId}
+//             onChange={e => setUserId(e.target.value)}
+//           />
+//         </label>
+//         <label>
+//           Password:
+//           <input
+//             type="password"
+//             value={password}
+//             onChange={e => setPassword(e.target.value)}
+//           />
+//         </label>
+//         <button type="submit">Create User</button>
+//       </form>
+
+//       <h2>All Users</h2>
+//       <ul>
+//         {users.map((user, index) => (
+//           <li key={index}>{user.user_id}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default UserForm;
