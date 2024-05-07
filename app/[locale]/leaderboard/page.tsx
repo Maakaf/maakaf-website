@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
-import useTextDirection from '@/hooks/useTextDirection';
+import { use } from 'react';
+import fetchRepoProject from '@/actions/github_public_actions/fetchRepoProject';
 
 export const metadata: Metadata = {
   title: 'לוח מובילים - Leaderboard',
@@ -23,13 +24,11 @@ export const metadata: Metadata = {
 };
 
 const LeaderboardPage: React.FC = () => {
-  const direction = useTextDirection();
+  const members = use(fetchRepoProject("Maakaf", "maakaf-website"))
+  
+  console.log('LeaderboardPage', members);
 
-  return (
-    <div dir={direction}>
-      Leader Board
-    </div>
-  );
+  return <div>Leader Board</div>;
 };
 
 export default LeaderboardPage;
