@@ -1,10 +1,12 @@
 import { z } from 'zod';
 
 interface URL_PARAMS {
-    owner: string;
-    repo: string;
+  owner: string;
+  repo: string;
 }
-export const GITHUB_REPO_BASE_URL = ({owner, repo}: URL_PARAMS) => `https://api.github.com/repos/${owner}/${repo}`;
+
+export const GITHUB_REPO_BASE_URL = ({ owner, repo }: URL_PARAMS) =>
+  `https://api.github.com/repos/${owner}/${repo}`;
 
 const ownerSchema = z.object({
   login: z.string(),
@@ -115,7 +117,7 @@ export const githubRepoResponseSchema = z.object({
   open_issues: z.number(),
   watchers: z.number(),
   default_branch: z.string(),
-  temp_clone_token: z.null(),
+  temp_clone_token: z.string().nullable(),
   custom_properties: z.record(z.any()),
   organization: ownerSchema,
   network_count: z.number(),
@@ -126,10 +128,10 @@ export type GithubRepoResponse = z.infer<typeof githubRepoResponseSchema>;
 export type Owner = z.infer<typeof ownerSchema>;
 export type License = z.infer<typeof licenseSchema>;
 
-
 // ******************* CONTRIBUTIONS ******************* //
 
-export const GITHUB_CONTRIBUTIONS = (props: URL_PARAMS) => `${GITHUB_REPO_BASE_URL(props)}/contributors`;
+export const GITHUB_CONTRIBUTIONS = (props: URL_PARAMS) =>
+  `${GITHUB_REPO_BASE_URL(props)}/contributors`;
 
 const contributorSchema = z.object({
   login: z.string(),
@@ -153,14 +155,14 @@ const contributorSchema = z.object({
   contributions: z.number().optional(),
 });
 
-export const contributorsSchema = z.array(contributorSchema);
+export const contributorsSchema = contributorSchema;
 
 export type Contributor = z.infer<typeof contributorSchema>;
 
-
 // ******************* LOGIN PROFILE ******************* //
 
-export const GITHUB_LOGIN_PROFILE = (login: string) => `https://api.github.com/users/${login}`;
+export const GITHUB_LOGIN_PROFILE = (login: string) =>
+  `https://api.github.com/users/${login}`;
 
 export const userGithubSchema = z.object({
   login: z.string(),
@@ -181,7 +183,7 @@ export const userGithubSchema = z.object({
   received_events_url: z.string(),
   type: z.string(),
   site_admin: z.boolean(),
-  name: z.string().nullable(),
+  name: z.string().optional(),
   company: z.string().nullable(),
   blog: z.string().nullable(),
   location: z.string().nullable(),
@@ -199,10 +201,10 @@ export const userGithubSchema = z.object({
 
 export type User = z.infer<typeof userGithubSchema>;
 
-
 // ******************* COMMITS ******************* //
 
-export const GITHUB_COMMITS = (props: URL_PARAMS) => `${GITHUB_REPO_BASE_URL(props)}/commits`;
+export const GITHUB_COMMITS = (props: URL_PARAMS) =>
+  `${GITHUB_REPO_BASE_URL(props)}/commits`;
 
 const commitObjUserSchema = z.object({
   login: z.string(),
@@ -281,7 +283,8 @@ export type GitHubCommit = z.infer<typeof commitSchema>;
 
 // ******************* PULL REQUESTS ******************* //
 
-export const GITHUB_PULLS = (props: URL_PARAMS) => `${GITHUB_REPO_BASE_URL(props)}/pulls`;
+export const GITHUB_PULLS = (props: URL_PARAMS) =>
+  `${GITHUB_REPO_BASE_URL(props)}/pulls`;
 
 const githubPRUserSchema = z.object({
   login: z.string(),
@@ -478,7 +481,6 @@ export type PullRequest = z.infer<typeof pullRequestSchema>;
 
 // ******************* ISSUES ******************* //
 
-
 const githubIssuesUserSchema = z.object({
   login: z.string(),
   id: z.number(),
@@ -513,8 +515,8 @@ const issuesLabelSchema = z.object({
 const issuesReactionsSchema = z.object({
   url: z.string(),
   total_count: z.number(),
-  "+1": z.number(),
-  "-1": z.number(),
+  '+1': z.number(),
+  '-1': z.number(),
   laugh: z.number(),
   hooray: z.number(),
   confused: z.number(),
@@ -568,11 +570,10 @@ export const githubIssuesSchema = z.array(issueSchema);
 
 export type Issue = z.infer<typeof issueSchema>;
 
-
 // ******************* CODE REVIEWS ******************* //
 
-export const GITHUB_CODE_REVIEWS = (props: URL_PARAMS) => `${GITHUB_REPO_BASE_URL(props)}/pulls/comments`;
-
+export const GITHUB_CODE_REVIEWS = (props: URL_PARAMS) =>
+  `${GITHUB_REPO_BASE_URL(props)}/pulls/comments`;
 
 const codeReviewurlSchema = z.string().url();
 
@@ -648,7 +649,4 @@ const commentSchema = z.object({
 
 export const githubCodeReviewsSchema = z.array(commentSchema);
 
-
 export type CodeReview = z.infer<typeof githubCodeReviewsSchema>;
-
-

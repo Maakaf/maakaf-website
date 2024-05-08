@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { use } from 'react';
-import fetchRepoProject from '@/actions/github_public_actions/fetchRepoProject';
 import createLeaderboardData from '@/actions/github_public_actions/fetchLeaderboardScores';
 
 export const metadata: Metadata = {
@@ -25,16 +24,15 @@ export const metadata: Metadata = {
 };
 
 const LeaderboardPage: React.FC = () => {
-//   const members = use(fetchRepoProject("Maakaf", "maakaf-website"))
-const leaderboard = use(createLeaderboardData())
-  
-  console.log('LeaderboardPage', leaderboard);
+  //   const members = use(fetchRepoProject("Maakaf", "maakaf-website"))
+  const leaderboard = use(createLeaderboardData());
+
+  console.log('LeaderboardPage', JSON.stringify(leaderboard, null, 2));
 
   return <div>Leader Board</div>;
 };
 
 export default LeaderboardPage;
-
 
 /*
 TODO: Create a the page ui for the leaderboard
