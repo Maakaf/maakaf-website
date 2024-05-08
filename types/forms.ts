@@ -11,5 +11,5 @@ export interface IAddProjectForm {
   projectName: string;
   projectDescription: string;
   repoLink?: string;
-  file?: File;
+  file?: FileList;
 }

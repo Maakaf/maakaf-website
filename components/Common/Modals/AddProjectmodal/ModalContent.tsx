@@ -56,8 +56,14 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<IAddProjectForm> = async data => {
-    await addNewProject(data);
+  const onSubmit: SubmitHandler<Record<string, unknown>> = async data => {
+    var form_data = new FormData();
+
+    for (var key in data) {
+      form_data.append(key, (data[key] as string));
+    }
+
+    await addNewProject(form_data);
     closeModal();
   };
 
