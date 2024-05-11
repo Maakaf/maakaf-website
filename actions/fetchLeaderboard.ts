@@ -1,9 +1,7 @@
-import { fetchGithubLeaderBoard } from "@/components/utils/githubLeaderBoard";
+import { fetchGithubLeaderBoard } from '@/components/utils/githubLeaderBoard';
 
 async function fetchLeaderboard() {
-  
-
-  return fetchGithubLeaderBoard()
+  return fetchGithubLeaderBoard();
 }
 
 export default fetchLeaderboard;

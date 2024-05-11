@@ -25,7 +25,6 @@ export const metadata: Metadata = {
 
 const LeaderboardPage: React.FC = () => {
     const leaderboard = use(fetchLeaderboard());
-    console.log(leaderboard);
 
 
   return (
@@ -37,7 +36,7 @@ const LeaderboardPage: React.FC = () => {
                 return (
                 <div key={node_id} className='flex flex-col'>
                     <div className='col-span-full'>{data.name}</div>
-                    <div className='flex'>
+                    <div className='flex gap-2›'>
                         <div className='text-green-300'><span>{data.stats.additions}</span><span>++</span></div>
                         <div className='text-red-300'><span>{data.stats.deletions}</span><span>--</span></div>
                     </div>
@@ -51,14 +50,3 @@ const LeaderboardPage: React.FC = () => {
 };
 
 export default LeaderboardPage;
-
-/*
-TODO: Create a the page ui for the leaderboard
-TODO: Database for the leaderboard
-TODO: interface for the leaderboard
-TODO: loop through the github users 
-TODO: 
-TODO: 
-TODO: 
-TODO: 
-*/
