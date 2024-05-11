@@ -1,4 +1,3 @@
-
 import fetchLeaderboard from '@/actions/fetchLeaderboard';
 import Leaderboard from '@/components/Leaderboard';
 import { Metadata } from 'next';
@@ -56,7 +55,6 @@ const LeaderboardPage: React.FC = () => {
               </div>
             </div>
           );
-          
         })}
         <Leaderboard data={leaderboard} />
       </div>
@@ -65,7 +63,7 @@ const LeaderboardPage: React.FC = () => {
 };
 
 // export const component = (props: any) => {
-//     return        
+//     return
 
 // }
 
