@@ -12,6 +12,7 @@ export const LINKS = {
   PRIVACY_SETTINGS: '/privacy',
   DISCORD: 'https://discord.com/invite/a2VyCjRk2M',
   WHATSAPP: 'https://chat.whatsapp.com/E5a59DtSaHNBwnczxVW1FY',
+  LEADER_BOARD:"/LeaderBoard"
 };
 
 export const HOST = {

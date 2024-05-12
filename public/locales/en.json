@@ -129,7 +129,8 @@
     "startOfActivity": "Start of activity",
     "searchPlaceholder": "Search by name, role",
     "secondOption": "Second option",
-    "thirdOption": "Third option"
+    "thirdOption": "Third option",
+    "noMemberFound": "No Member found"
   },
   "Components": {
     "home": {
@@ -175,7 +176,8 @@
     "community": "Community",
     "newbies": "First time in Open Source",
     "members": "already participated in Open Source",
-    "maintainers": "Project maintainers who wants to join"
+    "maintainers": "Project maintainers who wants to join",
+    "leaderBoard":"Leader Board"
   },
   "Footer": {
     "projects": "Projects",

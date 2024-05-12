@@ -142,7 +142,8 @@
     "startOfActivity": "תחילת פעילות",
     "searchPlaceholder": "חפש לפי שם תפקיד...",
     "secondOption": "אופציה שניה",
-    "thirdOption": "אופציה שלישית"
+    "thirdOption": "אופציה שלישית",
+    "noMemberFound": "המשתמש לא נמצא"
   },
   "Components": {
     "home": {
@@ -188,7 +189,8 @@
     "community": "קהילה",
     "newbies": "פעם ראשונה בקוד פתוח",
     "members": "מי שכבר התנסה בקוד פתוח",
-    "maintainers": "בעלי פרויקטים שרוצים להצטרף"
+    "maintainers": "בעלי פרויקטים שרוצים להצטרף",
+    "leaderBoard":"חברים מובילים"
   },
   "Footer": {
     "projects": "הפרויקטים",

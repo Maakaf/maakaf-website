@@ -1,3 +1,5 @@
+import useLocalStorage from '@/hooks/useLocalStorage';
+
 export default function RootLayout({
   children,
   params: { locale },

@@ -13,6 +13,7 @@ interface HeaderItemsProps {
     newbies: string;
     members: string;
     maintainers: string;
+    leaderBoard:string;
   };
 }
 
@@ -41,6 +42,16 @@ const HeaderItems = ({ headerText }: HeaderItemsProps) => {
       >
         <Link href={LINKS.ABOUT_US} className="transition duration-300 group">
           <span>{headerText.aboutUs}</span>
+          <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600" />
+        </Link>
+      </li>
+      <li
+        className={`cursor-pointer body-roman ${
+          currentPage === 'LeaderBoard' ? 'font-bold' : ''
+        }`}
+      >
+        <Link href={LINKS.LEADER_BOARD} className="transition duration-300 group">
+          <span>{headerText.leaderBoard}</span>
           <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-sky-600" />
         </Link>
       </li>
