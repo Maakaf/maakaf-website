@@ -20,7 +20,9 @@ export const MemberCard = ({
   const direction = useTextDirection();
   return (
     <div
+
       dir={direction}
+
       className="flex bg-purple-100 dark:bg-gray-600 rounded-2xl shadow-md w-full xl:w-[400px] xl:h-[173px]"
     >
       <MemberCardInfo
