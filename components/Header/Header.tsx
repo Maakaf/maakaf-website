@@ -7,7 +7,6 @@ import HeaderItems from './HeaderItems';
 import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
 
-
 const NavRightSide = dynamic(() => import('./NavRightSide'), {
   ssr: false,
   suspense: true,
@@ -19,14 +18,9 @@ const NavRightSide = dynamic(() => import('./NavRightSide'), {
   ),
 });
 
-
-
-
-const Header: React.FC= () => {
+const Header: React.FC = () => {
   const t = useTranslations('Header');
-  const direction = useTextDirection()
-
-
+  const direction = useTextDirection();
   const headerText = {
     projects: t('projects'),
     aboutUs: t('aboutUs'),
@@ -34,6 +28,7 @@ const Header: React.FC= () => {
     newbies: t('newbies'),
     members: t('members'),
     maintainers: t('maintainers'),
+    leaderBoard:t('leaderBoard'),
   };
   return (
     <>

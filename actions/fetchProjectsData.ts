@@ -26,6 +26,8 @@ async function fetchProjectsData({
     },
     body: JSON.stringify({ page, limit, filter }),
   });
+  console.log();
+  
 
   // fetch from endpoint POST with page, limit, filter as IProjectsDataResponse
   const { projects, total, languages, pageLanguages, timestamp } =
