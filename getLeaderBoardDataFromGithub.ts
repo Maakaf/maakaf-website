@@ -20,7 +20,7 @@ const gitHubContributorStatsSchema = z.array(
     total: z.number(),
     weeks: z.array(githubWeekStatesSchema),
     author: gitHubauthorSchema,
-  })
+  }),
 );
 
 type Analitycs = {
@@ -31,7 +31,7 @@ type Analitycs = {
       url: string;
       name: string;
     }[];
-    avarar_url: string;
+    avatar_url: string;
     score: number;
     stats: {
       additions: number;
@@ -46,7 +46,7 @@ type Analitycs = {
 type GithubContributorStats = z.infer<typeof gitHubContributorStatsSchema>;
 
 export function calculateTotals(
-  weeks: GithubContributorStats[number]['weeks']
+  weeks: GithubContributorStats[number]['weeks'],
 ) {
   return weeks.reduce(
     (acc, week) => {
@@ -62,11 +62,11 @@ export function calculateTotals(
         stats,
       };
     },
-    { score: 0, stats: { additions: 0, deletions: 0, commits: 0 } }
+    { score: 0, stats: { additions: 0, deletions: 0, commits: 0 } },
   );
 }
 
-export async function fetchGithubLeaderBoard() {
+async function getLeaderboardDataFromGithub() {
   const since = '2024-01-05T00:00:00Z';
   const until = '2024-04-12T00:00:00Z';
   const leaderboard = (
@@ -79,13 +79,13 @@ export async function fetchGithubLeaderBoard() {
         const data = await fetch(url);
         const json = await data.json();
         return { owner, repo, json };
-      })
+      }),
     )
   ).reduce((acc, data) => {
     if (data.status === 'rejected') return acc;
     const parsedData = gitHubContributorStatsSchema.safeParse(data.value.json);
     if (!parsedData.success) return acc;
-    const members = parsedData.data.map(c => {
+    const members = parsedData.data.map((c) => {
       const calculateScoreAndTotals = calculateTotals(c.weeks);
       return {
         name: c.author.login,
@@ -94,7 +94,7 @@ export async function fetchGithubLeaderBoard() {
           url: `${data.value.owner}/${data.value.repo}`,
           name: data.value.repo,
         },
-        avarar_url: c.author.avatar_url,
+        avatar_url: c.author.avatar_url,
         score: calculateScoreAndTotals.score,
         stats: calculateScoreAndTotals.stats,
       };
@@ -124,5 +124,11 @@ export async function fetchGithubLeaderBoard() {
     return acc;
   }, new Map<string, Analitycs['mambers'][number]>());
 
-  return { data: Array.from(leaderboard), since, until };
+  const arrayLeaderboard = Array.from(leaderboard);
+
+  arrayLeaderboard.sort(([, a], [, b]) => b.score - a.score);
+
+  return { data: arrayLeaderboard, since, until };
 }
+
+export default getLeaderboardDataFromGithub;
