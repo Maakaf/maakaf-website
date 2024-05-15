@@ -1,6 +1,6 @@
-import fetchLeaderboard from '@/actions/fetchLeaderboard';
 import { Metadata } from 'next';
-import { use } from 'react';
+import { getData } from './getData';
+import Leaderboard from '@/components/Leaderboard/Leaderboard';
 
 export const metadata: Metadata = {
   title: 'לוח מובילים - Leaderboard',
@@ -23,42 +23,14 @@ export const metadata: Metadata = {
   },
 };
 
-const LeaderboardPage: React.FC = () => {
-    const leaderboard = use(fetchLeaderboard());
-    console.log(leaderboard);
-
+const LeaderboardPage: React.FC = async () => {
+  const data = await getData();
 
   return (
     <div>
-        <h1>Leaderboard</h1>
-        <p><span>{leaderboard.until}</span><span>{leaderboard.since}</span></p>
-        <div className='grid gap-3'>
-            {leaderboard.data.map(([node_id, data]) => {
-                return (
-                <div key={node_id} className='flex flex-col'>
-                    <div className='col-span-full'>{data.name}</div>
-                    <div className='flex'>
-                        <div className='text-green-300'><span>{data.stats.additions}</span><span>++</span></div>
-                        <div className='text-red-300'><span>{data.stats.deletions}</span><span>--</span></div>
-                    </div>
-                    <div className='text-slate-300 flex gap-2 '><span>Coomit</span><span>{data.stats.commits}</span></div>
-                </div>
-                );
-            })}
-        </div>
+      <Leaderboard leaderboard={data.props.leaderboard} />
     </div>
   );
 };
 
 export default LeaderboardPage;
-
-/*
-TODO: Create a the page ui for the leaderboard
-TODO: Database for the leaderboard
-TODO: interface for the leaderboard
-TODO: loop through the github users 
-TODO: 
-TODO: 
-TODO: 
-TODO: 
-*/

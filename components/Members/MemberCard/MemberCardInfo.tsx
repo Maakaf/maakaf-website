@@ -2,6 +2,7 @@ import React from 'react';
 import ImageWithFallback from '@/components/utils/ImageWithFallback';
 import { MemberCardProps } from '../../../types';
 import Crown from '@/components/SvgCmps/Crown';
+import useTextDirection from '@/hooks/useTextDirection';
 
 export const MemberCardInfo = ({
   imgUrl,
@@ -11,8 +12,14 @@ export const MemberCardInfo = ({
   joinDate,
   isAdmin,
 }: MemberCardProps) => {
+  const direction = useTextDirection();
   return (
-    <div className="flex flex-col rounded-md p-[10px] pr-6 w-full">
+    <div
+      dir={direction}
+      className={`flex flex-col rounded-md p-[10px] ${
+        direction === 'rtl' ? 'pr-6' : 'pl-6'
+      } w-full`}
+    >
       <div className="flex gap-4">
         <ImageWithFallback
           width="50"

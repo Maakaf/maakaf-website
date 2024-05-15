@@ -9,7 +9,8 @@ import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
 import Magnifier from '@/components/SvgCmps/Magnifier';
 import classNames from 'classnames';
-import MemberCardLoader from '@/components/Members/MemberCard/memberCardLoader/MemberCardLoader';
+import SkeletonCards from '@/components/Members/Skeleton/SkeletonCards';
+import { MdiAccountSearch } from '@/components/Members/Skeleton/MdiAccountSearch';
 
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
@@ -49,6 +50,15 @@ const MembersPage: React.FC<{}> = ({}) => {
     return () => clearTimeout(timeoutId);
   }, [searchTerm]);
 
+  const notFoundJSX = (
+    <div className="mt-8 flex items-center justify-center">
+      <p className="text-2xl md:text-4xl font-bold text-red-400">
+        {t('noMemberFound')}
+      </p>
+      <MdiAccountSearch className="mx-2 mb-1 md:mx-4 w-[24px] md:w-[48px] h-[24px] md:h-[48px] fill-red-400" />
+    </div>
+  );
+
   return (
     <div className="py-6" dir={direction}>
       <h1 className="text-center leading-[1.2]">{t('title')}</h1>
@@ -67,7 +77,7 @@ const MembersPage: React.FC<{}> = ({}) => {
         <div className="w-full relative h-[45px]">
           <input
             type="text"
-            name={searchTerm}
+            name="searchTerm"
             className="px-4 top-0 right-0 w-full h-full bg-purple-100 dark:bg-gray-800 rounded-r-3xl rounded-l-3xl"
             placeholder={t('searchPlaceholder')}
             onChange={e => setSearchTerm(e.target.value)}
@@ -80,12 +90,9 @@ const MembersPage: React.FC<{}> = ({}) => {
           />
         </div>
       </div>
-
-      {members.length > 0 ? (
-        <MembersList members={members} />
-      ) : (
-        <MemberCardLoader memberCardNum={6} />
-      )}
+      {members.length === 0 && searchTerm === '' && <SkeletonCards cards={6} />}
+      {members.length === 0 && searchTerm !== '' && notFoundJSX}
+      {members.length !== 0 && <MembersList members={members} />}
     </div>
   );
 };
