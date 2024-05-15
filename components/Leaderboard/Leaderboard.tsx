@@ -1,7 +1,6 @@
-import { Analitycs } from "@/app/[locale]/leaderboard/getData";
+import { Analitycs } from '@/app/[locale]/leaderboard/getData';
 
-const LeaderboardPage: React.FC<{leaderboard: Analitycs}> = async (props) => {
-
+const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
   return (
     <div>
       <h1>Leaderboard</h1>
@@ -10,7 +9,7 @@ const LeaderboardPage: React.FC<{leaderboard: Analitycs}> = async (props) => {
         <span>{props.leaderboard.since}</span>
       </p>
       <div className="grid gap-3">
-        {props.leaderboard.members.map((data) => {
+        {props.leaderboard.members.map(data => {
           return (
             <div key={data.node_id} className="flex flex-col">
               <div className="col-span-full">{data.name}</div>

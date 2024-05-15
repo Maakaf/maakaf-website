@@ -20,7 +20,7 @@ const gitHubContributorStatsSchema = z.array(
     total: z.number(),
     weeks: z.array(githubWeekStatesSchema),
     author: gitHubauthorSchema,
-  }),
+  })
 );
 
 type Analitycs = {
@@ -46,7 +46,7 @@ type Analitycs = {
 type GithubContributorStats = z.infer<typeof gitHubContributorStatsSchema>;
 
 export function calculateTotals(
-  weeks: GithubContributorStats[number]['weeks'],
+  weeks: GithubContributorStats[number]['weeks']
 ) {
   return weeks.reduce(
     (acc, week) => {
@@ -62,7 +62,7 @@ export function calculateTotals(
         stats,
       };
     },
-    { score: 0, stats: { additions: 0, deletions: 0, commits: 0 } },
+    { score: 0, stats: { additions: 0, deletions: 0, commits: 0 } }
   );
 }
 
@@ -79,13 +79,13 @@ async function getLeaderboardDataFromGithub() {
         const data = await fetch(url);
         const json = await data.json();
         return { owner, repo, json };
-      }),
+      })
     )
   ).reduce((acc, data) => {
     if (data.status === 'rejected') return acc;
     const parsedData = gitHubContributorStatsSchema.safeParse(data.value.json);
     if (!parsedData.success) return acc;
-    const members = parsedData.data.map((c) => {
+    const members = parsedData.data.map(c => {
       const calculateScoreAndTotals = calculateTotals(c.weeks);
       return {
         name: c.author.login,

@@ -24,11 +24,11 @@ export const metadata: Metadata = {
 };
 
 const LeaderboardPage: React.FC = async () => {
-    const data = await getData()
-  
+  const data = await getData();
+
   return (
     <div>
-        <Leaderboard leaderboard={data.props.leaderboard} />
+      <Leaderboard leaderboard={data.props.leaderboard} />
     </div>
   );
 };

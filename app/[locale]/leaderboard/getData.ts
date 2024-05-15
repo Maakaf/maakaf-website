@@ -1,11 +1,12 @@
-
 export async function getData() {
-  const res = await fetch("http://localhost:8080/leaderboard", { cache: 'no-store' });
-  
-  const leaderboard = await res.json() as unknown as Analitycs;
+  const res = await fetch('http://localhost:8080/leaderboard', {
+    cache: 'no-store',
+  });
+
+  const leaderboard = (await res.json()) as unknown as Analitycs;
   return {
-    props: {leaderboard},
-  }
+    props: { leaderboard },
+  };
 }
 
 export type Analitycs = {
