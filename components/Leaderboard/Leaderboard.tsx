@@ -1,8 +1,9 @@
 import { Analitycs } from '@/app/[locale]/leaderboard/getData';
+import Image from 'next/image';
 
 const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
   return (
-    <div>
+    <div className='font-birzias'>
       <h1>Leaderboard</h1>
       <p>
         <span>{props.leaderboard.until}</span>
@@ -11,7 +12,13 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
       <div className="grid gap-3">
         {props.leaderboard.members.map(data => {
           return (
-            <div key={data.node_id} className="flex flex-col">
+            <div key={data.node_id} className="flex flex-col bg-slate-500 rounded-md p-4 ">
+
+              <div className="flex gap-2">
+                <Image src={data.avatar_url} className='rounded-full' alt={data.name} width={50} height={50} />
+                <div>{data.name}</div>
+              </div>
+              
               <div className="col-span-full">{data.name}</div>
               <div className="flex gap-2›">
                 <div className="text-green-300">
