@@ -5,12 +5,6 @@ import Image from 'next/image';
 const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
   const since = new Date(props.leaderboard.since);
   const until = new Date(props.leaderboard.until);
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  };
   const bigScreenFormatter = new Intl.DateTimeFormat('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -39,7 +33,7 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
         <div className="col-span-full">
           <h1 className="pb-8 pt-6">Leaderboard</h1>
           <Tabs />
-          <p className="[text-wrap:balance]">
+          <p className="[text-wrap:balance] text-indigo-800">
             {datesText.since} <span className="">-</span> {datesText.until}
           </p>
         </div>
@@ -90,7 +84,7 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             <div>Score: {data.score}</div>
           </div>
         </a>
-        <div className="flex gap-2">
+        <div className="flex gap-2 pb-3">
           <div className="flex gap-2 ">
             <div className="text-green-300">
               <span>{data.stats.additions}</span>
@@ -101,15 +95,19 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
               <span>--</span>
             </div>
           </div>
-          <div className="text-slate-300 flex gap-2  ">
+          <div className="text-indigo-800 flex gap-2  ">
             <span>Coomit</span>
             <span>{data.stats.commits}</span>
           </div>
         </div>
-      <div>
+        <div>
+          <h4 className='text-xs '>Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
-              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
+              <a
+                key={ind}
+                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+              >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
               </a>
@@ -151,7 +149,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
             <div>Score: {data.score}</div>
           </div>
         </a>
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex gap-2 flex-wrap pb-3">
           <div className="flex gap-2 ">
             <div className="text-green-300">
               <span>{data.stats.additions}++</span>
@@ -160,15 +158,19 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
               <span>{data.stats.deletions}--</span>
             </div>
           </div>
-          <div className="text-slate-300 flex gap-2  ">
+          <div className="text-indigo-800 flex gap-2   ">
             <span>Coomit</span>
             <span>{data.stats.commits}</span>
           </div>
         </div>
         <div>
+          <h4 className='text-xs '>Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
-              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
+              <a
+                key={ind}
+                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+              >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
               </a>
@@ -216,15 +218,19 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
               <span>--</span>
             </div>
           </div>
-          <div className="text-slate-300 flex gap-2  ">
+          <div className="text-indigo-800 flex gap-2 pb-3 ">
             <span>Coomit</span>
             <span>{data.stats.commits}</span>
           </div>
         </div>
         <div>
+          <h4 className='text-xs '>Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
-              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
+              <a
+                key={ind}
+                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+              >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
               </a>
@@ -274,15 +280,19 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
               <span>--</span>
             </div>
           </div>
-          <div className="text-slate-300 flex gap-2  ">
+          <div className="text-indigo-800 flex gap-2 pb-3 ">
             <span>Coomit</span>
             <span>{data.stats.commits}</span>
           </div>
         </div>
         <div>
+          <h4 className='text-xs '>Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
-              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
+              <a
+                key={ind}
+                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+              >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
               </a>
