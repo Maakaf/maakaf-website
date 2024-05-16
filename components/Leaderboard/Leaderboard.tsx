@@ -106,6 +106,7 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             return (
               <a
                 key={ind}
+                href={`https://github.com/${project.url}`}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
@@ -169,6 +170,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
             return (
               <a
                 key={ind}
+                href={`https://github.com/${project.url}`}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
@@ -229,6 +231,7 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
             return (
               <a
                 key={ind}
+                href={`https://github.com/${project.url}`}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
@@ -292,6 +295,7 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
               <>
                 <a
                   key={ind}
+                  href={`https://github.com/${project.url}`}
                   className="flex gap-1 items-center underline text-indigo-300 text-xs"
                 >
                   <StarIcon size={16} />
