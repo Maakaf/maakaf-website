@@ -57,7 +57,10 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
 
 export default LeaderboardPage;
 
-interface PersonPlace {data: Analitycs["members"][number], place: number}
+interface PersonPlace {
+  data: Analitycs['members'][number];
+  place: number;
+}
 
 export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
   return (
