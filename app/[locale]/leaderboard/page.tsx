@@ -26,6 +26,8 @@ export const metadata: Metadata = {
 const LeaderboardPage: React.FC = async () => {
   const data = await getData();
 
+  data.props.leaderboard.members.sort((a, b) => b.score - a.score);
+
   return (
     <div>
       <Leaderboard leaderboard={data.props.leaderboard} />
