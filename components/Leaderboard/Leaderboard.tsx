@@ -106,6 +106,16 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
+      <div>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
+                <StarIcon size={16} />
+                <span>{project.name}</span>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </CardWarper>
   );
@@ -155,6 +165,16 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
             <span>{data.stats.commits}</span>
           </div>
         </div>
+        <div>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
+                <StarIcon size={16} />
+                <span>{project.name}</span>
+              </a>
+            );
+          })}
+        </div>
       </div>
     </CardWarper>
   );
@@ -200,6 +220,16 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>Coomit</span>
             <span>{data.stats.commits}</span>
           </div>
+        </div>
+        <div>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
+                <StarIcon size={16} />
+                <span>{project.name}</span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </CardWarper>
@@ -252,11 +282,11 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
         <div>
           {data.projects_names.map((project, ind) => {
             return (
-              <div key={ind} className="flex gap-2 items-center">
+              <a key={ind} className="flex gap-2 items-center underline text-indigo-300">
                 <StarIcon size={16} />
                 <span>{project.name}</span>
-              </div>
-            )
+              </a>
+            );
           })}
         </div>
       </div>
