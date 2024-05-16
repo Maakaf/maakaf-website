@@ -37,11 +37,11 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
     <div dir="ltr" className="font-inter">
       <div className="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto  ">
         <div className="col-span-full">
-          <h1 className='pb-8 pt-6'>Leaderboard</h1>
+          <h1 className="pb-8 pt-6">Leaderboard</h1>
           <Tabs />
-            <p className="[text-wrap:balance]">
-              {datesText.since} <span className=''>-</span> {datesText.until}
-            </p>
+          <p className="[text-wrap:balance]">
+            {datesText.since} <span className="">-</span> {datesText.until}
+          </p>
         </div>
         <FirstPlacePerson data={firstPlace} place={1} />
         <DisplaySecoundPerson data={secondPlace} place={2} />
@@ -120,7 +120,6 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
       className="flex gap-2 ring-1 ring-indigo-900/80 rounded-md p-4 row-span-2 relative "
       key={data.node_id}
     >
-      
       <Image
         src={data.avatar_url}
         className="rounded-full w-[50px] h-[50px]"
@@ -164,7 +163,6 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
 export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
   return (
     <CardWarper key={data.node_id}>
-      
       <Image
         src={data.avatar_url}
         className="rounded-full w-[50px] h-[50px] "
@@ -251,6 +249,16 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
+        <div>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <div key={ind} className="flex gap-2 items-center">
+                <StarIcon size={16} />
+                <span>{project.name}</span>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </CardWarper>
   );
@@ -268,7 +276,8 @@ export const CardWarper: React.FC<TypeCardWarper> = ({
   return (
     <div
       className={
-        className || 'flex gap-2 ring-1 ring-indigo-900/80 rounded-md p-4 relative'
+        className ||
+        'flex gap-2 ring-1 ring-indigo-900/80 rounded-md p-4 relative'
       }
     >
       {children}
@@ -277,35 +286,53 @@ export const CardWarper: React.FC<TypeCardWarper> = ({
 };
 
 export const Tabs: React.FC = () => {
-  return <div className="flex gap-2">
-  <div className="">
-    <input id="all-times" type="radio" name="time-filter" defaultChecked className="hidden peer" />
-    <label
-      htmlFor="all-times"
-      className="block cursor-pointer select-none rounded-lg py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
-    >
-      All Times
-    </label>
-  </div>
+  return (
+    <div className="flex gap-2">
+      <div className="">
+        <input
+          id="all-times"
+          type="radio"
+          name="time-filter"
+          defaultChecked
+          className="hidden peer"
+        />
+        <label
+          htmlFor="all-times"
+          className="block cursor-pointer select-none rounded-lg py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
+        >
+          All Times
+        </label>
+      </div>
 
-  <div className="">
-    <input id="weekly" type="radio" name="time-filter" className="hidden peer" />
-    <label
-      htmlFor="weekly"
-      className="block cursor-pointer select-none rounded-lg px-4 py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
-    >
-      Weekly
-    </label>
-  </div>
+      <div className="">
+        <input
+          id="weekly"
+          type="radio"
+          name="time-filter"
+          className="hidden peer"
+        />
+        <label
+          htmlFor="weekly"
+          className="block cursor-pointer select-none rounded-lg px-4 py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
+        >
+          Weekly
+        </label>
+      </div>
 
-  <div className="">
-    <input id="monthly" type="radio" name="time-filter" className="hidden peer" />
-    <label
-      htmlFor="monthly"
-      className="block cursor-pointer select-none rounded-lg px-4 py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
-    >
-      Monthly
-    </label>
-  </div>
-</div>
+      <div className="">
+        <input
+          id="monthly"
+          type="radio"
+          name="time-filter"
+          className="hidden peer"
+        />
+        <label
+          htmlFor="monthly"
+          className="block cursor-pointer select-none rounded-lg px-4 py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
+        >
+          Monthly
+        </label>
+      </div>
+    </div>
+  );
 };
