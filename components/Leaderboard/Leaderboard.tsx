@@ -100,13 +100,13 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className='text-xs '>Projects:</h4>
+        <div className='flex gap-2 flex-wrap'>
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
@@ -163,13 +163,13 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className='text-xs '>Projects:</h4>
+        <div className='flex gap-2 flex-wrap'>
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
@@ -223,13 +223,13 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className='text-xs '>Projects:</h4>
+        <div className='flex gap-2 flex-wrap'>
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
@@ -285,17 +285,19 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className='text-xs '>Projects:</h4>
+        <div className='flex gap-2 flex-wrap'>
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
+              <>
               <a
                 key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
               </a>
+              </>
             );
           })}
         </div>
