@@ -1,5 +1,5 @@
 import { addNewProject } from '@/actions/addNewProject';
-import { IAddProjectForm } from '@/types/forms';
+import { IAddProjectForm, AddProjectFormKeys, AddProjectFormData } from '@/types/forms';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
@@ -56,11 +56,12 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<Record<string, unknown>> = async data => {
-    var form_data = new FormData();
+  const onSubmit: SubmitHandler<IAddProjectForm> = async data => {
+    var form_data : AddProjectFormData = new FormData();
 
     for (var key in data) {
-      form_data.append(key, data[key] as string);
+      const typedKey = key as AddProjectFormKeys;
+      form_data.append(typedKey, data[typedKey] as string | Blob);
     }
 
     await addNewProject(form_data);
