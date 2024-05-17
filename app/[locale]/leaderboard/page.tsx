@@ -1,6 +1,11 @@
 import { Metadata } from 'next';
+import { use } from 'react';
+import LeaderBoardChart from '@/components/LeaderBoard/LeaderBoardChart'
+import Monthly from '@/components/LeaderBoard/Monthly'
+import Weekly from '@/components/LeaderBoard/Weekly'
 import { getData } from './getData';
-import Leaderboard from '@/components/Leaderboard/Leaderboard';
+import { useTranslations } from 'next-intl';
+import useTextDirection from '@/hooks/useTextDirection';
 
 export const metadata: Metadata = {
   title: 'לוח מובילים - Leaderboard',
@@ -23,16 +28,41 @@ export const metadata: Metadata = {
   },
 };
 
-const LeaderboardPage: React.FC = async () => {
-  const data = await getData();
+const LeaderboardPage: React.FC = () => {
+  const leaderboard = use(getData());
+  const t=useTranslations("LeaderBoard")
+  const direction=useTextDirection()
 
-  data.props.leaderboard.members.sort((a, b) => b.score - a.score);
+
+
+
 
   return (
-    <div>
-      <Leaderboard leaderboard={data.props.leaderboard} />
-    </div>
+    <section className="grid grid-row-2 grid-cols-1 gap-10   content-center h-full p-10  md:grid-cols-6 md:grid-row-2  ">
+      <div  className=" row-start-1 col-start-1    flex flex-col   md:col-start-1 col-end-3">
+        <h3   className={`p-5  w-full ${direction==="rtl"?"text-right":"text-left"}`}>{t("MonthlyTitle")} </h3>
+        <Monthly />
+        <h3 className={`p-5  w-full ${direction === "rtl" ? "text-right" : "text-left"}`}>{t("WeeklyTitle")} </h3>
+        <Weekly />
+      </div>
+      <div className="max-h-[90vh] bg-lightAccBg dark:bg-darkBg min-w-[80vw] md:min-w-[50vw] flex flex-col shadow-2xl shadow-discordLight rounded-sm  row-start-2 col-start-1 md:col-start-4 md:col-end-7 md:row-start-1 md:min-h-[100vh] md:p-4 md:relative left-10    ">
+        <h3 className={`p-5 w-2/3 self-center ${direction === "rtl" ? "text-right" : "text-left"}`}>{t('AllTimesTitle')} </h3>
+        <LeaderBoardChart />
+      </div>
+    </section>
   );
 };
 
 export default LeaderboardPage;
+
+/*
+TODO: Create a the page ui for the leaderboard
+TODO: Database for the leaderboard
+TODO: interface for the leaderboard
+TODO: loop through the github users
+TODO:
+TODO:
+TODO:
+TODO:
+*/
+//add UI translate 

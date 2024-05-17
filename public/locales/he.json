@@ -145,6 +145,11 @@
     "thirdOption": "אופציה שלישית",
     "noMemberFound": "המשתמש לא נמצא"
   },
+  "LeaderBoard": {
+    "MonthlyTitle": "מצטיין חודשי",
+    "WeeklyTitle": "מצטיין שבועי",
+    "AllTimesTitle": "כל הזמנים"
+  },
   "Components": {
     "home": {
       "quotes": {
