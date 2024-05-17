@@ -101,7 +101,7 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
           </div>
         </div>
         <div>
-          <h4 className='text-xs '>Projects:</h4>
+          <h4 className="text-xs ">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
@@ -164,7 +164,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
           </div>
         </div>
         <div>
-          <h4 className='text-xs '>Projects:</h4>
+          <h4 className="text-xs ">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
@@ -224,7 +224,7 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
           </div>
         </div>
         <div>
-          <h4 className='text-xs '>Projects:</h4>
+          <h4 className="text-xs ">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
@@ -286,7 +286,7 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
           </div>
         </div>
         <div>
-          <h4 className='text-xs '>Projects:</h4>
+          <h4 className="text-xs ">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a

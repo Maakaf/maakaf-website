@@ -132,10 +132,10 @@
     "thirdOption": "Third option",
     "noMemberFound": "No Member found"
   },
-  "LeaderBoard":{
-    "MonthlyTitle":"Monthly Score",
-    "WeeklyTitle":"Weekly Score",
-    "AllTimesTitle":"All Times Score"
+  "LeaderBoard": {
+    "MonthlyTitle": "Monthly Score",
+    "WeeklyTitle": "Weekly Score",
+    "AllTimesTitle": "All Times Score"
   },
   "Components": {
     "home": {

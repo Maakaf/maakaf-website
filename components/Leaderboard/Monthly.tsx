@@ -4,11 +4,12 @@ import React from 'react';
 import { use } from 'react';
 export default function Monthly() {
   const leaderBoardData = use(getData());
-  
-  
-  const Monthly = leaderBoardData.props.leaderboard.members[leaderBoardData.props.leaderboard.members.length - 1];
-  const direction = useTextDirection();
 
+  const Monthly =
+    leaderBoardData.props.leaderboard.members[
+      leaderBoardData.props.leaderboard.members.length - 1
+    ];
+  const direction = useTextDirection();
 
   return (
     <div

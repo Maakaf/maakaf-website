@@ -5,18 +5,17 @@ export default function LeaderBoardChart() {
   const leaderBoardData = use(getData());
 
   const direction = useTextDirection();
-  
+
   return (
     <div
       dir={direction}
       className="   bg-lightAccBg overflow-y-auto  h-2/3 w-2/3 flex flex-col  gap-6  self-center ring-8 rounded-sm  dark:bg-darkAccBg dark:ring-offset-darkAccBg p-2  "
     >
       {leaderBoardData.props.leaderboard.members.map((contributor, place) => {
-        const pathDevelp = contributor
+        const pathDevelp = contributor;
 
         return (
           <div
-          
             key={pathDevelp.node_id}
             className="w-full flex flex-col md:flex-row ring-4 h-fit p-2 rounded-md md:gap-6  "
           >

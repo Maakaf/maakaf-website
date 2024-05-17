@@ -4,9 +4,12 @@ import { getData } from '@/app/[locale]/leaderboard/getData';
 export default function Weekly() {
   const direction = useTextDirection();
   const leaderBoardData = use(getData());
-  const Weekly = leaderBoardData.props.leaderboard.members[leaderBoardData.props.leaderboard.members.length-1];
+  const Weekly =
+    leaderBoardData.props.leaderboard.members[
+      leaderBoardData.props.leaderboard.members.length - 1
+    ];
   console.log(leaderBoardData.props.leaderboard);
-  
+
   return (
     <div
       className="bg-lightAccBg max-h-[40dvh] ring-8 rounded-sm  dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 shadow-2xl hover:shadow-discordLight "
