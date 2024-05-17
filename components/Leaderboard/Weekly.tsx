@@ -1,14 +1,14 @@
 import useTextDirection from '@/hooks/useTextDirection';
 import { use } from 'react';
 import { getData } from '@/app/[locale]/leaderboard/getData';
+import { useTranslations } from 'next-intl';
 export default function Weekly() {
   const direction = useTextDirection();
+  const t=useTranslations("LeaderBoard")
+
   const leaderBoardData = use(getData());
-  const Weekly =
-    leaderBoardData.props.leaderboard.members[
-      leaderBoardData.props.leaderboard.members.length - 1
-    ];
-  console.log(leaderBoardData.props.leaderboard);
+  const Weekly = leaderBoardData.props.leaderboard.members[leaderBoardData.props.leaderboard.members.length - 1];
+
 
   return (
     <div
@@ -17,19 +17,27 @@ export default function Weekly() {
     >
       <div className="flex justify-between">
         <div className="flex flex-col gap-4 ">
-          <span>name:{Weekly.name}</span>
+          <span>{t("card.name")}: 
+            <a
+              className='underline cursor-pointer'
+              target='_blank'
+
+              href={`https://github.com/${Weekly.name}`}> {Weekly.name}</a>
+          </span>
+
 
           <span>
-            additions:
-            <span className="text-green-500">{Weekly.stats.additions}</span>
+            {t("card.Addition")}:
+            <span className="text-green-500"> {Weekly.stats.additions}</span>
           </span>
           <span>
-            deletions:{' '}
-            <span className="text-red-500">{Weekly.stats.deletions}</span>
+            {t('card.deletions')}:
+            <span className="text-red-500"> {Weekly.stats.deletions}</span>
           </span>
-          <span>commits:{Weekly.stats.commits}</span>
-          <span>score:{Weekly.score}</span>
+          <span>{t("card.commits")}: {Weekly.stats.commits}</span>
+          <span>{t("card.score")}: {Weekly.score}</span>
         </div>
+
         <img
           className="object-cover h-20 w-20 rounded-full"
           src={Weekly.avatar_url}

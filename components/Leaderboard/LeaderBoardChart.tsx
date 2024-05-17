@@ -4,6 +4,7 @@ import { getData } from '@/app/[locale]/leaderboard/getData';
 export default function LeaderBoardChart() {
   const leaderBoardData = use(getData());
 
+
   const direction = useTextDirection();
 
   return (
@@ -11,7 +12,7 @@ export default function LeaderBoardChart() {
       dir={direction}
       className="   bg-lightAccBg overflow-y-auto  h-2/3 w-2/3 flex flex-col  gap-6  self-center ring-8 rounded-sm  dark:bg-darkAccBg dark:ring-offset-darkAccBg p-2  "
     >
-      {leaderBoardData.props.leaderboard.members.map((contributor, place) => {
+      {leaderBoardData.props.leaderboard.members.reverse().map((contributor, place) => {
         const pathDevelp = contributor;
 
         return (
@@ -30,20 +31,20 @@ export default function LeaderBoardChart() {
                 <a
                   className="truncate text-xs self-center font-bold underline decoration-blue-400  cursor-pointer w-20"
                   target="_blank"
-                  href=""
+                  href={`https://github.com/${pathDevelp.name}`}
                 >
                   {pathDevelp.name}
                 </a>
                 <span className="text-gray-500 text-xs self-end justify-start max-md:hidden">
-                  {pathDevelp.stats.commits} commits
+                  commits: {pathDevelp.stats.commits}
                 </span>
                 <span className="text-gray-500 text-xs self-end justify-start max-md:hidden">
-                  score:{pathDevelp.score}{' '}
+                  score: {pathDevelp.score}
                 </span>
               </div>
             </div>
             <span className="text-gray-500 text-xs md:hidden">
-              {pathDevelp.stats.commits} commits
+               commits: {pathDevelp.stats.commits}
             </span>
             <span className="text-green-500 text-xs">
               {pathDevelp.stats.additions}++

@@ -148,7 +148,8 @@
   "LeaderBoard": {
     "MonthlyTitle": "מצטיין חודשי",
     "WeeklyTitle": "מצטיין שבועי",
-    "AllTimesTitle": "כל הזמנים"
+    "AllTimesTitle": "כל הזמנים",
+    "card":{"name":"שם","Addition":"הוספה","deletions":"מחיקה","score":"ציון","Projects":"פרוייקטים","commits":"קומיטים"}
   },
   "Components": {
     "home": {
