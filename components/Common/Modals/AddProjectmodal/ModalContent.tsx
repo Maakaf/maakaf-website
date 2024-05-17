@@ -1,5 +1,9 @@
 import { addNewProject } from '@/actions/addNewProject';
-import { IAddProjectForm, AddProjectFormKeys, AddProjectFormData } from '@/types/forms';
+import {
+  IAddProjectForm,
+  AddProjectFormKeys,
+  AddProjectFormData,
+} from '@/types/forms';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useTranslations } from 'next-intl';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
@@ -57,7 +61,7 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
   });
 
   const onSubmit: SubmitHandler<IAddProjectForm> = async data => {
-    var form_data : AddProjectFormData = new FormData();
+    var form_data: AddProjectFormData = new FormData();
 
     for (var key in data) {
       const typedKey = key as AddProjectFormKeys;

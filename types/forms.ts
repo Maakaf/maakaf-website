@@ -18,4 +18,4 @@ export type AddProjectFormKeys = `${keyof IAddProjectForm}`;
 
 export interface AddProjectFormData extends FormData {
   append(name: AddProjectFormKeys, value: string | Blob): void;
-};
+}
