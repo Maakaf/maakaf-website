@@ -131,7 +131,8 @@
     "startOfActivity": "Start of activity",
     "searchPlaceholder": "Search by name, role",
     "secondOption": "Second option",
-    "thirdOption": "Third option"
+    "thirdOption": "Third option",
+    "noMemberFound": "No Member found"
   },
   "Components": {
     "home": {

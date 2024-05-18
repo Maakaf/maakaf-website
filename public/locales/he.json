@@ -144,7 +144,8 @@
     "startOfActivity": "תחילת פעילות",
     "searchPlaceholder": "חפש לפי שם תפקיד...",
     "secondOption": "אופציה שניה",
-    "thirdOption": "אופציה שלישית"
+    "thirdOption": "אופציה שלישית",
+    "noMemberFound": "המשתמש לא נמצא"
   },
   "Components": {
     "home": {
