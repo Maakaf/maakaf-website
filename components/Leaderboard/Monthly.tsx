@@ -1,8 +1,10 @@
+
 import { getData } from '@/app/[locale]/leaderboard/getData';
 import useTextDirection from '@/hooks/useTextDirection';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 import { use } from 'react';
+
 export default function Monthly() {
   const leaderBoardData = use(getData());
 
@@ -17,9 +19,9 @@ export default function Monthly() {
   return (
     <div
       dir={direction}
-      className="bg-lightAccBg min-h-[50dvh] ring-8 rounded-sm shadow-2xl dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 hover:shadow-discordLight "
+      className="bg-lightAccBg min-h-[50dvh] ring-8 rounded-sm shadow-2xl dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 hover:shadow-discordLight   "
     >
-      <div className="flex justify-between">
+      <div className="flex justify-between font-inter text-base  text-darkText dark:text-lightText">
         <div className="flex flex-col gap-3 md:gap-6 ">
           <span>{t("name")}:
             <a

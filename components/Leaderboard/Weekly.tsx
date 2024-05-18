@@ -12,7 +12,7 @@ export default function Weekly() {
 
   return (
     <div
-      className="bg-lightAccBg max-h-[40dvh] ring-8 rounded-sm  dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 shadow-2xl hover:shadow-discordLight "
+      className="bg-lightAccBg max-h-[40dvh] ring-8 rounded-sm  dark:bg-darkAccBg dark:ring-offset-darkAccBg p-5 shadow-2xl hover:shadow-discordLight font-inter text-base  text-darkText dark:text-lightText "
       dir={direction}
     >
       <div className="flex justify-between">
