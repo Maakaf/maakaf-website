@@ -70,10 +70,12 @@ export default function RootLayout({
       <meta charSet="ISO-8859-1" />
 
       <body
-        className={`min-h-screen flex flex-col items-stretch m-0 darkmode-main ${birzia.className} ${inter.variable}`}
+        className={`min-h-screen flex flex-col items-stretch m-0 darkmode-main ${
+          locale !== 'en' && birzia.className
+        } ${inter.variable}`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header/>
+          <Header />
           <main className="flex flex-col flex-1 h-full pt-24 md:pt-32">
             <NextIntlClientProvider locale={locale} messages={messages}>
               {children}
