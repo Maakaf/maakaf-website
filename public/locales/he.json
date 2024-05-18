@@ -84,7 +84,9 @@
       "requestAddProject": "בקשה להוספת פרוייקט",
       "fullNameError": "לפחות 2 תווים",
       "wrongMailError": "אימייל לא תקין",
-      "projectNameError": "לפחות 2 תווים"
+      "projectNameError": "לפחות 2 תווים",
+      "fileSizeError": "קובץ גדול מדי",
+      "fileTypeError": "קובץ לא תקין"
     },
     "steps": {
       "title": "איך התהליך עובד?",
@@ -142,7 +144,8 @@
     "startOfActivity": "תחילת פעילות",
     "searchPlaceholder": "חפש לפי שם תפקיד...",
     "secondOption": "אופציה שניה",
-    "thirdOption": "אופציה שלישית"
+    "thirdOption": "אופציה שלישית",
+    "noMemberFound": "המשתמש לא נמצא"
   },
   "Components": {
     "home": {

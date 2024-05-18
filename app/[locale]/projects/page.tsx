@@ -1,12 +1,13 @@
 'use client';
 import fetchProjectsData from '@/actions/fetchProjectsData';
 import FiltersBar from '@/components/Projects/FiltersBar/FiltersBar';
-import { MempmizedProjectsDisplay } from '@/components/Projects/ProjectDisplay';
+import { MemomizedProjectsDisplay } from '@/components/Projects/ProjectDisplay';
 import { ProjectFilter } from '@/types';
 import { Project, ProjectPaginationFilter } from '@/types/project';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import useTextDirection from '@/hooks/useTextDirection';
+import SkeletonCards from '@/components/Projects/Skeleton/SkeletonCards';
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -140,11 +141,9 @@ const ProjectsPage = () => {
           />
           {/* Project list */}
           {loading ? (
-            <div className="flex flex-col gap-4 h-[75vh]  mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
-              {t('populatingProjectMessage')}
-            </div>
+            <SkeletonCards />
           ) : projects?.length ? (
-            <MempmizedProjectsDisplay
+            <MemomizedProjectsDisplay
               projects={projects.filter(projectIncludesActiveTags)}
               activeLanguagesNames={tags
                 .filter(tag => tag.isActive)

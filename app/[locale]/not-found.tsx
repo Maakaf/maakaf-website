@@ -13,7 +13,7 @@ export default function NotFound() {
       <p>{t('paragraph')}</p>
       <Link
         href={LINKS.HOME}
-        className="w-[250px] my-8 text-xs discord-btn rounded-full px-7 py-2 flex items-start justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition items-center"
+        className="w-[250px] my-8 text-xs discord-btn rounded-full px-7 py-2 flex justify-center gap-2 dark:hover:bg-purple-200 item-hover-transition items-center"
       >
         {t('home')}{' '}
         <div className="fill-white dark:fill-black">
