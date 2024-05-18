@@ -1,0 +1,52 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.scss": "tailwindcss",
+    "*.sass": "tailwindcss",
+    "*.less": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": ["markup.inline.tailwind.css"],
+        "settings": {
+          "foreground": "#4FD1C5"
+        }
+      }
+    ]
+  },
+  "tailwindCSS.includeLanguages": {
+    "vue": "html"
+  },
+  "css.customData": ["./.vscode/css-data.json"],
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always",
+    "source.fixAll.format": "always"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#45c869",
+    "activityBar.background": "#45c869",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#7453cc",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#45c869",
+    "statusBar.background": "#32a852",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#45c869",
+    "statusBarItem.remoteBackground": "#32a852",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#32a852",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#32a85299",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.remoteColor": "#32a852"
+}
