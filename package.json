@@ -13,7 +13,9 @@
     "format": "npx prettier --write . --config ./.prettierrc",
     "prepare": "husky install",
     "test": "npx playwright test --ui",
-    "test-result": "npx playwright show-report"
+    "prepush": "npm run test",
+    "test-result": "npx playwright show-report",
+    "precommit": "lint-staged && npm run lint"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,md,json,scss}": [
