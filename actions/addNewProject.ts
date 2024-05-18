@@ -1,7 +1,7 @@
 'use server';
 
-import { IAddProjectForm } from '@/types/forms';
+import { AddProjectFormData } from '@/types/forms';
 
-export const addNewProject = async (data: IAddProjectForm) => {
+export const addNewProject = async (data: AddProjectFormData) => {
   console.log(data);
 };

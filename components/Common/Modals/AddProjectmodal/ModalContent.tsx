@@ -1,7 +1,11 @@
 import { addNewProject } from '@/actions/addNewProject';
-import { IAddProjectForm } from '@/types/forms';
+import {
+  IAddProjectForm,
+  AddProjectFormKeys,
+  AddProjectFormData,
+} from '@/types/forms';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import { useForm, SubmitHandler, FieldValues } from 'react-hook-form';
 import { z } from 'zod';
 import { FormTextInput } from '../../Inputs/FormTextInput';
@@ -9,6 +13,7 @@ import { FileUploader } from './FileUploader';
 import { MustIncludeMessage } from './MustIncludeMessage';
 import { ProjectDescription } from './ProjectDescription';
 import { TermsAndConditions } from './TermsAndConditions ';
+import useTextDirection from '@/hooks/useTextDirection';
 
 interface ModalContentProps {
   closeModal: () => void;
@@ -16,8 +21,7 @@ interface ModalContentProps {
 
 export const ModalContent = ({ closeModal }: ModalContentProps) => {
   const t = useTranslations('Maintainers.maintainerForm');
-  const localLang = useLocale();
-  const direction = localLang == 'he' ? 'rtl' : 'ltr';
+  const direction = useTextDirection();
 
   const schema = z.object({
     fullName: z.string().min(2, t('fullNameError')),
@@ -25,17 +29,46 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
     projectName: z.string().min(1, t('projectNameError')),
     projectDescription: z.string(),
     repoLink: z.string().optional(),
+    file: z
+      .custom<FileList>()
+      .superRefine((fileList, ctx) => {
+        const file = fileList?.item(0);
+        if (!file) {
+          return;
+        }
+        if (file.type !== 'image/png' && file.type !== 'image/jpeg') {
+          ctx.addIssue({
+            code: 'custom',
+            message: t('fileTypeError'),
+          });
+        }
+        if (file.size > 2000000) {
+          ctx.addIssue({
+            code: 'custom',
+            message: t('fileSizeError'),
+          });
+        }
+      })
+      .optional(),
   });
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setValue,
   } = useForm({
     resolver: zodResolver(schema),
   });
 
   const onSubmit: SubmitHandler<IAddProjectForm> = async data => {
-    await addNewProject(data);
+    var form_data: AddProjectFormData = new FormData();
+
+    for (var key in data) {
+      const typedKey = key as AddProjectFormKeys;
+      form_data.append(typedKey, data[typedKey] as string | Blob);
+    }
+
+    await addNewProject(form_data);
     closeModal();
   };
 
@@ -80,7 +113,12 @@ export const ModalContent = ({ closeModal }: ModalContentProps) => {
           name={'projectName'}
         />
 
-        <FileUploader register={register} name={'file'} />
+        <FileUploader
+          register={register}
+          name={'file'}
+          errors={errors}
+          onFileChange={setValue}
+        />
       </div>
 
       <ProjectDescription

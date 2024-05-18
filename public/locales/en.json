@@ -71,7 +71,9 @@
       "requestAddProject": "Add project request",
       "fullNameError": "At least 2 characters",
       "wrongMailError": "Invalid email",
-      "projectNameError": "At least 2 characters"
+      "projectNameError": "At least 2 characters",
+      "fileSizeError": "File size too big",
+      "fileTypeError": "Invalid file type"
     },
     "steps": {
       "title": "how does the process works?",
