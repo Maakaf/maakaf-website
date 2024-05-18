@@ -136,7 +136,7 @@
     "MonthlyTitle": "Monthly Score",
     "WeeklyTitle": "Weekly Score",
     "AllTimesTitle": "All Times Score",
-    "card":{"name":"Name","Addition":"Addition","deletions":"Deletions","score":"score","Projects":"Projects","commits":"commits"}
+    "card":{"name":"Name","Addition":"Addition","deletions":"Deletions","score":"Score","Projects":"Projects","commits":"Commits"}
   },
   "Components": {
     "home": {
