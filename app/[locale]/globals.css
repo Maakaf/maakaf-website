@@ -5,6 +5,7 @@
 @layer base {
   html {
     -webkit-tap-highlight-color: transparent;
+    background-color: red;
   }
   .image-project-card {
     width: auto;
