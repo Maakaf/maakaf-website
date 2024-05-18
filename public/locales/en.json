@@ -132,6 +132,12 @@
     "thirdOption": "Third option",
     "noMemberFound": "No Member found"
   },
+  "LeaderBoard": {
+    "MonthlyTitle": "Monthly Score",
+    "WeeklyTitle": "Weekly Score",
+    "AllTimesTitle": "All Times Score",
+    "card":{"name":"Name","Addition":"Addition","deletions":"Deletions","score":"score","Projects":"Projects","commits":"commits"}
+  },
   "Components": {
     "home": {
       "quotes": {
