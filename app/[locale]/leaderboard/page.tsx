@@ -35,7 +35,7 @@ const LeaderboardPage: React.FC = () => {
   const direction = useTextDirection();
 
   return (
-    <section className="grid grid-row-2 grid-cols-1 gap-10   content-center h-full p-10  md:grid-cols-6 md:grid-row-2   ">
+    <section className="grid grid-row-2 grid-cols-1 gap-10   content-center min-h-fit p-10  md:grid-cols-6 md:grid-row-2   ">
       <div className=" row-start-1 col-start-1    flex flex-col gap-10   md:col-start-1 col-end-3 ">
         <div>
         <h3
