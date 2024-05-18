@@ -1,0 +1,214 @@
+{
+  "TitleSection": {
+    "title": "Maakaf Community",
+    "subTitle": "Open Source Israel",
+    "firstParagraph": "The goal of the community is to connect Israeli developers",
+    "secondParagraph": "who are interested in contributing to open source, with Israeli open source libraries.",
+    "thirdParagraph": "Full details about the community can be found",
+    "fourthParagraph": "on the community's temporary website",
+    "discordLink": "Click here for the temporary website"
+  },
+  "Metadata": {
+    "HomePage": {
+      "title": "Home page | Maakaf",
+      "description": "Maakaf is a community of open source developers"
+    }
+  },
+  "About": {
+    "welcome": "Welcome to Maakaf",
+    "firstParagraph": "We believe in sharing information and knowledge as a way to promote technology and innovation. Open source is an approach that allows us to collaborate in software development openly and transparently.",
+    "secondParagraph": "When we talk about open source, we refer to software whose source code is available to the public for viewing, modification, and improvement. Open source gives us the opportunity to understand how software works, to enhance it, and to tailor it to our needs. We invite you to join us, to be impressed, to share, and to influence. Here in the Israeli open source community, there is a place for everyone, from beginners to experts.",
+    "thirdParagraph": "Join us",
+    "button": "Discord"
+  },
+  "Maintainers": {
+    "FaqSection": {
+      "whatIsOpenSource": "1. What is open source?",
+      "whatIsopenSourceAnswer": "Open source project is a software project or initiative in which the source code is available to the public for collaboration, modification, and distribution. It encourages transparency, community involvement, and free access to the code.",
+      "whyMakeTheProjectOpenSource": "2. Why should I make my project open source?",
+      "whyMakeTheProjectOpenSourceAnswer": "Working with open source code allows benefits such as creating collaborations with other developers, faster development, higher quality code, shared learning, and problem-solving. An open source project can attract contributors and users interested in the field it addresses.",
+      "isTheProjectLargeEnough": "3. How can I know if my project is large or important enough to share as open source?",
+      "isTheProjectLargeEnoughAnswer": "All projects are important! There are open source projects small and large, in every field and technology. Many well-known companies work with open source code. Still have doubts? You can always consult on Discord.",
+      "atDiscord": "At Discord",
+      "andAtDiscord": "At Discord",
+      "andsWhatsapp": "and on WhatsApp",
+      "canIGetHelp": "4. Can I get help to understand how to build my project?",
+      "canIGetHelpAnswer": "Definitely! You can always seek help and advice from members of our open source community.",
+      "howToMakeProjectAtratcibe": "5. How can I attract contributors to my open source project?",
+      "howToMakeProjectAtratcibeAnswer": "Join our community",
+      "howToStartWithOpenSource": "7. How can I get started with open source?",
+      "howToStartWithOpenSourceAnswer1": "To start an open source project or turn an existing project into open source, you need to choose a license, define a version control system like Git, create a repository on a platform like GitHub, and start documenting the project and creating documentation.",
+      "howToStartWithOpenSourceAnswer2": "It's important to create clear guidelines for contributing to the project, to make it easier for contributors to join.",
+      "shareUs": "And of course, don't forget to share us",
+      "addPRojectAndTellAbout": "Add the project and tell us about it,",
+      "tellAboutProjectMeaning": "You could create a tutorial video where you explain about the project, its purpose, which languages it uses, etc.",
+      "createInvolvment": "Create involvement of open source contributors in the community through activity on Discord and WhatsApp.",
+      "maintainProjectRegulary": "Ensure to maintain the project and documentation regularly, to facilitate quick integration of new contributors.",
+      "openSourceManagmant": "6. What does project management in open source entail?",
+      "openSourceManagmantAnswer": "Project management in open source may vary among projects. Generally, it involves monitoring the code, testing and merging changes and updates from contributors to the project, setting project goals, leading and making decisions regarding the project."
+    },
+
+    "maintainerForm": {
+      "header": "Maintainers",
+      "firstParagraph": "Project maintainer and want to join Maakaf?",
+      "secondParagraph": "Random text that explains some things about combining projects for bypass,",
+      "thirdParagraph": "what to do to join, how the process works in general.",
+      "joinButton": "Joining form",
+      "fullName": "Full Name *",
+      "email": "Contact Email",
+      "repoLink": "Repository Link",
+      "logo": "Logo (if any)",
+      "projectDescription": "Project Description",
+      "freeText": "Free Text",
+      "mustReadMessage": "Must fill in the Full Name and Project Name section.",
+      "termsAndConditions": "I have read and agree to the",
+      "termsAndConditionsUnderline": "Terms of Use and Privacy Statement *",
+      "cancel": "Cancel",
+      "send": "Send",
+      "requestAddProject": "Add project request",
+      "fullNameError": "At least 2 characters",
+      "wrongMailError": "Invalid email",
+      "projectNameError": "At least 2 characters"
+    },
+    "steps": {
+      "title": "how does the process works?",
+      "step-1-h": "Step 1",
+      "step-1-p": "Filling out a community membership form",
+      "step-2-h": "Step 2",
+      "step-2-p": "The project will be reviewed by one of the community managers",
+      "step-3-h": "Step 3",
+      "step-3-p": "Commencing work with the developers and advancing the project tasks"
+    }
+  },
+  "Newbies": {
+    "subTitle": "Welcome to Open Source Israel",
+    "paragraph": "Start Your Coding Journey Today! Ever wanted to learn how to code but didn't know where to start?  Open source is a great way to get started in coding. It's all about sharing and collaborating with other coders to create amazing things.",
+    "terms": {
+      "title": "Important concepts to know",
+      "maintainers": "Project owners who want to contribute their project to open source",
+      "contributers": "Discord users with prior experience in open source communities are invited to become Contributors after completing our quick onboarding process",
+      "newbies": "Our future generation. An uncut diamond. The one who is reading these lines right now."
+    },
+    "linksSection": {
+      "title": "Where everything happening?",
+      "header1": "Practice website",
+      "paragraph1": "A community website where you can learn about open source and get involved before joining the Discord server",
+      "header2": "Discord",
+      "paragraph2": "Project owners who want to contribute their project to open source",
+      "header3": "WhatsApp",
+      "paragraph3": "Other groups that are active, primarily for coordinating events and making important announcements"
+    },
+    "Faq": {
+      "whatIsopenSource": "What is open source",
+      "whatIsopenSourceAnswer": "Open source refers to software or projects whose source code is available to the public, allowing anyone to view, modify, and distribute it. It encourages collaboration and transparency among developers worldwide.",
+      "whyOpenSourceImportant": "Why is open source important?",
+      "whyOpenSourceImportantAnswer": "Open source provides transparency, community support, and opportunities for improving existing software. It also grants freedom in software usage and helps prevent dependence on certain software providers.",
+      "whyContributeOpenSource": "Why contribute to open source?",
+      "whyContributeOpenSourceAnswer": "Participating in open source projects allows you to gain real-world experience, receive feedback from experienced developers, learn new working methods, learn new technologies, contribute to and promote significant projects, and collaborate with a local and global community.",
+      "openSourceForEveryone": "Is open source for everyone?",
+      "openSourceForEveryoneAnswer": "No! Open source projects need diverse people with a variety of skills, including developers, testers, designers, community managers, and more! Anyone can contribute to open source.",
+      "openSourceForNewbies": "I have no experience in open source / projects, is open source suitable for me?",
+      "openSourceForNewbiesAnswer": "Absolutely! Open source projects welcome contributors at all levels. Many projects have tasks suitable for beginners, sometimes marked as 'beginner-friendly' or 'good first issue.' You can always consult Discord to find out where you can fit in.",
+      "findOpenSourceProjects": "Where can I find open source projects to contribute to?",
+      "findOpenSourceProjectsAnswer": "Right here in the community! In the Projects page, you can find information about open source projects in various languages and fields. In our Discord, there are channels for each project where you can ask questions, seek advice, and get help from community members.",
+      "howToContribute": "How can I contribute to an open source project?",
+      "howToContributeAnswer": "It's very important to read the contribution guidelines for the project you want to join. Each project may have slightly different focuses and processes. In general, the contribution process to an open source project includes the following steps: - Checking which Issues exist in the project, or finding a bug that needs fixing - Request to handle the Issue - Duplicating the project using Fork - Creating a branch for the feature / bug - Working on the feature / bug - Creating a Pull Request to merge the changes.",
+      "projectsPage": "בעמוד הפרויקטים",
+      "discordInfo": "בדיסקורד שלנו",
+      "ourDiscord": "הדיסקורד שלנו",
+      "discordChannels": "ערוצי דיסקורד"
+    }
+  },
+  "Members": {
+    "title": "MEMBERS",
+    "paragraph": "Here you can meet the entire family! When your'e done, come to Discord",
+    "discordButton": "Discord Channel",
+    "startOfActivity": "Start of activity",
+    "searchPlaceholder": "Search by name, role",
+    "secondOption": "Second option",
+    "thirdOption": "Third option"
+  },
+  "Components": {
+    "home": {
+      "quotes": {
+        "header": "Open source is the foundation of a community that works together, shares knowledge, and collaborates to create something amazing",
+        "paragraph": "Founder of Linux, Linus Torvalds"
+      },
+      "beOurFriends": {
+        "title": "What you get from being a Maakaf member",
+        "gettingExperience": "Gaining experience in various projects",
+        "gettingExperienceDescription": "Ma'akaf community provides you with interesting and exclusive projects",
+        "contacts": "Contacts",
+        "contactsDescription": "Connect with additional professionals in your field",
+        "marketRelevance": "Maintaining relevance in the market",
+        "marketRelevanceDescription": "A place that allows you to stay updated on the latest changes and not fall behind",
+        "jobs": "Jobs",
+        "jobsDescription": "Participating in the community exposes you to numerous and diverse employment opportunities",
+        "support": "Guidance and support from industry peers",
+        "supportDescription": "In the community, you can easily get help with code matters. We have experts in all languages and all problems",
+        "vibrantCommunity": "Vibrant Community",
+        "vibrantCommunityDescription": "Although our community is growing, the quality of people remains. Come meet new friends."
+      },
+      "whatNow": {
+        "title": "What now?",
+        "paragraph": "It's simpler than it seems. Here will be another paragraph that encourages sharing and joining the community, telling how cool and nice the people are and how much they learn from doing things there. How will this make a person look at development differently and make a significant change in the world and in his life?",
+        "startButton": "start"
+      },
+      "memberPics": {
+        "firstParagraph": "Meet the community",
+        "secondParagraph": "members"
+      }
+    },
+    "faqs": {
+      "title": "Qustions & answers",
+      "firstParagraph": "It's worth trying our Questions & Answers section, and if the answer isn't there, we have the",
+      "discordTitle": "Discord Channel",
+      "secondParagraph": "with genuinely, the nicest people you'll ever meet, who are always willing to help anyone who needs it"
+    }
+  },
+  "Header": {
+    "projects": "Projects",
+    "aboutUs": "About Us",
+    "community": "Community",
+    "newbies": "First time in Open Source",
+    "members": "already participated in Open Source",
+    "maintainers": "Project maintainers who wants to join"
+  },
+  "Footer": {
+    "projects": "Projects",
+    "contact": "Contact",
+    "aboutUs": "Who we are",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy policy"
+  },
+  "Projects": {
+    "communityProjects": "The communioty projects page, enjoy...",
+    "populatingProjectMessage": "Loading projects...",
+    "noProjectsFound": "No projects found",
+    "github": "Github",
+    "discord": "Discord channel",
+    "contributers": "Contributors",
+    "updateDate": "Update Date",
+    "creationDate": "Creation Date",
+    "title": "Projects",
+    "FiltersBar": {
+      "howToContribute": "How to contribute to open source?",
+      "placeHolder": "Search by name",
+      "filters": "Filters",
+      "sortOptions": {
+        "recentlyUpdated": "Recently updated",
+        "random": "Random",
+        "contributors": "Contributors",
+        "newest": "Newest"
+      },
+      "filterByProjects": "Filter to projects",
+      "projectsFilters": "Filter by projects",
+      "tags": "filter by tags"
+    }
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "paragraph": "We could not locate the page you are looking for.",
+    "home": "Return to the home page"
+  }
+}
