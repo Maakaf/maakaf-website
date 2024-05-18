@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .image-project-card {
+    width: auto;
+    height: auto;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-blue-400 dark:bg-slate-500 rounded-full border-4 border-blue-400 dark:border-black;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-purple-100 dark:bg-black rounded-full;
+  }
+}
+
+@layer components {
+  /* Common */
+  .darkmode-main {
+    @apply bg-lightBg dark:bg-darkBg text-darkText dark:text-lightText;
+  }
+  .darkmode-section {
+    @apply bg-lightAccBg dark:bg-darkAccBg;
+  }
+  .light-icon-hover {
+    filter: invert(87%) sepia(33%) saturate(418%) hue-rotate(103deg)
+      brightness(103%) contrast(93%);
+  }
+
+  .dark-icon-hover {
+    filter: invert(42%) sepia(67%) saturate(3977%) hue-rotate(247deg)
+      brightness(100%) contrast(94%);
+  }
+
+  /* Text configs */
+  h1 {
+    @apply text-4xl md:text-5xl font-black;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl font-black;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+  h4 {
+    @apply text-xl md:text-2xl font-bold;
+  }
+  .h4-roman {
+    @apply font-medium;
+  }
+  h5 {
+    @apply text-base md:text-xl font-bold;
+  }
+  .body-bold {
+    @apply font-inter text-sm md:text-base font-semibold;
+  }
+  .body-roman {
+    @apply font-inter text-sm md:text-base font-normal;
+  }
+
+  /* Home - Header Section */
+  .discord-btn {
+    @apply bg-discordLight dark:bg-discordDark text-lightText dark:text-darkText;
+  }
+  .btn {
+    @apply bg-purple-400 text-lightText;
+  }
+}
