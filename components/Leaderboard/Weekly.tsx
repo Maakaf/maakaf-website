@@ -7,7 +7,7 @@ export default function Weekly() {
   const t=useTranslations("LeaderBoard")
 
   const leaderBoardData = use(getData());
-  const Weekly = leaderBoardData.props.leaderboard.members[leaderBoardData.props.leaderboard.members.length - 1];
+  const Weekly = leaderBoardData.leaderboard.members[leaderBoardData.leaderboard.members.length - 1];
 
 
   return (

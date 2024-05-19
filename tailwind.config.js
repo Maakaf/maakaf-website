@@ -88,15 +88,6 @@ module.exports = {
       '4xl': '48px',
       '5xl': '60px',
     },
-    container: {
-      padding: {
-        DEFAULT: '1rem',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '5rem',
-        '2xl': '6rem',
-      },
-    },
   },
   plugins: [require('tailwindcss-animate')],
   safelist: ['bg-gradient-to-r'],

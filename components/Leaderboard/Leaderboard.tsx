@@ -1,8 +1,37 @@
+"use client"
+import fetchLeaderboard from '@/actions/fetchLeaderboardData';
 import { Analitycs } from '@/app/[locale]/leaderboard/getData';
-import { Code2, Feather, StarIcon } from 'lucide-react';
+import { StarIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
-const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
+const LeaderboardPage: React.FC = () => {
+
+
+  const [data, setData] = useState<Analitycs>()
+  const [isLoading, setLoading] = useState(true)
+ 
+  useEffect(() => {
+    fetchLeaderboard().then((data) => {
+      setData(data)
+      setLoading(false)
+    }).catch((e) => {
+      console.error(e)
+      setLoading(false)
+    })
+  }, [])
+ 
+  if (isLoading) return <p>Loading...</p>
+  if (!data) return <p>No profile data</p>
+  return (
+    <>
+    <Leaderboard leaderboard={data} />
+    </>
+  )
+}
+
+
+const Leaderboard: React.FC<{ leaderboard: Analitycs }> = props => {
   const since = new Date(props.leaderboard.since);
   const until = new Date(props.leaderboard.until);
   const bigScreenFormatter = new Intl.DateTimeFormat('en-US', {
@@ -23,9 +52,18 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
     smallSince: smallScreenFormatter.format(since),
     smallUntil: smallScreenFormatter.format(until),
   };
-  const firstPlace = props.leaderboard.members[0];
-  const secondPlace = props.leaderboard.members[1];
-  const thirdPlace = props.leaderboard.members[2];
+  const mappedData = props.leaderboard.members.map(data => {
+    return {
+      ...data,
+      projects_name_urls: data.projects_names.map(
+        p => `https://github.com/${p.url}`
+      ),
+      loginUrl: `https://github.com/${data.name}`,
+    };
+  });
+  const firstPlace = mappedData[0];
+  const secondPlace = mappedData[1];
+  const thirdPlace = mappedData[2];
 
   return (
     <div dir="ltr" className="font-inter">
@@ -40,7 +78,7 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
         <FirstPlacePerson data={firstPlace} place={1} />
         <DisplaySecoundPerson data={secondPlace} place={2} />
         <DisplayThirdPerson data={thirdPlace} place={3} />
-        {props.leaderboard.members.slice(3, -1).map((data, ind) => {
+        {mappedData.slice(3, -1).map((data, ind) => {
           return (
             <DisplayPerson data={data} key={data.node_id} place={ind + 4} />
           );
@@ -53,7 +91,10 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
 export default LeaderboardPage;
 
 interface PersonPlace {
-  data: Analitycs['members'][number];
+  data: Analitycs['members'][number] & {
+    loginUrl: string;
+    projects_name_urls: string[];
+  };
   place: number;
 }
 
@@ -73,7 +114,7 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -96,17 +137,18 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             </div>
           </div>
           <div className="text-indigo-800 flex gap-2  ">
-            <span>Coomit</span>
+            <span>Commit</span>
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className="text-xs ">Projects:</h4>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+                href={data.projects_name_urls[ind]}
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
@@ -138,7 +180,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -163,13 +205,14 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className="text-xs ">Projects:</h4>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+                href={data.projects_name_urls[ind]}
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
@@ -195,7 +238,7 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -223,13 +266,14 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className="text-xs ">Projects:</h4>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
               <a
                 key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
+                href={data.projects_name_urls[ind]}
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
                 <span>{project.name}</span>
@@ -258,7 +302,7 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -285,17 +329,20 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
             <span>{data.stats.commits}</span>
           </div>
         </div>
-        <div>
-          <h4 className="text-xs ">Projects:</h4>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
           {data.projects_names.map((project, ind) => {
             return (
-              <a
-                key={ind}
-                className="flex gap-2 items-center underline text-indigo-300 text-xs"
-              >
-                <StarIcon size={16} />
-                <span>{project.name}</span>
-              </a>
+              <>
+                <a
+                  key={ind}
+                  href={data.projects_name_urls[ind]}
+                  className="flex gap-1 items-center underline text-indigo-300 text-xs"
+                >
+                  <StarIcon size={16} />
+                  <span>{project.name}</span>
+                </a>
+              </>
             );
           })}
         </div>
