@@ -1,90 +1,397 @@
+import { Analitycs } from '@/app/[locale]/leaderboard/getData';
+import { StarIcon } from 'lucide-react';
+import Image from 'next/image';
 
+const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
+  console.log(props.leaderboard)
+  const since = new Date(props.leaderboard?.since);
+  const until = new Date(props.leaderboard?.until);
+  const bigScreenFormatter = new Intl.DateTimeFormat('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 
-import { Metadata } from 'next';
-import { use } from 'react';
-import { getData } from './getData';
-import { useTranslations } from 'next-intl';
-import useTextDirection from '@/hooks/useTextDirection';
-import Monthly from '@/components/Leaderboard/Monthly';
-import Weekly from '@/components/Leaderboard/Weekly';
-import LeaderBoardChart from '@/components/Leaderboard/LeaderBoardChart';
-export const metadata: Metadata = {
-  title: 'לוח מובילים - Leaderboard',
-  description:
-    'צפו במובילי הקהילה ובתרומתם לפרויקטים בקוד פתוח. גלו את המשתמשים הפעילים ביותר ואת ההשפעה שלהם על הקהילה.',
-  openGraph: {
-    title: 'לוח מובילים - Leaderboard | מעקף',
-    description:
-      'צפו במובילי הקהילה ובתרומתם לפרויקטים בקוד פתוח. גלו את המשתמשים הפעילים ביותר ואת ההשפעה שלהם על הקהילה.',
-    url: 'https://maakaf-website.vercel.app/leaderboard',
-    siteName: 'Maakaf',
-    type: 'website',
-    images: [
-      {
-        url: 'https://maakaf-website.vercel.app/favicon.ico',
-        width: 600,
-        height: 600,
-      },
-    ],
-  },
-};
-
-const LeaderboardPage: React.FC = () => {
- 
-  const t = useTranslations('LeaderBoard');
-  const direction = useTextDirection();
+  const smallScreenFormatter = new Intl.DateTimeFormat('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+  const datesText = {
+    since: bigScreenFormatter?.format(since),
+    until: bigScreenFormatter?.format(until),
+    smallSince: smallScreenFormatter.format(since),
+    smallUntil: smallScreenFormatter.format(until),
+  };
+  const mappedData = props.leaderboard.members.map(data => {
+    return {
+      ...data,
+      projects_name_urls: data.projects_names.map(
+        p => `https://github.com/${p.url}`
+      ),
+      loginUrl: `https://github.com/${data.name}`,
+    };
+  });
+  const firstPlace = mappedData[0];
+  const secondPlace = mappedData[1];
+  const thirdPlace = mappedData[2];
 
   return (
-    <section className="grid grid-row-2 grid-cols-1 gap-10   content-center min-h-fit p-10  md:grid-cols-6 md:grid-row-2   ">
-      <div className=" row-start-1 col-start-1    flex flex-col gap-10   md:col-start-1 col-end-3 ">
-        <div>
-        <h3
-          className={`p-5  w-full ${
-            direction === 'rtl' ? 'text-right' : 'text-left'
-          }`}
-        >
-          {t('MonthlyTitle')}{' '}
-        </h3>
-        <Monthly />
-
+    <div dir="ltr" className="font-inter">
+      <div className="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto  ">
+        <div className="col-span-full">
+          <h1 className="pb-8 pt-6">Leaderboard</h1>
+          <Tabs />
+          <p className="[text-wrap:balance] text-indigo-800">
+            {datesText.since} <span className="">-</span> {datesText.until}
+          </p>
         </div>
-        <div>
-        <h3
-          className={`p-5  w-full ${
-            direction === 'rtl' ? 'text-right' : 'text-left'
-          }`}
-        >
-          {t('WeeklyTitle')}{' '}
-        </h3>
-        <Weekly />
-
-        </div>
-        
+        <FirstPlacePerson data={firstPlace} place={1} />
+        <DisplaySecoundPerson data={secondPlace} place={2} />
+        <DisplayThirdPerson data={thirdPlace} place={3} />
+        {mappedData.slice(3, -1).map((data, ind) => {
+          return (
+            <DisplayPerson data={data} key={data.node_id} place={ind + 4} />
+          );
+        })}
       </div>
-      <div className="max-h-[90vh] bg-lightAccBg dark:bg-darkBg min-w-[80vw] md:min-w-[50vw] flex flex-col shadow-2xl shadow-discordLight rounded-sm  row-start-2 col-start-1 md:col-start-4 md:col-end-7 md:row-start-1 md:min-h-[100vh] md:p-4 md:relative left-10    ">
-        <h3
-          className={`p-5 w-2/3 self-center ${
-            direction === 'rtl' ? 'text-right' : 'text-left'
-          }`}
-        >
-          {t('AllTimesTitle')}{' '}
-        </h3>
-        <LeaderBoardChart />
-      </div>
-    </section>
+    </div>
   );
 };
 
 export default LeaderboardPage;
 
-/*
-TODO: Create a the page ui for the leaderboard
-TODO: Database for the leaderboard
-TODO: interface for the leaderboard
-TODO: loop through the github users
-TODO:
-TODO:
-TODO:
-TODO:
-*/
+interface PersonPlace {
+  data: Analitycs['members'][number] & {
+    loginUrl: string;
+    projects_name_urls: string[];
+  };
+  place: number;
+}
 
+export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
+  return (
+    <CardWarper
+      className="flex gap-2 ring-1 ring-indigo-900/80 rounded-md p-4 relative "
+      key={data.node_id}
+    >
+      <Image
+        src={data.avatar_url}
+        className="rounded-full w-[50px] h-[50px] "
+        alt={data.name}
+        width={50}
+        height={50}
+      />
+      <div className="flex flex-col w-full  ">
+        <a
+          className="flex justify-between flex-wrap gap-2 "
+          href={data.loginUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="underline first-letter:capitalize tracking-wider">
+            {data.name}
+          </span>
+          <div className="flex gap-2 text-indigo-700">
+            <div>Score: {data.score}</div>
+          </div>
+        </a>
+        <div className="flex gap-2 pb-3">
+          <div className="flex gap-2 ">
+            <div className="text-green-300">
+              <span>{data.stats.additions}</span>
+              <span>++</span>
+            </div>
+            <div className="text-red-300">
+              <span>{data.stats.deletions}</span>
+              <span>--</span>
+            </div>
+          </div>
+          <div className="text-indigo-800 flex gap-2  ">
+            <span>Coomit</span>
+            <span>{data.stats.commits}</span>
+          </div>
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <a
+                key={ind}
+                href={data.projects_name_urls[ind]}
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
+              >
+                <StarIcon size={16} />
+                <span>{project.name}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </CardWarper>
+  );
+};
+
+export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
+  data,
+  place,
+}) => {
+  return (
+    <CardWarper
+      className="flex gap-2 ring-1 ring-indigo-900/80 rounded-md p-4 row-span-2 relative "
+      key={data.node_id}
+    >
+      <Image
+        src={data.avatar_url}
+        className="rounded-full w-[50px] h-[50px]"
+        alt={data.name}
+        width={50}
+        height={50}
+      />
+      <div className="flex flex-col w-full  ">
+        <a
+          className="flex justify-between flex-wrap gap-2 "
+          href={data.loginUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="underline first-letter:capitalize text-xl tracking-wider">
+            {data.name}
+          </span>
+          <div className="flex gap-2 text-indigo-700">
+            <div>Score: {data.score}</div>
+          </div>
+        </a>
+        <div className="flex gap-2 flex-wrap pb-3">
+          <div className="flex gap-2 ">
+            <div className="text-green-300">
+              <span>{data.stats.additions}++</span>
+            </div>
+            <div className="text-red-300">
+              <span>{data.stats.deletions}--</span>
+            </div>
+          </div>
+          <div className="text-indigo-800 flex gap-2   ">
+            <span>Coomit</span>
+            <span>{data.stats.commits}</span>
+          </div>
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <a
+                key={ind}
+                href={data.projects_name_urls[ind]}
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
+              >
+                <StarIcon size={16} />
+                <span>{project.name}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </CardWarper>
+  );
+};
+
+export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
+  return (
+    <CardWarper key={data.node_id}>
+      <Image
+        src={data.avatar_url}
+        className="rounded-full w-[50px] h-[50px] "
+        alt={data.name}
+        width={50}
+        height={50}
+      />
+      <div className="flex flex-col w-full  ">
+        <a
+          className="flex justify-between flex-wrap gap-2 "
+          href={data.loginUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="underline first-letter:capitalize tracking-wider">
+            {data.name}
+          </span>
+          <div className="flex gap-2 text-indigo-700">
+            <div>Score: {data.score}</div>
+            {place}#
+          </div>
+        </a>
+        <div className="flex gap-2">
+          <div className="flex gap-2 ">
+            <div className="text-green-300">
+              <span>{data.stats.additions}</span>
+              <span>++</span>
+            </div>
+            <div className="text-red-300">
+              <span>{data.stats.deletions}</span>
+              <span>--</span>
+            </div>
+          </div>
+          <div className="text-indigo-800 flex gap-2 pb-3 ">
+            <span>Coomit</span>
+            <span>{data.stats.commits}</span>
+          </div>
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <a
+                key={ind}
+                href={data.projects_name_urls[ind]}
+                className="flex gap-1 items-center underline text-indigo-300 text-xs"
+              >
+                <StarIcon size={16} />
+                <span>{project.name}</span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </CardWarper>
+  );
+};
+
+export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
+  return (
+    <CardWarper
+      className="flex gap-2 ring-1 ring-indigo-900/80 rounded-md p-4 md:p-4 col-span-full relative  "
+      key={data.node_id}
+    >
+      <Image
+        src={data.avatar_url}
+        className="rounded-full w-[100px] h-[100px]  "
+        alt={data.name}
+        width={100}
+        height={100}
+      />
+      <div className="flex flex-col w-full  ">
+        <a
+          className="flex justify-between flex-wrap gap-2 "
+          href={data.loginUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="underline first-letter:capitalize text-2xl tracking-wider text-indigo-50">
+            {data.name}
+          </span>
+          <div className="flex gap-2 text-indigo-700">
+            <div>Score: {data.score}</div>
+          </div>
+        </a>
+        <div className="flex gap-2">
+          <div className="flex gap-2 ">
+            <div className="text-green-300">
+              <span>{data.stats.additions}</span>
+              <span>++</span>
+            </div>
+            <div className="text-red-300">
+              <span>{data.stats.deletions}</span>
+              <span>--</span>
+            </div>
+          </div>
+          <div className="text-indigo-800 flex gap-2 pb-3 ">
+            <span>Coomit</span>
+            <span>{data.stats.commits}</span>
+          </div>
+        </div>
+        <div className="flex gap-2 flex-wrap">
+          <h4 className="text-xs flex-grow w-full">Projects:</h4>
+          {data.projects_names.map((project, ind) => {
+            return (
+              <>
+                <a
+                  key={ind}
+                  href={data.projects_name_urls[ind]}
+                  className="flex gap-1 items-center underline text-indigo-300 text-xs"
+                >
+                  <StarIcon size={16} />
+                  <span>{project.name}</span>
+                </a>
+              </>
+            );
+          })}
+        </div>
+      </div>
+    </CardWarper>
+  );
+};
+
+interface TypeCardWarper {
+  children: React.ReactNode;
+  className?: string;
+}
+
+export const CardWarper: React.FC<TypeCardWarper> = ({
+  children,
+  className,
+}) => {
+  return (
+    <div
+      className={
+        className ||
+        'flex gap-2 ring-1 ring-indigo-900/80 rounded-md p-4 relative'
+      }
+    >
+      {children}
+    </div>
+  );
+};
+
+export const Tabs: React.FC = () => {
+  return (
+    <div className="flex gap-2">
+      <div className="">
+        <input
+          id="all-times"
+          type="radio"
+          name="time-filter"
+          defaultChecked
+          className="hidden peer"
+        />
+        <label
+          htmlFor="all-times"
+          className="block cursor-pointer select-none rounded-lg py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
+        >
+          All Times
+        </label>
+      </div>
+
+      <div className="">
+        <input
+          id="weekly"
+          type="radio"
+          name="time-filter"
+          className="hidden peer"
+        />
+        <label
+          htmlFor="weekly"
+          className="block cursor-pointer select-none rounded-lg px-4 py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
+        >
+          Weekly
+        </label>
+      </div>
+
+      <div className="">
+        <input
+          id="monthly"
+          type="radio"
+          name="time-filter"
+          className="hidden peer"
+        />
+        <label
+          htmlFor="monthly"
+          className="block cursor-pointer select-none rounded-lg px-4 py-2 text-2xl text-indigo-700 peer-checked:text-indigo-50 peer-checked:underline duration-200 ease-in-out"
+        >
+          Monthly
+        </label>
+      </div>
+    </div>
+  );
+};
