@@ -26,14 +26,15 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
   const mappedData = props.leaderboard.members.map(data => {
     return {
       ...data,
-      projects_name_urls: data.projects_names.map(p => `https://github.com/${p.url}`),
-      loginUrl: `https://github.com/${data.name}`
-    }
+      projects_name_urls: data.projects_names.map(
+        p => `https://github.com/${p.url}`
+      ),
+      loginUrl: `https://github.com/${data.name}`,
+    };
   });
   const firstPlace = mappedData[0];
   const secondPlace = mappedData[1];
   const thirdPlace = mappedData[2];
-
 
   return (
     <div dir="ltr" className="font-inter">
@@ -49,7 +50,6 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
         <DisplaySecoundPerson data={secondPlace} place={2} />
         <DisplayThirdPerson data={thirdPlace} place={3} />
         {mappedData.slice(3, -1).map((data, ind) => {
-
           return (
             <DisplayPerson data={data} key={data.node_id} place={ind + 4} />
           );
@@ -62,7 +62,10 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
 export default LeaderboardPage;
 
 interface PersonPlace {
-  data: Analitycs['members'][number] & { loginUrl: string, projects_name_urls: string[]};
+  data: Analitycs['members'][number] & {
+    loginUrl: string;
+    projects_name_urls: string[];
+  };
   place: number;
 }
 
