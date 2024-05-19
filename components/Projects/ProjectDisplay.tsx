@@ -1,7 +1,6 @@
 import ProjectCard from './ProjectCard/ProjectCard';
 import React from 'react';
 import { Project } from '@/types/project';
-import { ProjectFilter } from '@/types';
 
 type ProjectsDisplayProps = {
   projects: Project[];
@@ -13,7 +12,7 @@ const ProjectsDisplay = ({
   activeLanguagesNames,
 }: ProjectsDisplayProps) => {
   return (
-    <div className="flex flex-col gap-4 h-[75vh] overflow-y-scroll  mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
+    <div className="flex flex-col gap-4 h-[75vh] overflow-y-scroll mb-10 w-[90%] md:w-full max-w-[1240px] mx-auto pl-2">
       {projects.map((project, i) => (
         <ProjectCard
           key={project.item.data.repository.url + i}
@@ -25,4 +24,4 @@ const ProjectsDisplay = ({
   );
 };
 
-export const MempmizedProjectsDisplay = React.memo(ProjectsDisplay);
+export const MemomizedProjectsDisplay = React.memo(ProjectsDisplay);
