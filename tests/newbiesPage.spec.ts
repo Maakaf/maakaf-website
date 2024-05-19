@@ -20,6 +20,7 @@ test.describe('Test Newbies page', () => {
   });
 
   test('External links contain correct URLs', async ({ page }) => {
+    console.log('BASE_URL', BASE_URL)
     await page.goto(`${BASE_URL}/newbies`);
 
     const linksData = [
