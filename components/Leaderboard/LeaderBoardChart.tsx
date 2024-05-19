@@ -11,7 +11,7 @@ export default function LeaderBoardChart() {
     <div
       dir={direction}
       className="overflow-y-scroll h-2/3 w-5/6 flex flex-col  gap-6  self-center p-2 font-inter text-base  text-darkText dark:text-lightText ">
-      {leaderBoardData.props.leaderboard.members.reverse().map((contributor, place) => {
+      {leaderBoardData.leaderboard.members.reverse().map((contributor, place) => {
         const pathDevelp = contributor;
         return (
           <div

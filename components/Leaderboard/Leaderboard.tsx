@@ -1,5 +1,5 @@
 import { Analitycs } from '@/app/[locale]/leaderboard/getData';
-import { Code2, Feather, StarIcon } from 'lucide-react';
+import { StarIcon } from 'lucide-react';
 import Image from 'next/image';
 
 const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
