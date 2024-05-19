@@ -8,9 +8,7 @@ export async function getData() {
   });
 
   const leaderboard = (await res.json()) as unknown as Analitycs;
-  return {
-    props: { leaderboard },
-  };
+  return {leaderboard}
 }
 
 export type Analitycs = {

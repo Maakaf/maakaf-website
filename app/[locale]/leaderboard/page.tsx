@@ -1,11 +1,11 @@
-import { Analitycs } from '@/app/[locale]/leaderboard/getData';
+import { Analitycs, getData } from '@/app/[locale]/leaderboard/getData';
 import { StarIcon } from 'lucide-react';
 import Image from 'next/image';
 
-const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
-  console.log(props.leaderboard)
-  const since = new Date(props.leaderboard?.since);
-  const until = new Date(props.leaderboard?.until);
+const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async () => {
+  const props = await getData();
+  const since = new Date(props.leaderboard.since);
+  const until = new Date(props.leaderboard.until);
   const bigScreenFormatter = new Intl.DateTimeFormat('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -39,6 +39,7 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
 
   return (
     <div dir="ltr" className="font-inter">
+      
       <div className="grid gap-4 p-4 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto  ">
         <div className="col-span-full">
           <h1 className="pb-8 pt-6">Leaderboard</h1>
