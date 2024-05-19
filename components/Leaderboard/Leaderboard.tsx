@@ -1,8 +1,37 @@
+"use client"
+import fetchLeaderboard from '@/actions/fetchLeaderboardData';
 import { Analitycs } from '@/app/[locale]/leaderboard/getData';
 import { StarIcon } from 'lucide-react';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
-const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
+const LeaderboardPage: React.FC = () => {
+
+
+  const [data, setData] = useState<Analitycs>()
+  const [isLoading, setLoading] = useState(true)
+ 
+  useEffect(() => {
+    fetchLeaderboard().then((data) => {
+      setData(data)
+      setLoading(false)
+    }).catch((e) => {
+      console.error(e)
+      setLoading(false)
+    })
+  }, [])
+ 
+  if (isLoading) return <p>Loading...</p>
+  if (!data) return <p>No profile data</p>
+  return (
+    <>
+    <Leaderboard leaderboard={data} />
+    </>
+  )
+}
+
+
+const Leaderboard: React.FC<{ leaderboard: Analitycs }> = props => {
   const since = new Date(props.leaderboard.since);
   const until = new Date(props.leaderboard.until);
   const bigScreenFormatter = new Intl.DateTimeFormat('en-US', {
