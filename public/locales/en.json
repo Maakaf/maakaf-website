@@ -71,7 +71,9 @@
       "requestAddProject": "Add project request",
       "fullNameError": "At least 2 characters",
       "wrongMailError": "Invalid email",
-      "projectNameError": "At least 2 characters"
+      "projectNameError": "At least 2 characters",
+      "fileSizeError": "File size too big",
+      "fileTypeError": "Invalid file type"
     },
     "steps": {
       "title": "how does the process works?",
@@ -131,6 +133,12 @@
     "secondOption": "Second option",
     "thirdOption": "Third option",
     "noMemberFound": "No Member found"
+  },
+  "LeaderBoard": {
+    "MonthlyTitle": "Monthly Score",
+    "WeeklyTitle": "Weekly Score",
+    "AllTimesTitle": "All Times Score",
+    "card":{"name":"Name","Addition":"Addition","deletions":"Deletions","score":"Score","Projects":"Projects","commits":"Commits"}
   },
   "Components": {
     "home": {

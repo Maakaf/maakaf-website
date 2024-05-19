@@ -11,6 +11,7 @@ import Link from 'next/link';
 import { ProjectPaginationFilter } from '@/types/project';
 import { useTranslations } from 'next-intl';
 import { SearchInput } from '@/components/Common/Inputs/SearchInput';
+import SkeletonCards from './Skeleton/SkeletonCards';
 
 interface FiltersBarProps {
   filters: ProjectFilter[];
@@ -178,10 +179,14 @@ const FiltersBar: React.FC<FiltersBarProps> = ({
           </div>
           <div className="flex gap-6">
             <span className="body-roman text-gray-400">{t('filters')}</span>
-            <FilterBtnsGroup
-              filters={filters}
-              handleFilterOptionChange={handleFilterOptionChange}
-            />
+            {filters.length === 0 ? (
+              <SkeletonCards />
+            ) : (
+              <FilterBtnsGroup
+                filters={filters}
+                handleFilterOptionChange={handleFilterOptionChange}
+              />
+            )}
           </div>
         </div>
       </div>

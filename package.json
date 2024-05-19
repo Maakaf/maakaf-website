@@ -12,8 +12,13 @@
     "check-lint": "eslint . --ext ts --ext tsx --ext js",
     "format": "npx prettier --write . --config ./.prettierrc",
     "prepare": "husky install",
-    "test": "npx playwright test --ui",
-    "test-result": "npx playwright show-report"
+    "test:ui": "npx playwright test --ui",
+    "test": "npx playwright install && npx playwright test",
+    "prepush": "npm run test",
+    "test-result": "npx playwright show-report",
+    "precommit": "lint-staged && npm run lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,md,json,scss}": [
@@ -31,10 +36,10 @@
     "eslint": "8.43.0",
     "framer-motion": "^10.16.2",
     "lucide-react": "^0.276.0",
-    "next": "^14.1.4",
+    "next": "^14.2.3",
     "next-intl": "^3.9.3",
     "next-themes": "0.2.1",
-    "postcss": "8.4.24",
+    "postcss": "^8.4.38",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.51.1",
@@ -47,17 +52,28 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.4.0",
     "@playwright/test": "^1.42.1",
+    "@storybook/addon-essentials": "^8.1.1",
+    "@storybook/addon-interactions": "^8.1.1",
+    "@storybook/addon-links": "^8.1.1",
+    "@storybook/addon-onboarding": "^8.1.1",
+    "@storybook/blocks": "^8.1.1",
+    "@storybook/nextjs": "^8.1.1",
+    "@storybook/react": "^8.1.1",
+    "@storybook/test": "^8.1.1",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20.6.0",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
     "eslint-config-next": "^13.4.7",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-storybook": "^0.8.0",
     "husky": "^8.0.3",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.4.1",
-    "pretty-quick": "^3.1.3"
+    "pretty-quick": "^3.1.3",
+    "storybook": "^8.1.1"
   }
 }

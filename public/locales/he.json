@@ -84,7 +84,9 @@
       "requestAddProject": "בקשה להוספת פרוייקט",
       "fullNameError": "לפחות 2 תווים",
       "wrongMailError": "אימייל לא תקין",
-      "projectNameError": "לפחות 2 תווים"
+      "projectNameError": "לפחות 2 תווים",
+      "fileSizeError": "קובץ גדול מדי",
+      "fileTypeError": "קובץ לא תקין"
     },
     "steps": {
       "title": "איך התהליך עובד?",
@@ -144,6 +146,12 @@
     "secondOption": "אופציה שניה",
     "thirdOption": "אופציה שלישית",
     "noMemberFound": "המשתמש לא נמצא"
+  },
+  "LeaderBoard": {
+    "MonthlyTitle": "מצטיין חודשי",
+    "WeeklyTitle": "מצטיין שבועי",
+    "AllTimesTitle": "כל הזמנים",
+    "card":{"name":"שם","Addition":"הוספה","deletions":"מחיקה","score":"ציון","Projects":"פרוייקטים","commits":"קומיטים"}
   },
   "Components": {
     "home": {
