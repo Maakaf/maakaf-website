@@ -145,6 +145,12 @@
     "thirdOption": "אופציה שלישית",
     "noMemberFound": "המשתמש לא נמצא"
   },
+  "LeaderBoard": {
+    "MonthlyTitle": "מצטיין חודשי",
+    "WeeklyTitle": "מצטיין שבועי",
+    "AllTimesTitle": "כל הזמנים",
+    "card":{"name":"שם","Addition":"הוספה","deletions":"מחיקה","score":"ציון","Projects":"פרוייקטים","commits":"קומיטים"}
+  },
   "Components": {
     "home": {
       "quotes": {
