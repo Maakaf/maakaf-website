@@ -137,7 +137,7 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             </div>
           </div>
           <div className="text-indigo-800 flex gap-2  ">
-            <span>Coomit</span>
+            <span>Commit</span>
             <span>{data.stats.commits}</span>
           </div>
         </div>
