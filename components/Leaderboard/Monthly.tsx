@@ -9,8 +9,8 @@ export default function Monthly() {
   const leaderBoardData = use(getData());
 
   const Monthly =
-    leaderBoardData.props.leaderboard.members[
-    leaderBoardData.props.leaderboard.members.length - 1
+    leaderBoardData.leaderboard.members[
+    leaderBoardData.leaderboard.members.length - 1
     ];
   const direction = useTextDirection();
   const t=useTranslations("LeaderBoard.card")
