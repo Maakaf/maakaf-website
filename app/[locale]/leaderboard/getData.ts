@@ -1,8 +1,10 @@
 export const LEADERBOARD_ROUTE =
-  'https://baas-data-provider.onrender.com/leaderboard'; // If you want to use local server use 'http://localhost:8080/leaderboard'
+  'https://baas-data-provider.onrender.com/leaderboard';
+export const LEADERBOARD_ROUTE_LOCAL =
+  'http://localhost:8080/leaderboard'; // If you want to use local server use 
 
 export async function getData() {
-  const res = await fetch(LEADERBOARD_ROUTE, {
+  const res = await fetch(LEADERBOARD_ROUTE_LOCAL, {
     cache: 'no-store',
   });
 

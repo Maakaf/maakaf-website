@@ -23,9 +23,17 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
     smallSince: smallScreenFormatter.format(since),
     smallUntil: smallScreenFormatter.format(until),
   };
-  const firstPlace = props.leaderboard.members[0];
-  const secondPlace = props.leaderboard.members[1];
-  const thirdPlace = props.leaderboard.members[2];
+  const mappedData = props.leaderboard.members.map(data => {
+    return {
+      ...data,
+      projects_name_urls: data.projects_names.map(p => `https://github.com/${p.url}`),
+      loginUrl: `https://github.com/${data.name}`
+    }
+  });
+  const firstPlace = mappedData[0];
+  const secondPlace = mappedData[1];
+  const thirdPlace = mappedData[2];
+
 
   return (
     <div dir="ltr" className="font-inter">
@@ -40,7 +48,8 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
         <FirstPlacePerson data={firstPlace} place={1} />
         <DisplaySecoundPerson data={secondPlace} place={2} />
         <DisplayThirdPerson data={thirdPlace} place={3} />
-        {props.leaderboard.members.slice(3, -1).map((data, ind) => {
+        {mappedData.slice(3, -1).map((data, ind) => {
+
           return (
             <DisplayPerson data={data} key={data.node_id} place={ind + 4} />
           );
@@ -53,7 +62,7 @@ const LeaderboardPage: React.FC<{ leaderboard: Analitycs }> = async props => {
 export default LeaderboardPage;
 
 interface PersonPlace {
-  data: Analitycs['members'][number];
+  data: Analitycs['members'][number] & { loginUrl: string, projects_name_urls: string[]};
   place: number;
 }
 
@@ -73,7 +82,7 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -106,7 +115,7 @@ export const DisplayPerson: React.FC<PersonPlace> = ({ data, place }) => {
             return (
               <a
                 key={ind}
-                href={`https://github.com/${project.url}`}
+                href={data.projects_name_urls[ind]}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
@@ -139,7 +148,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -170,7 +179,7 @@ export const DisplaySecoundPerson: React.FC<PersonPlace> = ({
             return (
               <a
                 key={ind}
-                href={`https://github.com/${project.url}`}
+                href={data.projects_name_urls[ind]}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
@@ -197,7 +206,7 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -231,7 +240,7 @@ export const DisplayThirdPerson: React.FC<PersonPlace> = ({ data, place }) => {
             return (
               <a
                 key={ind}
-                href={`https://github.com/${project.url}`}
+                href={data.projects_name_urls[ind]}
                 className="flex gap-1 items-center underline text-indigo-300 text-xs"
               >
                 <StarIcon size={16} />
@@ -261,7 +270,7 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
       <div className="flex flex-col w-full  ">
         <a
           className="flex justify-between flex-wrap gap-2 "
-          href={`https://github.com/${data.name}`}
+          href={data.loginUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -295,7 +304,7 @@ export const FirstPlacePerson: React.FC<PersonPlace> = ({ data, place }) => {
               <>
                 <a
                   key={ind}
-                  href={`https://github.com/${project.url}`}
+                  href={data.projects_name_urls[ind]}
                   className="flex gap-1 items-center underline text-indigo-300 text-xs"
                 >
                   <StarIcon size={16} />
