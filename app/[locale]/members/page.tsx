@@ -12,7 +12,6 @@ import classNames from 'classnames';
 import SkeletonCards from '@/components/Members/Skeleton/SkeletonCards';
 import { MdiAccountSearch } from '@/components/Members/Skeleton/MdiAccountSearch';
 
-
 const WelcomeMessage = () => {
   const t = useTranslations('Members');
   const direction = useTextDirection();

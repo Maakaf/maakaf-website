@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { SVGProps, useEffect, useRef, useState, useTransition } from 'react';
 import FlagIL from '../SvgCmps/Flags/IL';
 import FlagUS from '../SvgCmps/Flags/US';
+import local from 'next/font/local';
 
 export default function LocalSwitcher() {
   const router = useRouter();
@@ -47,7 +48,8 @@ export default function LocalSwitcher() {
     setIsOpen(false);
     const newPath = pathname.replace(localActive, nextLocale);
     startTransition(() => {
-      router.replace(newPath);
+      // router.replace(newPath);
+      router.push(newPath);
     });
   };
 
