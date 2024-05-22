@@ -6,6 +6,8 @@ import { useEffect, useRef } from 'react';
 import useFocusTrap from '../hooks/useFocusTrap';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import LocalSwitcher from './LocalSwitcher';
+import useTypedLocale from '@/hooks/useTypedLocale';
 
 type NavigationItems = {
   title: string;
@@ -18,31 +20,6 @@ type NavItem = {
   text?: string;
 };
 
-const navigationItems: NavigationItems[] = [
-  {
-    title: 'Newbies',
-    text: 'פעם ראשונה בקוד פתוח',
-    linkPath: '/newbies',
-  },
-  {
-    title: 'Members',
-    text: 'מי שכבר התנסה בקוד פתוח',
-    linkPath: '/members',
-  },
-  {
-    title: 'Maintainers',
-    text: 'בעלי פרויקטים שרוצים להצטרף',
-    linkPath: '/maintainers',
-  },
-  {
-    title: 'מי אנחנו',
-    linkPath: '/about',
-  },
-  {
-    title: 'הפרויקטים',
-    linkPath: '/projects',
-  },
-];
 
 interface SidebarProps {
   isOpen: boolean;
@@ -50,6 +27,34 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
+  const local = useTypedLocale()
+  const navigationItems: NavigationItems[] = [
+    {
+      title: local==="en"?'Newbies':"מתחילים",
+      text: local === "en" ? "new to open source":'פעם ראשונה בקוד פתוח',
+      linkPath: '/newbies',
+    },
+    {
+      title: local === "en" ? 'Members':"חברי קהילה",
+      text: local === "en" ? "Those who experienced open source ":'מי שכבר התנסה בקוד פתוח',
+      linkPath: '/members',
+    },
+    {
+      title: local === "en" ? 'Maintainers':"מתחזקי קהילה",
+      text: local === "en" ? "Project owners who want to join":'בעלי פרויקטים שרוצים להצטרף',
+      linkPath: '/maintainers',
+    },
+    {
+      title: local === "en" ? "Who We Are":'מי אנחנו',
+      linkPath: '/about',
+    },
+    {
+      title: local === "en" ? "Projects":'הפרויקטים',
+      linkPath: '/projects',
+    },
+  ];
+  
+ 
   const sidebarRef = useRef<HTMLDivElement | null>(null);
 
   const { theme } = useTheme();
@@ -90,7 +95,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
       {isOpen ? (
         <div className="p-5 flex flex-col gap-14">
           <div className="flex items-center justify-between">
+            <div className=' flex gap-2 p-1 items-center'>
+            
+
+            <LocalSwitcher/>
+            
             <Darkmode />
+
+            </div>
             <button onClick={toggleSidebar}>
               {theme === 'dark' ? (
                 <Image

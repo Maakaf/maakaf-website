@@ -42,8 +42,8 @@ const NavRightSide = () => {
     </>
   ) : (
     <div className="flex gap-3 items-center">
-      <LocalSwitcher />
       <Darkmode />
+      <LocalSwitcher />
     </div>
   );
 };
