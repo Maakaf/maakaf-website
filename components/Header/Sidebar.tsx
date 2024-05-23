@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Darkmode from '../Common/Darkmode';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import useFocusTrap from '../hooks/useFocusTrap';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
@@ -28,31 +28,31 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const local = useTypedLocale()
-  const navigationItems: NavigationItems[] = [
+  const navigationItems: NavigationItems[] = useMemo(()=>[
     {
-      title: local==="en"?'Newbies':"מתחילים",
-      text: local === "en" ? "new to open source":'פעם ראשונה בקוד פתוח',
+      title: local === "en" ? 'Newbies' : "מתחילים",
+      text: local === "en" ? "new to open source" : 'פעם ראשונה בקוד פתוח',
       linkPath: '/newbies',
     },
     {
-      title: local === "en" ? 'Members':"חברי קהילה",
-      text: local === "en" ? "Those who experienced open source ":'מי שכבר התנסה בקוד פתוח',
+      title: local === "en" ? 'Members' : "חברי קהילה",
+      text: local === "en" ? "Those who experienced open source " : 'מי שכבר התנסה בקוד פתוח',
       linkPath: '/members',
     },
     {
-      title: local === "en" ? 'Maintainers':"מתחזקי קהילה",
-      text: local === "en" ? "Project owners who want to join":'בעלי פרויקטים שרוצים להצטרף',
+      title: local === "en" ? 'Maintainers' : "מתחזקי קהילה",
+      text: local === "en" ? "Project owners who want to join" : 'בעלי פרויקטים שרוצים להצטרף',
       linkPath: '/maintainers',
     },
     {
-      title: local === "en" ? "Who We Are":'מי אנחנו',
+      title: local === "en" ? "Who We Are" : 'מי אנחנו',
       linkPath: '/about',
     },
     {
-      title: local === "en" ? "Projects":'הפרויקטים',
+      title: local === "en" ? "Projects" : 'הפרויקטים',
       linkPath: '/projects',
     },
-  ];
+  ],[local]) ;
   
  
   const sidebarRef = useRef<HTMLDivElement | null>(null);
