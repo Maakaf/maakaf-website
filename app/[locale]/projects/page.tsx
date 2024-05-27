@@ -27,12 +27,14 @@ const ProjectsPage = () => {
    */
   const projectIncludesActiveTags = useCallback(
     (project: Project) => {
-      return project.item.data.repository.languages.edges.some(edge =>
-        tags.some(tag => tag.isActive && tag.name === edge.node.name)
+      console.log({project, tags})
+      return project.item.languages?.some(edge =>
+        tags.some(tag => tag.isActive && tag.name === edge)
       );
     },
     [tags]
   );
+  
 
   /**
    *
@@ -83,32 +85,38 @@ const ProjectsPage = () => {
         filter,
       });
 
-      setProjects(
-        projects.filter((p: Project) =>
-          p.item.data.repository.name
-            .toLocaleLowerCase()
-            .trim()
-            .includes(searchByProjectNameValue.toLocaleLowerCase().trim())
-        )
+      const projecteFilterdByName = projects.filter((p: Project) =>
+        p.item?.name?.toLocaleLowerCase()
+          .trim()
+          .includes(searchByProjectNameValue.toLocaleLowerCase().trim())
       );
-
       const newTags: ProjectFilter[] = [];
       pageLanguages.forEach((lang: string) => {
         newTags.push({ name: lang, isActive: true });
       });
-      setTags(newTags);
+
+      return {
+        newTags,
+        projecteFilterdByName,
+      }
     } catch (error) {
       console.error('Failed to fetch projects:', error);
-    } finally {
-      setLoading(false);
     }
   }, [filter, searchByProjectNameValue]);
 
   useEffect(() => {
-    debouncedFetchProjectsData();
+    debouncedFetchProjectsData().then((data) => {
+      if (!data) return;
+      console.log(data)
+      setProjects(data.projecteFilterdByName);
+      setTags(data.newTags);
+    }).finally(() => {
+      setLoading(false);
+    });
+
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filter, searchByProjectNameValue]);
+  }, [filter, searchByProjectNameValue, debouncedFetchProjectsData]);
 
   return (
     <div className="projects flex flex-col gap-4" dir={direction}>

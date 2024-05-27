@@ -2,8 +2,8 @@
 
 import {
   IProjectsDataResponse,
-  Project,
   ProjectPaginationFilter,
+  SummaryProjectType,
 } from '@/types/project';
 
 export type ProjectPaginationRequest = {
@@ -12,7 +12,7 @@ export type ProjectPaginationRequest = {
   filter?: ProjectPaginationFilter;
 };
 
-const PROJECT_API_ENDPOINT = 'https://baas-data-provider.onrender.com/projects';
+const PROJECT_API_ENDPOINT = "http://localhost:8080/projects"//'https://baas-data-provider.onrender.com/projects';
 
 async function fetchProjectsData({
   page = 1,
@@ -26,12 +26,30 @@ async function fetchProjectsData({
     },
     body: JSON.stringify({ page, limit, filter }),
   });
-
+  
   // fetch from endpoint POST with page, limit, filter as IProjectsDataResponse
-  const { projects, total, languages, pageLanguages, timestamp } =
-    await response.json();
+  const data =
+  await response.json() as IProjectsDataResponse;
 
-  return { projects, total, languages, pageLanguages, timestamp };
+  const parsedProjects = SummaryProjectType.array().safeParse(data.projects);
+  if (!parsedProjects.success) {
+    throw new Error(`Failed to parse projects: ${parsedProjects.error}`);
+  }
+
+  console.log(parsedProjects.data.map((p) => p.item.contributors));
+
+
+  const send = {
+    projects: parsedProjects.data,
+    total: data.total,
+    languages: data.languages,
+    pageLanguages: data.pageLanguages,
+    timestamp: new Date(data.timestamp),
+  };
+  return send;
 }
 
 export default fetchProjectsData;
+
+
+// make interface for 
