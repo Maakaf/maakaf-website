@@ -36,9 +36,6 @@ async function fetchProjectsData({
     throw new Error(`Failed to parse projects: ${parsedProjects.error}`);
   }
 
-  console.log(parsedProjects.data.map((p) => p.item.contributors));
-
-
   const send = {
     projects: parsedProjects.data,
     total: data.total,
