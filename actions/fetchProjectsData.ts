@@ -12,7 +12,7 @@ export type ProjectPaginationRequest = {
   filter?: ProjectPaginationFilter;
 };
 
-const PROJECT_API_ENDPOINT = "http://localhost:8080/projects"//'https://baas-data-provider.onrender.com/projects';
+const PROJECT_API_ENDPOINT = 'https://baas-data-provider.onrender.com/projects';//"http://localhost:8080/projects"
 
 async function fetchProjectsData({
   page = 1,
