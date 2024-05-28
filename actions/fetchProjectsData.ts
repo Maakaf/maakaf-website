@@ -12,7 +12,8 @@ export type ProjectPaginationRequest = {
   filter?: ProjectPaginationFilter;
 };
 
-const PROJECT_API_ENDPOINT = 'https://baas-data-provider.onrender.com/projects';//"http://localhost:8080/projects"
+// const PROJECT_API_ENDPOINT = "http://localhost:8080/projects"
+const PROJECT_API_ENDPOINT = 'https://baas-data-provider.onrender.com/projects';
 
 async function fetchProjectsData({
   page = 1,
@@ -32,9 +33,11 @@ async function fetchProjectsData({
   await response.json() as IProjectsDataResponse;
 
   const parsedProjects = SummaryProjectType.array().safeParse(data.projects);
+
   if (!parsedProjects.success) {
     throw new Error(`Failed to parse projects: ${parsedProjects.error}`);
   }
+
 
   const send = {
     projects: parsedProjects.data,

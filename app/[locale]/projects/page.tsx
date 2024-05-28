@@ -27,7 +27,6 @@ const ProjectsPage = () => {
    */
   const projectIncludesActiveTags = useCallback(
     (project: Project) => {
-      console.log({project, tags})
       return project.item.languages?.some(edge =>
         tags.some(tag => tag.isActive && tag.name === edge)
       );
@@ -107,7 +106,6 @@ const ProjectsPage = () => {
   useEffect(() => {
     debouncedFetchProjectsData().then((data) => {
       if (!data) return;
-      console.log(data)
       setProjects(data.projecteFilterdByName);
       setTags(data.newTags);
     }).finally(() => {
