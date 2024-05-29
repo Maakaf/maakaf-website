@@ -29,10 +29,16 @@ async function fetchProjectsData({
   });
   
   // fetch from endpoint POST with page, limit, filter as IProjectsDataResponse
-  const data =
+  const {
+    projects,
+    total,
+    languages,
+    pageLanguages,
+    timestamp,
+  } =
   await response.json() as IProjectsDataResponse;
 
-  const parsedProjects = SummaryProjectType.array().safeParse(data.projects);
+  const parsedProjects = SummaryProjectType.array().safeParse(projects);
 
   if (!parsedProjects.success) {
     throw new Error(`Failed to parse projects: ${parsedProjects.error}`);
@@ -41,15 +47,12 @@ async function fetchProjectsData({
 
   const send = {
     projects: parsedProjects.data,
-    total: data.total,
-    languages: data.languages,
-    pageLanguages: data.pageLanguages,
-    timestamp: new Date(data.timestamp),
+    total: total,
+    languages: languages,
+    pageLanguages: pageLanguages,
+    timestamp: new Date(timestamp),
   };
   return send;
 }
 
 export default fetchProjectsData;
-
-
-// make interface for 
