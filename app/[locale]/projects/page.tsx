@@ -84,11 +84,12 @@ const ProjectsPage = () => {
         filter,
       });
 
-      const projecteFilterdByName = projects.filter((p: Project) =>
-        p.item?.name?.toLocaleLowerCase()
+      const projectsFilteredByName = projects.filter((p: Project) =>
+        p.item?.name?.toLowerCase()
           .trim()
-          .includes(searchByProjectNameValue.toLocaleLowerCase().trim())
+          .includes(searchByProjectNameValue.toLowerCase().trim())
       );
+
       const newTags: ProjectFilter[] = [];
       pageLanguages.forEach((lang: string) => {
         newTags.push({ name: lang, isActive: true });
@@ -96,7 +97,7 @@ const ProjectsPage = () => {
 
       return {
         newTags,
-        projecteFilterdByName,
+        projectsFilteredByName,
       }
     } catch (error) {
       console.error('Failed to fetch projects:', error);
@@ -106,7 +107,7 @@ const ProjectsPage = () => {
   useEffect(() => {
     debouncedFetchProjectsData().then((data) => {
       if (!data) return;
-      setProjects(data.projecteFilterdByName);
+      setProjects(data.projectsFilteredByName);
       setTags(data.newTags);
     }).finally(() => {
       setLoading(false);
