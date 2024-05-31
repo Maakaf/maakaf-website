@@ -13,13 +13,14 @@ export type ProjectPaginationRequest = {
 };
 
 const PROJECT_API_ENDPOINT = 'https://baas-data-provider.onrender.com/projects';
+const localy = `http://localhost:8080/projects`;
 
 async function fetchProjectsData({
   page = 1,
   limit = 100,
   filter = ProjectPaginationFilter.ALL,
 }: ProjectPaginationRequest): Promise<IProjectsDataResponse> {
-  const response = await fetch(PROJECT_API_ENDPOINT, {
+  const response = await fetch(localy, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -37,13 +38,13 @@ async function fetchProjectsData({
   } =
   await response.json() as IProjectsDataResponse;
 
+
   const parsedProjects = SummaryProjectType.array().safeParse(projects);
 
   
   if (!parsedProjects.success) {
     throw new Error(`Failed to parse projects: ${parsedProjects.error}`);
   }
-  console.log(parsedProjects.data[0]);
 
 
   const send = {
