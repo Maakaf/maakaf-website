@@ -38,6 +38,8 @@ export default function ProjectCard({
 
   const t = useTranslations('Projects');
 
+  console.log(owner, name)
+
   return (
     <article
       className="w-full flex p-4 sm:p-6 gap-7 rounded-lg bg-purple-100 dark:bg-darkAccBg
@@ -47,7 +49,7 @@ export default function ProjectCard({
         <ImageWithFallback
           width="108"
           height="108"
-          src={url ?? ProjectImagePlaceholder}
+          src={`https://opengraph.githubassets.com/1/${owner.login}/${name}`}
           alt="project name"
           fallback={ProjectImagePlaceholder}
         ></ImageWithFallback>
