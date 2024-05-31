@@ -44,12 +44,23 @@ const ProjectsPage = () => {
     setLoading(true);
     const existingTags = structuredClone(tags);
 
-    // we set tag active to true
-    for (const exisitingTag of existingTags) {
+    // we set tags chosen to active and all the others to not
+    if (existingTags.every(value => value.isActive)) {
+      existingTags.forEach(existingTag => {
+        existingTag.isActive = false;
+      });
+    }
+
+    existingTags.forEach(exisitingTag => {
       if (exisitingTag.name === tag.name) {
         exisitingTag.isActive = !exisitingTag.isActive;
-        break;
       }
+    });
+
+    if (existingTags.every(value => !value.isActive)) {
+      existingTags.forEach(existingTag => {
+        existingTag.isActive = true;
+      });
     }
 
     setTags(existingTags);
