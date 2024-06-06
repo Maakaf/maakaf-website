@@ -7,9 +7,5 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  return (
-    <html lang={locale} dir="rtl">
-      <body>{children}</body>
-    </html>
-  );
+  return <html suppressHydrationWarning={true}>{children}</html>;
 }
