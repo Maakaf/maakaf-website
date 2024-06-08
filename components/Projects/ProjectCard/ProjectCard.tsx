@@ -10,39 +10,35 @@ import { getChannelUrl } from '../linkToDiscordChannel';
 import { Project } from '@/types/project';
 import { useTranslations } from 'next-intl';
 
-export interface ProjectCardProps {
-  project: Project;
+type ProjectItem = Project["item"]
+
+export interface ProjectCardProps extends Required<ProjectItem> {
   activeLanguagesNames: string[];
 }
 
 export default function ProjectCard({
-  project: {
-    item: {
-      data: {
-        repository: {
-          openGraphImageUrl,
-          updatedAt,
-          createdAt,
-          name,
-          url,
-          description,
-          languages,
-          contributors: { edges: contributors },
-        },
-      },
-    },
-  },
+  owner,
+  updatedAt,
+  createdAt,
+  name,
+  url,
+  description,
+  languages,
+  contributors,
   activeLanguagesNames,
 }: ProjectCardProps) {
-  const updatedDateString = new Date(updatedAt)
+
+  const updatedDateString = new Date(updatedAt ?? "")
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
 
-  const createdDateString = new Date(createdAt)
+  const createdDateString = new Date(createdAt ?? "")
     .toLocaleDateString('he-IL')
     .replaceAll('.', '/');
 
   const t = useTranslations('Projects');
+
+  console.log(owner, name)
 
   return (
     <article
@@ -53,7 +49,7 @@ export default function ProjectCard({
         <ImageWithFallback
           width="108"
           height="108"
-          src={openGraphImageUrl}
+          src={`https://opengraph.githubassets.com/1/${owner.login}/${name}`}
           alt="project name"
           fallback={ProjectImagePlaceholder}
         ></ImageWithFallback>
@@ -76,8 +72,8 @@ export default function ProjectCard({
               </div>
               <AvatarList
                 avatars={contributors.map(c => ({
-                  imageSrc: c.node.avatarUrl,
-                  name: c.node.login,
+                  imageSrc: c.avatarUrl,
+                  name: c.login,
                 }))}
               ></AvatarList>
             </div>
@@ -89,7 +85,7 @@ export default function ProjectCard({
         <div className="flex flex-wrap justify-between flex-col sm:flex-row gap-y-6 sm:items-end">
           <TagList
             className="flex-wrap grow basis-[min-content]"
-            tags={languages.edges.map(l => l.node.name)}
+            tags={languages}
             activeLanguagesNames={activeLanguagesNames}
           ></TagList>
           <div className="flex gap-2">
