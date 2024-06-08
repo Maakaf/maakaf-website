@@ -183,6 +183,22 @@
       "firstParagraph": "שווה לנסות את סקטור השאלות תשובות שלנו, ואם התשובה לא כאן, יש לנו את",
       "discordTitle": "ערוץ הדיסקורד",
       "secondParagraph": "עם אנשים באמת, אבל באמת, הכי נחמדים שיש ומוכנים לעזור לכל מי שרק צריך."
+    },
+    "sideBar": {
+      "title": {
+        "Newbies": "Newbies",
+        "Members": "Members",
+        "Maintainers": "Maintainers",
+        "WhoWeAre": "מי אנחנו",
+        "TheProjects": "הפרויקטים"
+      },
+      "text": {
+        "Newbies": "פעם ראשונה בקוד פתוח",
+        "Members": "מי שכבר התנסה בקוד פתוח",
+        "Maintainers": "בעלי פרויקטים שרוצים להצטרף",
+        "WhoWeAre": "",
+        "TheProjects": ""
+      }
     }
   },
   "Header": {

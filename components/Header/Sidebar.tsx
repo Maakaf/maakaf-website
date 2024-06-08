@@ -6,6 +6,10 @@ import { useEffect, useRef } from 'react';
 import useFocusTrap from '../hooks/useFocusTrap';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import LocalSwitcher from './LocalSwitcher';
+import useTypedLocale from '@/hooks/useTypedLocale';
+import clsx from 'clsx';
+import { useTranslations } from 'next-intl';
 
 type NavigationItems = {
   title: string;
@@ -18,41 +22,39 @@ type NavItem = {
   text?: string;
 };
 
-const navigationItems: NavigationItems[] = [
-  {
-    title: 'Newbies',
-    text: 'פעם ראשונה בקוד פתוח',
-    linkPath: '/newbies',
-  },
-  {
-    title: 'Members',
-    text: 'מי שכבר התנסה בקוד פתוח',
-    linkPath: '/members',
-  },
-  {
-    title: 'Maintainers',
-    text: 'בעלי פרויקטים שרוצים להצטרף',
-    linkPath: '/maintainers',
-  },
-  {
-    title: 'מי אנחנו',
-    linkPath: '/about',
-  },
-  {
-    title: 'הפרויקטים',
-    linkPath: '/projects',
-  },
-];
-
 interface SidebarProps {
   isOpen: boolean;
   toggleSidebar: () => void;
 }
 
+const navigationItems: NavigationItems[] = [
+  {
+    title: 'Newbies',
+    linkPath: '/newbies',
+  },
+  {
+    title: 'Members',
+    linkPath: '/members',
+  },
+  {
+    title: 'Maintainers',
+    linkPath: '/maintainers',
+  },
+  {
+    title: 'WhoWeAre',
+    linkPath: '/about',
+  },
+  {
+    title: 'TheProjects',
+    linkPath: '/projects',
+  },
+];
+
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const sidebarRef = useRef<HTMLDivElement | null>(null);
-
+  const localActive = useTypedLocale();
   const { theme } = useTheme();
+  const t = useTranslations('Components.sideBar');
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -83,14 +85,26 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   return (
     <div
       ref={sidebarRef}
-      className={`fixed inset-y-0 right-0 z-50 bg-lightBg dark:bg-darkBg border-l border-l-blue-400 w-[75%] shadow-lg transform transition-transform ease-in-out duration-300 ${
-        isOpen ? '-translate-x-0' : 'translate-x-full'
-      }`}
+      className={clsx(
+        `fixed inset-y-0 z-50 bg-lightBg dark:bg-darkBg border-l
+         border-l-blue-400 w-[75%] shadow-lg transform transition-transform
+          ease-in-out duration-300`,
+        {
+          'left-0': localActive === 'en',
+          'right-0': localActive === 'he',
+          '-translate-x-0': isOpen,
+          '-translate-x-full': !isOpen && localActive === 'en',
+          'translate-x-full': !isOpen && localActive === 'he',
+        }
+      )}
     >
       {isOpen ? (
         <div className="p-5 flex flex-col gap-14">
           <div className="flex items-center justify-between">
-            <Darkmode />
+            <div className="flex gap-3 items-center">
+              <LocalSwitcher />
+              <Darkmode />
+            </div>
             <button onClick={toggleSidebar}>
               {theme === 'dark' ? (
                 <Image
@@ -116,13 +130,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 className="flex flex-col gap-3 p-5 select-none group hover:first:rounded-tl-md hover:first:rounded-tr-md hover:last:rounded-bl-md hover:last:rounded-br-md cursor-pointer leading-none text-darkText dark:text-lightText hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
                 onClick={toggleSidebar}
               >
-                {navItem.linkPath ? (
-                  <Link href={navItem.linkPath as string}>
-                    <NavBody title={navItem.title} text={navItem.text} />
-                  </Link>
-                ) : (
-                  <NavBody title={navItem.title} text={navItem.text} />
-                )}
+                <Link href={navItem.linkPath as string}>
+                  <NavBody
+                    //@ts-ignore
+                    title={t(`title.${navItem.title}`)}
+                    //@ts-ignore
+                    text={t(`text.${navItem.title}`)}
+                  />
+                </Link>
               </li>
             ))}
           </ul>

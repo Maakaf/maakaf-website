@@ -75,13 +75,13 @@ export default function RootLayout({
         } ${inter.variable}`}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Header />
-          <main className="flex flex-col flex-1 h-full pt-24 md:pt-32">
-            <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <Header />
+            <main className="flex flex-col flex-1 h-full pt-24 md:pt-32">
               {children}
-            </NextIntlClientProvider>
-          </main>
-          <Footer />
+            </main>
+            <Footer />
+          </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
