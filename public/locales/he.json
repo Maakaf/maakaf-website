@@ -185,11 +185,20 @@
       "secondParagraph": "עם אנשים באמת, אבל באמת, הכי נחמדים שיש ומוכנים לעזור לכל מי שרק צריך."
     },
     "sideBar": {
-      "newbies": "פעם ראשונה בקוד פתוח",
-      "members": "מי שכבר התנסה בקוד פתוח",
-      "maintainers": "בעלי פרויקטים שרוצים להצטרף",
-      "whoWeAre": "מי אנחנו",
-      "theProjects": "הפרויקטים"
+      "title": {
+        "Newbies": "Newbies",
+        "Members": "Members",
+        "Maintainers": "Maintainers",
+        "WhoWeAre": "מי אנחנו",
+        "TheProjects": "הפרויקטים"
+      },
+      "text": {
+        "Newbies": "פעם ראשונה בקוד פתוח",
+        "Members": "מי שכבר התנסה בקוד פתוח",
+        "Maintainers": "בעלי פרויקטים שרוצים להצטרף",
+        "WhoWeAre": "",
+        "TheProjects": ""
+      }
     }
   },
   "Header": {

@@ -172,11 +172,20 @@
       "secondParagraph": "with genuinely, the nicest people you'll ever meet, who are always willing to help anyone who needs it"
     },
     "sideBar": {
-      "newbies": "First time in Open Source",
-      "members": "already participated in Open Source",
-      "maintainers": "Project maintainers who wants to join",
-      "whoWeAre": "About us",
-      "theProjects": "The projects"
+      "title": {
+        "Newbies": "Newbies",
+        "Members": "Members",
+        "Maintainers": "Maintainers",
+        "WhoWeAre": "About us",
+        "TheProjects": "The projects"
+      },
+      "text": {
+        "Newbies": "First time in Open Source",
+        "Members": "Already participated in Open Source",
+        "Maintainers": "Project maintainers who wants to join",
+        "WhoWeAre": "",
+        "TheProjects": ""
+      }
     }
   },
   "Header": {

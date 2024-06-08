@@ -27,36 +27,34 @@ interface SidebarProps {
   toggleSidebar: () => void;
 }
 
+const navigationItems: NavigationItems[] = [
+  {
+    title: 'Newbies',
+    linkPath: '/newbies',
+  },
+  {
+    title: 'Members',
+    linkPath: '/members',
+  },
+  {
+    title: 'Maintainers',
+    linkPath: '/maintainers',
+  },
+  {
+    title: 'WhoWeAre',
+    linkPath: '/about',
+  },
+  {
+    title: 'TheProjects',
+    linkPath: '/projects',
+  },
+];
+
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
   const sidebarRef = useRef<HTMLDivElement | null>(null);
   const localActive = useTypedLocale();
   const { theme } = useTheme();
   const t = useTranslations('Components.sideBar');
-  const navigationItems: NavigationItems[] = [
-    {
-      title: 'Newbies',
-      text: 'פעם ראשונה בקוד פתוח',
-      linkPath: '/newbies',
-    },
-    {
-      title: 'Members',
-      text: 'מי שכבר התנסה בקוד פתוח',
-      linkPath: '/members',
-    },
-    {
-      title: 'Maintainers',
-      text: 'בעלי פרויקטים שרוצים להצטרף',
-      linkPath: '/maintainers',
-    },
-    {
-      title: 'מי אנחנו',
-      linkPath: '/about',
-    },
-    {
-      title: 'הפרויקטים',
-      linkPath: '/projects',
-    },
-  ];
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -132,13 +130,14 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                 className="flex flex-col gap-3 p-5 select-none group hover:first:rounded-tl-md hover:first:rounded-tr-md hover:last:rounded-bl-md hover:last:rounded-br-md cursor-pointer leading-none text-darkText dark:text-lightText hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none"
                 onClick={toggleSidebar}
               >
-                {navItem.linkPath ? (
-                  <Link href={navItem.linkPath as string}>
-                    <NavBody title={navItem.title} text={navItem.text} />
-                  </Link>
-                ) : (
-                  <NavBody title={navItem.title} text={navItem.text} />
-                )}
+                <Link href={navItem.linkPath as string}>
+                  <NavBody
+                    //@ts-ignore
+                    title={t(`title.${navItem.title}`)}
+                    //@ts-ignore
+                    text={t(`text.${navItem.title}`)}
+                  />
+                </Link>
               </li>
             ))}
           </ul>
