@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+:where(:lang(he)) {
+  direction: rtl;
+}
+:where(:lang(en)) {
+  direction: ltr;
+}
 @layer base {
   html {
     -webkit-tap-highlight-color: transparent;

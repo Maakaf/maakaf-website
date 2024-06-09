@@ -8,6 +8,8 @@ import Footer from '@/components/Footer/Footer';
 import { HOST } from '@/config/consts';
 import { unstable_setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider, useMessages } from 'next-intl';
+import { Locale } from '../i18n';
+import useTextDirection from '@/hooks/useTextDirection';
 
 const birzia = Birzia({
   src: [
@@ -60,13 +62,14 @@ export default function RootLayout({
   params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: Locale };
 }) {
   unstable_setRequestLocale(locale);
   const messages = useMessages();
 
+  const dir = useTextDirection();
   return (
-    <html lang={locale} dir="rtl" suppressHydrationWarning={true}>
+    <html lang={locale} dir={dir} suppressHydrationWarning={true}>
       <meta charSet="ISO-8859-1" />
 
       <body
