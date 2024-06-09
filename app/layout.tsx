@@ -8,7 +8,7 @@ export default function RootLayout({
   params: { locale: string };
 }) {
   return (
-    <html lang={locale} dir="rtl">
+    <html lang={locale}>
       <body>{children}</body>
     </html>
   );
