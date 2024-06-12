@@ -12,12 +12,14 @@ const variants = {
     y: 0,
     rotateZ: '0deg',
     transition: {
-      delay: index * 0.05,
+      delay: index * 0.3,
+      ease: 'easeIn',
+      duration: 0.6,
       type: 'spring',
       stiffness: 250,
     },
   }),
-  initial: { opacity: 0, y: 100, rotateZ: '-15deg' },
+  initial: { opacity: 0, y: 0 },
 };
 
 const BeOurFriends = () => {
