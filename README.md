@@ -8,7 +8,7 @@
 <br/><br/>
 <img src="https://www.typescriptlang.org/images/branding/logo-grouping.svg" width="40" height="40" align="center" alt="TypeScript Logo">&nbsp;&nbsp;We're using TypeScript for type safety and better developer experience.
 <br/><br/>
-<img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg" width="40" height="40" align="center" alt="Tailwind CSS Logo">&nbsp;&nbsp;The UI is built using Tailwind CSS for rapid and responsive design.
+<img src="https://tailwindcss.com/_next/static/media/tailwindcss-mark.d52e9897.svg" width="40" height="40" align="center" alt="Tailwind CSS Logo">&nbsp;&nbsp;The UI is built using Tailwind CSS for rapid and responsive design.
 <br/><br/>
 <img src="https://code.visualstudio.com/assets/images/code-stable.png" width="40" height="40" align="center" alt="VSCode Logo">&nbsp;&nbsp;Custom VSCode settings have been set up for a consistent development environment.
 <br/><br/>
